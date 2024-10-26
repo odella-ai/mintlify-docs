@@ -1,104 +1,96 @@
 ---
 title: "Documents"
-description: "A comprehensive guide to Lawme.AI's Document Store feature, including key features, benefits, and setup process for legal workflows"
+description: "Understand and utilize Document Store for efficient legal work"
 icon: 'notebook'
 ---
 
-import { Accordion, AccordionItem, Card, CardGroup, Steps } from '@mintlify/components';
+import { Card, CardGroup, Steps, Tip, Note } from '@mintlify/components';
 
-## Introduction
+The Document Store is a digital system designed to organize, manage, and enhance your legal documents. It's created to simplify your work processes, even if you're not particularly tech-savvy. Think of it as an intelligent filing system that not only stores your documents but also helps you work with them more effectively.
 
-Welcome to Lawme.AI's Document Store! This feature is designed to simplify and automate your legal workflows by providing access to both public datasets and private, customizable vaults. Leveraging the power of public Large Language Models (LLMs) alongside Lawme's unique legal datasets, the Document Store enables your firm to streamline its legal research, drafting, and analysis processes in a user-friendly environment.
-
-<Card title="Key Benefits" icon="star">
-  - Increase efficiency in document retrieval and processing
-  - Customize data access to meet your firm's specific needs
-  - Ensure accuracy with proprietary legal datasets
-  - Enhance collaboration across teams
-</Card>
-
-## Key Features
+## Key Features of the Document Store
 
 <CardGroup cols={2}>
-  <Card title="Public Workflows with LLM Integration" icon="globe">
-    Access up-to-date legal information and workflow automation without maintaining internal datasets.
+  <Card title="Organized Knowledge Management" icon="brain">
+    Efficiently organize and access your firm's collective knowledge, improving decision-making and productivity.
   </Card>
-  <Card title="Proprietary Legal Data" icon="database">
-    Enhance LLMs with Lawme's specialized legal datasets for more accurate, industry-specific workflows.
+  <Card title="Automatic Information Extraction" icon="file-invoice">
+    The system can identify and extract key information from documents, creating a searchable database of important details.
   </Card>
-  <Card title="Custom Vaults" icon="vault">
-    Create and manage private, secure vaults for your firm's documents, enabling quick retrieval during workflows.
+  <Card title="Integration with AI Assistants" icon="link">
+    Connect relevant document collections to Lawme's AI assistants to enhance their capabilities.
   </Card>
-  <Card title="Workflow Automation" icon="gears">
-    Automate time-consuming tasks like legal research, drafting, and analysis using pre-built or custom workflows.
+  <Card title="Centralized Storage" icon="database">
+    Store all your firm's documents in one accessible location for streamlined operations.
   </Card>
 </CardGroup>
 
-## How It Works
+## How the Document Store Functions
 
-<Accordion>
-  <AccordionItem title="Public Datasets">
-    Lawme provides access to a wealth of public legal data, harnessing the power of LLMs to help your team retrieve information for drafting, research, or compliance quickly and accurately. These public datasets are continually updated to ensure you have the latest legal information at your fingertips.
-  </AccordionItem>
-  <AccordionItem title="Custom Document Vaults">
-    If your firm has unique datasets or specific legal documents, you can create custom vaults. These vaults allow you to store sensitive data securely while enabling quick access for document drafting, case research, or client reports. By linking your vaults to specific workflows, you ensure that relevant data is always readily available when needed.
-  </AccordionItem>
-  <AccordionItem title="Integrating with Workflows">
-    Your Document Store is more than just a repository—it's deeply integrated with Lawme's workflow automation. This integration enables you to link specific datasets or vaults directly to workflows, automating routine tasks such as pulling relevant clauses from past contracts, performing legal research, or generating reports based on previous legal outcomes.
-  </AccordionItem>
-</Accordion>
+<CardGroup cols={3}>
+  <Card title="Public Legal Resources" icon="scale-balanced">
+    Access a wide range of public legal information, updated regularly with the latest laws and regulations.
+  </Card>
+  <Card title="Private Vaults" icon="vault">
+    Create secure, private spaces for your firm's confidential documents.
+  </Card>
+  <Card title="Workflow Integration" icon="diagram-project">
+    The Document Store works in conjunction with other Lawme features to streamline your legal processes.
+  </Card>
+</CardGroup>
 
 ## Setting Up Your Document Store
 
 <Steps>
   <Step title="Create a Vault">
-    Navigate to the Document Store tab in the platform, and click "Create New Vault." From here, you can upload your firm's important documents, such as contracts, compliance records, or client reports, into a secure, searchable vault.
+    Navigate to the Document Store tab and select "Create New Vault." You can then upload your documents by dragging and dropping files into the designated area.
   </Step>
-  <Step title="Assign to Workflows">
-    Once your vault is set up, link it to relevant workflows to automate tasks like contract drafting, legal research, or regulatory compliance checks. This ensures that every time a task requires specific documents or data, the system retrieves it automatically.
+  <Step title="Link to Workflows">
+    Connect your document vault to your work processes so that Lawme can access relevant information when needed.
   </Step>
-  <Step title="Manage Access and Security">
-    Maintain control over who can access and edit specific vaults by setting user permissions. With role-based access controls, you can ensure that sensitive documents remain secure and are only available to authorized team members.
+  <Step title="Set Access Permissions">
+    Define who can view and edit specific documents to maintain security and confidentiality.
   </Step>
 </Steps>
 
-## Metadata Extraction
+## Document Analysis Capabilities
 
-Lawme's Document Store allows for efficient metadata extraction from legal documents, leveraging advanced Natural Language Processing (NLP) and Lawme's proprietary legal datasets.
+The Document Store doesn't just store your files; it also analyzes them to provide useful insights:
 
 <CardGroup cols={2}>
-  <Card title="Automated Extraction" icon="robot">
-    Our platform automates the extraction of important metadata from legal documents, such as contract parties, effective dates, renewal periods, and compliance clauses.
+  <Card title="Information Extraction" icon="magic">
+    The system can automatically identify and extract important details from your documents.
   </Card>
-  <Card title="NLP-Driven Insights" icon="brain">
-    Lawme uses state-of-the-art NLP to ensure high accuracy when extracting metadata, including identifying legal concepts, actors, conditions, and obligations.
+  <Card title="Legal Language Processing" icon="brain">
+    Advanced technology is used to interpret legal terminology and concepts within documents.
   </Card>
 </CardGroup>
 
-### Metadata Types
+### Types of Extracted Information
 
-<Accordion>
-  <AccordionItem title="Administrative Metadata">
-    Information like creation date, author, and amendments history.
-  </AccordionItem>
-  <AccordionItem title="Provenance Metadata">
-    Origins of legal texts, such as legislative background or parliamentary discussions.
-  </AccordionItem>
-  <AccordionItem title="Usage Metadata">
-    Links to case law, jurisprudence, and legal doctrine.
-  </AccordionItem>
-  <AccordionItem title="Structural Metadata">
-    Hierarchical organization of legal texts.
-  </AccordionItem>
-  <AccordionItem title="Semantic Metadata">
-    Detailed information about permissions, obligations, exceptions, and actors within legal provisions.
-  </AccordionItem>
-</Accordion>
+<CardGroup cols={2}>
+  <Card title="Document Metadata">
+    Information such as creation date, author, and revision history.
+  </Card>
+  <Card title="Legal Context">
+    Relevant laws, regulations, or precedents mentioned in the document.
+  </Card>
+  <Card title="Document Structure">
+    The organization and layout of the document, useful for navigating complex texts.
+  </Card>
+  <Card title="Key Legal Concepts">
+    Important legal principles, obligations, and conditions within the document.
+  </Card>
+</CardGroup>
 
-### Benefits of Metadata Extraction
+### Benefits of Document Analysis
 
-- Faster document review processes
-- Accurate compliance tracking
-- Seamless workflow integration for automated drafting, contract generation, and research tasks
+- More efficient document review processes
+- Improved compliance management
+- Potential for automating routine tasks like contract drafting or legal research
 
-By leveraging these powerful features, Lawme's Document Store empowers your legal team to work more efficiently, accurately, and collaboratively than ever before.
+The Document Store aims to enhance your legal work by providing organized, accessible, and insightful document management. It's a tool designed to complement your expertise and streamline your workflows.
+
+<Tip>
+  While the Document Store offers many helpful features, it's important to remember that it's a tool to assist your work, not replace your professional judgment. Your legal expertise remains crucial in interpreting and applying the information it provides.
+</Tip>
