@@ -1,0 +1,90 @@
+---
+id: read-file
+title: Read File Block
+sidebar_label: Read File
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![Read File Block Screenshot](./assets/read-file-block.png)
+
+## Overview
+
+The Read File Block is used to read the contents of a specified file from the file system and output it as a string.
+
+If you are using the Lawme SDK, this block requires a native API to be available in the context when the flow is being run. The native API is responsible for providing the functionality to read the contents of a directory.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title | Data Type | Description                                                                                            | Default Value | Notes                                                          |
+| ----- | --------- | ------------------------------------------------------------------------------------------------------ | ------------- | -------------------------------------------------------------- |
+| Path  | `string`  | The path of the file to read. This input is only available if `Use Path Input` is enabled in settings. | N/A           | The input will be coerced into a string if it is not a string. |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title   | Data Type | Description                                            | Notes                                                                                                    |
+| ------- | --------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| Content | `string`  | The contents of the file read from the specified path. | If the file does not exist and `Error On Missing File` is disabled, this output will be an empty string. |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+| Setting               | Description                                                                                                                               | Default Value | Use Input Toggle | Input Data Type |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------- | --------------- |
+| Path                  | The path of the file to read.                                                                                                             | (required)    | Yes              | `string`        |
+| Use Path Input        | If enabled, the path can be provided via the Path input port.                                                                             | False         | No               | N/A             |
+| Error On Missing File | If enabled, the block will error if the file does not exist. If disabled, the block will output an empty string if the file does not exist. | False         | No               | N/A             |
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Read a file from a specified path
+
+1. Create a Read File Block and set the `Path` to the path of the file you want to read.
+2. Run the flow. The `Content` output of the Read File Block should contain the contents of the file.
+
+![Read File Block Example 1](./assets/read-file-block-example-01.png)
+
+## Example 2: Read a file from a dynamic path
+
+1. Create a [Text Block](./text.mdx) and set the text to the path of the file you want to read.
+2. Create a Read File Block and enable the `Use Path Input` setting.
+3. Connect the Text Block to the `Path` input of the Read File Block.
+4. Run the flow. The `Content` output of the Read File Block should contain the contents of the file.
+
+![Read File Block Example 2](./assets/read-file-block-example-02.png)
+
+## Error Handling
+
+The Read File Block will error if the native API is not available in the context when the flow is being run. It will also error if the file does not exist and the `Error On Missing File` setting is enabled. If the file does not exist and the `Error On Missing File` setting is disabled, the block will output an empty string.
+
+## FAQ
+
+**Q: Can I read a file from a URL?**
+
+A: No, the Read File Block can only read files from the local file system. If you want to read a file from a URL, you can use the [HTTP Call Block](./http-call.mdx) to make a GET request to the URL.
+
+## See Also
+
+- [HTTP Call Block](./http-call.mdx)
+- [Text Block](./text.mdx)

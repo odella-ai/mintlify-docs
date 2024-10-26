@@ -1,0 +1,111 @@
+---
+id: text
+title: Text Block
+sidebar_label: Text
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![Text Block Screenshot](./assets/text-block.png)
+
+## Overview
+
+The Text Block is used to output a string of text. It can also interpolate values using `{{tags}}` within the text. The inputs are dynamically generated based on the interpolation tags used in the text.
+
+This block is particularly useful for creating dynamic text based on the inputs to the block. The Text Block supports markdown, so you can use it to create richly formatted text.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title      | Data Type | Description                                                                 | Default Value | Notes                                                                                     |
+| ---------- | --------- | --------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------- |
+| (dynamic)  | `string`  | The inputs are dynamically generated based on the interpolation tags used.  | N/A           | The input names are derived from the interpolation tags used in the text. For example, if the text contains `{{name}}`, then there will be an input named `name`. |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title  | Data Type | Description                         | Notes |
+| ------ | --------- | ----------------------------------- | ----- |
+| Output | `string`  | The output text after interpolation |       |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+| Setting | Description                                                                                                           | Default Value | Use Input Toggle | Input Data Type |
+| ------- | --------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------- | --------------- |
+| Text    | The text to output. You can use interpolation tags in the format `{{tag}}` to insert the values of the inputs. | `{{input}}`   | No               | `string`        |
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Simple Text Output
+
+1. Create a Text Block.
+2. Set the `Text` to `Hello World!`.
+3. Run the flow. The output of the Text Block will be `Hello World`.
+
+![Text Block Example 1](./assets/text-block-example-01.png)
+
+## Example 2: Interpolation
+
+1. Create a Text Block.
+2. Set the `Text` to `Hello, {{name}}!`.
+3. Create a [Text Block](./text.mdx) and set the text to `Lawme`. Connect it to the `name` input of the Text Block.
+4. Run the flow. The output of the Text Block will be `Hello, Lawme!`.
+
+![Text Block Example 2](./assets/text-block-example-02.png)
+
+## Example 3: Using Markdown
+
+1. Create a Text Block.
+2. Set the `Text` to `# Hello, {{name}}!`.
+3. Create a [Text Block](./text.mdx) and set the text to `Lawme`. Connect it to the `name` input of the Text Block.
+4. Run the flow. The output of the Text Block will be `# Hello, Lawme!`.
+
+![Text Block Example 3](./assets/text-block-example-03.png)
+
+## Error Handling
+
+The Text Block does not have any notable error handling behavior. If an input is missing or null, the corresponding interpolation tag will be replaced with an empty string.
+
+## FAQ
+
+**Q: Can I use markdown in the Text Block?**
+
+A: Yes, the Text Block supports markdown. You can use markdown syntax in the text to create richly formatted text.
+
+**Q: Can I use the Text Block to create a template?**
+
+A: Yes, you can use the Text Block to create a template by using interpolation tags. You can then connect other blocks to the inputs of the Text Block to fill in the values of the tags.
+
+**Q: Can I use the Text Block to concatenate strings?**
+
+A: Yes, you can use the Text Block to concatenate strings by using interpolation tags. For example, you can set the text to `{{string1}}{{string2}}` to concatenate the values of `string1` and `string2`.
+
+## See Also
+
+- [Code Block](./code.mdx)
+- [Number Block](./number.mdx)
+- [Boolean Block](./bool.mdx)
+- [Object Block](./object.mdx)
+- [Array Block](./array.mdx)
+- [Extract Object Path Block](./extract-object-path.mdx)
+- [Extract with Regex Block](./extract-with-regex.mdx)

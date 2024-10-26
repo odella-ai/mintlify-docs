@@ -1,0 +1,117 @@
+---
+id: if-else
+title: If/Else Block
+sidebar_label: If/Else
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![If/Else Block Screenshot](./assets/if-else-block.png)
+
+## Overview
+
+The If/Else Block is a control flow block that allows you to choose between two different values based on a condition. It takes in three inputs: a condition, a true value, and a false value. If the condition is truthy, the true value is passed through the output port. If the condition is not truthy, the false value is passed through the output port.
+
+This block can "consume" a `Not Ran` to continue a flow from that point. This means that if a `Not Ran` value is passed into the `If` port, the `False` value will be passed through instead. If the `False` value is not connected, then the result will again be `Not Ran`.
+
+The If/Else block is particularly useful for always ensuring that a flow returns a value, and the outputs of the flow always run, or ensuring that a later block in the flow always receives a value, even if intermediate blocks do not run.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title | Data Type | Description                                                                  | Default Value | Notes                                                                                              |
+| ----- | --------- | ---------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------- |
+| If    | `any`     | The condition to evaluate. If truthy, the true value is passed through.      | (required)    | The input will be coerced into a boolean if it is not a boolean.                                   |
+| True  | `any`     | The value to pass through if the condition is truthy.                        | (empty)       | The input will be coerced into the same data type as the `False` input if it is not the same type. |
+| False | `any`     | The value to pass through if the condition is not truthy or is not provided. | (empty)       | The input will be coerced into the same data type as the `True` input if it is not the same type.  |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title  | Data Type | Description                                                                                     | Notes |
+| ------ | --------- | ----------------------------------------------------------------------------------------------- | ----- |
+| Output | `any`     | The value that was passed through based on the condition. Either the true value or false value. |       |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+This block has no configurable editor settings.
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Choose between two values based on a condition
+
+1. Create a [Bool Block](./bool.mdx). Set the value of the Bool Block to `true`.
+2. Create two [Text Blocks](./text.mdx). Set the text of one block to `Hello` and the other to `World`.
+3. Create an If/Else Block. Connect the Bool Block to the `If` input of the If/Else Block. Connect the Text Block with the text `Hello` to the `True` input of the If/Else Block. Connect the Text Block with the text `World` to the `False` input of the If/Else Block.
+4. Run the flow. The output of the If/Else Block should be `Hello`.
+5. Try changing the value of the Bool Block to `false`. Run the flow again. The output of the If/Else Block should now be `World`.
+
+![If/Else Block Example 1](./assets/if-else-block-example-01.png)
+
+## Example 2: Provide a default value for a missing input
+
+1. Create an [If Block](./if.mdx) but do not connect anything to its `If` input.
+2. Create two [Text Blocks](./text.mdx). Set the text of one block to `Hello` and the other to `World`.
+3. Connect the Hello Text Block to the `Value` input of the If Block.
+4. Create an If/Else Block. Connect the If Block to the `If` and `True` inputs of the If/Else Block. Connect the Text Block with the text `World` to the `False` input of the If/Else Block.
+5. Run the flow. The output of the If/Else Block should be `World`.
+
+![If/Else Block Example 2](./assets/if-else-block-example-02.png)
+
+## Error Handling
+
+The If/Else block will not throw an error under normal circumstances.
+
+## FAQ
+
+**Q: What is considered truthy in Lawme?**
+
+A: Any value that is considered truthy in JavaScript, plus any non-empty Array, is considered truthy in Lawme. This includes:
+
+- `true`
+- Any non-zero number
+- Any non-empty string
+- Any non-empty Array
+- Any object
+- Any function
+
+All other values are considered falsy, including the string value `"false"`.
+
+**Q: What happens if the `If` input is `Not Ran`?**
+
+A: If the `If` input is `Not Ran`, the `False` value will be passed through instead. If the `False` value is not connected, then the result will again be `Not Ran`.
+
+**Q: What happens if the `True` or `False` inputs are not provided?**
+
+A: If the `True` or `False` inputs are not provided, they will default to `Not Ran`.
+
+**Q: Can I use the If/Else Block to choose between two different types of values?**
+
+A: Yes, you can use the If/Else Block to choose between two different types of values. For example, you can use it to choose between a string and a number based on a condition. However, keep in mind that the output of the If/Else Block will be of the same type as the value that was passed through.
+
+## See Also
+
+- [If Block](./if.mdx)
+- [Match Block](./match.mdx)
+- [Coalesce Block](./coalesce.mdx)
+- [Control Flow](../user-guide/workflow/control-flow.md)

@@ -1,0 +1,104 @@
+---
+id: user-input
+title: User Input Block
+sidebar_label: User Input
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![User Input Block Screenshot](./assets/user-input-block.png)
+
+## Overview
+
+The User Input Block is designed to prompt the user for input during the execution of the flow. The user's response becomes the output of this block. This block is particularly useful in interactive scenarios where user input is required to proceed with the flow execution.
+
+The User Input Block can either use a static prompt defined in the block settings or dynamic prompts provided via the block's input.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title      | Data Type | Description                                                                 | Default Value | Notes                                                                                       |
+| ---------- | --------- | --------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------- |
+| Questions  | `string[]`| An array of questions to prompt the user.                                   | N/A           | This input is only available when the "Use Input" toggle is enabled in the block settings.   |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title               | Data Type | Description                                                                 | Notes                                                                                       |
+| ------------------- | --------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Answers Only        | `string[]`| An array containing the user's answers to the prompted questions.           |                                                                                             |
+| Q & A               | `string[]`| An array containing the questions and answers formatted as "Question\nAnswer". |                                                                                             |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+| Setting   | Description                                                                 | Default Value | Use Input Toggle | Input Data Type |
+| --------- | --------------------------------------------------------------------------- | ------------- | ---------------- | --------------- |
+| Prompt    | The question to prompt the user.                                            | (required)    | Yes              | `string`        |
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Using a static prompt
+
+1. Create a User Input Block.
+2. In the block settings, set the "Prompt" to "What is your name?".
+3. Run the flow. The flow execution will pause and prompt you for input.
+4. Enter your name and press "Submit". The flow execution will resume and the output of the User Input Block will be the name you entered.
+
+![User Input Block Example 1](./assets/user-input-block-example-01.png)
+
+## Example 2: Using dynamic prompts
+
+1. Create a User Input Block.
+2. In the block settings, enable the "Use Input" toggle.
+3. Create an [Array Block](./array.mdx) and connect 2 [Text Blocks](./text.mdx) to it.
+4. Add the text "What is your name?" to the first Text Block and "What is your favorite color?" to the second Text Block.
+5. Connect the Array Block to the "Questions" input of the User Input Block.
+6. Run the flow. The flow execution will pause and prompt you for input.
+6. Enter your answers and press "Submit". The flow execution will resume and the output of the User Input Block will be an array containing your answers.
+
+![User Input Block Example 2](./assets/user-input-block-example-02.png)
+
+## Error Handling
+
+The User Input Block does not have any error handling behavior. If the block is executed, it will always pause the flow execution and prompt the user for input.
+
+## FAQ
+
+**Q: Can I use the User Input Block to prompt the user for multiple inputs at once?**
+
+A: Yes, you can do this by connecting an Array Block to the "Questions" input of the User Input Block. Each item in the array will be a separate question that the user is prompted for.
+
+**Q: What happens if the user does not provide any input?**
+
+A: If the user does not provide any input and presses "Submit", the output of the User Input Block will be an empty string.
+
+**Q: Can I use the User Input Block to prompt the user for a password or other sensitive information?**
+
+A: No, the User Input Block does not currently support masking the user's input. All input provided by the user will be visible in the flow execution log.
+
+## See Also
+
+- [Array Block](./array.mdx)
+- [Text Block](./text.mdx)
+- [Split Block](./split-text.mdx)
+- [Join Block](./join.mdx)

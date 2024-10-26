@@ -1,0 +1,74 @@
+---
+title: Batching
+description: Learn how to process multiple inputs efficiently in Lawme
+sidebar_label: 06 - Batching
+---
+
+# Batching
+
+<Note>
+  Batching allows you to process multiple inputs efficiently in Lawme. This is particularly useful when you need to apply the same operation to a list of items.
+</Note>
+
+## Understanding Batching
+
+Batching in Lawme refers to the process of applying an operation to multiple inputs in sequence or parallel. Let's explore this concept using the Ask AI node as an example.
+
+<Steps>
+  1. Open the "6. Batching" folder in the Lawme interface.
+  2. Locate the flow that demonstrates batching with the Ask AI node.
+</Steps>
+
+## Using the Ask AI Node for Batching
+
+The Ask AI node is perfect for demonstrating batching. It allows you to run an AI model over a list of inputs.
+
+<Frame>
+  <img src="./assets/06-ask-ai-batching.png" alt="Ask AI Node Batching" />
+</Frame>
+
+### Setting Up the Batch
+
+1. Create an array of inputs you want to process.
+2. Connect this array to the Ask AI node.
+3. Enable "split mode" on the Ask AI node.
+
+<Tip>
+  The split mode icon (usually represented by two overlapping squares) should be visible next to the node title when enabled.
+</Tip>
+
+### Configuring Split Mode
+
+You can configure split mode with two main options:
+
+- **Max**: Specifies the maximum number of iterations.
+- **Sequential**: Determines whether to process items one at a time or in parallel.
+
+<Frame>
+  <img src="./assets/06-split-mode-config.png" alt="Split Mode Configuration" />
+</Frame>
+
+## Running the Batch
+
+When you run the flow:
+
+1. The Ask AI node will process each input in the array.
+2. You'll get an output for each input.
+
+<Frame>
+  <img src="./assets/06-batch-output.png" alt="Batch Output" />
+</Frame>
+
+## Combining Results
+
+After processing, you might want to combine the results:
+
+1. Use a Text node with split mode turned off.
+2. Connect the output array from the Ask AI node to this Text node.
+3. The Text node will automatically concatenate the results.
+
+<Tip>
+  For more control over how results are combined, consider using the Join node.
+</Tip>
+
+By using batching, you can efficiently process multiple inputs, saving time and resources in your Lawme workflows.

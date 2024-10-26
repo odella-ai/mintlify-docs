@@ -1,0 +1,81 @@
+---
+id: if
+title: If Block
+sidebar_label: If
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Overview
+
+Takes in a condition and a value. If the condition is truthy, the value is passed through the True port, and the False port is not ran.
+If the condition is falsy, the value is passed through the False port, and the True port is not ran.
+
+
+![If block screenshot](./assets/if-block.png)
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title  | Data Type   | Description                                                  | Required |                                                                                                                                                                |
+| ------ | ----------- | -----------------------------------------------------------  | -------- |
+| If     | conditional | The condition you would like to check.                       | True     |
+| Value  | any         | The value passed through either True or False ports.         | True     |
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title    | Data Type        | Description                                       |
+| -------- | ---------------- | ------------------------------------------------- |
+| True     | type of `Value`  | Returns the Value if the condition is True.       |
+| False    | type of `Value`  | Returns the Value if the condition is False.      |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+This block does not have any specific settings.
+
+</TabItem>
+
+</Tabs>
+
+### Example 1: Simple `string` comparison
+
+- Let's say we're trying to build a simple string comparison. The code for which in Typscript would look something like below:
+```
+if('Hello, World!' === 'Not Hello, World!')
+```
+- Similarly in Lawme we can make the following flow to perform a similar comparison. 
+
+![if-block-example-1](./assets/if-block-example.png)
+
+1. Create the following blocks in your flow:
+    - An `If` block 
+    - A `Compare` block
+    - Two `Input Text` blocks: System Text and Input Text
+    - Two `Flow Output` blocks: True Output and False Output
+2. Connect the following blocks:
+    - System Text `Output` to `A` of the Compare block and `Value` of the If block
+    - Input Text `Output` to `B` of the Compare block
+      - Make sure the Compare condition is set at `==`
+    - If Block `True` to True Output
+    - If Block `False` to False Output
+3. You are ready to run the flow
+4. Results: You'll see that based on the Input Text, and the comparison we've supplied to the If block, the flow output execution changes. 
+If the If condition supplied to the block is true, the true port receives the value but if its false, the false port receives the values.

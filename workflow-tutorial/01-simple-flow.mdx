@@ -1,0 +1,76 @@
+---
+title: Simple Flow
+description: Learn how to create and run a simple flow in Lawme
+---
+
+# Simple Flow
+
+<Steps>
+  1. Open the flows tab in the sidebar
+  2. Find the `1. Simple Flow` folder
+  3. Click on the `Simple Flow` flow to open it
+</Steps>
+
+You should see a flow that looks like this:
+
+<Frame>
+  <img src="./assets/simple-flow-start.png" alt="Simple Flow" />
+</Frame>
+
+This flow consists of two blocks:
+<CardGroup cols={2}>
+  <Card title="Text Block" icon="paragraph">
+    Allows you to input text
+  </Card>
+  <Card title="Chat Block" icon="comments">
+    Processes the text using AI
+  </Card>
+</CardGroup>
+
+## Running the Flow
+
+<Steps>
+  1. Find the green run button in the top right corner of the flow
+  2. Click the button to run the flow
+</Steps>
+
+<Frame>
+  <img src="./assets/run-button.png" alt="Run Button" />
+</Frame>
+
+After running, you should see something like this:
+
+<Frame>
+  <img src="./assets/simple-flow-after-run.png" alt="Simple Flow After Run" />
+</Frame>
+
+<Callout type="info">
+  When you run the flow, the text block sends its content to the chat block. The chat block then uses AI to process this text and generate a response.
+</Callout>
+
+## Experimenting with the Flow
+
+To modify a block's settings, click the edit gear icon in the top right corner of the block.
+
+<Accordion title="Try These Experiments">
+  <AccordionItem title="Change the Question">
+    1. Edit the text block
+    2. Type a new question like "What's the difference between a NDA and a MNDA?"
+    3. Run the flow again
+    4. Observe how the chat block responds with new information
+  </AccordionItem>
+  <AccordionItem title="Adjust Max Tokens">
+    1. Edit the chat block
+    2. Change the max tokens to 256
+    3. Run the flow again
+    4. Notice how the response is shorter
+  </AccordionItem>
+  <AccordionItem title="Modify Temperature">
+    1. Edit the chat block
+    2. Set the temperature to 1
+    3. Run the flow again
+    4. Observe how the responses become more varied
+  </AccordionItem>
+</Accordion>
+
+By experimenting with these settings, you can see how different parameters affect the AI's responses in your workflow.

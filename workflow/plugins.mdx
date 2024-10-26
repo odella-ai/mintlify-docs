@@ -1,0 +1,109 @@
+---
+title: "Plugins"
+description: "Learn about extending Lawme's functionality with plugins and connecting your existing applications to workflows"
+---
+
+# Plugins
+
+<Callout type="info">
+  Plugins in Lawme allow you to extend functionality and connect your existing applications to your workflows, enabling you and your employees to access your tools seamlessly.
+</Callout>
+
+## Understanding Plugins
+
+Plugins serve two primary purposes in Lawme:
+
+1. They add new blocks that you can use in your flows, extending the platform's capabilities.
+2. They connect your existing applications to your workflows, allowing you to integrate your tools directly into your legal processes.
+
+<Card title="Integration Power" icon="plug">
+  By connecting your applications through plugins, you can create more powerful and efficient workflows that leverage your existing tools and data.
+</Card>
+
+## Enabling Plugins
+
+Plugins are configured on a per-project basis. To enable a plugin:
+
+<Steps>
+  1. Navigate to the **Plugins** tab at the top of the screen
+  2. Browse the list of available plugins
+  3. Click the **Add** button next to the plugin you want to install
+</Steps>
+
+![Available Plugins](../assets/plugins.png)
+
+## Connecting Applications
+
+Once a plugin is installed, you can connect your applications through the plugin settings:
+
+<Steps>
+  1. Go to the **Project** tab in the left sidebar
+  2. Find the installed plugin in the plugins list
+  3. Click the settings icon next to the plugin
+  4. Follow the prompts to connect your application (this may involve entering API keys or authorizing access)
+</Steps>
+
+![Plugin Settings](../assets/plugin-settings.png)
+
+<Tip>
+  Remember to save your settings after connecting an application to ensure the integration is active.
+</Tip>
+
+## Using Connected Applications in Workflows
+
+To use a connected application in a workflow:
+
+<Steps>
+  1. Open the workflow where you want to use the application
+  2. Drag the application's block from the sidebar into your workflow
+  3. Configure the block with the necessary inputs and outputs
+</Steps>
+
+<Warning>
+  Connected applications must be installed into each workflow where you want to use them. This ensures that only authorized workflows have access to specific tools.
+</Warning>
+
+![Using Application in Workflow](../assets/workflow-application-usage.png)
+
+## Managing Plugins
+
+### Removing Plugins
+
+To remove a plugin:
+
+<Steps>
+  1. Navigate to the **Project** tab in the left sidebar
+  2. Find the plugin in the plugins list
+  3. Click the `...` menu next to the plugin
+  4. Select **Remove**
+</Steps>
+
+![Remove Plugin](../assets/remove-plugin.png)
+
+### Installing Custom Plugins
+
+For plugins not listed in Lawme:
+
+<Steps>
+  1. Scroll to the bottom of the plugins list
+  2. Click the **Add** button next to "NPM Plugin"
+  3. Enter the name and optional version of the NPM-published plugin
+  4. Click **Add** to install
+</Steps>
+
+![Add NPM Plugin](../assets/add-npm-plugin.png)
+
+### Installing Plugins from Source
+
+For advanced users, you can install plugins directly from source:
+
+<Steps>
+  1. Navigate to the plugin install directory (shown below the plugins list in Lawme)
+  2. Create a directory named `<package-name>-latest`
+  3. Clone the plugin source into a `package` subdirectory
+  4. In Lawme, choose "Add NPM Plugin" and enter the package name
+  5. Build the plugin if necessary (run `yarn` and `yarn build` in the `package` directory)
+  6. Click **Add** to install the plugin
+</Steps>
+
+By leveraging plugins effectively, you can create powerful, integrated workflows that streamline your legal processes and improve productivity across your organization.

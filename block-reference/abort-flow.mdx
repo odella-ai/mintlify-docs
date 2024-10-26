@@ -1,0 +1,94 @@
+---
+id: abort-flow
+title: Abort Flow Block
+sidebar_label: Abort Flow
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Overview
+
+The Abort Flow Block is used to stop the execution of the entire flow immediately. It can either "successfully" abort the flow (early-exit), or "error" abort the flow. This can be useful for stopping the flow under certain conditions, or for handling errors.
+
+![Abort Flow Block Screenshot](./assets/abort-flow-block.png)
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title         | Data Type | Description                                                                                                                              | Default Value | Notes                                                                                                                                      |
+| ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Data or Error | `any`     | The data or error message to be used when aborting the flow. If it's a string, it will be used as the error message for error aborting. | N/A           | None                                                                                                                                       |
+| Successfully  | `boolean` | Determines whether the flow should be aborted successfully or with an error.                                                            | true          | Only available if the "Successfully Abort" setting is toggled on in the block's settings. Otherwise, the block's setting value will be used. |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+This block does not have any outputs.
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+| Setting            | Description                                                                                                           | Default Value | Use Input Toggle |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------- |
+| Successfully Abort | Determines whether the flow should be aborted successfully or with an error.                                         | true          | Yes              |
+| Error Message      | The error message to be used when aborting the flow with an error. Only used if "Successfully Abort" is not checked. | (Empty)       | No               |
+
+</TabItem>
+
+</Tabs>
+
+### Example 1: Successfully aborting a flow
+
+1. Add an Abort Flow block to your flow.
+2. Make sure the "Successfully Abort" setting is checked.
+3. Connect any block to the `Data or Error` input of the Abort Flow block. This could be a condition, a value, or anything else.
+4. Run your flow. The flow will abort immediately after the Abort Flow block is processed, and no subsequent blocks will be executed.
+
+### Example 2: Aborting a flow with an error
+
+1. Add an Abort Flow block to your flow.
+2. Uncheck the "Successfully Abort" setting.
+3. Optionally, enter an error message in the "Error Message" setting. This message will be used as the error message when the flow is aborted.
+4. Connect any block to the `Data or Error` input of the Abort Flow block. If this block outputs a string, it will be used as the error message when the flow is aborted.
+5. Run your flow. The flow will abort immediately after the Abort Flow block is processed, and no subsequent blocks will be executed. An error message will be displayed, either the one from the `Data or Error` input or the one from the "Error Message" setting.
+
+## Error Handling
+
+The Abort Flow Block does not produce any errors itself. However, it causes the entire flow to stop executing when it is processed, either successfully or with an error.
+
+## FAQ
+
+**Q: What happens if I connect a non-string block to the `Data or Error` input?**
+
+A: If the block outputs a string, it will be used as the error message when the flow is aborted. If it does not output a string, it will be coerced into a string.
+
+**Q: What happens if I connect a block to the `Successfully` input but the "Successfully Abort" setting is not checked?**
+
+A: The `Successfully` input will be ignored, and the flow will be aborted with an error.
+
+**Q: What happens if I don't connect anything to the `Data or Error` input or leave the "Error Message" setting empty?**
+
+A: The flow will be aborted with a default error message of "Flow aborted with error".
+
+## See Also
+
+- [If Block](./if.mdx)
+- [If/Else Block](./if-else.mdx)
+- [Race Inputs Block](./race-inputs.mdx)

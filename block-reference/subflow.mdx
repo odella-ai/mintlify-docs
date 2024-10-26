@@ -1,0 +1,112 @@
+---
+id: subflow
+title: Subflow Block
+sidebar_label: Subflow
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![Subflow Block Screenshot](./assets/subflow-block.png)
+
+## Overview
+
+The Subflow Block allows you to execute another flow within the current flow. This is useful for reusing logic across multiple flows, or for breaking down complex flows into smaller, more manageable pieces.
+
+The inputs and outputs of the Subflow Block are defined by [Input Blocks](./input.mdx) and [Output Blocks](./output.mdx) within the subflow. The Subflow Block will automatically update its inputs and outputs to match those of the selected subflow.
+
+The Subflow Block also has an optional error output. If enabled, any errors that occur while executing the subflow will be caught and output from the error output port. If not enabled, errors will cause the entire flow to fail.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title          | Data Type | Description                                                                                        | Default Value | Notes                         |
+| -------------- | --------- | -------------------------------------------------------------------------------------------------- | ------------- | ----------------------------- |
+| (custom names) | Any       | The input values passed into the subflow. Dynamic based on the inputs configured in the subflow. | N/A           | Always accepts any data type. |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title          | Data Type | Description                                                                                                    | Notes                                                                                                              |
+| -------------- | --------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| (custom names) | Any       | The output values from the execution of the subflow. Dynamic based on the outputs configured in the subflow. | Always accepts any data type.                                                                                      |
+| Error          | `string`  | If the subflow errors, will be populated with the error message.                                              | Only enabled if `Use Error Output` is turned on. If `Use Error Output` is turned off, the block will error instead. |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+| Setting          | Description                                                                                                                                                                                      | Default Value | Use Input Toggle | Input Data Type |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ---------------- | --------------- |
+| Flow            | The flow to execute when this block is ran. Must be a flow in the same project.                                                                                                                 | (required)    | No               | N/A             |
+| Use Error Output | If enabled, then the Subflow block will not fail, but instead any error will appear in the `Error` output port of the block. If disabled, the entire Subflow block will error if the call errors. | False         | No               | N/A             |
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Reuse a flow in multiple places
+
+1. Create a new flow in your project, and add a [Input Block](./input.mdx) and a [Output Block](./output.mdx) to it. Connect the Flow Input Block to a [Text Block](./text.mdx) and connect that block to Flow Output Block.
+2. Update the Text block to have the text `{{input}}
+Hi, From Subflow`.
+3. In your main flow, add a Subflow Block. In the editor settings, set the `Flow` to the flow you created in step 1.
+4. Connect a [Text Block](./text.mdx) to the input of the Subflow Block.
+5. Set the Text of the Text Block to `Hello Subflow!`.
+6. Run the flow. Note that the text is passed through the subflow and back to the main flow with the text from the subflow appended to it.
+
+![Subflow Block Example 1a](./assets/subflow-block-example-01a.png)
+![Subflow Block Example 1b](./assets/subflow-block-example-01b.png)
+
+## Example 2: Handle errors in a subflow
+
+1. Using the same flows from Example 1, in the subflow add a vector store block.
+2. Connect all the outputs from the text block to the vector store block.
+3. This will cause the Vector Store Block to Error
+4. In your main flow, add a Subflow Block. In the editor settings enable `Use Error Output`.
+5. Connect [Text Blocks](./text.mdx) to both outputs of the Subflow Block.
+6. Run the flow. Note that the error is output on the `Error` port of the Subflow Block, and the `Output` port is not ran.
+
+![Subflow Block Example 2a](./assets/subflow-block-example-02a.png)
+![Subflow Block Example 2b](./assets/subflow-block-example-02b.png)
+
+## Error Handling
+
+If the subflow errors, then the Subflow Block will error. If you want to handle errors in the flow, then you can enable the `Use Error Output` setting. This will cause the Subflow Block to not error, but instead pass the error message to the `Error` output port. If the `Error` port is populated, then the `Result` port will not be ran. You can use an [If Block](./if.mdx) to check if the `Error` port is populated, and handle the error accordingly.
+
+## FAQ
+
+**Q: Can I use the Subflow Block to execute a flow in a different project?**
+
+A: No, the Subflow Block can only execute flows within the same project.
+
+**Q: Can I use the Subflow Block to execute a flow in a loop?**
+
+A: Yes, you can use a [Loop Controller Block](./loop-controller.mdx) to execute a Subflow Block in a loop. Each iteration of the loop will execute the subflow with the current loop value as an input.
+
+**Q: Can I use the Subflow Block to execute a flow conditionally?**
+
+A: Yes, you can use an [If Block](./if.mdx) to conditionally execute a Subflow Block. If the condition is false, the Subflow Block will not be executed.
+
+## See Also
+
+- [Input Block](./input.mdx)
+- [Output Block](./output.mdx)
+- [If Block](./if.mdx)
+- [Loop Controller Block](./loop-controller.mdx)
+- [Text Block](./text.mdx)

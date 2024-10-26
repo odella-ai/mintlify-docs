@@ -1,0 +1,91 @@
+---
+id: wait-for-event
+title: Wait For Event Block
+sidebar_label: Wait For Event
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![Wait For Event Block Screenshot](./assets/wait-for-event.png)
+
+## Overview
+
+The Wait For Event Block is used to pause the execution of a flow until a specific event is raised by a [Raise Event Block](./raise-event.mdx) or the host project. The event name can be configured in the block settings or provided dynamically via an input port.
+
+This block is useful in scenarios where you want to wait for an external event to occur before proceeding with the flow execution. For example, you might want to wait for a user to click a button, or for an API call to complete.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title      | Data Type | Description                                                                 | Default Value | Notes                                                                 |
+| ---------- | --------- | --------------------------------------------------------------------------- | ------------- | --------------------------------------------------------------------- |
+| Data       | `any`     | Any data to be passed through the block.                                     | N/A           | This data will be outputted from the `Data` output port.              |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title     | Data Type | Description                                                                 | Notes                                                                 |
+| --------- | --------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Data      | `any`     | The data passed in through the `Data` input port.                           | If no data is passed into the `Data` input port, this port will not run. |
+| Event Data| `any`     | The data associated with the event that was raised.                         | If the event has no associated data, this port will not run.          |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+| Setting          | Description                                                                                                                         | Default Value  | Use Input Toggle | Input Data Type |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------- | --------------- |
+| Event Name       | The name of the event to wait for. Must match the name of the event raised by the Raise Event Block or the host project.             | `continue`     | Yes              | `string`        |
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Wait for an event raised by a Raise Event Block
+
+1. Create a [Raise Event Block](./raise-event.mdx) and set the `Event Name` to `myEvent`.
+2. Create a Wait For Event Block and set the `Event Name` to `myEvent`.
+3. Connect a text block to the Data input port of the Raise Event Block with the text as `Raise Event`.
+4. Connect a text block to the Data input port of the Wait For Event Block with the text as `Waited`.
+5. Connect the output ports of the Raise Event Block and Wait For Event Block to the input ports of text blocks.
+6. Run the flow. The Wait For Event Block will wait until the Raise Event Block raises the `myEvent` event.
+7. Notice how the Wait For Event Block outputs the data from the Raise Event Block from the `Event Data` output port.
+
+![Wait For Event Block Example 1](./assets/wait-for-event-example-01.png)
+
+## Error Handling
+
+The Wait For Event Block cannot error under normal circumstances. If the event is not raised, the block will wait indefinitely.
+
+## FAQ
+
+**Q: Can I use the Wait For Event Block to wait for multiple events?**
+
+A: No, the Wait For Event Block can only wait for a single event. If you want to wait for multiple events, you can use multiple Wait For Event Blocks.
+
+**Q: Can I use the Wait For Event Block to wait for an event raised by an API call?**
+
+A: Yes, you can use the [HTTP Call Block](./http-call.mdx) to make an API call, and then use the Wait For Event Block to wait for an event raised by the API call.
+
+## See Also
+
+- [Raise Event Block](./raise-event.mdx)
+- [HTTP Call Block](./http-call.mdx)
+- [External Call Block](./external-call.mdx)
+- [Code Block](./code.mdx)

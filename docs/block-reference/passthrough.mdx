@@ -1,0 +1,70 @@
+---
+id: passthrough
+title: Passthrough Block
+sidebar_label: Passthrough
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![Passthrough Block Screenshot](./assets/passthrough-block.png)
+
+## Overview
+
+The Passthrough Block is a simple block that passes the input value to the output without any modifications. This block can be useful in scenarios where you want to pass a value through a certain path in your flow without altering it, such as grouping together values from different branches of your flow, or controlling how wires flow through your flow.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title     | Data Type | Description                        | Default Value | Notes                                                            |
+| --------- | --------- | ---------------------------------- | ------------- | ---------------------------------------------------------------- |
+| Input [i] | `any`     | The ith input to be passed through | N/A           | Dynamic number of inputs based on how many connections there are |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title      | Data Type | Description                         | Notes                                                             |
+| ---------- | --------- | ----------------------------------- | ----------------------------------------------------------------- |
+| Output [i] | `any`     | The ith output from the passthrough | Dynamic number of outputs based on how many connections there are |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+This block does not have any specific settings.
+
+</TabItem>
+
+</Tabs>
+
+## Error Handling
+
+The Passthrough Block does not have any error handling. If an input is missing or null, the corresponding output will also be missing or null.
+
+## FAQ
+
+**Q: What happens if an input is missing or null?**
+
+A: If an input is missing or null, the corresponding output will also be missing or null.
+
+## See Also
+
+- [If Block](./if.mdx)
+- [Match Block](./match.mdx)
+- [Coalesce Block](./coalesce.mdx)
+- [Race Inputs Block](./race-inputs.mdx)

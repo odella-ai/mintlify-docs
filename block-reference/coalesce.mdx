@@ -1,0 +1,97 @@
+---
+id: coalesce
+title: Coalesce Block
+sidebar_label: Coalesce
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Overview
+
+The Coalesce Block works like the `COALESCE` function in SQL - it returns the first non-null value from a list of inputs.
+
+In Lawme, "null" includes values that show as "Not Ran" in the UI - blocks that have been excluded from the run due to control flow processing.
+The Coalesce block excels at taking a set of blocks, one of which will be run, and returning the output of the first one that actually runs. See
+the examples section for more information on using this with a [Match Block](./match.mdx).
+
+![Coalesce Block Screenshot](./assets/coalesce-block.png)
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title       | Data Type | Description                                                                                                                        | Default Value | Notes                                                                                                                                                                                      |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Conditional | `boolean` | If connected, this can be used so that the coalesce block itself is only run conditionally.                                         | N/A           | Otherwise, the input is treated as any of the other inputs, so if you want to run the coalesce block conditionally, you must connect to this specific port with e.g. an [If Block](./if.mdx) |
+| Input X     | Any       | One of the inputs to check for nullness. The first one of these inputs that is non-null will be passed through to the output port. | N/A           | Dynamic number of inputs based on how many are connected.                                                                                                                                  |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title  | Data Type | Description                            | Notes                                                   |
+| ------ | --------- | -------------------------------------- | ------------------------------------------------------- |
+| Output | Any       | The value of the first non-null input. | If no inputs are null, then the output will not be ran. |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+This block has no configurable editor settings.
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Default Values / Null Checks
+
+You can use a Coalesce Block in order to do null checks and set default values for a parameter.
+
+1. Create an If block but do not connect to the input, so that it wil not be ran.
+2. Connect the output of the If block to the Coalesce block.
+3. Connect a Text block with a hardcoded value to the 2nd input of the Coalesce block.
+4. Run the flow. Note that the output of the Coalesce block will be the value of the Text block, since the If block was not ran.
+
+![Coalesce Block Example 1 Screenshot](./assets/coalesce-block-example-01.png)
+
+## Example 2: Getting a single value from a Match block
+
+1. Create a [Match Block](./match.mdx) with a few different cases, say `1`, `2`, and `3`.
+2. For each of the cases, use an [If Block](./if.mdx) to transform each of the cases into a unique value, say `A`, `B`, and `C`. You can use a [Text Block](./text.mdx) connected to the `value` port of the If Blocks to set the value passed through for each of the cases.
+3. Connect the outputs of each of the If blocks to one of the inputs on a Coalesce block.
+4. Connect an input to the Match block so that only one of the cases will be ran.
+5. Run the flow. Note that the output of the Coalesce block will be the value of the If block that was ran.
+
+The above is a common pattern for working with a Match block - you can get a unique value for each case using an If block, which is not dependent on the value passed into the Match block itself.
+
+![Coalesce Block Example 2 Screenshot](./assets/coalesce-block-example-02.png)
+
+## Error Handling
+
+The coalesce block cannot error in normal operation.
+
+## FAQ
+
+**Q: Will an empty string be passed over?**
+
+A: No, an empty string is not considered nullable for the Coalesce Block. If you would like to skip over empty strings, you can use an If Block to check for empty strings and return null if the string is empty.
+
+## See Also
+
+- [Match Block](./match.mdx)
+- [If Block](./if.mdx)
+- [If/Else Block](./if-else.mdx)

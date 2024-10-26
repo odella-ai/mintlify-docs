@@ -1,0 +1,75 @@
+---
+title: Dynamic Prompting
+---
+
+# Dynamic Prompting & More Block Types
+
+<Note>
+  In this section, we'll explore how to create dynamic prompts and use various block types in Lawme.
+</Note>
+
+## Getting Started
+
+1. In the sidebar, locate the "Flows" tab.
+2. Find the folder named "2. Dynamic Prompting".
+3. Open the "Dynamic Prompting" flow.
+
+You should see a flow that looks like this:
+
+<Frame>
+  <img src="./assets/02-interpolation-overview.png" alt="Dynamic Prompting Flow" />
+</Frame>
+
+## Running the Flow
+
+<Steps>
+  1. Click the "Run" button to start the flow.
+  2. You'll see two Chat Blocks running at the same time.
+  3. A user input prompt will appear, asking you to choose a contract type.
+  4. Enter one of the listed contract types and submit.
+  5. The final Chat Block will generate a template for your chosen contract type.
+</Steps>
+
+## Understanding the Flow
+
+Let's break down this flow into simpler parts:
+
+### 1. Setup
+
+<Frame>
+  <img src="./assets/02-interpolation-setup.png" alt="Setup Blocks" />
+</Frame>
+
+We start with three blocks:
+- A Text Block for the system prompt
+- Two Prompt Blocks to guide the AI's responses
+
+### 2. Combining Outputs
+
+After the initial chats, we use a Text Block to combine their outputs into one message.
+
+### 3. User Input
+
+<Frame>
+  <img src="./assets/02-interpolation-user-input-toggle.png" alt="User Input Toggle" />
+</Frame>
+
+We use a User Input Block to ask the user which contract type they want. The question is created dynamically based on the previous outputs.
+
+### 4. Final Response
+
+<Frame>
+  <img src="./assets/02-interpolation-final-response.png" alt="Final Response" />
+</Frame>
+
+The flow ends with a final Chat Block that generates the contract template based on the user's choice.
+
+## Key Concept: Dynamic Prompting
+
+Dynamic prompting allows us to create flexible, context-aware interactions. In this flow, we use it to:
+
+1. Combine AI-generated introductions and contract lists
+2. Create a personalized user input prompt
+3. Generate a specific contract template based on user input
+
+By using dynamic prompts, we can create more interactive and responsive workflows in Lawme.

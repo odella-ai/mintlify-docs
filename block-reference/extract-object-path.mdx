@@ -1,0 +1,156 @@
+---
+id: extract-object-path
+title: Extract Object Path Block
+sidebar_label: Extract Object Path
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![Extract Object Path Block Screenshot](./assets/extract-object-path-block.png)
+
+## Overview
+
+The Extract Object Path Block allows you to run [jsonpath](https://www.npmjs.com/package/jsonpath-plus) queries on an object. This is useful for extracting data from a JSON object or array. Some use-cases include:
+
+- Extracting data from a JSON object returned by an API
+- Accessing individual elements of an array
+- Complex queries such as `$.store.book[?(@.price < 10)]` to perform filtering
+
+Any valid [`jsonpath-plus`](https://www.npmjs.com/package/jsonpath-plus) query can be used, but just be careful about complex queries.
+
+The input to Extract Object path must be either an object, or an array of any data type. You can also query properties of non-object data types, such as strings, such as `$.length` to get the length of a string.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title  | Data Type                       | Description                         | Default Value | Notes |
+| ------ | ------------------------------- | ----------------------------------- | ------------- | ----- |
+| Object | `object` or `any[]` or `string` | The object to query using the path. | (required)    |       |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title       | Data Type | Description                                                                                                               | Notes                                                              |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Match       | `any`     | If the value is found in the object, the value matched.                                                                   | If the value is not found, this port is not ran.                   |
+| All Matches | `any[]`   | When using a path that can match multiple times, such as `$.someArray[*]`, represents all paths of the object that match. | If the value is not found, this port will run with an empty array. |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+| Setting | Description                                                           | Default Value | Use Input Toggle | Input Data Type |
+| ------- | --------------------------------------------------------------------- | ------------- | ---------------- | --------------- |
+| Path    | The jsonpath path to use to extract properties from the input object. | `$`           | Yes              | `string`        |
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Extract a property from an object
+
+1. Create an [Object Block](./object.mdx) and set the value to the following:
+
+   ```json
+   {
+     "name": "John Doe",
+     "age": 30
+   }
+   ```
+
+2. Create an Extract Object Path Block and connect the Object Block to it. Set the `Path` of the Extract Object Path Block to:
+
+   ```
+   $.name
+   ```
+
+3. Run the flow. The Extract Object Path Block should output the value `John Doe`.
+
+![Extract Object Path Block Example 1](./assets/extract-object-path-block-example-01.png)
+
+## Example 2: Extract properties from an array of objects
+
+1. Create an [Object Block](./object.mdx) and set the value to the following:
+
+   ```json
+   [
+     {
+       "name": "John Doe",
+       "age": 30
+     },
+     {
+       "name": "Jane Doe",
+       "age": 25
+     }
+   ]
+   ```
+
+2. Create an Extract Object Path Block and connect the Object Block to it. Set the `Path` of the Extract Object Path Block to:
+
+   ```
+    $[*].name
+   ```
+
+3. Run the flow. The Extract Object Path Block's `all_matches` output should have the value `John Doe` and `Jane Doe`. The `match` output contains the first match, which is `John Doe`.
+
+![Extract Object Path Block Example 2](./assets/extract-object-path-block-example-02.png)
+
+## Example 3: Extract a dynamic property from an object
+
+1. Create an [Object Block](./object.mdx) and set the value to the following:
+
+   ```json
+   {
+     "name": "John Doe",
+     "age": 30
+   }
+   ```
+
+2. Create a Text block and set the value to `age`.
+3. Create another Text block and set the value to `$.{{input}}`. Connect the first Text block to the second Text block.
+4. Create an Extract Object Path block and enable the input port for the `Path` setting. Connect the second Text block to the Extract Object Path block's `Path` input port. Connect the Object Block to the Extract Object Path block.
+5. Run the flow. Note that the path is constructed dynamicalled, and the `age` is extracted from the object.
+
+![Extract Object Path Block Example 3](./assets/extract-object-path-block-example-03.png)
+
+## Error Handling
+
+If the path is invalid, the Extract Object Path Block will throw an error. If the path is valid, but the value is not found, the `match` output will not run, and the `all_matches` output will run with an empty array.
+
+## FAQs
+
+**Q: Does the Extract Object Path Block only work with objects?**
+
+A: No, it can also work with arrays and other JavaScript values that have properties, such as strings. For example, you can use `$.length` to get the length of a string.
+
+**Q: Can I split the Extract Object Path Block in order to execute a command on an array of objects?**
+
+A: It is recommended to simply use the `*` operator and the `All Matches` output, but there can be cases where batching the block is appropriate. For example with an array of objects that themselves contain arrays, and you want to extract all sub-arrays, you can either to `$[*].someArray` or split the block and use `$.someArray` on the split block.
+
+**Q: Can I use the Extract Object Path Block to extract data from a JSON object returned by an API?**
+
+A: Yes, you can use the [HTTP Call Block](./http-call.mdx) to make an API request, and then use the Extract Object Path Block to extract data from the response.
+
+## See Also
+
+- [Code Block](./code.mdx)
+- [Object Block](./object.mdx)
+- [Array Block](./array.mdx)
+- [Extract with Regex Block](./extract-with-regex.mdx)
+- [Data Types](../user-guide/workflow/data-types.md)

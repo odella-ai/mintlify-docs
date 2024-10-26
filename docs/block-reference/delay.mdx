@@ -1,0 +1,85 @@
+---
+id: delay
+title: Delay Block
+sidebar_label: Delay
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![Delay Block Screenshot](./assets/delay-block.png)
+
+## Overview
+
+The Delay Block is used to introduce a delay in the execution of the flow. It takes any number of inputs and after a specified delay, passes the input values to the outputs without any modifications. This block is useful when you need to control the timing of your flow's execution.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title     | Data Type | Description                                  | Default Value | Notes                                                                     |
+| --------- | --------- | -------------------------------------------- | ------------- | ------------------------------------------------------------------------- |
+| Delay     | `number`  | The delay time in milliseconds.              | 0             | This input is only available if the "Use Delay Input" setting is enabled. |
+| Input [i] | `any`     | The ith input that will be passed to output. | N/A           | Dynamic number of inputs based on how many connections there are.         |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title     | Data Type | Description                                          | Notes                                                                             |
+| --------- | --------- | ---------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Output[i] | `any`     | The ith output from the execution of the delay block. | The output will be the same as the corresponding input after the specified delay. |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+| Setting          | Description                                                                                                                                                              | Default Value | Use Input Toggle | Input Data Type |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ---------------- | --------------- |
+| Function Name    | The delay time in milliseconds. If the "Use Delay Input" setting is not enabled, this value will be used as the delay.                                                   | 0             | Yes              | `number`        |
+| Use Error Output | If enabled, then the Delay block will use the "Delay" input as the delay time in milliseconds. If disabled, the delay time specified in the "Delay" setting will be used. | False         | No               | N/A             |
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Delaying a Message
+
+1. Create a Text block and set its value to "Hello, World!".
+2. Create a Delay block and set its "Delay" setting to 5000 (5 seconds).
+3. Connect the output of the Text block to the first input of the Delay block.
+4. Run the flow. Note that the output of the Delay block is not displayed until after 5 seconds.
+
+![Delay Block Example 1](./assets/delay-block-example-01.png)
+
+## Error Handling
+
+The Delay block cannot error under normal circumstances. If the delay time is negative, it will be treated as zero.
+
+## FAQ
+
+**Q: What happens if I set the delay time to zero?**
+
+A: The Delay block will pass the input to the output immediately, effectively acting as a pass-through block.
+
+**Q: Can I use the Delay block to throttle API calls?**
+
+A: Yes, you can use the Delay block to throttle API calls. For example, if you have a flow that makes an API call every time it is run, you can use the Delay block to ensure that the API call is not made more than once every 5 seconds.
+
+## See Also
+
+- [Passthrough Block](./passthrough.mdx)
+- [Race Inputs Block](./race-inputs.mdx)

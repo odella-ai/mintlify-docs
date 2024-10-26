@@ -1,0 +1,95 @@
+---
+title: "Batching"
+description: "Learn how to use batching to process multiple items at once in Lawme workflows"
+---
+
+# Batching
+
+<Callout type="info">
+  Batching allows you to process multiple items at the same time, making your workflows faster and more efficient.
+</Callout>
+
+## What is Batching?
+
+Batching is like having multiple workers doing the same task simultaneously. In Lawme, you can turn any block into a "Batch" block to enable batching:
+
+<Steps>
+  1. Find the block you want to batch
+  2. Look for the "Batch" toggle
+  3. Turn the toggle on to enable batching
+</Steps>
+
+![Batching a block](../assets/split-block.png)
+
+## How Batching Works
+
+When you use batching:
+
+<Card title="Multiple Executions" icon="clone">
+  The block runs multiple times at once, each time with a different piece of information.
+</Card>
+
+<Card title="Input and Output" icon="exchange-alt">
+  The block can take in lists of information and will give out lists of results.
+</Card>
+
+<Card title="Flexible Input" icon="puzzle-piece">
+  If you give the block a single item and a list, it will use the single item for each run with the items from the list.
+</Card>
+
+## When to Use Batching
+
+<CardGroup cols={2}>
+  <Card title="Processing Files" icon="file-alt">
+    Read multiple files at once
+  </Card>
+  <Card title="API Requests" icon="cloud">
+    Send several requests simultaneously
+  </Card>
+  <Card title="Data Analysis" icon="chart-bar">
+    Analyze multiple data sets in parallel
+  </Card>
+  <Card title="Document Generation" icon="file-word">
+    Create multiple documents at the same time
+  </Card>
+</CardGroup>
+
+## Chaining Batched Blocks
+
+You can connect batched blocks to create powerful workflows:
+
+<Steps>
+  1. Use a batched block to read multiple files
+  2. Connect it to a batched Text block to process each file's content
+  3. Then connect to a batched Chat block to analyze each processed file with AI
+</Steps>
+
+This setup allows you to process multiple files through several steps, all at the same time!
+
+## Combining Results
+
+After batching, you might want to bring all the results back together. Here are some ways to do that:
+
+<CardGroup cols={2}>
+  <Card title="Text and Prompt Blocks" icon="paragraph">
+    Automatically join lists of text into one
+  </Card>
+  <Card title="Chat Block" icon="comments">
+    Can handle lists of messages or text
+  </Card>
+  <Card title="Extract Object Path" icon="sitemap">
+    Pick out specific information from lists of data
+  </Card>
+  <Card title="Pop Block" icon="hand-point-up">
+    Get a single item from a list
+  </Card>
+  <Card title="Code Block" icon="code">
+    Write custom code to combine results (for advanced users)
+  </Card>
+</CardGroup>
+
+<Warning>
+  Lawme doesn't support batching within batching (nested batching). If you need more complex setups, consider using a batched Subflow Block, which allows for more flexibility.
+</Warning>
+
+By using batching in your workflows, you can make your legal processes much faster and more efficient, handling multiple tasks at once with ease.

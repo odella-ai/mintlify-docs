@@ -1,0 +1,89 @@
+---
+id: shuffle
+title: Shuffle Block
+sidebar_label: Shuffle
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+![Shuffle Block Screenshot](./assets/shuffle-block.png)
+
+## Overview
+
+The Shuffle Block is used to randomize the order of elements in an array. It takes an array as input and outputs a new array with the elements in a shuffled order.
+
+The Shuffle Block uses the [Fisher-Yates (aka Knuth) shuffle algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) to ensure a fair distribution of permutations.
+
+<Tabs
+  defaultValue="inputs"
+  values={[
+    {label: 'Inputs', value: 'inputs'},
+    {label: 'Outputs', value: 'outputs'},
+    {label: 'Editor Settings', value: 'settings'},
+  ]
+}>
+
+<TabItem value="inputs">
+
+## Inputs
+
+| Title | Data Type | Description           | Default Value | Notes |
+| ----- | --------- | --------------------- | ------------- | ----- |
+| Array | `any[]`   | The array to shuffle. | (required)    | None  |
+
+</TabItem>
+
+<TabItem value="outputs">
+
+## Outputs
+
+| Title    | Data Type | Description                                | Notes |
+| -------- | --------- | ------------------------------------------ | ----- |
+| Shuffled | `any[]`   | The input array with its order randomized. | None  |
+
+</TabItem>
+
+<TabItem value="settings">
+
+## Editor Settings
+
+This block has no configurable editor settings.
+
+</TabItem>
+
+</Tabs>
+
+## Example 1: Shuffle an array of numbers
+
+1. Create an [Array Block](./array.mdx) and set the values to `[1, 2, 3, 4, 5]`.
+2. Create a Shuffle Block and connect the Array Block to its `Array` input.
+3. Run the flow. The `Shuffled` output of the Shuffle Block should contain the numbers 1 through 5 in a random order.
+
+![Shuffle Block Example 1](./assets/shuffle-block-example-01.png)
+
+## Error Handling
+
+The Shuffle Block will error if the `Array` input is not provided or is not an array.
+
+## FAQ
+
+**Q: Can I shuffle an array of objects?**
+
+A: Yes, the Shuffle Block can shuffle arrays of any data type, including objects.
+
+**Q: Does the Shuffle Block modify the original array?**
+
+A: No, the Shuffle Block does not modify the original array. It creates a new array with the elements in a shuffled order.
+
+**Q: Is the shuffle algorithm truly random?**
+
+A: The Shuffle Block uses the Fisher-Yates (aka Knuth) shuffle algorithm, which is considered a fair shuffle algorithm. However, it relies on the JavaScript `Math.random()` function, which is not suitable for cryptoflowic purposes.
+
+## See Also
+
+- [Array Block](./array.mdx)
+- [Filter Block](./filter.mdx)
+- [Join Block](./join.mdx)
+- [Code Block](./code.mdx)
+- [RNG Block](./rng.mdx)

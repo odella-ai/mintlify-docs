@@ -7,45 +7,34 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#6415ea",
+    "light": "#a97df3",
+    "dark": "#6415ea",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#6415ea",
+      "to": "#6415ea"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@lawme.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://app.lawme.ai"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "icon": "discord",
+      "url": "https://discord.gg/URGcgVHWup"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://www.lawme.ai/blog"
     }
   ],
   "navigation": [
@@ -53,39 +42,104 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "get-started/quickstart",
+        "get-started/faq"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Product Overview",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "product/workforce",
+        "product/workflows",
+        "product/documents",
+        "product/templates",
+        "product/security",
+        "product/models"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Workflows",
       "pages": [
-        "api-reference/introduction"
+        "workflow/overview",
+        "workflow/interface",
+        "workflow/blocks",
+        "workflow/data-types",
+        "workflow/working-with-flows",
+        "workflow/subflows",
+        "workflow/live-debugging",
+        "workflow/plugins",
+        "workflow/control-flow",
+        "workflow/batching",
+        "workflow/loops"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Workflow Tutorials",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "workflow-tutorial/01-simple-flow",
+        "workflow-tutorial/02-dynamic-prompting",
+        "workflow-tutorial/03-matching-conditionals",
+        "workflow-tutorial/04-subflows",
+        "workflow-tutorial/05-batching",
+        "workflow-tutorial/06-loops"
+      ]
+    },
+    {
+      "group": "Block Documentation",
+      "pages": [
+        "block-reference/all-blocks",
+        "block-reference/abort-flow",
+        "block-reference/array",
+        "block-reference/assemble-message",
+        "block-reference/assemble-prompt",
+        "block-reference/audio",
+        "block-reference/bool",
+        "block-reference/chat",
+        "block-reference/chunk",
+        "block-reference/coalesce",
+        "block-reference/code",
+        "block-reference/comment",
+        "block-reference/compare",
+        "block-reference/context",
+        "block-reference/delay",
+        "block-reference/destructure",
+        "block-reference/evaluate",
+        "block-reference/external-call",
+        "block-reference/extract-object-path",
+        "block-reference/extract-with-regex",
+        "block-reference/filter",
+        "block-reference/get-global",
+        "block-reference/http-call",
+        "block-reference/if-else",
+        "block-reference/if",
+        "block-reference/image",
+        "block-reference/input",
+        "block-reference/join",
+        "block-reference/loop-controller",
+        "block-reference/join",
+        "block-reference/match",
+        "block-reference/number",
+        "block-reference/object",
+        "block-reference/output",
+        "block-reference/passthrough",
+        "block-reference/pop",
+        "block-reference/prompt",
+        "block-reference/race-inputs",
+        "block-reference/raise-event",
+        "block-reference/read-file",
+        "block-reference/rng",
+        "block-reference/set-global",
+        "block-reference/shuffle",
+        "block-reference/slice",
+        "block-reference/split-text",
+        "block-reference/user-input",
+        "block-reference/wait-for-event"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "twitter": "https://twitter.com/lawmeai",
+    "github": "https://www.github.com/helpmefindlaw",
+    "linkedin": "https://www.linkedin.com/company/lawme-ai"
   }
 }

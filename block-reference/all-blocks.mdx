@@ -1,0 +1,185 @@
+---
+title: 'All Blocks'
+description: 'A comprehensive list of all built-in blocks in Lawme'
+---
+
+# All Blocks
+
+The following is a comprehensive list of all blocks built into the core of Lawme.
+
+## Text
+
+<CardGroup cols={2}>
+  <Card title="Chunk" icon="puzzle-piece" href="./chunk.mdx">
+    Splits a string into an array of strings based on a token count.
+  </Card>
+  <Card title="Extract with Regex" icon="magnifying-glass" href="./extract-with-regex.mdx">
+    Extracts strings from a string using a regular expression.
+  </Card>
+  <Card title="Join" icon="link" href="./join.mdx">
+    Concatenates an array of strings into a single string.
+  </Card>
+  <Card title="Prompt" icon="comment" href="./prompt.mdx">
+    Creates a chat message with an attached "type" and optional "name".
+  </Card>
+  <Card title="Split Text" icon="scissors" href="./split-text.mdx">
+    Splits a string into an array of substrings based on a delimiter.
+  </Card>
+  <Card title="Text" icon="font" href="./text.mdx">
+    Outputs a string of text with support for interpolation.
+  </Card>
+</CardGroup>
+
+## AI
+
+<CardGroup cols={2}>
+  <Card title="Chat" icon="robot" href="./chat.mdx">
+    Sends messages to an LLM and returns the response.
+  </Card>
+</CardGroup>
+
+## Lists
+
+<CardGroup cols={2}>
+  <Card title="Array" icon="layer-group" href="./array.mdx">
+    Constructs or merges arrays from multiple inputs.
+  </Card>
+  <Card title="Filter" icon="filter" href="./filter.mdx">
+    Filters elements of an array based on boolean values.
+  </Card>
+  <Card title="Pop" icon="arrow-up-from-bracket" href="./pop.mdx">
+    Removes the first or last element from an array.
+  </Card>
+  <Card title="Shuffle" icon="shuffle" href="./shuffle.mdx">
+    Randomizes the order of elements in an array.
+  </Card>
+  <Card title="Slice" icon="knife" href="./slice.mdx">
+    Extracts a specific portion of an array.
+  </Card>
+</CardGroup>
+
+## Numbers
+
+<CardGroup cols={2}>
+  <Card title="Evaluate" icon="calculator" href="./evaluate.mdx">
+    Performs various mathematical operations on input values.
+  </Card>
+  <Card title="Number" icon="hashtag" href="./number.mdx">
+    Outputs a constant number value or converts input to a number.
+  </Card>
+  <Card title="RNG" icon="dice" href="./rng.mdx">
+    Generates a random number within a specified range.
+  </Card>
+</CardGroup>
+
+## Objects
+
+<CardGroup cols={2}>
+  <Card title="Extract Object Path" icon="sitemap" href="./extract-object-path.mdx">
+    Runs jsonpath queries on an object.
+  </Card>
+  <Card title="Object" icon="cube" href="./object.mdx">
+    Creates an object from input values and a JSON template.
+  </Card>
+</CardGroup>
+
+## Data
+
+<CardGroup cols={2}>
+  <Card title="Audio" icon="volume-high" href="./audio.mdx">
+    Defines an audio sample for use with other blocks.
+  </Card>
+  <Card title="Bool" icon="toggle-on" href="./bool.mdx">
+    Outputs a boolean constant or converts input to boolean.
+  </Card>
+  <Card title="Image" icon="image" href="./image.mdx">
+    Defines a static image for use with other blocks.
+  </Card>
+</CardGroup>
+
+## Logic
+
+<CardGroup cols={2}>
+  <Card title="Abort Flow" icon="stop" href="./abort-flow.mdx">
+    Immediately stops the execution of the entire flow.
+  </Card>
+  <Card title="Coalesce" icon="code-merge" href="./coalesce.mdx">
+    Returns the first non-null value from a list of inputs.
+  </Card>
+  <Card title="Compare" icon="not-equal" href="./compare.mdx">
+    Performs comparison operations between two input values.
+  </Card>
+  <Card title="Delay" icon="clock" href="./delay.mdx">
+    Introduces a pause in the execution of the flow.
+  </Card>
+  <Card title="If" icon="code-branch" href="./if.mdx">
+    Passes a value through True or False port based on a condition.
+  </Card>
+  <Card title="If/Else" icon="code-fork" href="./if-else.mdx">
+    Chooses between two values based on a condition.
+  </Card>
+  <Card title="Match" icon="equals" href="./match.mdx">
+    Matches a string input against regular expressions.
+  </Card>
+  <Card title="Passthrough" icon="right-left" href="./passthrough.mdx">
+    Transfers the input value directly to the output.
+  </Card>
+  <Card title="Race Inputs" icon="flag-checkered" href="./race-inputs.mdx">
+    Outputs the value of the first input to complete.
+  </Card>
+</CardGroup>
+
+## Input/Output
+
+<CardGroup cols={2}>
+  <Card title="Input" icon="arrow-right-to-bracket" href="./input.mdx">
+    Defines an input for a flow.
+  </Card>
+  <Card title="Output" icon="arrow-right-from-bracket" href="./output.mdx">
+    Defines the outputs of a flow.
+  </Card>
+  <Card title="Read File" icon="file-arrow-down" href="./read-file.mdx">
+    Reads the contents of a specified file.
+  </Card>
+  <Card title="User Input" icon="keyboard" href="./user-input.mdx">
+    Prompts the user for input during flow execution.
+  </Card>
+</CardGroup>
+
+## Advanced
+
+<CardGroup cols={2}>
+  <Card title="Code" icon="code" href="./code.mdx">
+    Executes arbitrary JavaScript code during a flow's operation.
+  </Card>
+  <Card title="Comment" icon="comment-dots" href="./comment.mdx">
+    Adds notes or comments to a flow.
+  </Card>
+  <Card title="Context" icon="globe" href="./context.mdx">
+    Allows access to shared inputs across any flow.
+  </Card>
+  <Card title="External Call" icon="phone" href="./external-call.mdx">
+    Executes external functions within a flow.
+  </Card>
+  <Card title="Get Global" icon="download" href="./get-global.mdx">
+    Retrieves a global value shared across all flows.
+  </Card>
+  <Card title="HTTP Call" icon="globe" href="./http-call.mdx">
+    Makes an HTTP call to a specified URL.
+  </Card>
+  <Card title="Loop Controller" icon="rotate" href="./loop-controller.mdx">
+    Creates loops within your flow.
+  </Card>
+  <Card title="Raise Event" icon="bell" href="./raise-event.mdx">
+    Triggers an event within the flow.
+  </Card>
+  <Card title="Set Global" icon="upload" href="./set-global.mdx">
+    Sets a global value shared across all flows.
+  </Card>
+  <Card title="Subflow" icon="diagram-project" href="./subflow.mdx">
+    Executes another flow within the current flow.
+  </Card>
+  <Card title="Wait For Event" icon="hourglass" href="./wait-for-event.mdx">
+    Pauses the execution until a specific event is signaled.
+  </Card>
+</CardGroup>
