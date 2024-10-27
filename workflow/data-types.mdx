@@ -1,42 +1,7 @@
 ---
-title: "Data Types in Lawme"
-description: "A comprehensive guide to data types used in Lawme workflows"
+title: "Data Types"
+description: "A comprehensive guide to data types used in workflows"
 ---
-
-import { Callout } from '@mintlify/components';
-
-<Frame>
-  <img
-    src="/assets/block_menu.gif"
-    alt="Block Menu"
-  />
-</Frame>
-
-# Understanding Data Types in Lawme
-
-When working with Lawme workflows, it's crucial to understand the various data types used internally. This knowledge is especially important when integrating Lawme with your own applications.
-
-## DataValue
-
-A DataValue is the fundamental unit of data in Lawme. It's represented as an object with two key properties:
-
-- `type`: Indicates the data type (see the Types table below)
-- `value`: Contains the actual data
-
-<Callout type="info">
-  The `type` property may include additional decorators, which modify how the type behaves.
-</Callout>
-
-## Type Decorators
-
-Decorators can be applied to types to modify their behavior. They can be combined, for example: `fn<string[]>`.
-
-| Decorator  | Description                                                   |
-|------------|---------------------------------------------------------------|
-| `[]`       | Indicates an array of the specified type                      |
-| `fn<type>` | Represents a function that returns the specified type         |
-
-## Lawme Data Types
 
 Here's a comprehensive list of data types used in Lawme:
 
