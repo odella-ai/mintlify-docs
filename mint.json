@@ -61,10 +61,10 @@
       "group": "Workflows",
       "pages": [
         "workflow/overview",
+        "workflow/working-with-flows",
         "workflow/interface",
         "workflow/blocks",
         "workflow/data-types",
-        "workflow/working-with-flows",
         "workflow/subflows",
         "workflow/live-debugging",
         "workflow/plugins",

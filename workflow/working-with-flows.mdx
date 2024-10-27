@@ -1,79 +1,145 @@
 ---
 title: 'Working with Flows'
-description: 'Learn how to create and use AI-powered workflows to automate your legal tasks'
+description: 'Master the art of creating, managing, and executing AI-powered workflows in Lawme'
 ---
 
+import { Callout, Card, CardGroup, Steps, Tip, Warning } from '@mintlify/components';
+
 <Callout type="info">
-  Flows are the building blocks of your automated legal processes. They represent step-by-step procedures that use AI to streamline your work.
+  Flows are the cornerstone of Lawme, representing sophisticated business processes and AI-powered workflows that revolutionise legal task automation.
 </Callout>
 
-A workflow is made up of several flows. Each flow is like a visual map of a specific task or process, consisting of connected blocks that work together to accomplish your goals.
+A Lawme project is a collection of multiple flows. Each flow serves as a visual representation of a legal task or process, constructed using interconnected blocks that collaborate to achieve specific outcomes.
 
 ## Understanding Flows
 
-Flows are designed to make your legal work easier and faster. They connect different actions (called "blocks") to create a smart process. The best part? You don't need to know how to code - you can build powerful AI workflows just by connecting these blocks!
+Flows in Lawme are designed to streamline and accelerate your legal work. They function as a chain of intelligent building blocks, with each block performing a specialised task. Information cascades through these blocks from left to right, enabling you to craft smart, AI-powered workflows without any coding expertise.
 
-Here's how a typical flow works:
+Here's a simplified model of how a flow operates:
 
-1. It begins with starting blocks that kick off the process.
-2. As each block completes its task, it passes information to the next connected blocks.
-3. Blocks wait for all necessary information before they start working.
-4. This process continues, with some blocks running at the same time when possible, until the entire flow is complete.
+1. It initiates with "starter" blocks that require no input to begin.
+2. As each block completes its task, it transmits its results to the subsequent connected blocks.
+3. A block remains dormant until it receives all necessary information to commence its operation.
+4. This process continues, with some blocks operating concurrently when possible, until the entire flow reaches completion.
 
-This design allows you to create sophisticated AI-powered processes, where one AI task leads to another, enabling complex decision-making and automation.
+This architecture allows for the creation of sophisticated AI workflows, where the output of one AI task becomes the catalyst for the next, facilitating intelligent decision-making and automatic task completion.
 
-## Creating a New Flow
+## Creating a New Workflow
+
+<Frame>
+  <img src="../assets/workflows_new.gif" alt="Workflow Creation Process" />
+</Frame>
 
 <Steps>
-  1. Right-click in the empty space of the flow list in the sidebar
-  2. Choose "New Flow" to start with a blank canvas
-  3. Navigate to the **Flow Info** tab and give your flow a descriptive name
-  4. Save your new flow by pressing **Ctrl+S** (or **Cmd+S** on Mac)
+  <Step title="Initiate Workflow Creation">
+    Click the "Create new workflow" button in the top right corner of the Workflows Overview page.
+  </Step>
+  <Step title="Choose Workflow Type">
+    In the new window, select from one of three options:
+    - "Start from a blank Workflow" to create a new workflow from scratch
+    - "Clone an existing Workflow" to create a copy of a workflow you've already made
+    - "Clone a Public Template" to begin with one of our pre-built base templates
+  </Step>
+  <Step title="Configure Workflow Details">
+    Provide essential information such as name and description for your workflow.
+  </Step>
+  <Step title="Access Workflow Editor">
+    Click "Next" to proceed to the workflow editor.
+  </Step>
+  <Step title="Begin Building">
+    Click "Start building" to commence creating your new workflow.
+  </Step>
 </Steps>
 
-Your new flow will now appear in the list, ready for you to start building your AI-powered process.
-
-## Switching Between Flows
-
-To move between different flows, simply click on the flow name in the sidebar list. This will open the selected flow in the main workspace.
+Your newly created workflow will now appear in the "My workflows" list on the Workflows Overview page, ready for you to start constructing your AI-powered process.
 
 ## Removing a Flow
 
 <Warning>
-  Deleting a flow cannot be undone. Please be sure before proceeding.
+  Deleting a flow is an irreversible action. Please exercise caution and ensure you want to proceed before deletion.
 </Warning>
 
-To remove a flow:
-1. Right-click on the flow name in the sidebar list
-2. Select "Delete Flow" from the menu that appears
+<Frame>
+  <img src="../assets/workflows_delete.gif" alt="Workflow Deletion Process" />
+</Frame>
+
+1. Navigate to the card representing the workflow you wish to delete.
+2. Click on the workflow to open its details.
+3. On the workflow screen, locate and click the settings icon (typically a cog or gear symbol).
+4. In the settings menu, find and select the 'Delete Workflow' option.
+5. Confirm the deletion, acknowledging that this action will permanently remove the workflow and all associated data.
 
 ## Starting a Flow
 
-<Card title="Running Your Workflow" icon="play">
-  To start the current flow, click the **Run** button in the top right corner. You can watch the flow in action, seeing how information moves through your AI-powered process.
+<Frame>
+  <img src="../assets/workflows_run.gif" alt="Workflow Running Process" />
+</Frame>
+
+<Card title="Executing Your Workflow" icon="play">
+  To run the currently selected flow, click the **Run** button located in the top right corner of the workflow page. You can observe the flow's execution in real-time, monitoring how data traverses through your AI chain.
 </Card>
 
 ## Flow Inputs and Outputs
 
-Flows can receive information (inputs) and produce results (outputs). This makes them versatile and reusable in different situations.
+Flows in Lawme are designed as a graph-like structure, where inputs and outputs are determined by specific blocks within the workflow. This approach enhances flexibility and reusability across various scenarios.
 
-### Adding Inputs
+### Flow Structure
 
-Use [Input Blocks](../../block-reference/input) to define what information your flow needs to start. Think of these as the questions your flow needs answered before it can begin.
+<Card title="Graph-like Design" icon="diagram-project">
+  Flows are composed of interconnected blocks, forming a directed graph where data flows from inputs to outputs through various processing steps.
+</Card>
 
-### Adding Outputs
+### Inputs
 
-Use [Output Blocks](../../block-reference/output) to specify what results your flow should produce when it's finished.
+<CardGroup cols={2}>
+  <Card title="Input Blocks" icon="arrow-right-to-bracket">
+    [Input Blocks](../../block-reference/input) serve as entry points for data in your flow. They define the parameters your workflow requires to run.
+  </Card>
+  <Card title="Multiple Inputs" icon="layer-group">
+    Flows can have multiple input blocks, allowing for complex data ingestion scenarios.
+  </Card>
+</CardGroup>
+
+### Outputs
+
+<CardGroup cols={2}>
+  <Card title="Output Blocks" icon="arrow-right-from-bracket">
+    [Output Blocks](../../block-reference/output) define the results your flow returns upon completion. They act as exit points for processed data.
+  </Card>
+  <Card title="Multiple Outputs" icon="share-nodes">
+    Flows can have multiple output blocks, enabling diverse result structures.
+  </Card>
+</CardGroup>
+
+### Data Flow
+
+Data traverses through the workflow, being transformed and processed by various blocks before reaching the output. The graph-like structure allows for:
+
+- Parallel processing
+- Conditional branching
+- Data aggregation and splitting
+
+This flexible architecture enables the creation of complex, powerful workflows tailored to specific legal tasks and processes.
 
 <Tip>
-  When designing flows, consider what key information your process needs to start (inputs) and what valuable insights or actions it should produce (outputs).
+  When designing flows, consider the critical information your workflow needs (inputs) and the valuable insights or actions it should generate (outputs).
 </Tip>
 
 ## Best Practices for Designing Flows
 
-1. **Start Simple**: Begin with a basic process and add more complexity as needed.
-2. **Use Clear Names**: Give your flows and blocks descriptive names that explain their purpose.
-3. **Add Explanations**: Use comments or notes to explain how your flow works.
-4. **Test Thoroughly**: Use the testing features to make sure your flow works correctly with different inputs.
+<CardGroup cols={2}>
+  <Card title="Start Simple" icon="seedling">
+    Begin with a basic workflow and incrementally introduce complexity as needed.
+  </Card>
+  <Card title="Use Descriptive Names" icon="tag">
+    Assign clear, meaningful names to your flows and blocks that reflect their purpose.
+  </Card>
+  <Card title="Document Your Flow" icon="book">
+    Utilise comments or documentation blocks to elucidate the purpose and logic of your workflow.
+  </Card>
+  <Card title="Test Thoroughly" icon="vial">
+    Leverage the live debugging feature to ensure your flow behaves as expected with various inputs.
+  </Card>
+</CardGroup>
 
-By mastering flows, you'll be able to create powerful, AI-driven processes that automate complex legal tasks and make your work more efficient.
+By mastering flows in Lawme, you'll be equipped to create powerful, AI-driven workflows that automate complex legal tasks and significantly enhance your firm's efficiency.
