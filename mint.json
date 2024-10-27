@@ -87,66 +87,108 @@
     {
       "group": "Block Documentation",
       "pages": [
-        "block-reference/all-blocks",
-        "block-reference/logic/abort-flow",
+        "block-reference/all-blocks"
+      ]
+    },
+    {
+      "group": "AI Blocks",
+      "pages": [
         "block-reference/ai/ai-filter",
         "block-reference/ai/analyze-table",
-        "block-reference/data/array",
         "block-reference/ai/ask-ai",
-        "block-reference/data/audio",
-        "block-reference/agents/auto-system-prompt",
-        "block-reference/data/bool",
-        "block-reference/modifiers/chunk",
-        "block-reference/advanced/code",
-        "block-reference/logic/coalesce",
-        "block-reference/advanced/comment",
-        "block-reference/logic/compare",
-        "block-reference/io/confirm",
         "block-reference/ai/create-chart",
-        "block-reference/logic/delay",
         "block-reference/ai/decision",
         "block-reference/ai/describe-image",
-        "block-reference/draft/draft",
         "block-reference/ai/extract-data",
-        "block-reference/modifiers/extract-json",
-        "block-reference/modifiers/extract-markdown-code-blocks",
-        "block-reference/modifers/extract-object-path",
-        "block-reference/modifers/extract-with-regex",
-        "block-reference/modifiers/extract-yaml",
-        "block-reference/data/file",
-        "block-reference/modifiers/filter",
-        "block-reference/modifiers/flatten",
         "block-reference/ai/generate-questions",
-        "block-reference/modifiers/hash",
-        "block-reference/advanced/http-call",
-        "block-reference/logic/if-else",
-        "block-reference/data/image",
-        "block-reference/modifiers/index",
-        "block-reference/io/input",
-        "block-reference/modifiers/join",
-        "block-reference/logic/loop-controller",
-        "block-reference/logic/match",
-        "block-reference/data/number",
-        "block-reference/data/object",
-        "block-reference/io/output",
-        "block-reference/logic/passthrough",
+        "block-reference/ai/research-ai"
+      ]
+    },
+    {
+      "group": "Draft Blocks",
+      "pages": [
+        "block-reference/draft/draft",
         "block-reference/draft/populate-template",
-        "block-reference/modifiers/pop",
-        "block-reference/logic/race-inputs",
-        "block-reference/logic/raise-event",
+        "block-reference/draft/table-to-file",
+        "block-reference/draft/text-to-file"
+      ]
+    },
+    {
+      "group": "Loader Blocks",
+      "pages": [
         "block-reference/loaders/read-binary",
         "block-reference/loaders/read-file",
-        "block-reference/loaders/read-table",
-        "block-reference/ai/research-ai",
+        "block-reference/loaders/read-table"
+      ]
+    },
+    {
+      "group": "Logic Blocks",
+      "pages": [
+        "block-reference/logic/abort-flow",
+        "block-reference/logic/coalesce",
+        "block-reference/logic/compare",
+        "block-reference/logic/delay",
+        "block-reference/logic/if-else",
+        "block-reference/logic/loop-controller",
+        "block-reference/logic/match",
+        "block-reference/logic/passthrough",
+        "block-reference/logic/race-inputs",
+        "block-reference/logic/raise-event"
+      ]
+    },
+    {
+      "group": "Data Blocks",
+      "pages": [
+        "block-reference/data/array",
+        "block-reference/data/audio",
+        "block-reference/data/bool",
+        "block-reference/data/file",
+        "block-reference/data/image",
+        "block-reference/data/number",
+        "block-reference/data/object"
+      ]
+    },
+    {
+      "group": "Modifier Blocks",
+      "pages": [
+        "block-reference/modifiers/chunk",
+        "block-reference/modifiers/extract-json",
+        "block-reference/modifiers/extract-markdown-code-blocks",
+        "block-reference/modifiers/extract-yaml",
+        "block-reference/modifiers/filter",
+        "block-reference/modifiers/flatten",
+        "block-reference/modifiers/hash",
+        "block-reference/modifiers/index",
+        "block-reference/modifiers/join",
+        "block-reference/modifiers/pop",
         "block-reference/modifiers/shuffle",
-        "block-reference/modifiers/slice",
+        "block-reference/modifiers/slice"
+      ]
+    },
+    {
+      "group": "Advanced Blocks",
+      "pages": [
+        "block-reference/advanced/code",
+        "block-reference/advanced/comment",
+        "block-reference/advanced/http-call",
         "block-reference/advanced/subflow",
-        "block-reference/draft/table-to-file",
-        "block-reference/draft/text-to-file",
-        "block-reference/io/upload-file",
-        "block-reference/io/user-input",
         "block-reference/advanced/wait-for-event"
-
+      ]
+    },
+    {
+      "group": "IO Blocks",
+      "pages": [
+        "block-reference/io/confirm",
+        "block-reference/io/input",
+        "block-reference/io/output",
+        "block-reference/io/upload-file",
+        "block-reference/io/user-input"
+      ]
+    },
+    {
+      "group": "Agent Blocks",
+      "pages": [
+        "block-reference/agents/auto-system-prompt"
       ]
     }
   ],
@@ -154,5 +196,11 @@
     "twitter": "https://twitter.com/lawmeai",
     "github": "https://www.github.com/helpmefindlaw",
     "linkedin": "https://www.linkedin.com/company/lawme-ai"
-  }
+  },
+  "tabs": [
+    {
+      "name": "Block Reference",
+      "url": "block-reference"
+    }
+  ]
 }
