@@ -1,52 +1,108 @@
 ---
 title: "Blocks"
-description: "Learn about adding, moving, connecting, and editing blocks in Lawme workflows"
+description: "Master adding, moving, connecting, and editing blocks in Lawme workflows"
+icon: 'cubes'
 ---
 
-To add a block to the current flow, right click in the empty space on the flow (or press space!), and enter the Add menu.
+import { Card, CardGroup, Callout, Tip, Note } from '@mintlify/components';
 
-![Add Menu](../assets/add-menu.png)
+Blocks are the essential elements of Lawme workflows. Whether you're building simple sequences or intricate logic, blocks help bring your workflows to life. Here's everything you need to know to add, arrange, and customise them.
 
-You can search for a block by starting to type after the menu is open.
+## Adding a Block
 
-Blocks are grouped by their category. Selecting a block will add it to the flow where you right clicked.
+To add a block, right-click in any empty space on the flow canvas (or press **Space**) to open the **Add Menu**.
 
-See the [Block Reference](../../block-reference) for more information about all possible blocks that can be added.
+![Adding a block](/snippets/block_add.gif)
+
+<CardGroup cols={2}>
+  <Card title="Search & Select">
+    Start typing to quickly find the block you need in the menu.
+  </Card>
+  <Card title="Organised by Category">
+    Blocks are grouped by category for easy browsing. Select a block to place it at the location you right-clicked.
+  </Card>
+</CardGroup>
+
+For details on all available blocks, check out the [Block Reference](../../block-reference).
 
 ## Moving Blocks
 
-Click and drag on the title bar of a block to move it on the block canvas. You can also select multiple blocks by holding shift and clicking on the title bars of multiple blocks. You can then move all of the selected blocks as a group.
+Repositioning blocks is quick and easy:
+
+- **Drag & Drop**: Click and hold the title bar of a block, then drag it to your desired position.
+- **Multi-Select**: Hold **Shift** and click on multiple blocks to move them as a group.
+
+![Moving a block](/snippets/block_move.gif)
 
 ## Deleting Blocks
 
-Right click on a block and select **Delete** to delete it. **Warning: There is no undo at this time!**
+Right-click on a block and select **Delete** to remove it from the flow.
+![Deleting a block](/snippets/block_delete.gif)
+
+<Callout type="warning">
+  Deleting a block is permanent, and there's no undo option. Double-check before you delete!
+</Callout>
 
 ## Connecting Blocks
 
-Blocks are connected by clicking and dragging from a port on one block to a port on another block. Ports are the connection points on the block. Ports can be inputs or outputs. Inputs are on the left side of the block and outputs are on the right side of the block.
+Connections define the data flow between blocks. Here's how to link them:
 
-The output port of a block can connect to multiple input ports on other blocks.
+<CardGroup cols={2}>
+  <Card title="Create Connections">
+    Click and drag from an output port on one block to an input port on another. Outputs are on the right side, inputs are on the left.
+  </Card>
+  <Card title="Port Rules">
+    Outputs can connect to multiple inputs, but each input can only connect to one output. Ensure data types match for smooth operation.
+  </Card>
+</CardGroup>
 
-The input port of a block can only connect to one output port on another block.
-
-The data type of every port is available in the documentation for each block in the [Block Reference](../../block-reference).
+For more details on port data types, refer to the [Block Reference](../../block-reference).
 
 ## Disconnecting Blocks
 
-Click and drag on a connected port to move the connection to a different port, or click and drag to an empty space for an existing connection to delete the connection.
+Need to adjust a connection? 
+
+- **Move Connection**: Click and drag on a connected port to change the connection to a different port.
+- **Delete Connection**: Drag the connection line to an empty space to remove it.
 
 ## Creating a Subflow
 
-To create a subflow, select multiple blocks by holding shift and clicking on the title bars of multiple blocks. Then right click on one of the selected blocks and select **Create Subflow**. This will create a new (_unsaved!_) flow containing the blocks you selected, as well as additional input and output blocks to connect the subflow to the parent flow.
+Subflows allow you to group blocks for cleaner, more manageable workflows.
 
-![creating a subflow](../assets/create-subflow.gif)
+<Steps>
+  <Step title="Select Blocks">
+    Hold **Shift** and click on each block you want to include in the subflow.
+  </Step>
+  <Step title="Create Subflow">
+    Right-click one of the selected blocks and choose **Create Subflow**. This action moves the selected blocks into a new (_unsaved!_) flow, complete with input and output blocks that link back to the main flow.
+  </Step>
+</Steps>
 
-Make sure you go into the flow info section for the subflow and give it a name and description, or else it will be Untitled Flow.
+![Creating a subflow](../assets/create-subflow.gif)
 
-Make sure you save your new flow! (CMD+S or CTRL+S)
+<Tip>
+  Name and describe your subflow in the flow info section to keep it organised. Don't forget to save with **CMD+S** or **CTRL+S**.
+</Tip>
 
-The source blocks will **not** be removed from the parent flow at this time. It is up to you to replace them with your newly created subflow.
+<Note>
+  The original blocks in the parent flow remain in place, so you'll need to manually replace them with your subflow if desired.
+</Note>
 
 ## Editing a Block
 
-Click the gear icon on the top right of a block to edit it. This will open the Block Editor. See the [interface overview](./overview-of-interface) for more information about the Block Editor.
+To customise a block, click the gear icon in the top-right corner. This opens the **Block Editor**.
+
+<CardGroup cols={2}>
+  <Card title="Edit Block Details">
+    Adjust the block's title and description for clear documentation.
+  </Card>
+  <Card title="Fine-Tune Settings">
+    Modify settings specific to the block type, such as batch processing or variant options.
+  </Card>
+</CardGroup>
+
+For more on editing blocks, visit the [Interface Overview](./overview-of-interface).
+
+---
+
+With these tools and tips, you're ready to create dynamic, organised workflows in Lawme. Explore the various components and configurations to find what works best for your legal needs.

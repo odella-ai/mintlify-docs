@@ -1,115 +1,194 @@
 ---
-title: 'The Interface'
-description: 'Learn about the main components of the Lawme workflow interface'
+title: 'Workflow Interface'
+description: 'Explore the powerful components of Lawme’s intuitive workflow interface'
+icon: 'window'
 ---
+
+import { Callout, Card, CardGroup, Steps, Step, Tip } from '@mintlify/components';
+
+## Key Interface Components
+
+Lawme's workflow interface is designed to be intuitive yet powerful, allowing you to create complex legal workflows with ease. Let’s explore the main components:
+
+<CardGroup cols={2}>
+  <Card
+    title="Sidebar"
+    icon="sidebar"
+    image="/images/sidebar.png"
+  >
+    Navigate between projects, flows, and access essential configuration options.
+  </Card>
+  <Card
+    title="Flow Canvas"
+    icon="diagram-project"
+    image="/images/flow-canvas.png"
+  >
+    The main workspace where you design and visualise your legal workflows.
+  </Card>
+  <Card
+    title="Block Editor"
+    icon="pen-to-square"
+    image="/images/block-editor.png"
+  >
+    Customise individual blocks to fine-tune your workflow's behaviour.
+  </Card>
+  <Card
+    title="Action Bar"
+    icon="play"
+    image="/images/action-bar.png"
+  >
+    Control the execution of your workflows and access additional features.
+  </Card>
+</CardGroup>
 
 ## Sidebar
 
-### Project Info Tab
+The sidebar is your central navigation hub, offering quick access to project information, flows, and flow-specific details.
 
-In the project info tab you can set the name and description of your project. This data is saved with your project file and used for documenting your project.
+![Sidebar](../snippets/workflow_sidebar.gif)
 
-On the project info tab you can also configure what plugins are enabled for your project. See the [Plugins](./plugins.md) documentation for more information.
+### General Tab
 
-![Project Info](../assets/project-info.png)
+The General tab allows you to set basic information about your workflow:
+
+- **Workflow Name**: Set a clear, descriptive name for your workflow.
+- **Workflow Description**: Provide a concise overview of your workflow's purpose and scope.
+
+<Tip>
+  A well-documented project makes collaboration easier and helps you quickly identify the right workflow when you need it.
+</Tip>
 
 ### Flows Tab
 
-The flows tab is where you can navigate between all flows in your project, add new flows, and delete/duplicate existing flows.
+The Flows tab is where you manage your workflow components:
 
-![Flows](../assets/flows.png)
+- **Main Flow**: The primary, undeletable flow of your workflow.
+- **Flow Explorer**: Click on any flow to view and edit it.
+- **Add Flow**: Click the "+" icon to create a new flow.
+- **Rename Flow**: Use the pencil icon to edit a flow's name and description.
+- **Delete Flow**: Remove a flow with the trash icon. Note: This action is irreversible.
 
-Clicking on a flow in the list will open it in the main flow area. To add a new flow, right click in the blank space in the flow list and select "New Flow".
+Use this tab to organize and structure your legal workflow efficiently.
 
-To delete a flow, right click on it and select "Delete Flow". This will delete the flow from your project.
+<Callout type="warning">
+  Deleting a flow is permanent and cannot be undone. Always ensure you have a backup of your workflow before making significant changes.
+</Callout>
 
-:::caution
+### Plugins Tab
 
-There is no undo at this time! Deleting a flow is permanent! We recommend you store your rivet project files in source control.
+The Plugins tab allows you to integrate external services and extend the functionality of your workflows:
 
-:::
+Currently available plugins include:
 
-To duplicate a flow, right click on it and select "Duplicate Flow". This will create a new flow with the same blocks and connections as the original flow.
+- **G-Mail**: Draft, send and search for e-mails in your workflows using G-Mail.
+- **Hubspot**: Search your Hubspot CRM for contacts and companies.
+- **Google Drive**: Access files in your Google Drive for use in our template builder and within your workflows.
 
-### Flow Info Tab
+<Tip>
+  Connecting plugins enhances your workflow capabilities by allowing seamless integration with external tools and services you already use.
+</Tip>
 
-In the flow info tab you can set the name and description of your flow. This data is saved with your project file and used for documenting your flow and organizing your flows in the flow list.
+### Builder Tab
 
-![Flow Info](../assets/flow-info.png)
+The Builder tab provides settings to customize your workflow environment:
 
-## Flow
+- **Previous data per node to keep**: Set the number of previous data values to retain for each node. This helps in tracking the history of node operations.
+- **Zoom sensitivity**: Adjust the sensitivity of zooming when using the mouse wheel. Move the slider towards "Slow" for finer control or "Fast" for quicker zooming.
 
-You will mainly be working in the Flow area of the interface. It contains all of your blocks in the current flow and the connections between them.
+<Tip>
+  Experiment with these settings to find the optimal configuration for your workflow management style. Adjusting the zoom sensitivity can greatly improve your navigation experience on the canvas.
+</Tip>
 
-![Flow area](../assets/flow-area.png)
+### Delete Workflow
 
-### Blocks
+The Delete Workflow tab allows you to permanently remove a workflow and all its associated data:
 
-For information on how to manipulate blocks, see [Working with Blocks](./adding-connecting-blocks.md).
+To delete a workflow:
 
-### Canvas
+1. Click the **"Delete workflow"** button in the sidebar to open the deletion interface.
+2. To prevent accidental deletions, you must **type the exact name** of the workflow you wish to delete in the text field (e.g., "Delete New test workflow").
+3. The delete button will become **active** once the correct name is entered.
+4. Click the **"Delete New test workflow"** button to permanently remove the workflow.
 
-The canvas is the main area of the flow. You can click and drag on the canvas to move the flow around. You can also use the scroll wheel to zoom in and out.
+<Callout type="warning">
+  **Deleting a workflow is irreversible.** Ensure you have backups of any important data before proceeding with deletion.
+</Callout>
 
-Right click to open the context menu to add new blocks.
 
-Hold shift and drag to create a selection box. Any blocks inside the selection box will be selected. You can then move all of the selected blocks as a group, or create a subflow from the selected blocks. You can also hold shift and click the title bar of a block to add it to the selection.
+## Flow Canvas
+
+The Flow Canvas is where your legal workflows come to life. Here’s how to navigate and use this powerful space:
+
+- **Pan**: Click and drag to move around the canvas.
+- **Zoom**: Use the scroll wheel to zoom in and out.
+- **Add Blocks**: Right-click to open the context menu and add new blocks.
+- **Select Multiple Blocks**: Hold Shift and drag to create a selection box, or Shift-click block title bars.
+- **Group Operations**: Move selected blocks as a group or create subflows from selections.
+
+
 
 ## Block Editor
 
-The block editor is visible when you click the edit block icon on a block. It is used to edit the data on the block.
+Customise your workflow blocks with the Block Editor:
 
-You can close the block editor by clicking the close button in the top right, by pressing the escape key, or by clicking on any blank space in the flow.
-
-### Block Title & Description
-
-You can edit the title of the block in the block editor (changes the title shown on the flow). You can also edit the description of the block in the block editor, for documentation purposes.
-
-### Batched Block
-
-Toggles whether the block is a batched block. For more information on batched blocks, see the [Batching](./batching) documentation.
-
-When batching is enabled, the number input next to the batch toggle is the **maximum batch amount**. This is a safeguard for excessive batching. If the data exceeds the maximum batch amount, only the first N items will be executed, where N is the maximum batch amount.
-
-### Variants
-
-Variants are used to create multiple versions of the same block. The button on the right allows you to save the current block configuration as a new variant. The dropdown on the left allows you to apply existing variants to the current data on the block.
-
-Variants allow you to save slight differences to a block, and test them without losing the data. For example, you may have a [Text Block](../../block-reference/text) with a message to an LLM. You may want to test different variations of the message to see which one performs better and gives better AI results.
-
-### Block Data Editor
-
-This area contains the editors for the currently selected block. The editor will change depending on the type of block you are editing. For example, the shown [Text Block](../../block-reference/text) has a text editor, and the [Chat Block](../../block-reference/chat) has a chat configuration editor.
-
-## Overlays
-
-At the top of the screen are a set of overlay panels you may enable. The available overlays are listed below.
-
-
-### Workflow Viewer
-
-The chat viewer overlay gives you a full screen view of every Chat block that has been performed, or is in-progress, in your project.
-
-This view can give you a quick overview of how your AI is performing, and what it is doing at any given time. It can also be used to debug issues with your AI.
+<CardGroup cols={2}>
+  <Card
+    title="Block Details"
+    icon="pen"
+  >
+    Edit block titles and descriptions for clear documentation.
+  </Card>
+  <Card
+    title="Batching"
+    icon="layer-group"
+  >
+    Enable batch processing and set maximum batch amounts for efficiency.
+  </Card>
+  <Card
+    title="Variants"
+    icon="code-branch"
+  >
+    Create and switch between different versions of a block to test variations.
+  </Card>
+  <Card
+    title="Block-Specific Editors"
+    icon="sliders"
+  >
+    Access specialised editors tailored to each block type.
+  </Card>
+</CardGroup>
 
 ## Action Bar
 
-The action bar is in the top-right of the screen. It contains buttons for running, pausing, and aborting the current flow, and the main Lawme menu button.
+Control your workflow execution and access additional features:
 
-![Action bar](../assets/action-bar.png)
+<CardGroup cols={4}>
+  <Card
+    title="Run"
+    icon="play"
+  >
+    Start executing the current flow.
+  </Card>
+  <Card
+    title="Abort"
+    icon="stop"
+  >
+    Immediately stop the running flow.
+  </Card>
+  <Card
+    title="Pause/Resume"
+    icon="pause"
+  >
+    Temporarily halt or continue flow execution.
+  </Card>
+  <Card
+    title="Menu"
+    icon="ellipsis"
+  >
+    Access additional Lawme features and settings.
+  </Card>
+</CardGroup>
 
-### Run
-
-Clicking the run button will run the current flow.
-
-### Abort
-
-Visible while a flow is running. Clicking the abort button will abort the current flow.
-
-### Pause/Resume
-
-Visible while a flow is running. Clicking the pause button will pause the current flow, and clicking the resume button will resume the current flow from where it was paused.
-
-### Menu
-
-Access the main Lawme menu by clicking the menu '...' button.
+<Tip>
+  Experiment with different components of the interface to find the most efficient workflow for your legal tasks. The flexibility of Lawme's interface allows you to tailor your experience to your specific needs.
+</Tip>
