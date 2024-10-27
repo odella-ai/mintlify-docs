@@ -1,184 +1,239 @@
 ---
 title: 'All Blocks'
 description: 'A comprehensive list of all built-in blocks in Lawme'
-sidebarTitle: 'All'
+sidebarTitle: 'Overview'
 ---
 
 The following is a comprehensive list of all blocks built into the core of Lawme.
 
-## Text
-
-<CardGroup cols={2}>
-  <Card title="Chunk" icon="puzzle-piece" href="./chunk.mdx">
-    Splits a string into an array of strings based on a token count.
-  </Card>
-  <Card title="Extract with Regex" icon="magnifying-glass" href="./extract-with-regex.mdx">
-    Extracts strings from a string using a regular expression.
-  </Card>
-  <Card title="Join" icon="link" href="./join.mdx">
-    Concatenates an array of strings into a single string.
-  </Card>
-  <Card title="Prompt" icon="comment" href="./prompt.mdx">
-    Creates a chat message with an attached "type" and optional "name".
-  </Card>
-  <Card title="Split Text" icon="scissors" href="./split-text.mdx">
-    Splits a string into an array of substrings based on a delimiter.
-  </Card>
-  <Card title="Text" icon="font" href="./text.mdx">
-    Outputs a string of text with support for interpolation.
-  </Card>
-</CardGroup>
-
 ## AI
 
+Leverage the power of artificial intelligence to enhance your workflows with these AI-powered blocks.
+
 <CardGroup cols={2}>
-  <Card title="Chat" icon="robot" href="./chat.mdx">
-    Sends messages to an LLM and returns the response.
+  <Card title="AI Filter" icon="filter" href="./ai/ai-filter">
+    Filters data using AI-powered criteria.
+  </Card>
+  <Card title="Analyze Table" icon="table" href="./ai/analyze-table">
+    Performs AI analysis on tabular data.
+  </Card>
+  <Card title="Ask AI" icon="question" href="./ai/ask-ai">
+    Queries an AI model for information or answers.
+  </Card>
+  <Card title="Create Chart" icon="chart-bar" href="./ai/create-chart">
+    Generates charts or visualizations using AI.
+  </Card>
+  <Card title="Decision" icon="balance-scale" href="./ai/decision">
+    Makes AI-powered decisions based on input data.
+  </Card>
+  <Card title="Describe Image" icon="image" href="./ai/describe-image">
+    Generates descriptions of images using AI.
+  </Card>
+  <Card title="Extract Data" icon="database" href="./ai/extract-data">
+    Extracts structured data from unstructured text using AI.
+  </Card>
+  <Card title="Generate Questions" icon="question-circle" href="./ai/generate-questions">
+    Creates relevant questions based on given context using AI.
+  </Card>
+  <Card title="Research AI" icon="search" href="./ai/research-ai">
+    Conducts AI-powered research on a given topic.
   </Card>
 </CardGroup>
 
-## Lists
+## Loaders
+
+Load and parse various types of data into your workflows with these loader blocks.
 
 <CardGroup cols={2}>
-  <Card title="Array" icon="layer-group" href="./array.mdx">
-    Constructs or merges arrays from multiple inputs.
+  <Card title="Read Binary" icon="file-binary" href="./loaders/read-binary">
+    Reads binary data from a file.
   </Card>
-  <Card title="Filter" icon="filter" href="./filter.mdx">
-    Filters elements of an array based on boolean values.
+  <Card title="Read File" icon="file-arrow-down" href="./loaders/read-file">
+    Reads the contents of a specified file.
   </Card>
-  <Card title="Pop" icon="arrow-up-from-bracket" href="./pop.mdx">
-    Removes the first or last element from an array.
-  </Card>
-  <Card title="Shuffle" icon="shuffle" href="./shuffle.mdx">
-    Randomizes the order of elements in an array.
-  </Card>
-  <Card title="Slice" icon="knife" href="./slice.mdx">
-    Extracts a specific portion of an array.
+  <Card title="Read Table" icon="table" href="./loaders/read-table">
+    Reads and parses tabular data from a file.
   </Card>
 </CardGroup>
 
-## Numbers
+## Draft
+
+Create and manipulate draft documents within your workflows using these draft-related blocks.
 
 <CardGroup cols={2}>
-  <Card title="Evaluate" icon="calculator" href="./evaluate.mdx">
-    Performs various mathematical operations on input values.
+  <Card title="Draft" icon="pencil-alt" href="./draft/draft">
+    Creates a draft document or message.
   </Card>
-  <Card title="Number" icon="hashtag" href="./number.mdx">
-    Outputs a constant number value or converts input to a number.
+  <Card title="Populate Template" icon="file-alt" href="./draft/populate-template">
+    Fills a template with provided data.
   </Card>
-  <Card title="RNG" icon="dice" href="./rng.mdx">
-    Generates a random number within a specified range.
+  <Card title="Table to File" icon="file-excel" href="./draft/table-to-file">
+    Converts tabular data to a file format.
+  </Card>
+  <Card title="Text to File" icon="file-alt" href="./draft/text-to-file">
+    Converts text content to a file.
   </Card>
 </CardGroup>
 
-## Objects
+
+## Logic
+
+Control the flow and execution of your workflows with these essential logic blocks.
 
 <CardGroup cols={2}>
-  <Card title="Extract Object Path" icon="sitemap" href="./extract-object-path.mdx">
-    Runs jsonpath queries on an object.
+  <Card title="Abort Flow" icon="stop" href="./logic/abort-flow">
+    Immediately stops the execution of the entire flow.
   </Card>
-  <Card title="Object" icon="cube" href="./object.mdx">
-    Creates an object from input values and a JSON template.
+  <Card title="Coalesce" icon="code-merge" href="./logic/coalesce">
+    Returns the first non-null value from a list of inputs.
+  </Card>
+  <Card title="Compare" icon="not-equal" href="./logic/compare">
+    Performs comparison operations between two input values.
+  </Card>
+  <Card title="Delay" icon="clock" href="./logic/delay">
+    Introduces a pause in the execution of the flow.
+  </Card>
+  <Card title="If/Else" icon="code-fork" href="./logic/if-else">
+    Chooses between two values based on a condition.
+  </Card>
+  <Card title="Loop Controller" icon="rotate" href="./logic/loop-controller">
+    Creates loops within your flow.
+  </Card>
+  <Card title="Match" icon="equals" href="./logic/match">
+    Matches a string input against regular expressions.
+  </Card>
+  <Card title="Passthrough" icon="right-left" href="./logic/passthrough">
+    Transfers the input value directly to the output.
+  </Card>
+  <Card title="Race Inputs" icon="flag-checkered" href="./logic/race-inputs">
+    Outputs the value of the first input to complete.
+  </Card>
+  <Card title="Raise Event" icon="bell" href="./logic/raise-event">
+    Triggers an event within the flow.
   </Card>
 </CardGroup>
 
 ## Data
 
+Manage and manipulate various types of data within your workflows using these data-centric blocks.
+
 <CardGroup cols={2}>
-  <Card title="Audio" icon="volume-high" href="./audio.mdx">
+  <Card title="Array" icon="layer-group" href="./data/array">
+    Constructs or merges arrays from multiple inputs.
+  </Card>
+  <Card title="Audio" icon="volume-high" href="./data/audio">
     Defines an audio sample for use with other blocks.
   </Card>
-  <Card title="Bool" icon="toggle-on" href="./bool.mdx">
+  <Card title="Bool" icon="toggle-on" href="./data/bool">
     Outputs a boolean constant or converts input to boolean.
   </Card>
-  <Card title="Image" icon="image" href="./image.mdx">
+  <Card title="File" icon="file" href="./data/file">
+    Handles file operations within the workflow.
+  </Card>
+  <Card title="Image" icon="image" href="./data/image">
     Defines a static image for use with other blocks.
   </Card>
-</CardGroup>
-
-## Logic
-
-<CardGroup cols={2}>
-  <Card title="Abort Flow" icon="stop" href="./abort-flow.mdx">
-    Immediately stops the execution of the entire flow.
+  <Card title="Number" icon="hashtag" href="./data/number">
+    Outputs a constant number value or converts input to a number.
   </Card>
-  <Card title="Coalesce" icon="code-merge" href="./coalesce.mdx">
-    Returns the first non-null value from a list of inputs.
-  </Card>
-  <Card title="Compare" icon="not-equal" href="./compare.mdx">
-    Performs comparison operations between two input values.
-  </Card>
-  <Card title="Delay" icon="clock" href="./delay.mdx">
-    Introduces a pause in the execution of the flow.
-  </Card>
-  <Card title="If" icon="code-branch" href="./if.mdx">
-    Passes a value through True or False port based on a condition.
-  </Card>
-  <Card title="If/Else" icon="code-fork" href="./if-else.mdx">
-    Chooses between two values based on a condition.
-  </Card>
-  <Card title="Match" icon="equals" href="./match.mdx">
-    Matches a string input against regular expressions.
-  </Card>
-  <Card title="Passthrough" icon="right-left" href="./passthrough.mdx">
-    Transfers the input value directly to the output.
-  </Card>
-  <Card title="Race Inputs" icon="flag-checkered" href="./race-inputs.mdx">
-    Outputs the value of the first input to complete.
+  <Card title="Object" icon="cube" href="./data/object">
+    Creates an object from input values and a JSON template.
   </Card>
 </CardGroup>
 
-## Input/Output
+## Modifiers
+
+Transform and manipulate data within your workflows using these versatile modifier blocks.
 
 <CardGroup cols={2}>
-  <Card title="Input" icon="arrow-right-to-bracket" href="./input.mdx">
+  <Card title="Chunk" icon="puzzle-piece" href="./modifiers/chunk">
+    Splits a string into an array of strings based on a token count.
+  </Card>
+  <Card title="Extract JSON" icon="code" href="./modifiers/extract-json">
+    Extracts JSON data from a string or object.
+  </Card>
+  <Card title="Extract Markdown Code Blocks" icon="code" href="./modifiers/extract-markdown-code-blocks">
+    Extracts code blocks from Markdown text.
+  </Card>
+  <Card title="Extract YAML" icon="file-code" href="./modifiers/extract-yaml">
+    Extracts YAML data from a string or object.
+  </Card>
+  <Card title="Filter" icon="filter" href="./modifiers/filter">
+    Filters elements of an array based on boolean values.
+  </Card>
+  <Card title="Flatten" icon="layer-group" href="./modifiers/flatten">
+    Flattens nested arrays into a single-level array.
+  </Card>
+  <Card title="Hash" icon="hashtag" href="./modifiers/hash">
+    Generates a hash value from input data.
+  </Card>
+  <Card title="Index" icon="list-ol" href="./modifiers/index">
+    Retrieves an element from an array at a specified index.
+  </Card>
+  <Card title="Join" icon="link" href="./modifiers/join">
+    Concatenates an array of strings into a single string.
+  </Card>
+  <Card title="Pop" icon="arrow-up-from-bracket" href="./modifiers/pop">
+    Removes the first or last element from an array.
+  </Card>
+  <Card title="Shuffle" icon="random" href="./modifiers/shuffle">
+    Randomizes the order of elements in an array.
+  </Card>
+  <Card title="Slice" icon="cut" href="./modifiers/slice">
+    Extracts a specific portion of an array.
+  </Card>
+</CardGroup>
+
+## IO
+
+Manage input and output operations in your workflows with these IO-focused blocks.
+
+<CardGroup cols={2}>
+  <Card title="Confirm" icon="check-circle" href="./io/confirm">
+    Prompts the user for confirmation during flow execution.
+  </Card>
+  <Card title="Input" icon="arrow-right-to-bracket" href="./io/input">
     Defines an input for a flow.
   </Card>
-  <Card title="Output" icon="arrow-right-from-bracket" href="./output.mdx">
+  <Card title="Output" icon="arrow-right-from-bracket" href="./io/output">
     Defines the outputs of a flow.
   </Card>
-  <Card title="Read File" icon="file-arrow-down" href="./read-file.mdx">
-    Reads the contents of a specified file.
+  <Card title="Upload File" icon="file-upload" href="./io/upload-file">
+    Allows file upload during flow execution.
   </Card>
-  <Card title="User Input" icon="keyboard" href="./user-input.mdx">
+  <Card title="User Input" icon="keyboard" href="./io/user-input">
     Prompts the user for input during flow execution.
   </Card>
 </CardGroup>
 
 ## Advanced
 
+Implement complex operations and extend your workflow capabilities with these advanced blocks.
+
 <CardGroup cols={2}>
-  <Card title="Code" icon="code" href="./code.mdx">
+  <Card title="Code" icon="code" href="./advanced/code">
     Executes arbitrary JavaScript code during a flow's operation.
   </Card>
-  <Card title="Comment" icon="comment-dots" href="./comment.mdx">
+  <Card title="Comment" icon="comment-dots" href="./advanced/comment">
     Adds notes or comments to a flow.
   </Card>
-  <Card title="Context" icon="globe" href="./context.mdx">
-    Allows access to shared inputs across any flow.
-  </Card>
-  <Card title="External Call" icon="phone" href="./external-call.mdx">
-    Executes external functions within a flow.
-  </Card>
-  <Card title="Get Global" icon="download" href="./get-global.mdx">
-    Retrieves a global value shared across all flows.
-  </Card>
-  <Card title="HTTP Call" icon="globe" href="./http-call.mdx">
+  <Card title="HTTP Call" icon="globe" href="./advanced/http-call">
     Makes an HTTP call to a specified URL.
   </Card>
-  <Card title="Loop Controller" icon="rotate" href="./loop-controller.mdx">
-    Creates loops within your flow.
-  </Card>
-  <Card title="Raise Event" icon="bell" href="./raise-event.mdx">
-    Triggers an event within the flow.
-  </Card>
-  <Card title="Set Global" icon="upload" href="./set-global.mdx">
-    Sets a global value shared across all flows.
-  </Card>
-  <Card title="Subflow" icon="diagram-project" href="./subflow.mdx">
+  <Card title="Subflow" icon="diagram-project" href="./advanced/subflow">
     Executes another flow within the current flow.
   </Card>
-  <Card title="Wait For Event" icon="hourglass" href="./wait-for-event.mdx">
+  <Card title="Wait For Event" icon="hourglass" href="./advanced/wait-for-event">
     Pauses the execution until a specific event is signaled.
+  </Card>
+</CardGroup>
+
+## Agents
+
+Enhance your workflows with AI agent capabilities using these agent-specific blocks.
+
+<CardGroup cols={2}>
+  <Card title="Auto System Prompt" icon="robot" href="./agents/auto-system-prompt">
+    Automatically generates a system prompt for AI agents.
   </Card>
 </CardGroup>
