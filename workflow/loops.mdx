@@ -1,111 +1,61 @@
 ---
 title: 'Loops'
-description: 'Understanding and using loops in Lawme workflows'
+description: 'Using loops in Lawme workflows'
 ---
 
 <Callout type="info">
-  Loops are powerful tools in Lawme that allow you to repeat actions and process information multiple times. While they might seem complex at first, they're incredibly useful for many tasks in your legal workflows.
+  Loops allow you to repeat actions in Lawme, automating tasks in your legal workflows. While they may seem complex initially, they’re incredibly useful.
 </Callout>
-
-Loops and the loop controller are advanced concepts in Lawme, but they're essential for many use cases. Let's break them down in a way that's easier to understand.
 
 ## What is a Loop?
 
-A loop is like a cycle that repeats a set of actions until a certain condition is met. It's similar to saying, "Keep doing this until I tell you to stop."
+A loop repeats a set of actions until a specific condition is met—similar to saying, "Keep doing this until I say stop."
 
-Here's the simplest loop you can create in Lawme:
+### Simple Loop Example
 
-<Frame>
-  <img src="../assets/simplest-loop.png" alt="Simplest Loop" />
-</Frame>
+The simplest loop in Lawme repeats actions until a stopping point is specified.
 
 <Tip>
-  When creating a loop, always connect a block (like an Output block) to the 'Break' part. This gives the flow a "start point" to work backwards from. For basic cases, just connect an Output block to `Break`.
+  Always connect an Output block to the 'Break' part of the loop to provide it with a clear stopping point.
 </Tip>
 
-## The Loop Controller: The Heart of Loops
+## The Loop Controller
 
-The loop controller is a special block in Lawme that manages how your loop works. It's the only block allowed to contain cycles of blocks including itself. Think of it as the conductor of an orchestra, directing how information flows through your loop.
+The loop controller is the "brain" of your loop, managing how it operates. It’s the only block that can contain cycles of blocks, directing the flow of information through your loop.
 
-### How the Loop Controller Works
+### Key Parts of the Loop Controller
 
 <CardGroup cols={2}>
   <Card title="Continue" icon="play">
-    This input tells the loop whether to keep going or stop. It's always present and uses a boolean value (true or false).
+    Controls whether the loop continues or stops, using a true/false value.
   </Card>
-  <Card title="Input Pairs" icon="exchange-alt">
-    These are sets of values that flow through your loop, changing with each cycle. Each pair has an input and a default input.
+  <Card title="Input Pairs" icon="arrows-rotate">
+    These are values that update with each cycle. Each pair has an input and an optional default input.
   </Card>
 </CardGroup>
 
 <Callout type="info">
-  The default input in each pair is optional. It's like the starting value for that part of your loop. The regular input is where you put the updated value after each cycle.
+  The default input provides an initial value, while the main input updates each cycle.
 </Callout>
 
-### Outputs of the Loop Controller
+### Outputs in the Loop Controller
 
-For each pair of inputs (except 'Continue'), the loop controller has one output. On the first run, this output uses the default value. After that, it uses the value from the previous cycle.
+For each input pair (except 'Continue'), there’s an output. The first cycle uses the default value, while following cycles use the last output.
 
-### Example: A Simple Loop in Action
+## Example: Loop in Action
 
-Let's look at a simple loop that changes two values, 'A' and 'B':
-
-<Steps>
-  1. Starting the Loop:
-     ![Loop controller iteration 1](../assets/loop-controller-iteration-1.png)
-     The loop begins with initial values 'A' and 'B'.
-
-  2. Running the Loop:
-     ![Loop controller iteration 2](../assets/loop-controller-iteration-2.png)
-     In each cycle, 'A' becomes 'A + A', and 'B' becomes 'B + B'.
-</Steps>
+Imagine a simple loop changing values 'A' and 'B'. In each cycle, 'A' and 'B' are updated, performing calculations or actions until a stop condition is met.
 
 <Warning>
-  This example loop would keep going forever. In real workflows, you'll want to add a condition to stop the loop. Lawme will stop the loop if it reaches its maximum iteration count to prevent infinite loops.
+  Be sure to add a stopping condition to avoid an endless loop. Lawme will automatically stop the loop if a maximum iteration count is reached.
 </Warning>
 
 ## Practical Uses for Loops
 
 ### Adding Items to a List
 
-You can use loops to keep adding items to a list. This is useful for collecting information over multiple steps.
-
-<Frame>
-  <img
-    src="../assets/loop-array-recipe.png"
-    alt="Loop array recipe"
-  />
-</Frame>
+Loops can add items to a list, ideal for gathering information across multiple steps.
 
 <Callout type="info">
-  The Array Block is set to Flatten by default, making it easy to add new items to your list in each cycle of the loop.
+  The Array Block is set to Flatten by default, making it easy to add new items with each cycle of the loop.
 </Callout>
-
-### Creating a Chatbot
-
-Loops can help you create an interactive chatbot that remembers previous messages:
-
-<Frame>
-  <img
-    src="../assets/chatbot-flow.png"
-    alt="Chatbot flow"
-  />
-</Frame>
-
-<Steps>
-  1. The chatbot starts with an initial message.
-  2. It shows this message to the user and waits for a response.
-  3. It remembers the conversation history.
-  4. It uses AI to create a new response based on the history.
-  5. The process repeats, creating a continuous conversation.
-</Steps>
-
-This loop maintains two pieces of information:
-1. The entire chat history, except for the last chatbot message.
-2. The last message from the chatbot.
-
-<Tip>
-  The best way to understand loops is to experiment with them in your workflows. Don't be afraid to try different setups and see what happens!
-</Tip>
-
-Loops might seem tricky at first, but they're powerful tools that can make your Lawme workflows much more dynamic and efficient. With practice, you'll find many ways to use loops to automate complex legal processes and create interactive tools like chatbots.

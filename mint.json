@@ -74,17 +74,6 @@
       ]
     },
     {
-      "group": "Workflow Tutorials",
-      "pages": [
-        "workflow-tutorial/01-simple-flow",
-        "workflow-tutorial/02-dynamic-prompting",
-        "workflow-tutorial/03-matching-conditionals",
-        "workflow-tutorial/04-subflows",
-        "workflow-tutorial/05-batching",
-        "workflow-tutorial/06-loops"
-      ]
-    },
-    {
       "group": "Block Documentation",
       "pages": [
         "block-reference/all-blocks"
@@ -132,8 +121,7 @@
         "block-reference/logic/loop-controller",
         "block-reference/logic/match",
         "block-reference/logic/passthrough",
-        "block-reference/logic/race-inputs",
-        "block-reference/logic/raise-event"
+        "block-reference/logic/race-inputs"
       ]
     },
     {

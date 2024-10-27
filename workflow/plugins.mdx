@@ -28,30 +28,16 @@ Plugins are configured on a per-project basis. To enable a plugin:
   3. Click the **Add** button next to the plugin you want to install
 </Steps>
 
-<Frame>
-  <img
-    src="../assets/plugins.png"
-    alt="Available Plugins"
-  />
-</Frame>
 
-## Connecting Applications
+## Currently Available Plugins
 
-Once a plugin is installed, you can connect your applications through the plugin settings:
+The Plugins tab allows you to integrate external services and extend the functionality of your workflows. Currently available plugins include:
 
-<Steps>
-  1. Go to the **Project** tab in the left sidebar
-  2. Find the installed plugin in the plugins list
-  3. Click the settings icon next to the plugin
-  4. Follow the prompts to connect your application (this may involve entering API keys or authorizing access)
-</Steps>
+- **G-Mail**: Draft, send, and search for e-mails in your workflows using G-Mail.
+- **Hubspot**: Search your Hubspot CRM for contacts and companies.
+- **Google Drive**: Access files in your Google Drive for use in our template builder and within your workflows.
 
-<Frame>
-  <img
-    src="../assets/plugin-settings.png"
-    alt="Plugin Settings"
-  />
-</Frame>
+Connecting plugins enhances your workflow capabilities by allowing seamless integration with external tools and services you already use.
 
 <Tip>
   Remember to save your settings after connecting an application to ensure the integration is active.
@@ -71,13 +57,6 @@ To use a connected application in a workflow:
   Connected applications must be installed into each workflow where you want to use them. This ensures that only authorized workflows have access to specific tools.
 </Warning>
 
-<Frame>
-  <img
-    src="../assets/workflow-application-usage.png"
-    alt="Using Application in Workflow"
-  />
-</Frame>
-
 ## Managing Plugins
 
 ### Removing Plugins
@@ -89,44 +68,6 @@ To remove a plugin:
   2. Find the plugin in the plugins list
   3. Click the `...` menu next to the plugin
   4. Select **Remove**
-</Steps>
-
-<Frame>
-  <img
-    src="../assets/remove-plugin.png"
-    alt="Remove Plugin"
-  />
-</Frame>
-
-### Installing Custom Plugins
-
-For plugins not listed in Lawme:
-
-<Steps>
-  1. Scroll to the bottom of the plugins list
-  2. Click the **Add** button next to "NPM Plugin"
-  3. Enter the name and optional version of the NPM-published plugin
-  4. Click **Add** to install
-</Steps>
-
-<Frame>
-  <img
-    src="../assets/add-npm-plugin.png"
-    alt="Add NPM Plugin"
-  />
-</Frame>
-
-### Installing Plugins from Source
-
-For advanced users, you can install plugins directly from source:
-
-<Steps>
-  1. Navigate to the plugin install directory (shown below the plugins list in Lawme)
-  2. Create a directory named `<package-name>-latest`
-  3. Clone the plugin source into a `package` subdirectory
-  4. In Lawme, choose "Add NPM Plugin" and enter the package name
-  5. Build the plugin if necessary (run `yarn` and `yarn build` in the `package` directory)
-  6. Click **Add** to install the plugin
 </Steps>
 
 By leveraging plugins effectively, you can create powerful, integrated workflows that streamline your legal processes and improve productivity across your organization.

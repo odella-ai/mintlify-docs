@@ -3,57 +3,72 @@ title: "Live Debugging"
 description: "Learn how to debug your workflows in real-time using Lawme's live debugging features"
 ---
 
-Lawme provides powerful live debugging capabilities that allow you to inspect the output of each block in your workflow as it executes. This feature enables you to identify and resolve issues quickly, ensuring your workflows perform as expected.
+Lawme offers powerful live debugging capabilities that allow you to inspect the output of each block in your workflow as it executes. This feature enables you to identify and resolve issues quickly, ensuring your workflows perform as expected.
+
+<Frame>
+  <img src="../assets/workflows_live.gif" alt="Workflow Live Flow" />
+</Frame>
 
 ## Inspecting Block Outputs
 
 As your workflow runs, you can view the output of each block in real-time. This output appears directly beneath each block in the flow, providing immediate visibility into the data flowing through your workflow.
 
-<Frame>
-  <img
-    src="placeholder-block-output.png"
-    alt="Block Output Example"
-  />
-</Frame>
-
 ## Interface Elements
+
+<CardGroup cols={2}>
+  <Card
+    title="Currently Executing Blocks"
+    icon="circle-play"
+    href="#currently-executing-blocks"
+  >
+    Blocks that are currently executing are highlighted in purple, making it easy to track the progress of your workflow.
+  </Card>
+  <Card
+    title="Execution Picker"
+    icon="list-ol"
+    href="#execution-picker"
+  >
+    When a block runs multiple times, a numeric picker appears above the block's output, allowing you to view results of each execution separately.
+  </Card>
+  <Card
+    title="Flow Execution Indicator"
+    icon="spinner"
+    href="#flow-execution-indicator"
+  >
+    A spinner appears next to the flow name in the Flows list when a flow is running, including subflows.
+  </Card>
+</CardGroup>
 
 ### Currently Executing Blocks
 
-Blocks that are currently executing are highlighted in orange, making it easy to track the progress of your workflow.
-
-<Frame>
-  <img
-    src="placeholder-executing-block.png"
-    alt="Currently Executing Block"
-  />
-</Frame>
-
-For certain blocks, such as those involving LLMs, you can hover over the block to see partial outputs as they stream in.
+Blocks that are currently executing are highlighted in orange, making it easy to track the progress of your workflow. For certain blocks, such as those involving LLMs, you can hover over the block to see partial outputs as they stream in.
 
 ### Execution Picker
 
 When a block runs multiple times (e.g., in a loop or a subflow called multiple times), a numeric picker appears above the block's output. This allows you to view the results of each execution separately.
 
-<Frame>
-  <img
-    src="placeholder-execution-picker.png"
-    alt="Execution Picker"
-  />
-</Frame>
-
 ### Flow Execution Indicator
 
 When a flow is running, including subflows, a spinner appears next to the flow name in the Flows list. Clicking on a flow allows you to view its current state and executing blocks.
 
-<Frame>
-  <img
-    src="placeholder-flow-indicator.png"
-    alt="Flow Execution Indicator"
-  />
-</Frame>
-
 ## Debugging Controls
+
+<CardGroup cols={2}>
+  <Card
+    title="Pausing Execution"
+    icon="pause"
+    href="#pausing-execution"
+  >
+    Pause the current execution to examine the flow's state without stopping it completely.
+  </Card>
+  <Card
+    title="Aborting Execution"
+    icon="stop"
+    href="#aborting-execution"
+  >
+    Stop the execution entirely when needed.
+  </Card>
+</CardGroup>
 
 ### Pausing Execution
 
@@ -63,11 +78,6 @@ To pause the current execution, click the **Pause** button in the top right corn
 
 If you need to stop the execution entirely, click the **Abort** button in the top right corner.
 
-<Frame>
-  <img
-    src="placeholder-debug-controls.png"
-    alt="Debugging Controls"
-  />
-</Frame>
-
-By utilizing these live debugging features, you can gain deep insights into your workflow's behavior, making it easier to develop, test, and refine your AI-powered legal processes.
+<Tip>
+  By utilizing these live debugging features, you can gain deep insights into your workflow's behavior, making it easier to develop, test, and refine your AI-powered legal processes.
+</Tip>
