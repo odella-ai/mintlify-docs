@@ -1,38 +1,58 @@
 ---
-title: "Data Types"
-description: "Understand the various data types used in Lawme workflows"
+title: "Data Types in Lawme"
+description: "A comprehensive guide to data types used in Lawme workflows"
+icon: "database"
 ---
 
-Internally, the data the passes through Lawme is marked as a number of data types. When integrating Lawme with your own application, you will need to know what these data types are and how to handle them.
+import { Callout } from '@mintlify/components';
+
+![Block Menu](/snippets/block_menu.gif)
+
+# Understanding Data Types in Lawme
+
+When working with Lawme workflows, it's crucial to understand the various data types used internally. This knowledge is especially important when integrating Lawme with your own applications.
 
 ## DataValue
 
-A DataValue is a value that can be passed through Lawme. It is a union of all the possible data types that can be passed through Lawme. It is represented as an object with a `type` property and a `value` property. The `type` key is in the table below, except when additional type decorators are present on the type.
+A DataValue is the fundamental unit of data in Lawme. It's represented as an object with two key properties:
 
-## Decorators
+- `type`: Indicates the data type (see the Types table below)
+- `value`: Contains the actual data
 
-A type may have the following decorators applied to it, which change the type. Decorators can be combined on a type name, for example a type can be `fn<string[]>`. Valid decorators are:
+<Callout type="info">
+  The `type` property may include additional decorators, which modify how the type behaves.
+</Callout>
 
-| Decorator  | Description                                                             |
-| ---------- | ----------------------------------------------------------------------- |
-| `[]`       | The type is an array of the type before the brackets.                   |
-| `fn<type>` | The type is a function that returns the type inside the angle brackets. |
+## Type Decorators
 
-## Types
+Decorators can be applied to types to modify their behavior. They can be combined, for example: `fn<string[]>`.
 
-| Type                     | Description                                                                                             | TypeScript Type                                                            | Notes                                                                                                                                                                                                                                                                |
-| ------------------------ | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `any`                    | A special type of data that can store _anything_.                                                       | `unknown`                                                                  | Often, the value contained will be attempted to be either inferred based on the JavaScript type of the value, or it will be attempted to be coerced into a desired data type. Avoid using `any` in most cases, especially when you already know the type of a value. |
-| `boolean`                | A boolean true or false.                                                                                | `boolean`                                                                  | Equivalent to the JavaScript `boolean` type.                                                                                                                                                                                                                         |
-| `string`                 | A string value.                                                                                         | `string`                                                                   | Equivalent to the JavaScript `string` type.                                                                                                                                                                                                                          |
-| `number`                 | A number value.                                                                                         | `number`                                                                   | Equivalent to the JavaScript `number` type.                                                                                                                                                                                                                          |
-| `date`                   | A date value.                                                                                           | `string`                                                                   | ISO-8601 date string.                                                                                                                                                                                                                                                |
-| `time`                   | A time value.                                                                                           | `string`                                                                   | ISO-8601 time string.                                                                                                                                                                                                                                                |
-| `datetime`               | A datetime value.                                                                                       | `string`                                                                   | ISO-8601 datetime string.                                                                                                                                                                                                                                            |
-| `chat-message`           | A representation of a chat message to sent to an LLM, with attached metadata such as who is sending it. | `{ type: string; message: string; name?: string; function_call?: string }` |                                                                                                                                                                                                                                                                      |
-| `object`                 | An object value.                                                                                        | `Record<string, unknown>`                                                  | Roughly equivalent to the JavaScript `object` type. Often used interchangably with `any`, and may be an array sometimes.                                                                                                                                             |
-| `control-flow-excluded`  | A value that is excluded from control flow.                                                             | `undefined`               
-| `vector`                 | A vector of numbers.                                                                                    | `number[]`                                                                 | Used when generating and using embeddings.                                                                                                                                                                                                                           |
-| `image`                  | An image value.                                                                                         | `{ mediaType: string; data: UInt8Array; }`                                 |
-| `audio`                  | An audio value.                                                                                         | `{ mediaType: string; eata: UInt8Array; }`                                 |
-| `binary`                 | A binary value.                                                                                         | `UInt8Array`                                                               |
+| Decorator  | Description                                                   |
+|------------|---------------------------------------------------------------|
+| `[]`       | Indicates an array of the specified type                      |
+| `fn<type>` | Represents a function that returns the specified type         |
+
+## Lawme Data Types
+
+Here's a comprehensive list of data types used in Lawme:
+
+| Type                    | Description                                       | TypeScript Equivalent                                         | Notes                                                                                                    |
+|-------------------------|---------------------------------------------------|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| `any`                   | Can store any type of data                        | `unknown`                                                     | Use sparingly; Lawme attempts to infer or coerce to a specific type when possible                       |
+| `boolean`               | True or false value                               | `boolean`                                                     | Equivalent to JavaScript boolean                                                                         |
+| `string`                | Text data                                         | `string`                                                      | Equivalent to JavaScript string                                                                          |
+| `number`                | Numeric value                                     | `number`                                                      | Equivalent to JavaScript number                                                                          |
+| `date`                  | Date value                                        | `string`                                                      | Stored as ISO-8601 date string                                                                           |
+| `time`                  | Time value                                        | `string`                                                      | Stored as ISO-8601 time string                                                                           |
+| `datetime`              | Date and time value                               | `string`                                                      | Stored as ISO-8601 datetime string                                                                       |
+| `chat-message`          | Representation of a chat message for LLMs         | `{ type: string; message: string; name?: string; function_call?: string }` | Includes metadata such as sender information                                                             |
+| `object`                | Complex data structure                            | `Record<string, unknown>`                                     | Similar to JavaScript object; may sometimes be used interchangeably with `any` or represent an array    |
+| `control-flow-excluded` | Value excluded from control flow                  | `undefined`                                                   | Used in specific control flow scenarios                                                                  |
+| `vector`                | Numeric vector                                    | `number[]`                                                    | Commonly used for embeddings in machine learning contexts                                                |
+| `image`                 | Image data                                        | `{ mediaType: string; data: UInt8Array; }`                    | Includes media type information                                                                          |
+| `audio`                 | Audio data                                        | `{ mediaType: string; data: UInt8Array; }`                    | Includes media type information                                                                          |
+| `binary`                | Raw binary data                                   | `UInt8Array`                                                  | Used for handling binary file contents or other raw data                                                 |
+
+<Callout type="warning">
+  When integrating with Lawme, ensure you handle these data types correctly to maintain data integrity and workflow functionality.
+</Callout>
