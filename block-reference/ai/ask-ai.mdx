@@ -1,13 +1,13 @@
 ---
 id: ask-ai
 title: Ask AI Block
-description: Send messages to over 250 AI models from 13 providers for chat completions
+description: Send messages to over 250 AI models for chat completions
 sidebarTitle: Ask AI
 ---
 
 ## Overview
 
-The Ask AI Block allows you to send messages to over 250 different AI models from 13 different providers for chat completions. This versatile block provides a wide range of options for AI-powered conversations and text generation tasks.
+The Ask AI Block allows you to send messages to over 250 different AI models for chat completions. This versatile block provides a wide range of options for AI-powered conversations and text generation tasks.
 
 <Frame>
   <img src="./assets/ask-ai-block.png" alt="Ask AI Block Screenshot" />
@@ -31,12 +31,8 @@ The Ask AI Block allows you to send messages to over 250 different AI models fro
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for the request.
-</ParamField>
-
 <ParamField path="Model" type="string">
-  The specific model to use for the request. Available models depend on the selected provider.
+  The specific model to use for the request. Choose from over 250 available models across various providers.
 </ParamField>
 
 <ParamField path="Temperature" type="number" default={0.7}>
@@ -63,16 +59,12 @@ The Ask AI Block allows you to send messages to over 250 different AI models fro
   Applies a penalty for tokens based on whether they've appeared in the text so far.
 </ParamField>
 
-<ParamField path="Number of Completions" type="number" default={1}>
-  The number of alternative completions to generate.
-</ParamField>
-
 <ParamField path="Cache" type="boolean" default={false}>
   Caches the response locally. If the Ask AI block gets the exact same prompt again, it will return the cached response instead of making a new request.
 </ParamField>
 
 <Note>
-  Available settings may vary depending on the selected provider and model.
+  Available settings may vary depending on the selected model.
 </Note>
 
 ## Example: Simple Question Answering
@@ -80,7 +72,7 @@ The Ask AI Block allows you to send messages to over 250 different AI models fro
 1. Add an Ask AI block to your flow.
 2. Add a Text block and enter your question in its editor.
 3. Connect the output of the Text block to the `Prompt` input of the Ask AI block.
-4. Select your desired provider and model in the Ask AI block settings.
+4. Select your desired model in the Ask AI block settings.
 5. Run your flow. The AI's response will appear at the bottom of the Ask AI block.
 
 <Frame>
@@ -100,16 +92,16 @@ The Ask AI Block allows you to send messages to over 250 different AI models fro
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="Can I use multiple AI providers in the same workflow?">
-    Yes, you can use multiple Ask AI blocks with different providers in the same workflow.
+  <Accordion title="Can I use multiple AI models in the same workflow?">
+    Yes, you can use multiple Ask AI blocks with different models in the same workflow.
   </Accordion>
 
   <Accordion title="What happens if I connect an unsupported data type to the prompt input?">
     The block will attempt to convert the value to a string. If successful, it will be treated as a user message. If conversion fails, the input will be ignored.
   </Accordion>
 
-  <Accordion title="Are all settings available for all providers and models?">
-    No, available settings may vary depending on the selected provider and model. The block will adapt its settings based on your selection.
+  <Accordion title="Are all settings available for all models?">
+    No, available settings may vary depending on the selected model. The block will adapt its settings based on your selection.
   </Accordion>
 </AccordionGroup>
 
