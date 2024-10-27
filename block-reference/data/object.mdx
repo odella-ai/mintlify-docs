@@ -1,0 +1,85 @@
+---
+id: object
+title: Object Block
+description: Create an object from input values and a JSON template
+sidebarTitle: Object
+---
+
+## Overview
+
+The Object Block creates an object from input values and a JSON template. It automatically escapes input values and inserts them into the template, supporting any data type as input and outputting an object.
+
+<Frame>
+  <img src="/images/object-block.png" alt="Object Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="(Dynamic)" type="any">
+  Input values to be inserted into the JSON template. Input names are dynamically generated from the JSON template. Non-string inputs are coerced to strings.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Output" type="object">
+  The object created from the input values and JSON template.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="JSON Template" type="string" default='{ "key": "{{input}}" }'>
+  The JSON template for creating the object. Input values are inserted into this template.
+</ParamField>
+
+## Example: Creating an object from multiple inputs
+
+1. Add an Object Block and set the JSON Template to:
+   ```json
+   {
+     "name": "{{name}}",
+     "age": {{age}},
+     "job": "{{job}}"
+   }
+   ```
+2. Add two Text Blocks with values "John Doe" and "Engineer". Connect to `name` and `job` inputs.
+3. Add a Number Block with value 30. Connect to `age` input.
+4. Run the flow. The Object Block output will be:
+   ```json
+   {
+     "name": "John Doe",
+     "age": 30,
+     "job": "Engineer"
+   }
+   ```
+
+<Frame>
+  <img src="/images/object-block-example.png" alt="Object Block Example" />
+</Frame>
+
+## Error Handling
+
+The Object Block will error if:
+- The JSON Template is not a valid JSON string
+- The interpolated JSON string (after inserting input values) is not valid JSON
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use the Object Block to create an array?">
+    Yes, set the JSON Template to a valid JSON array string:
+    ```json
+    ["{{value1}}", "{{value2}}", "{{value3}}"]
+    ```
+  </Accordion>
+
+  <Accordion title="How are input values escaped?">
+    Input values are automatically escaped. String inputs use `JSON.stringify()`. Non-string inputs are first converted to strings using `JSON.stringify()`, then escaped.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Array Block](/block-reference/data/array)
+- [Text Block](/block-reference/data/text)
+- [Extract Object Path Block](/block-reference/data/extract-object-path)
+- [Code Block](/block-reference/data/code)

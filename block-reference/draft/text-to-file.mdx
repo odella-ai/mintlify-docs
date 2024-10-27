@@ -1,0 +1,88 @@
+---
+id: text-to-file
+title: Text to File Block
+description: Convert text or markdown into styled document files
+sidebarTitle: Text to File
+---
+
+## Overview
+
+The Text to File Block transforms plain text or markdown into styled document files. This block is particularly useful for creating professional-looking documents from simple text input. It supports multiple output formats, allowing you to generate files that can be easily shared or further edited in popular document processing applications.
+
+<Frame>
+  <img src="/images/text-to-file-block.png" alt="Text to File Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Text" type="string">
+  The input text to be converted into a file. This can be plain text or markdown-formatted text.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Files" type="object[]">
+  An array of file data objects. Each object contains the converted file in the specified format(s).
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Output Formats" type="string[]" default={["PDF"]}>
+  The desired output file formats. You can select one or more of the following options:
+  - PDF: Portable Document Format, widely used for sharing documents
+  - MS Word: Microsoft Word document format (.docx)
+</ParamField>
+
+## What is Markdown?
+
+Markdown is a simple way to format text that looks great on any device. It doesn't do anything fancy like change font sizes or colors, but it does make it easy to create:
+
+- **Bold** or *italic* text
+- Lists (like this one!)
+- Headers of different sizes
+- Links to websites
+- And more!
+
+You don't need to know markdown to use this block, but if you do, you can create more structured and styled documents easily.
+
+## Example: Creating a PDF Report
+
+1. Add a Text to File block to your flow.
+2. Connect a Text block with your report content to the `Text` input. You can use markdown formatting if desired.
+3. In the block settings, select "PDF" as the Output Format.
+4. Run your flow. The block will output a PDF file containing your styled report.
+
+<Frame>
+  <img src="/images/text-to-file-example.png" alt="Text to File Example" />
+</Frame>
+
+## Error Handling
+
+- If the input text is empty, the block will return an error.
+- If there's an issue converting the text to the specified file format(s), the block will fail and provide error details.
+
+<Warning>
+  Always review the generated files to ensure the formatting and content appear as expected, especially when using markdown or when creating documents for professional use.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Do I need to know markdown to use this block?">
+    No, you don't need to know markdown. You can input plain text, and the block will still convert it into a styled document. However, knowing markdown can help you create more structured and formatted documents easily.
+  </Accordion>
+
+  <Accordion title="Can I generate multiple file formats at once?">
+    Yes, you can select multiple output formats in the block settings. The block will generate a file for each selected format and return them in the output array.
+  </Accordion>
+
+  <Accordion title="How does the block handle images or other media in the input text?">
+    If you're using markdown and include image links, the block will attempt to download and embed these images in the output files. However, other media types may not be supported, depending on the output format.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Text Block](/block-reference/data/text)
+- [File Block](/block-reference/data/file)
+- [Draft Block](/block-reference/draft/draft)

@@ -1,0 +1,92 @@
+---
+id: ai-filter
+title: AI Filter Block
+description: Apply AI-powered filtering to arrays using various models and providers
+sidebarTitle: AI Filter
+---
+
+## Overview
+
+The AI Filter Block applies a filter operation over an array of values where the filter condition is evaluated by one of the AI models from the 250+ models LawMe connects to. This powerful block allows you to leverage AI capabilities to perform complex filtering tasks on your data.
+
+<Frame>
+  <img src="/images/ai-filter-block.png" alt="AI Filter Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Array" type="any[]">
+  The array of values to be filtered. Required. Can be an array of any data type.
+</ParamField>
+
+<ParamField path="Filter Prompt" type="string">
+  The prompt describing the filter condition to be evaluated by the AI model. Required. This prompt will be used to generate the filter condition for each array element.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Filtered Array" type="any[]">
+  The array containing only the elements that passed the filter. The data type of the output array will match the input array's element type.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for evaluating the filter condition.
+</ParamField>
+
+<ParamField path="Model" type="string" default="GPT-3.5-turbo">
+  The specific model to use for the request. Available models depend on the selected provider.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values are more deterministic, higher values are more "creative".
+</ParamField>
+
+<Note>
+  Available settings may vary depending on the selected provider and model.
+</Note>
+
+## Example: Filtering a List of Ideas
+
+1. Add an AI Filter block to your flow.
+2. Connect an array of ideas to the `Array` input of the AI Filter block.
+3. Add a Text block with a filter prompt like "Keep only the innovative and feasible business ideas" and connect it to the `Filter Prompt` input.
+4. Select your desired provider and model in the AI Filter block settings.
+5. Run your flow. The filtered list of ideas will appear at the output of the AI Filter block.
+
+<Frame>
+  <img src="/images/ai-filter-example.png" alt="AI Filter Example" />
+</Frame>
+
+## Error Handling
+
+- If the input array is empty, the block will output an empty array.
+- If the AI provider fails to evaluate the filter condition for an element, that element will be excluded from the output array.
+- If the AI provider consistently fails to evaluate the filter condition, the block will error after a certain number of retries.
+
+<Warning>
+  Be mindful of rate limits and processing time when using the AI Filter block on large arrays, especially when [batching](/workflow/batching) requests.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use different AI models for different elements in the array?">
+    No, the AI Filter block uses the same provider and model for all elements in the array. If you need to use different models, you can use multiple AI Filter blocks in sequence.
+  </Accordion>
+
+  <Accordion title="How does the AI determine whether an element passes the filter?">
+    The AI evaluates each element against the filter prompt you provide. It uses its natural language understanding capabilities to interpret the prompt and apply it to each element.
+  </Accordion>
+
+  <Accordion title="Is there a limit to the size of the input array?">
+    While there's no hard limit, processing very large arrays may take a considerable amount of time and could potentially hit rate limits with the AI provider. It's recommended to batch or chunk large arrays for more efficient processing.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Ask AI Block](/block-reference/ai/ask-ai)
+- [Array Block](/block-reference/data/array)
+- [Filter Block](/block-reference/modifiers/filter)

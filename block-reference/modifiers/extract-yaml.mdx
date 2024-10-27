@@ -1,0 +1,80 @@
+---
+id: extract-yaml
+title: Extract YAML Block
+description: Extract YAML data from strings and convert to JavaScript objects
+sidebarTitle: Extract YAML
+---
+
+![Extract YAML Block Screenshot](./assets/extract-yaml-block.png)
+
+## Overview
+
+The Extract YAML Block is designed to parse YAML content from input strings and convert it into JavaScript objects. This block is particularly useful when working with configuration files, data serialization, or any scenario where YAML-formatted data needs to be extracted and processed.
+
+## Key Features
+
+- Extract YAML data from input strings
+- Convert YAML to JavaScript objects
+- Support for multiple YAML documents in a single input
+- Configurable error handling for invalid YAML
+
+## Inputs
+
+<ParamField path="Input" type="string">
+  The string containing YAML data to be extracted. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="YAML Objects" type="object[]">
+  An array of JavaScript objects representing the extracted YAML data.
+</ResponseField>
+
+<ResponseField name="Count" type="number">
+  The number of YAML objects extracted from the input string.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Extract First Only" type="boolean" default={false}>
+  If enabled, only the first YAML object found will be extracted and returned.
+</ParamField>
+
+<ParamField path="Throw Error on Invalid YAML" type="boolean" default={true}>
+  If enabled, the block will throw an error when no valid YAML is found in the input string.
+</ParamField>
+
+## Example: Extracting YAML from a Configuration File
+
+1. Create a new flow and add a Text Block with YAML content.
+2. Add an Extract YAML Block and connect the Text Block's output to its `Input`.
+3. Configure the Extract YAML Block settings based on your needs.
+4. Add a JSON View Block to visualize the extracted YAML data as objects.
+5. Run the flow to see the extracted YAML converted to JavaScript objects.
+
+<Frame>
+  <img src="./assets/extract-yaml-block-example.png" alt="Extract YAML Block Example" />
+</Frame>
+
+## Error Handling
+
+- If no valid YAML is found in the input string and "Throw Error on Invalid YAML" is enabled, the block will throw an error.
+- If "Throw Error on Invalid YAML" is disabled and no valid YAML is found, the block will output an empty array.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if there are multiple YAML documents in the input string?">
+    By default, the block will extract all YAML documents found in the input string and return them as an array of objects. If "Extract First Only" is enabled, only the first YAML document will be extracted and returned.
+  </Accordion>
+
+  <Accordion title="Can this block handle complex YAML structures?">
+    Yes, the Extract YAML Block can handle nested YAML structures of any complexity, as long as they are valid YAML.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Extract JSON Block](/block-reference/modifiers/extract-json)
+- [JSON Parse Block](/block-reference/data/json-parse)
+- [Text Block](/block-reference/data/text)

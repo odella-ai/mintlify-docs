@@ -1,0 +1,85 @@
+---
+id: table-to-file
+title: Table to File Block
+description: Convert tabular data into a CSV file
+sidebarTitle: Table to File
+---
+
+## Overview
+
+The Table to File Block converts tabular data into a CSV (Comma-Separated Values) file. This block is particularly useful when you need to export data from your flow in a widely compatible format for further analysis or sharing. It's important to note that there is a 10MB size limit per file.
+
+<Frame>
+  <img src="/images/table-to-file-block.png" alt="Table to File Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Table" type="object[]">
+  The input table to be converted. Required. Should be an array of objects, where each object represents a row in the table.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="File" type="file">
+  The resulting CSV file containing the converted table data. Note that there is a 10MB size limit per file.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Filename" type="string" default="output.csv">
+  The name of the output CSV file.
+</ParamField>
+
+<ParamField path="Include Headers" type="boolean" default={true}>
+  If enabled, the first row of the CSV file will contain column headers derived from the object keys of the first row in the input table.
+</ParamField>
+
+<ParamField path="Delimiter" type="string" default=",">
+  The character used to separate values in the CSV file. Common options include comma (,), semicolon (;), or tab (\t).
+</ParamField>
+
+## Example: Exporting a Table to CSV
+
+1. Add a Table to File block to your flow.
+2. Connect your input table to the `Table` input of the Table to File block.
+3. In the block settings, set the `Filename` to "employee_data.csv".
+4. Ensure `Include Headers` is enabled.
+5. Run your flow. The block will output a CSV file named "employee_data.csv" containing your table data.
+
+<Frame>
+  <img src="/images/table-to-file-example.png" alt="Table to File Example" />
+</Frame>
+
+## Error Handling
+
+- If the input table is empty or invalid, the block will return an error.
+- If the block encounters issues while writing the CSV file, it will fail and provide error details.
+- If the resulting file exceeds the 10MB size limit, the block will return an error.
+
+<Warning>
+  Ensure that the input table data is consistent, properly structured, and within the 10MB size limit to avoid errors during CSV conversion.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I customize the CSV format beyond the provided settings?">
+    The Table to File block provides basic customization through the `Delimiter` setting. For more advanced CSV formatting options, you may need to pre-process your data or post-process the generated file.
+  </Accordion>
+
+  <Accordion title="How does the block handle special characters or line breaks in the data?">
+    The block automatically escapes special characters and encloses fields containing delimiters or line breaks in quotes, following standard CSV conventions.
+  </Accordion>
+
+  <Accordion title="What happens if my table data exceeds the 10MB file size limit?">
+    If the resulting CSV file exceeds the 10MB limit, the block will fail and return an error. In such cases, consider splitting your data into smaller chunks and processing them separately, or use data compression techniques if applicable.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Table Block](/block-reference/data/table)
+- [Analyze Table Block](/block-reference/ai/analyze-table)
+- [File Block](/block-reference/data/file)
+

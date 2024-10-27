@@ -1,0 +1,50 @@
+---
+id: code
+title: Code Block
+description: Run arbitrary Python code securely during your flow's execution
+sidebarTitle: Code
+---
+
+## Overview
+
+The Code Block allows you to run arbitrary Python code securely during your flow's execution. This versatile block uses secure remote code execution to ensure safety while providing powerful functionality. It can be used for various purposes, including:
+
+- Performing complex calculations
+- Implementing custom, domain-specific logic that is complex to represent in Lawme blocks alone
+- Using Python functions that are not available in other blocks
+
+<Note>
+  The Code Block only supports Python code execution. It uses secure remote code execution to ensure safety and isolation.
+</Note>
+
+<Frame>
+  <img src="./assets/code-block.png" alt="Code Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="(custom names)" type="any">
+  The input values passed into the code function. Dynamic based on the inputs configured in the editor.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="(custom names)" type="any">
+  The outputs from the execution of the code block. Dynamic based on the outputs configured in the editor.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Inputs" type="string[]" default={["input"]}>
+  The names of the inputs that can be accessible inside the code block. The names of the inputs configured here correspond with the properties of the provided `inputs` variable. Each input creates a corresponding input port on the block.
+</ParamField>
+
+<ParamField path="Outputs" type="string[]" default={["output"]}>
+  The names of the outputs that the code block will return. The names of the outputs configured here must correspond with the properties of the object returned by the Code block. Each output creates a corresponding output port on the block.
+</ParamField>
+
+## Code Inputs
+
+The inputs to the code block are accessible in the special variable `inputs`. To access the input named `foo`, it is accessible on `inputs.foo`.
+
+All inputs have the following structure:

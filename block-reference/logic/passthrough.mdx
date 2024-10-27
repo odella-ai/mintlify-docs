@@ -1,0 +1,62 @@
+---
+id: passthrough
+title: Passthrough Block
+description: Pass input values through without modification
+sidebarTitle: Passthrough
+---
+
+![Passthrough Block Screenshot](./assets/passthrough-block.png)
+
+## Overview
+
+The Passthrough Block is a simple utility that passes input values to outputs without any modifications. It's useful for scenarios where you need to route values through specific paths in your flow without altering them, such as grouping values from different branches or controlling wire flow.
+
+## Inputs
+
+<ParamField path="Input [i]" type="any">
+  The ith input to be passed through. The number of inputs is dynamic based on the connections made to the block.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Output [i]" type="any">
+  The ith output from the passthrough. Each output corresponds to its respective input.
+</ResponseField>
+
+## Editor Settings
+
+This block has no configurable editor settings.
+
+## Example: Grouping Values
+
+1. Create multiple branches in your flow that produce different values.
+2. Add a Passthrough Block at the point where you want to group these values.
+3. Connect the outputs from different branches to the Passthrough Block's inputs.
+4. The Passthrough Block will now group these values without modifying them.
+
+<Frame>
+  <img src="./assets/passthrough-block-example.png" alt="Passthrough Block Example" />
+</Frame>
+
+## Error Handling
+
+The Passthrough Block does not perform any error handling. If an input is missing or null, the corresponding output will also be missing or null.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if an input is missing or null?">
+    If an input is missing or null, the corresponding output will also be missing or null. The Passthrough Block does not modify or validate inputs in any way.
+  </Accordion>
+
+  <Accordion title="Can the Passthrough Block be used to delay execution?">
+    No, the Passthrough Block does not introduce any delay. For timed delays, consider using the Delay Block instead.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [If Block](/block-reference/logic/if)
+- [Match Block](/block-reference/logic/match)
+- [Coalesce Block](/block-reference/logic/coalesce)
+- [Race Inputs Block](/block-reference/logic/race-inputs)

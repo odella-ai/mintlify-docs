@@ -1,0 +1,62 @@
+---
+id: shuffle
+title: Shuffle Block
+description: Randomize the order of elements in an array
+sidebarTitle: Shuffle
+---
+
+![Shuffle Block Screenshot](./assets/shuffle-block.png)
+
+## Overview
+
+The Shuffle Block randomizes the order of elements in an array. It takes an array as input and outputs a new array with the elements in a shuffled order. This block uses the [Fisher-Yates (aka Knuth) shuffle algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) to ensure a fair distribution of permutations.
+
+## Inputs
+
+<ParamField path="Array" type="any[]">
+  The array to shuffle. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Shuffled" type="any[]">
+  The input array with its order randomized.
+</ResponseField>
+
+## Example: Shuffle an array of numbers
+
+1. Create an Array Block with values `[1, 2, 3, 4, 5]`.
+2. Add a Shuffle Block and connect the Array Block to its `Array` input.
+3. Run the flow. The Shuffle Block's `Shuffled` output should contain the numbers 1 through 5 in a random order.
+
+<Frame>
+  <img src="./assets/shuffle-block-example-01.png" alt="Shuffle Block Example" />
+</Frame>
+
+## Error Handling
+
+- The block will error if the `Array` input is not provided or is not an array.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I shuffle an array of objects?">
+    Yes, the Shuffle Block can shuffle arrays of any data type, including objects.
+  </Accordion>
+
+  <Accordion title="Does the Shuffle Block modify the original array?">
+    No, the Shuffle Block does not modify the original array. It creates a new array with the elements in a shuffled order.
+  </Accordion>
+
+  <Accordion title="Is the shuffle algorithm truly random?">
+    The Shuffle Block uses the Fisher-Yates (aka Knuth) shuffle algorithm, which is considered a fair shuffle algorithm. However, it relies on the JavaScript `Math.random()` function, which is not suitable for cryptographic purposes.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Array Block](/block-reference/data/array)
+- [Filter Block](/block-reference/modifiers/filter)
+- [Join Block](/block-reference/modifiers/join)
+- [Code Block](/block-reference/modifiers/code)
+- [RNG Block](/block-reference/modifiers/rng)

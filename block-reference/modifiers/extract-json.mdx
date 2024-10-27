@@ -1,0 +1,84 @@
+---
+id: extract-json
+title: Extract JSON Block
+description: Extract JSON data from a string input
+sidebarTitle: Extract JSON
+---
+
+![Extract JSON Block Screenshot](./assets/extract-json-block.png)
+
+## Overview
+
+The Extract JSON Block is a modifier that extracts JSON data from a string input. This block is particularly useful when dealing with unstructured text that contains JSON data, such as API responses or log files. It attempts to parse and extract valid JSON objects or arrays from the input string.
+
+## Key Features
+
+- Extract JSON data from string inputs
+- Handle multiple JSON objects within a single string
+- Option to extract only the first JSON object found
+- Configurable error handling for invalid JSON
+
+## Inputs
+
+<ParamField path="Input" type="string">
+  The input string containing JSON data to be extracted. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="JSON" type="object | array">
+  The extracted JSON data. If multiple JSON objects are found, this will be an array of objects.
+</ResponseField>
+
+<ResponseField name="First" type="object">
+  The first JSON object extracted from the input string.
+</ResponseField>
+
+<ResponseField name="Count" type="number">
+  The number of JSON objects extracted from the input string.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Extract First Only" type="boolean" default={false}>
+  If enabled, only the first JSON object found will be extracted and returned.
+</ParamField>
+
+<ParamField path="Throw Error on Invalid JSON" type="boolean" default={true}>
+  If enabled, the block will throw an error when no valid JSON is found in the input string.
+</ParamField>
+
+## Example: Extracting JSON from an API Response
+
+1. Create a new flow and add an HTTP Request Block to fetch data from an API.
+2. Add an Extract JSON Block and connect the HTTP Request Block's `Response Body` output to its `Input`.
+3. Configure the Extract JSON Block settings based on your needs.
+4. Add a JSON View Block to visualize the extracted JSON data.
+5. Run the flow to see the extracted JSON from the API response.
+
+<Frame>
+  <img src="./assets/extract-json-block-example.png" alt="Extract JSON Block Example" />
+</Frame>
+
+## Error Handling
+
+- If no valid JSON is found in the input string and "Throw Error on Invalid JSON" is enabled, the block will throw an error.
+- If "Throw Error on Invalid JSON" is disabled and no valid JSON is found, the block will output an empty object or array.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if there are multiple JSON objects in the input string?">
+    By default, the block will extract all JSON objects found in the input string and return them as an array. If "Extract First Only" is enabled, only the first JSON object will be extracted and returned.
+  </Accordion>
+
+  <Accordion title="Can this block handle nested JSON structures?">
+    Yes, the Extract JSON Block can handle nested JSON structures of any complexity, as long as they are valid JSON.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [JSON Parse Block](/block-reference/data/json-parse)
+- [JSON Stringify Block](/block-reference/data/json-stringify)
+- [HTTP Request Block](/block-reference/apis/http-request)

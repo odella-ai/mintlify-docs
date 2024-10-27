@@ -1,0 +1,83 @@
+---
+id: extract-object-path
+title: Extract Object Path Block
+description: Extract data from objects or arrays using JSONPath queries
+sidebarTitle: Extract Object Path
+---
+
+![Extract Object Path Block Screenshot](./assets/extract-object-path-block.png)
+
+## Overview
+
+The Extract Object Path Block allows you to run [JSONPath](https://www.npmjs.com/package/jsonpath-plus) queries on objects or arrays. This block is particularly useful for extracting specific data from complex JSON structures, such as API responses or nested objects.
+
+## Key Features
+
+- Extract data using JSONPath queries
+- Support for objects, arrays, and other JavaScript values with properties
+- Ability to perform complex queries and filtering
+- Dynamic path construction using input ports
+
+## Inputs
+
+<ParamField path="Object" type="object | any[] | string">
+  The object, array, or string to query using the JSONPath. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Match" type="any">
+  The first value that matches the specified path. If no match is found, this output will not run.
+</ResponseField>
+
+<ResponseField name="All Matches" type="any[]">
+  An array of all values that match the specified path. If no matches are found, this output will run with an empty array.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Path" type="string" default="$">
+  The JSONPath query to use for extracting properties from the input object. This setting can be toggled to accept input from another block.
+</ParamField>
+
+## Example: Extract a property from an object
+
+1. Create an Object Block with the following JSON:
+   ```json
+   {
+     "name": "John Doe",
+     "age": 30
+   }
+   ```
+2. Add an Extract Object Path Block and connect the Object Block to it.
+3. Set the `Path` of the Extract Object Path Block to `$.name`.
+4. Run the flow. The Extract Object Path Block should output `John Doe`.
+
+<Frame>
+  <img src="./assets/extract-object-path-block-example-01.png" alt="Extract Object Path Block Example" />
+</Frame>
+
+## Error Handling
+
+- If the path is invalid, the block will throw an error.
+- If the path is valid but no value is found, the `Match` output will not run, and the `All Matches` output will run with an empty array.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use this block with non-object data types?">
+    Yes, the Extract Object Path Block can work with arrays and other JavaScript values that have properties, such as strings. For example, you can use `$.length` to get the length of a string.
+  </Accordion>
+
+  <Accordion title="How can I extract data from an API response?">
+    You can use the HTTP Call Block to make an API request, and then use the Extract Object Path Block to extract specific data from the response.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Code Block](/block-reference/code)
+- [Object Block](/block-reference/data/object)
+- [Array Block](/block-reference/data/array)
+- [Extract with Regex Block](/block-reference/modifiers/extract-with-regex)
+- [Data Types](/docs/workflow/data-types)

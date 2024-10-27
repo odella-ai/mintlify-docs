@@ -1,0 +1,71 @@
+---
+id: switch
+title: Switch Block
+description: Route control flow based on a boolean condition
+sidebarTitle: Switch
+---
+
+![Switch Block Screenshot](./assets/switch-block.png)
+
+## Overview
+
+The Switch Block is a control flow block that routes the input value to different outputs based on a boolean condition. It evaluates the condition and directs the value to either the TRUE or FALSE output port accordingly.
+
+## Inputs
+
+<ParamField path="Condition" type="boolean">
+  The condition to evaluate. If truthy, the value is passed to the TRUE output. If falsy, the value is passed to the FALSE output. Required.
+</ParamField>
+
+<ParamField path="Value" type="any">
+  The value to be routed based on the condition. This value is passed unchanged to either the TRUE or FALSE output. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="TRUE" type="any">
+  The output port that receives the input value if the condition is truthy.
+</ResponseField>
+
+<ResponseField name="FALSE" type="any">
+  The output port that receives the input value if the condition is falsy.
+</ResponseField>
+
+## Editor Settings
+
+This block has no configurable editor settings.
+
+## Example: Route a message based on a condition
+
+1. Create a Bool Block and set its value to `true`.
+2. Create a Text Block with the value "Hello, World!".
+3. Create a Switch Block. Connect the Bool Block to `Condition` and the Text Block to `Value`.
+4. Add two Text Blocks to display the output, one connected to TRUE and one to FALSE.
+5. Run the flow. The "Hello, World!" message should appear in the Text Block connected to TRUE.
+6. Change the Bool Block to `false` and run again. The message should now appear in the Text Block connected to FALSE.
+
+<Frame>
+  <img src="./assets/switch-block-example.png" alt="Switch Block Example" />
+</Frame>
+
+## Error Handling
+
+The Switch block will not throw an error under normal circumstances. If the condition input is missing or cannot be coerced to a boolean, it will be treated as falsy.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if the Value input is not provided?">
+    If the Value input is not provided, the Switch block will pass `undefined` to the selected output port.
+  </Accordion>
+
+  <Accordion title="Can I use complex conditions with the Switch block?">
+    The Switch block expects a boolean condition. For complex conditions, you may need to use other logic blocks (like If/Else or Match) to evaluate the condition before feeding it into the Switch block.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [If/Else Block](/block-reference/logic/if-else)
+- [Match Block](/block-reference/logic/match)
+- [Bool Block](/block-reference/data/bool)

@@ -1,0 +1,92 @@
+---
+id: describe-image
+title: Describe Image Block
+description: Leverage AI to analyze and describe images based on natural language prompts
+sidebarTitle: Describe Image
+---
+
+## Overview
+
+The Describe Image Block uses Vision Language Model (VLM) capabilities to analyze and describe images. By providing an image and an optional natural language prompt, you can instruct the AI to focus on specific aspects or provide general descriptions of the image content.
+
+<Frame>
+  <img src="/images/describe-image-block.png" alt="Describe Image Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Image" type="file">
+  The input image to be analyzed. Required. Supported formats include JPEG, PNG, and GIF.
+</ParamField>
+
+<ParamField path="Prompt" type="string">
+  An optional natural language prompt to guide the image description. This can be used to focus the AI on specific aspects of the image or to request particular types of information.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Description" type="string">
+  The resulting description of the image. The content and focus of this description will depend on the input image and any provided prompt.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for image description. Ensure the chosen provider supports Vision Language Models.
+</ParamField>
+
+<ParamField path="Model" type="string" default="GPT-4 Vision">
+  The specific model to use for the request. Available models depend on the selected provider.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity in descriptions.
+</ParamField>
+
+<Note>
+  Available settings may vary depending on the selected provider and model.
+</Note>
+
+## Example: Analyzing a Chart Image
+
+1. Add a Describe Image block to your flow.
+2. Connect your input image (e.g., a chart or graph) to the `Image` input of the Describe Image block.
+3. Add a Text block with a prompt like "Describe the main trends and key data points in this chart" and connect it to the `Prompt` input.
+4. Select your desired provider and model in the Describe Image block settings.
+5. Run your flow. The block will output a detailed description of the chart, focusing on the trends and key data points.
+
+<Frame>
+  <img src="/images/describe-image-example.png" alt="Describe Image Example" />
+</Frame>
+
+## Error Handling
+
+- If the input image is empty, invalid, or in an unsupported format, the block will return an error.
+- If the AI provider fails to analyze the image, the block will error after a certain number of retries.
+- If the image is too large or complex for the model to process, the block may return an error or a partial description.
+
+<Warning>
+  Always validate the output of the Describe Image block, especially when using it for critical applications or decision-making processes.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What types of images can the Describe Image block analyze?">
+    The block can analyze a wide variety of images, including photographs, charts, graphs, diagrams, and more. The effectiveness may vary depending on the complexity of the image and the capabilities of the chosen AI model.
+  </Accordion>
+
+  <Accordion title="How detailed are the image descriptions?">
+    The level of detail in the descriptions can vary based on the complexity of the image, the specificity of the prompt (if provided), and the capabilities of the chosen AI model. You can often get more detailed or focused descriptions by using specific prompts.
+  </Accordion>
+
+  <Accordion title="Can the Describe Image block identify specific objects or people in images?">
+    While the block can generally describe the contents of an image, including objects and people, it typically doesn't identify specific individuals. The level of object recognition depends on the AI model's training and capabilities.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Create Chart Block](/block-reference/ai/create-chart)
+- [Ask AI Block](/block-reference/ai/ask-ai)
+- [AI Filter Block](/block-reference/ai/ai-filter)

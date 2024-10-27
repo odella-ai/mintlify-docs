@@ -1,0 +1,104 @@
+---
+id: input
+title: Flow Input Block
+description: Define inputs for your flow, enabling reusable and dynamic workflows
+sidebarTitle: Input
+---
+
+![Input Block Screenshot](./assets/input-block.png)
+
+## Overview
+
+The Flow Input Block is a crucial component for creating dynamic and reusable flows. It allows you to define inputs that can be passed into your flow when it's called via the SDK or used as a subflow. This flexibility enables you to create versatile workflows that can adapt to different scenarios based on the input provided.
+
+## Key Features
+
+- Define inputs for flows and subflows
+- Set default values for inputs
+- Support for various data types
+- Enable dynamic workflows based on input values
+
+## How It Works
+
+1. Add a Flow Input Block to your flow
+2. Configure the input's ID, data type, and optional default value
+3. Use the input value within your flow
+4. When calling the flow or using it as a subflow, provide values for the defined inputs
+
+## Inputs
+
+<ParamField path="Default Value" type="any" optional>
+  The default value for the input if no value is provided when the flow is called. Only available if the `Use Default Value Input` setting is enabled.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Data" type="any">
+  The value of the input. This will be the value provided when the flow is called, or the default value if no value is provided. The data type matches the type specified in the Editor Settings.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="ID" type="string" required>
+  The unique identifier for the input. This ID is used when calling the flow and defines the input's name in the UI.
+</ParamField>
+
+<ParamField path="Data Type" type="string" default="string">
+  Specifies the expected data type for the input.
+</ParamField>
+
+<ParamField path="Default Value" type="any">
+  The default value used when no input is provided during flow execution.
+</ParamField>
+
+<ParamField path="Use Default Value Input" type="boolean" default={false}>
+  When enabled, allows the default value to be provided via an input port.
+</ParamField>
+
+## Examples
+
+### Basic Input Definition
+
+1. Add a Flow Input Block to your flow
+2. Set the ID to `username` and the Data Type to `string`
+3. Set a Default Value of `"Guest"`
+
+Now, your flow has an input named `username` that defaults to "Guest" if no value is provided.
+
+### Using Flow Input in a Subflow
+
+1. Create a new flow with a Flow Input Block
+2. Set the ID to `temperature` and the Data Type to `number`
+3. Add a Conditional Block that checks if the temperature is above 30°C
+4. Save this flow and return to your main flow
+5. Add a Subflow Block and select the flow you just created
+6. The Subflow Block will now have an input port for `temperature`
+
+This example creates a reusable subflow that can perform actions based on a temperature input.
+
+## Error Handling
+
+The Flow Input Block will throw an error if:
+- The provided input value cannot be coerced into the specified data type
+- A required input is not provided and has no default value
+
+<Warning>
+  Always ensure that your input values match the expected data types to avoid runtime errors.
+</Warning>
+
+## Best Practices
+
+- Use descriptive IDs for your inputs to make your flows more readable
+- Set appropriate default values to handle cases where inputs aren't provided
+- Consider using the `Use Default Value Input` setting for more dynamic default values
+
+## Related Blocks
+
+- [Flow Output Block](/block-reference/input-output/output)
+- [Subflow Block](/block-reference/input-output/subflow)
+
+## Further Reading
+
+- [Understanding Data Types](/docs/data-types)
+- [Creating Reusable Subflows](/docs/subflows)
+- [Best Practices for Flow Design](/docs/flow-design-best-practices)

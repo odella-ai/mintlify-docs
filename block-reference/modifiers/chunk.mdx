@@ -1,0 +1,94 @@
+---
+id: chunk
+title: Chunk Block
+description: Split a string into an array of strings based on token count
+sidebarTitle: Chunk
+---
+
+![Chunk Block Screenshot](./assets/chunk-block.png)
+
+## Overview
+
+The Chunk Block is used to split a string into an array of strings based on a token count. This is particularly useful for handling large text inputs that exceed token limits in Language Models (LLMs), or for truncating strings to specific token counts.
+
+## Key Features
+
+- Split strings into chunks based on token count
+- Truncate strings from the beginning or end
+- Configurable overlap between chunks
+- Support for different tokenization models
+
+## Inputs
+
+<ParamField path="Input" type="string">
+  The string to be chunked. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Chunks" type="string[]">
+  An array of string chunks after splitting the input string.
+</ResponseField>
+
+<ResponseField name="First" type="string">
+  The first chunk in the chunks array. Useful for truncating a string to a specified token count.
+</ResponseField>
+
+<ResponseField name="Last" type="string">
+  The last chunk in the chunks array. Useful for truncating a string from the start to a specified token count.
+</ResponseField>
+
+<ResponseField name="Indexes" type="number[]">
+  A list of the indexes of the chunks. Useful for filtering or zipping the chunks array.
+</ResponseField>
+
+<ResponseField name="Count" type="number">
+  The number of chunks in the chunks array.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Model" type="string" default="gpt-3.5-turbo">
+  The model to use for tokenizing. Different LLMs use different tokenizers.
+</ParamField>
+
+<ParamField path="Max Tokens" type="number" default={1024}>
+  The maximum number of tokens in each chunk.
+</ParamField>
+
+<ParamField path="Overlap" type="number" default={0}>
+  The amount of overlap between chunks, as a factor of the max token count (0-1).
+</ParamField>
+
+## Example: Chunking a Long Text
+
+1. Create a Text Block with a long piece of text (e.g., lorem ipsum).
+2. Add a Chunk Block and connect the Text Block to its input.
+3. Set the Max Tokens to 100 in the Chunk Block settings.
+4. Run the flow. The Chunk Block will split the text into multiple chunks, each containing approximately 100 tokens.
+
+<Frame>
+  <img src="./assets/chunk-block-example.png" alt="Chunk Block Example" />
+</Frame>
+
+## Error Handling
+
+The Chunk Block will coerce non-string inputs into strings. No other notable error handling behavior.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Why use chunking for LLMs?">
+    Chunking is useful to avoid hitting token count limits in LLMs. You can split a long string into multiple chunks, process each chunk separately, and then combine the results.
+  </Accordion>
+
+  <Accordion title="How does the overlap feature work?">
+    If an overlap percentage is specified, chunks will overlap by that percentage relative to the max token count. For example, with a max token count of 100 and 50% overlap, chunks will overlap by 50 tokens. This helps maintain context between chunks.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Batching](/user-guide/workflow/batching)
+- [Chat Block](/block-reference/ai/chat)
+- [Text Block](/block-reference/data/text)

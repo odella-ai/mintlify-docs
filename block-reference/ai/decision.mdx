@@ -1,0 +1,96 @@
+---
+id: decision
+title: Decision Block
+description: Use AI to make binary decisions based on input values and natural language prompts
+sidebarTitle: Decision
+---
+
+## Overview
+
+The Decision Block leverages AI capabilities to make binary decisions based on input values and natural language prompts. It acts as an AI-powered equivalent of a traditional switch block, evaluating whether a condition is true or false and directing the flow accordingly.
+
+<Frame>
+  <img src="/images/decision-block.png" alt="Decision Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Value" type="any">
+  The input value to be evaluated. Required. This can be any type of data that the AI model can process.
+</ParamField>
+
+<ParamField path="Prompt" type="string">
+  A natural language prompt describing the decision criteria. Required. This prompt guides the AI in evaluating the input value.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="TRUE" type="boolean">
+  This output is triggered if the AI determines the condition described in the prompt is true for the given input value.
+</ResponseField>
+
+<ResponseField name="FALSE" type="boolean">
+  This output is triggered if the AI determines the condition described in the prompt is false for the given input value.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for making the decision.
+</ParamField>
+
+<ParamField path="Model" type="string" default="GPT-3.5-turbo">
+  The specific model to use for the request. Available models depend on the selected provider.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
+</ParamField>
+
+<Note>
+  Available settings may vary depending on the selected provider and model.
+</Note>
+
+## Example: Categorizing Customer Feedback
+
+1. Add a Decision block to your flow.
+2. Connect your input text (customer feedback) to the `Value` input of the Decision block.
+3. Add a Text block with a prompt like "Determine if this customer feedback is positive" and connect it to the `Prompt` input.
+4. Connect the `TRUE` output to a block that handles positive feedback.
+5. Connect the `FALSE` output to a block that handles negative feedback.
+6. Run your flow. The Decision block will evaluate each piece of feedback and direct it to the appropriate handling process.
+
+<Frame>
+  <img src="/images/decision-block-example.png" alt="Decision Block Example" />
+</Frame>
+
+## Error Handling
+
+- If the input value is empty or invalid, the block may return an error or default to the FALSE output.
+- If the AI provider fails to make a decision, the block will error after a certain number of retries.
+
+<Warning>
+  While the Decision block can handle complex decision-making tasks, it's important to validate its decisions for critical applications and provide clear, unambiguous prompts.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How does the Decision block differ from a traditional switch block?">
+    Unlike a traditional switch block that uses predefined conditions, the Decision block uses AI to interpret natural language prompts and make decisions based on more complex or nuanced criteria.
+  </Accordion>
+
+  <Accordion title="Can the Decision block handle multiple conditions or outcomes?">
+    The Decision block is designed for binary (true/false) decisions. For more complex decision trees, you can chain multiple Decision blocks together.
+  </Accordion>
+
+  <Accordion title="How accurate is the Decision block?">
+    The accuracy depends on the clarity of the prompt, the complexity of the decision, and the capabilities of the chosen AI model. It's recommended to test thoroughly and adjust prompts as needed for optimal performance.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Switch Block](/block-reference/logic/switch)
+- [Ask AI Block](/block-reference/ai/ask-ai)
+- [AI Filter Block](/block-reference/ai/ai-filter)

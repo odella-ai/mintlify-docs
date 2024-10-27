@@ -1,0 +1,74 @@
+---
+id: hash
+title: Hash Block
+description: Calculate MD5 or SHA hash of input data for equivalency comparisons
+sidebarTitle: Hash
+---
+
+![Hash Block Screenshot](./assets/hash-block.png)
+
+## Overview
+
+The Hash Block calculates the MD5 or SHA hash of incoming data. This block is particularly useful for performing equivalency comparisons, data integrity checks, or generating unique identifiers based on content.
+
+## Key Features
+
+- Support for multiple hash algorithms (MD5, SHA-1, SHA-256, SHA-512)
+- Ability to hash various input types (strings, numbers, objects, arrays)
+- Configurable output format (hex, base64)
+
+## Inputs
+
+<ParamField path="Input" type="any">
+  The data to be hashed. Required. Can be a string, number, object, or array.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Hash" type="string">
+  The calculated hash value of the input data.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Algorithm" type="string" default="MD5">
+  The hash algorithm to use. Options include MD5, SHA-1, SHA-256, and SHA-512.
+</ParamField>
+
+<ParamField path="Output Format" type="string" default="hex">
+  The format of the output hash. Options are "hex" for hexadecimal or "base64" for Base64 encoding.
+</ParamField>
+
+## Example: Generating a Hash for Data Comparison
+
+1. Create a Text Block with some sample data, e.g., "Hello, World!".
+2. Add a Hash Block and connect the Text Block's output to its `Input`.
+3. Configure the Hash Block to use SHA-256 algorithm and hex output format.
+4. Run the flow to see the generated hash value.
+
+<Frame>
+  <img src="./assets/hash-block-example.png" alt="Hash Block Example" />
+</Frame>
+
+## Error Handling
+
+- If the input is undefined or null, the block will output an empty string.
+- Invalid algorithm selections will result in an error.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Which hash algorithm should I use?">
+    The choice of algorithm depends on your specific use case. MD5 is faster but less secure, while SHA-256 and SHA-512 provide stronger security but are slightly slower. For most general purposes, SHA-256 is a good balance of security and performance.
+  </Accordion>
+
+  <Accordion title="Can I hash complex objects or arrays?">
+    Yes, the Hash Block can handle complex objects and arrays. These inputs will be serialized before hashing, ensuring consistent results for equivalent data structures.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Compare Block](/block-reference/modifiers/compare)
+- [Encrypt Block](/block-reference/modifiers/encrypt)
+- [Decrypt Block](/block-reference/modifiers/decrypt)

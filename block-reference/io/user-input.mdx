@@ -1,0 +1,109 @@
+---
+id: user-input
+title: User Input Block
+description: Prompt users for input during flow execution, enabling interactive workflows
+sidebarTitle: User Input
+---
+
+![User Input Block Screenshot](./assets/user-input-block.png)
+
+## Overview
+
+The User Input Block allows you to prompt users for input during flow execution. This block is essential for creating interactive workflows where user input is required to proceed. It can use either static prompts defined in the block settings or dynamic prompts provided via the block's input.
+
+## Key Features
+
+- Prompt users for input during flow execution
+- Support for both static and dynamic prompts
+- Output user responses as arrays
+- Option to output questions and answers together
+
+## How It Works
+
+1. Add a User Input Block to your flow
+2. Configure the prompt(s) either in the block settings or via input
+3. When the flow reaches this block, it pauses and prompts the user for input
+4. The user's response becomes the output of the block
+5. Flow execution resumes with the user's input
+
+## Inputs
+
+<ParamField path="Questions" type="string[]" optional>
+  An array of questions to prompt the user. Only available when the "Use Input" toggle is enabled in the block settings.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Answers Only" type="string[]">
+  An array containing the user's answers to the prompted questions.
+</ResponseField>
+
+<ResponseField name="Q & A" type="string[]">
+  An array containing the questions and answers formatted as "Question\nAnswer".
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Prompt" type="string" required>
+  The question to prompt the user. Can be overridden by the "Questions" input if "Use Input" is enabled.
+</ParamField>
+
+<ParamField path="Use Input" type="boolean" default={false}>
+  When enabled, allows prompts to be provided via the "Questions" input instead of using the static "Prompt" setting.
+</ParamField>
+
+## Examples
+
+### Static Prompt
+
+1. Add a User Input Block to your flow.
+2. Set the "Prompt" to "What is your name?" in the block settings.
+3. Run the flow. It will pause and prompt the user for input.
+4. After the user submits their name, the flow continues with the input as the block's output.
+
+<Frame>
+  <img src="/images/user-input-static-example.png" alt="User Input Static Prompt Example" />
+</Frame>
+
+### Dynamic Prompts
+
+1. Add a User Input Block and enable the "Use Input" toggle.
+2. Create an Array Block with two Text Blocks: "What is your name?" and "What is your favorite color?"
+3. Connect the Array Block to the User Input Block's "Questions" input.
+4. Run the flow. It will prompt the user with both questions sequentially.
+5. The block's output will be an array containing the user's answers.
+
+<Frame>
+  <img src="/images/user-input-dynamic-example.png" alt="User Input Dynamic Prompts Example" />
+</Frame>
+
+## Error Handling
+
+The User Input Block does not typically produce errors as it simply waits for user input. However, if there are issues with the user interface or the block fails to receive a response, it may timeout and return an error.
+
+<Warning>
+  The User Input Block does not support input masking. Avoid using it for sensitive information like passwords.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I prompt for multiple inputs at once?">
+    Yes, you can use an Array Block connected to the "Questions" input to prompt for multiple inputs sequentially.
+  </Accordion>
+
+  <Accordion title="What happens if the user doesn't provide input?">
+    If the user submits without providing input, the block will output an empty string for that prompt.
+  </Accordion>
+
+  <Accordion title="Can I use this block for non-interactive flows?">
+    The User Input Block is designed for interactive use and requires user input. For non-interactive flows, consider using predefined inputs or other data sources.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Array Block](/block-reference/data/array)
+- [Text Block](/block-reference/data/text)
+- [Split Block](/block-reference/text/split-text)
+- [Join Block](/block-reference/text/join)

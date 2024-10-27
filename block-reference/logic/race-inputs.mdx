@@ -1,0 +1,67 @@
+---
+id: race-inputs
+title: Race Inputs Block
+description: Handle multiple inputs and output the value of the first input to finish
+sidebarTitle: Race Inputs
+---
+
+![Race Inputs Block Screenshot](./assets/race-inputs-block.png)
+
+## Overview
+
+The Race Inputs Block is used to handle multiple inputs and output the value of the first input to finish, force-cancelling the other inputs. This block is particularly useful when you have multiple operations that can potentially fulfill the same requirement, and you want to use the result of the operation that finishes first.
+
+## Inputs
+
+<ParamField path="Input [i]" type="any">
+  The ith input to be raced. The number of inputs is dynamic based on the number of connections made to the block.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Result" type="any">
+  The value of the first input to finish. If no inputs finish, this output will not run.
+</ResponseField>
+
+## Editor Settings
+
+This block has no configurable editor settings.
+
+## Example: Race two Chats
+
+1. Create a new flow and add two Chat Blocks.
+2. Add a Prompt Block with a quick-to-answer prompt like "What is your favorite color?" Connect it to the first Chat Block's `Prompt` input.
+3. Add another Prompt Block with a longer prompt like "Describe in detail the story of Hamlet." Connect it to the second Chat Block's `Prompt` input.
+4. Connect both Chat Block outputs to a Race Inputs block.
+5. Run the flow. The first Chat will finish quickly, and the Race Inputs block will output its response. The second Chat Block gets canceled.
+
+<Frame>
+  <img src="./assets/race-inputs-block-example-01.png" alt="Race Inputs Block Example" />
+</Frame>
+
+## Error Handling
+
+The Race Inputs Block will not error if none of the inputs finish. Instead, the `Result` output will not run.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if none of the inputs finish?">
+    If none of the inputs finish, the Race Inputs Block will not error. The `Result` output will not run.
+  </Accordion>
+
+  <Accordion title="Can I use the Race Inputs Block with inputs of different data types?">
+    Yes, the Race Inputs Block can handle inputs of any data type.
+  </Accordion>
+
+  <Accordion title="What happens if one of the inputs errors?">
+    If one of the inputs errors, the Race Inputs Block will not be affected. It will still output the value of the first input to finish, regardless of whether other inputs error.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [HTTP Call Block](/block-reference/logic/http-call)
+- [If Block](/block-reference/logic/if)
+- [Match Block](/block-reference/logic/match)
+- [Coalesce Block](/block-reference/logic/coalesce)

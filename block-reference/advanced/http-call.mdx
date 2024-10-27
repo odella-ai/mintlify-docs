@@ -1,0 +1,72 @@
+---
+id: http-call
+title: HTTP Call Block
+description: Make HTTP requests to external APIs and services
+sidebarTitle: HTTP Call
+---
+
+## Overview
+
+The HTTP Call Block allows you to make HTTP requests to specified URLs with custom methods, headers, and body. This versatile block is essential for interacting with external APIs or services within your workflow.
+
+<Frame>
+  <img src="./assets/http-call-block.png" alt="HTTP Call Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Method" type="string" default="GET">
+  The HTTP method to use for the request (GET, POST, PUT, DELETE, etc.).
+</ParamField>
+
+<ParamField path="URL" type="string">
+  The URL to make the HTTP request to.
+</ParamField>
+
+<ParamField path="Headers" type="object">
+  An object representing the headers to include in the HTTP request.
+</ParamField>
+
+<ParamField path="Body" type="string">
+  The body of the HTTP request. Typically used for POST or PUT requests.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Body" type="string">
+  The body of the HTTP response. If the response body is not a string, this output will not be available.
+</ResponseField>
+
+<ResponseField name="JSON" type="object">
+  If the response body is a JSON object, this output will contain the parsed JSON object. Otherwise, this output will not be available.
+</ResponseField>
+
+<ResponseField name="Status Code" type="number">
+  The status code of the HTTP response.
+</ResponseField>
+
+<ResponseField name="Headers" type="object">
+  The headers of the HTTP response.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Error on non-200 status code" type="boolean" default={true}>
+  If enabled, the block will error if the status code of the HTTP response is not 200.
+</ParamField>
+
+## Examples
+
+### Example 1: Make a GET request to an API
+
+1. Create an HTTP Call Block and set the `Method` to `GET` and the `URL` to `https://jsonplaceholder.typicode.com/todos/1`.
+2. Run the flow. You should see all of the response data, such as the headers, response code, and body, in the output panel.
+
+<Frame>
+  <img src="./assets/http-call-block-example-01.png" alt="HTTP Call Block GET Example" />
+</Frame>
+
+### Example 2: Make a POST request to an API
+
+1. Create an HTTP Call Block and set the `Method` to `POST` and the `URL` to `https://jsonplaceholder.typicode.com/posts`. Enable the "Use Input" toggle on the "Body" setting.
+2. Create an [Object Block](/block-reference/data/object) with the following content:

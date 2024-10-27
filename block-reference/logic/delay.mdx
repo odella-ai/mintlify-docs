@@ -1,0 +1,70 @@
+---
+id: delay
+title: Delay Block
+description: Introduce a timed delay in the execution of your workflow
+sidebarTitle: Delay
+---
+
+![Delay Block Screenshot](./assets/delay-block.png)
+
+## Overview
+
+The Delay Block introduces a specified pause in the execution of your workflow. It accepts any number of inputs and, after the set delay, passes these input values to the outputs without modification. This block is particularly useful for controlling the timing and pacing of your workflow execution.
+
+## Inputs
+
+<ParamField path="Delay" type="number" default={0}>
+  The delay time in milliseconds. This input is only available if the "Use Delay Input" setting is enabled.
+</ParamField>
+
+<ParamField path="Input [i]" type="any">
+  The ith input that will be passed to the corresponding output. The number of inputs is dynamic based on the connections made to the block.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Output[i]" type="any">
+  The ith output from the execution of the delay block. Each output corresponds to its respective input and is returned after the specified delay.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Delay" type="number" default={0}>
+  The delay time in milliseconds. This value is used if the "Use Delay Input" setting is disabled.
+</ParamField>
+
+<ParamField path="Use Delay Input" type="boolean" default={false}>
+  If enabled, the block will use the "Delay" input as the delay time. If disabled, it will use the delay time specified in the "Delay" setting.
+</ParamField>
+
+## Example: Delaying a Message
+
+1. Add a Text block to your flow and set its value to "Hello, World!".
+2. Add a Delay block and set its "Delay" setting to 5000 (5 seconds).
+3. Connect the output of the Text block to the first input of the Delay block.
+4. Run the flow. You'll notice that the output of the Delay block appears after a 5-second pause.
+
+<Frame>
+  <img src="./assets/delay-block-example-01.png" alt="Delay Block Example" />
+</Frame>
+
+## Error Handling
+
+The Delay block is designed to handle inputs robustly and doesn't generate errors under normal circumstances. If a negative delay time is provided, it will be treated as zero, resulting in immediate execution.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if I set the delay time to zero?">
+    If the delay time is set to zero, the Delay block will pass the input to the output immediately, effectively acting as a pass-through block.
+  </Accordion>
+
+  <Accordion title="Can I use the Delay block to throttle API calls?">
+    Yes, the Delay block can be used to throttle API calls. For instance, if you have a workflow that makes frequent API calls, you can use the Delay block to ensure that calls are not made more often than a specified interval.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Passthrough Block](./passthrough)
+- [Race Inputs Block](./race-inputs)

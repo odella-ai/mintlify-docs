@@ -1,0 +1,63 @@
+---
+id: comment
+title: Comment Block
+description: Add notes or comments to your flow for better organization and understanding
+sidebarTitle: Comment
+---
+
+## Overview
+
+The Comment Block is a special type of block that doesn't perform any operations but serves as a way to add notes or comments to a flow. It can be used to provide additional context or explanation for a group of blocks, making the flow easier to understand. The Comment Block is always rendered behind other blocks and has a distinct appearance with customizable colors.
+
+<Frame>
+  <img src="./assets/comment-block.png" alt="Comment Block Screenshot" />
+</Frame>
+
+## Inputs
+
+The Comment Block does not have any inputs.
+
+## Outputs
+
+The Comment Block does not produce any outputs.
+
+## Editor Settings
+
+<ParamField path="Color" type="string" default="rgba(255,255,255,1)">
+  The color of the text in the comment block.
+</ParamField>
+
+<ParamField path="Background Color" type="string" default="rgba(0,0,0,0.05)">
+  The background color of the comment block.
+</ParamField>
+
+<ParamField path="Text" type="string" default="">
+  The text content of the comment block. Supports Markdown syntax, allowing for rich text formatting including headings, lists, etc.
+</ParamField>
+
+## Example Usage
+
+The Comment Block can be used to add notes or comments to a flow. For example, if you have a group of blocks performing a specific operation, you can add a Comment Block behind them to provide a brief explanation of what they do.
+
+Additionally, you can use different colors for the text and background of different Comment Blocks to visually distinguish between different sections of your flow.
+
+<Frame>
+  <img src="./assets/comment-block-example.png" alt="Comment Block Example Usage" />
+</Frame>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use formatting in my comments?">
+    Yes, the Comment Block supports Markdown syntax, allowing you to use headings, lists, bold, italic, and other formatting options.
+  </Accordion>
+
+  <Accordion title="Do Comment Blocks affect the flow execution?">
+    No, Comment Blocks are purely for documentation and organization purposes. They do not affect the execution of your flow in any way.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Markdown Guide](https://www.markdownguide.org/)
+- [Flow Organization Best Practices](/workflow/best-practices)

@@ -1,0 +1,83 @@
+---
+id: if-else
+title: If/Else Block
+description: Choose between two different values based on a condition
+sidebarTitle: If/Else
+---
+
+![If/Else Block Screenshot](./assets/if-else-block.png)
+
+## Overview
+
+The If/Else Block is a control flow block that allows you to choose between two different values based on a condition. It evaluates a condition and outputs either a "true" value or a "false" value depending on the result.
+
+## Inputs
+
+<ParamField path="If" type="any">
+  The condition to evaluate. If truthy, the true value is passed through. Required.
+</ParamField>
+
+<ParamField path="True" type="any">
+  The value to pass through if the condition is truthy.
+</ParamField>
+
+<ParamField path="False" type="any">
+  The value to pass through if the condition is not truthy or is not provided.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Output" type="any">
+  The value that was passed through based on the condition. Either the true value or false value.
+</ResponseField>
+
+## Editor Settings
+
+This block has no configurable editor settings.
+
+## Example: Choose between two values based on a condition
+
+1. Create a Bool Block and set its value to `true`.
+2. Create two Text Blocks with values `Hello` and `World`.
+3. Create an If/Else Block. Connect the Bool Block to `If`, `Hello` to `True`, and `World` to `False`.
+4. Run the flow. The output should be `Hello`.
+5. Change the Bool Block to `false` and run again. The output should now be `World`.
+
+<Frame>
+  <img src="./assets/if-else-block-example-01.png" alt="If/Else Block Example 1" />
+</Frame>
+
+## Error Handling
+
+The If/Else block will not throw an error under normal circumstances.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What is considered truthy in Lawme?">
+    Any value that is considered truthy in JavaScript, plus any non-empty Array, is considered truthy in Lawme. This includes:
+    - `true`
+    - Any non-zero number
+    - Any non-empty string
+    - Any non-empty Array
+    - Any object
+    - Any function
+
+    All other values are considered falsy, including the string value `"false"`.
+  </Accordion>
+
+  <Accordion title="What happens if the `If` input is `Not Ran`?">
+    If the `If` input is `Not Ran`, the `False` value will be passed through instead. If the `False` value is not connected, then the result will again be `Not Ran`.
+  </Accordion>
+
+  <Accordion title="Can I use the If/Else Block to choose between two different types of values?">
+    Yes, you can use the If/Else Block to choose between two different types of values. For example, you can use it to choose between a string and a number based on a condition. However, keep in mind that the output of the If/Else Block will be of the same type as the value that was passed through.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [If Block](/block-reference/logic/if)
+- [Match Block](/block-reference/logic/match)
+- [Coalesce Block](/block-reference/logic/coalesce)
+- [Control Flow](/docs/user-guide/workflow/control-flow)

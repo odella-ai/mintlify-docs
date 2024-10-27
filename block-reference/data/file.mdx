@@ -1,0 +1,79 @@
+---
+id: file
+title: File Block
+description: Upload and use file data in your workflow
+sidebarTitle: File
+---
+
+## Overview
+
+The File Block allows you to upload and use file data in your workflow. It supports various file types including PDF, Microsoft Word documents, image files, and CSV files. This block is particularly useful when you need to work with external data or documents within your flow.
+
+<Frame>
+  <img src="/images/file-block.png" alt="File Block Screenshot" />
+</Frame>
+
+## Inputs
+
+This block does not have any inputs.
+
+## Outputs
+
+<ResponseField name="File" type="file">
+  The uploaded file data that can be used by other blocks in the workflow.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="File Upload" type="file">
+  Allows you to upload a file from your local system. Supported file types include PDF, Microsoft Word documents (.doc, .docx), image files (e.g., .jpg, .png, .gif), and CSV files.
+</ParamField>
+
+<ParamField path="File Name" type="string">
+  The name of the uploaded file. This is automatically populated when a file is uploaded but can be edited if needed.
+</ParamField>
+
+<ParamField path="File Type" type="string">
+  The type of the uploaded file. This is automatically detected based on the file extension but can be manually specified if needed.
+</ParamField>
+
+## Example: Using a File Block with PDF Analysis
+
+1. Add a File Block to your flow.
+2. In the block's settings, click "Upload File" and select a PDF document from your local file system.
+3. Connect the `File` output of the File Block to an AI block capable of analyzing PDF content, such as a custom PDF Analysis block.
+4. Run your flow. The PDF content will be processed by the AI block for further analysis or extraction.
+
+## Error Handling
+
+The File Block will throw an error if:
+
+- An unsupported file type is uploaded.
+- The file upload fails due to network issues or file corruption.
+- The file size exceeds the maximum allowed limit.
+
+<Warning>
+  Ensure that you have the necessary permissions to use and process the files you upload, especially when working with sensitive or copyrighted material.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What is the maximum file size that can be uploaded?">
+    The maximum file size depends on your system configuration. Generally, it's recommended to keep file sizes under 100MB for optimal performance. For larger files, consider splitting them or using alternative data ingestion methods.
+  </Accordion>
+
+  <Accordion title="Can I use the File Block to upload multiple files at once?">
+    No, the File Block is designed to handle one file at a time. If you need to work with multiple files, you can use multiple File Blocks in your workflow.
+  </Accordion>
+
+  <Accordion title="How can I process the uploaded file data?">
+    The file data output from the File Block can be connected to other blocks in your workflow that are capable of processing the specific file type. For example, you might connect a PDF file to a PDF text extraction block, or a CSV file to a data analysis block.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Text Block](/block-reference/data/text)
+- [Table Block](/block-reference/data/table)
+- [Analyze Table Block](/block-reference/ai/analyze-table)

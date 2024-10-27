@@ -1,0 +1,88 @@
+---
+id: auto-system-prompt
+title: Auto System Prompt Block
+description: Automatically generate system prompts to improve AI model guidance
+sidebarTitle: Auto System Prompt
+---
+
+## Overview
+
+The Auto System Prompt Block is designed to automatically generate system prompts that enhance the guidance for AI models in other blocks, such as the Ask AI Block. By taking a user-provided prompt as input, this block creates a tailored system prompt that helps define the goal and context for the AI model, resulting in more focused and relevant outputs.
+
+<Frame>
+  <img src="/images/auto-system-prompt-block.png" alt="Auto System Prompt Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Prompt" type="string">
+  The user-provided prompt that describes the desired outcome or task for the AI model. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="System Prompt" type="string">
+  The automatically generated system prompt that can be used to guide AI models in other blocks.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for generating the system prompt.
+</ParamField>
+
+<ParamField path="Model" type="string" default="GPT-3.5-turbo">
+  The specific model to use for the request. Available models depend on the selected provider.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
+</ParamField>
+
+<Note>
+  Available settings may vary depending on the selected provider and model.
+</Note>
+
+## Example: Enhancing an Ask AI Block
+
+1. Add an Auto System Prompt block to your flow.
+2. Connect a Text block with a prompt like "Summarize scientific articles" to the `Prompt` input of the Auto System Prompt block.
+3. Add an Ask AI block to your flow.
+4. Connect the `System Prompt` output from the Auto System Prompt block to the `System` input of the Ask AI block.
+5. Connect your input text to the `Prompt` input of the Ask AI block.
+6. Run your flow. The Auto System Prompt block will generate a tailored system prompt, which will then guide the Ask AI block in summarizing scientific articles more effectively.
+
+<Frame>
+  <img src="/images/auto-system-prompt-example.png" alt="Auto System Prompt Example" />
+</Frame>
+
+## Error Handling
+
+- If the input prompt is empty or invalid, the block may generate a generic system prompt or return an error.
+- If the AI provider fails to generate a system prompt, the block will error after a certain number of retries.
+
+<Warning>
+  While the Auto System Prompt block can significantly improve AI model guidance, it's important to review and potentially refine the generated system prompts for critical applications.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How does the Auto System Prompt block improve AI model performance?">
+    By generating tailored system prompts, this block helps set the context and goals for AI models more precisely. This can lead to more relevant and focused outputs from blocks like Ask AI.
+  </Accordion>
+
+  <Accordion title="Can I edit the generated system prompt before using it?">
+    Yes, you can connect the output of the Auto System Prompt block to a Text block for manual editing before passing it to another AI block.
+  </Accordion>
+
+  <Accordion title="Is this block necessary for every AI interaction in my flow?">
+    While not strictly necessary, using the Auto System Prompt block can often lead to improved results, especially for complex or specialized tasks.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Ask AI Block](/block-reference/ai/ask-ai)
+- [AI Filter Block](/block-reference/ai/ai-filter)
+- [Text Block](/block-reference/data/text)

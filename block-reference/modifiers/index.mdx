@@ -1,0 +1,76 @@
+---
+id: index
+title: Index Block
+description: Retrieve values from an array at specified indices
+sidebarTitle: Index
+---
+
+![Index Block Screenshot](./assets/index-block.png)
+
+## Overview
+
+The Index Block allows you to retrieve values from an array at specified indices. It can return a single value when given a single index or multiple values when provided with an array of indices. This block is particularly useful for extracting specific elements from arrays or for reordering array elements based on a set of indices.
+
+## Key Features
+
+- Retrieve a single value at a specified index
+- Extract multiple values using an array of indices
+- Supports negative indices for accessing elements from the end of the array
+- Configurable error handling for out-of-range indices
+
+## Inputs
+
+<ParamField path="Array" type="any[]">
+  The input array from which to retrieve values. Required.
+</ParamField>
+
+<ParamField path="Index" type="number | number[]">
+  The index or array of indices to retrieve. Required. Can be a single number or an array of numbers.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Value" type="any | any[]">
+  The value(s) retrieved from the input array at the specified index/indices. If a single index is provided, this will be a single value. If an array of indices is provided, this will be an array of values.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Error on out of range" type="boolean" default={true}>
+  If enabled, the block will throw an error when an index is out of range. If disabled, out-of-range indices will return undefined.
+</ParamField>
+
+## Example: Extracting Specific Elements from an Array
+
+1. Create an Array Block with values `[10, 20, 30, 40, 50]`.
+2. Add an Index Block and connect the Array Block to its `Array` input.
+3. Create a Number Block with value `2` (or an Array Block with values `[0, 2, 4]`) and connect it to the Index Block's `Index` input.
+4. Run the flow. The Index Block's `Value` output will be `30` (or `[10, 30, 50]` if using an array of indices).
+
+<Frame>
+  <img src="./assets/index-block-example.png" alt="Index Block Example" />
+</Frame>
+
+## Error Handling
+
+- If "Error on out of range" is enabled and an index is out of range, the block will throw an error.
+- If "Error on out of range" is disabled and an index is out of range, the block will output `undefined` for that index.
+- If the `Array` input is not an array, the block will throw an error.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use negative indices?">
+    Yes, negative indices are supported. They count from the end of the array, so -1 refers to the last element, -2 to the second-to-last, and so on.
+  </Accordion>
+
+  <Accordion title="What happens if I provide duplicate indices?">
+    If you provide an array of indices with duplicates, the block will return the corresponding values, including duplicates. For example, with input array `[10, 20, 30]` and indices `[0, 1, 1]`, the output will be `[10, 20, 20]`.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Array Block](/block-reference/data/array)
+- [Filter Block](/block-reference/modifiers/filter)
+- [Map Block](/block-reference/modifiers/map)

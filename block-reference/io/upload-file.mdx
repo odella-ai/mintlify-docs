@@ -1,0 +1,95 @@
+---
+id: upload-file
+title: Upload File Block
+description: Allow users to upload files for use in your workflow
+sidebarTitle: Upload File
+---
+
+![Upload File Block Screenshot](./assets/upload-file-block.png)
+
+## Overview
+
+The Upload File Block is a user input component that prompts users to upload a file. It's designed to wait for the user to select and upload a file before proceeding with the workflow. This block is particularly useful when you need to incorporate user-provided files into your flow for further processing or analysis.
+
+## Key Features
+
+- Accept file uploads from users
+- Limit accepted file types (PDF, CSV, MS Word)
+- Customizable prompt message
+- Flexible input options for prompt text
+
+## How It Works
+
+1. Add an Upload File Block to your flow
+2. Configure the accepted file types and prompt message in the Editor Settings
+3. When the flow reaches this block, it will pause and wait for the user to upload a file
+4. Once a file is uploaded, the block outputs the file data and the flow continues
+
+## Inputs
+
+<ParamField path="Prompt" type="string" optional>
+  The prompt message displayed to the user. Only available if the `Use Prompt Input` setting is enabled.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="File" type="file">
+  The uploaded file data. This can be used in subsequent blocks for processing or analysis.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Accepted File Types" type="string[]" default={["pdf", "csv", "docx"]}>
+  An array of file extensions that the block will accept. Options include "pdf", "csv", and "docx" (MS Word).
+</ParamField>
+
+<ParamField path="Prompt" type="string" default="Please upload a file">
+  The message displayed to the user when prompted to upload a file.
+</ParamField>
+
+<ParamField path="Use Prompt Input" type="boolean" default={false}>
+  When enabled, allows the prompt message to be provided via an input port.
+</ParamField>
+
+## Example: Uploading a CSV for Analysis
+
+1. Add an Upload File Block to your flow.
+2. In the Editor Settings, set `Accepted File Types` to ["csv"].
+3. Set the `Prompt` to "Please upload a CSV file for analysis".
+4. Connect the `File` output to a Table Block to parse the CSV data.
+5. Add subsequent blocks to analyze or visualize the data.
+
+<Frame>
+  <img src="/images/upload-file-example.png" alt="Upload File Example" />
+</Frame>
+
+## Error Handling
+
+- If a user attempts to upload a file type that is not accepted, the block will display an error message and continue waiting for a valid file.
+- If there are issues with file upload (e.g., network errors, file corruption), the block will fail and provide error details.
+
+<Warning>
+  Always validate and sanitize uploaded files before processing them further in your workflow to ensure security and data integrity.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I accept file types other than PDF, CSV, and MS Word?">
+    Currently, the Upload File Block is limited to accepting PDF, CSV, and MS Word files. If you need to accept other file types, you may need to use a custom solution or contact support for potential extensions.
+  </Accordion>
+
+  <Accordion title="Is there a file size limit for uploads?">
+    File size limits may vary depending on your system configuration and available resources. It's recommended to test with files of various sizes and implement appropriate error handling for oversized files.
+  </Accordion>
+
+  <Accordion title="How can I process the uploaded file in subsequent blocks?">
+    The `File` output of the Upload File Block can be connected to various other blocks depending on the file type. For example, CSV files can be parsed with a Table Block, while PDF files might be processed with a Document Analysis Block.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Table Block](/block-reference/data/table)
+- [Text Block](/block-reference/data/text)
+- [File Block](/block-reference/data/file)

@@ -1,0 +1,71 @@
+---
+id: read-binary
+title: Read Binary Block
+description: Read the contents of a file as binary data
+sidebarTitle: Read Binary
+---
+
+## Overview
+
+The Read Binary Block allows you to read the contents of a file as raw binary data. This is particularly useful when working with non-text files or when you need to process file contents in their original binary format.
+
+<Frame>
+  <img src="/images/read-binary-block.png" alt="Read Binary Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="File" type="file">
+  The input file to be read as binary. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Binary Data" type="binary">
+  The raw binary content of the input file.
+</ResponseField>
+
+## Editor Settings
+
+This block does not have any configurable settings in the editor.
+
+## Example: Reading an Image File as Binary
+
+1. Add a Read Binary block to your flow.
+2. Connect a File block containing an image file to the `File` input of the Read Binary block.
+3. Run your flow. The block will output the raw binary data of the image file.
+
+<Frame>
+  <img src="/images/read-binary-example.png" alt="Read Binary Example" />
+</Frame>
+
+## Error Handling
+
+- If the input file is missing or invalid, the block will return an error.
+- If there are issues reading the file (e.g., file permissions, corrupted file), the block will fail and provide error details.
+
+<Warning>
+  Be cautious when working with large files, as reading them entirely into memory as binary data may consume significant resources.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What types of files can I read with this block?">
+    The Read Binary block can read any type of file, including text files, images, audio files, executables, and more. It treats all files as raw binary data.
+  </Accordion>
+
+  <Accordion title="How is this different from the Read File block?">
+    While the Read File block is optimized for reading text files and can perform encoding conversions, the Read Binary block reads the raw binary content of any file without any interpretation or conversion.
+  </Accordion>
+
+  <Accordion title="Is there a size limit for files that can be read?">
+    The block itself doesn't impose a specific size limit, but reading very large files may be limited by available memory and system resources. For extremely large files, consider using streaming or chunking approaches.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Read File Block](/block-reference/loaders/read-file)
+- [File Block](/block-reference/data/file)
+- [Write Binary Block](/block-reference/io/write-binary)

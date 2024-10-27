@@ -1,0 +1,82 @@
+---
+id: slice
+title: Slice Block
+description: Extract a portion of an array based on specified start index and count
+sidebarTitle: Slice
+---
+
+![Slice Block Screenshot](./assets/slice-block.png)
+
+## Overview
+
+The Slice Block extracts a portion of an array. It takes an array as input and outputs a new array that starts at a specified index and contains a specified number of elements. This block is useful for manipulating arrays, such as extracting a subset of data from a larger dataset.
+
+## Inputs
+
+<ParamField path="Input" type="any[]">
+  The array to be sliced. Required. Non-array inputs will be coerced into an array.
+</ParamField>
+
+<ParamField path="Start" type="number" default={0}>
+  The index at which to start the slice. Optional. Will be coerced into a number if not provided as one.
+</ParamField>
+
+<ParamField path="Count" type="number">
+  The number of elements to include in the slice. Optional. If not provided, all elements from the start index will be included. Will be coerced into a number if not provided as one.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Output" type="any[]">
+  The sliced array containing the extracted elements from the input array.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Start" type="number" default={0}>
+  The index at which to start the slice. If not provided, the slice will start at the beginning.
+</ParamField>
+
+<ParamField path="Count" type="number">
+  The number of elements to include in the slice. If not provided, all elements will be included.
+</ParamField>
+
+## Example: Slice an array
+
+1. Create an Array Block with values `[1, 2, 3, 4, 5]`.
+2. Add a Slice Block and set the `Start` to `2` and the `Count` to `2`.
+3. Connect the Array Block to the Slice Block's `Input`.
+4. Run the flow. The Slice Block's `Output` should be `[3, 4]`.
+
+<Frame>
+  <img src="./assets/slice-block-example-01.png" alt="Slice Block Example" />
+</Frame>
+
+## Error Handling
+
+- The block will error if the `Input` is not provided or is not an array.
+- It will also error if the `Start` or `Count` is not a number.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if the Start is greater than the length of the array?">
+    The Slice Block will return an empty array.
+  </Accordion>
+
+  <Accordion title="What happens if the Count is greater than the number of elements in the array?">
+    The Slice Block will return all elements from the Start to the end of the array.
+  </Accordion>
+
+  <Accordion title="Can I use negative numbers for the Start and Count?">
+    You can use negative numbers for the Start to count from the end of the array. However, using a negative number for the Count will result in an error.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Array Block](/block-reference/data/array)
+- [Extract Object Path Block](/block-reference/modifiers/extract-object-path)
+- [Code Block](/block-reference/code/code)
+- [Split Text Block](/block-reference/modifiers/split-text)
+- [Join Block](/block-reference/modifiers/join)

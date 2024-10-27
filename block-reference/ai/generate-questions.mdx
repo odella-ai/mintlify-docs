@@ -1,0 +1,97 @@
+---
+id: generate-questions
+title: Generate Questions Block
+description: Leverage AI to generate multiple questions based on a given prompt and value
+sidebarTitle: Generate Questions
+---
+
+## Overview
+
+The Generate Questions Block uses AI capabilities to create a specified number of questions based on an input prompt and value. This block is particularly useful for expanding research activities, breaking down complex topics into manageable parts, or creating comprehensive question sets for various purposes.
+
+<Frame>
+  <img src="/images/generate-questions-block.png" alt="Generate Questions Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Prompt" type="string">
+  A natural language prompt guiding the question generation process. Required. This prompt helps direct the AI in creating relevant and focused questions.
+</ParamField>
+
+<ParamField path="Value" type="string">
+  The input value or context for which questions should be generated. Required. This could be a topic, a piece of text, or any other relevant information.
+</ParamField>
+
+<ParamField path="Number of Questions" type="number">
+  The desired number of questions to generate. Required. This determines how many questions the block will output.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Questions" type="string[]">
+  An array of generated questions. Each element in the array is a string representing a single question.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for generating questions. Choose from over 250 available AI models.
+</ParamField>
+
+<ParamField path="Model" type="string" default="GPT-3.5-turbo">
+  The specific model to use for the request. Available models depend on the selected provider.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity in question generation.
+</ParamField>
+
+<Note>
+  Additional AI model parameters may be available depending on the selected provider and model.
+</Note>
+
+## Example: Generating Research Questions
+
+1. Add a Generate Questions block to your flow.
+2. Connect a Text block with a prompt like "Generate research questions about climate change" to the `Prompt` input.
+3. Connect another Text block with a value like "Impact of rising sea levels on coastal cities" to the `Value` input.
+4. Set the `Number of Questions` to 5 (or your desired number).
+5. Configure the AI provider and model in the block settings.
+6. Run your flow. The block will output an array of 5 research questions related to the impact of rising sea levels on coastal cities.
+
+<Frame>
+  <img src="/images/generate-questions-example.png" alt="Generate Questions Example" />
+</Frame>
+
+## Error Handling
+
+- If the input prompt or value is empty, the block will return an error.
+- If the number of questions is not a positive integer, the block will return an error.
+- If the AI provider fails to generate questions, the block will error after a certain number of retries.
+
+<Warning>
+  Always review the generated questions for relevance and appropriateness, especially when using them for critical research or decision-making processes.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How diverse are the generated questions?">
+    The diversity of questions depends on the input prompt, the provided value, and the AI model's capabilities. You can encourage more diverse questions by adjusting the temperature setting or by providing a more open-ended prompt.
+  </Accordion>
+
+  <Accordion title="Can I generate questions in languages other than English?">
+    Yes, the Generate Questions block can generate questions in various languages. Simply provide the prompt and value in your desired language, and ensure the chosen AI model supports that language.
+  </Accordion>
+
+  <Accordion title="How can I ensure the generated questions are relevant to my specific needs?">
+    To improve relevance, provide a clear and specific prompt that outlines the type of questions you're looking for. You can also experiment with different AI models and settings to find the best combination for your use case.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Ask AI Block](/block-reference/ai/ask-ai)
+- [Analyze Table Block](/block-reference/ai/analyze-table)
+- [AI Filter Block](/block-reference/ai/ai-filter)

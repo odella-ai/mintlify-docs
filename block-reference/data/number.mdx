@@ -1,0 +1,100 @@
+---
+id: number
+title: Number Block
+description: Output a constant number value or convert an input value into a number
+sidebarTitle: Number
+---
+
+## Overview
+
+The Number Block is used to output a constant number value or convert an input value into a number. It can also be configured to round the number to a specified number of decimal places.
+
+<Frame>
+  <img src="/images/number-block.png" alt="Number Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Input" type="any">
+  The value to be converted into a number. This input is only available if the "Use Value Input" setting is enabled. The input will be coerced to a number.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Value" type="number">
+  The output number value. This can either be a constant value or a converted input value.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Value" type="number" default={0}>
+  The constant number value to be outputted.
+</ParamField>
+
+<ParamField path="Round" type="boolean" default={false}>
+  If enabled, the output number will be rounded to the specified decimal places.
+</ParamField>
+
+<ParamField path="Round To" type="number" default={0}>
+  The number of decimal places to round the output number to.
+</ParamField>
+
+## Example: Output a constant number
+
+1. Add a Number Block to your flow.
+2. Set the `Value` to `123.456`.
+3. Run the flow. The `Value` output of the Number Block will be `123.456`.
+
+<Frame>
+  <img src="/images/number-block-example-01.png" alt="Number Block Example 1" />
+</Frame>
+
+## Example: Convert a string to a number
+
+1. Add a Text Block to your flow and set the text to `"123.456"`.
+2. Add a Number Block and enable the `Use Value Input` setting.
+3. Connect the Text Block to the `Input` of the Number Block.
+4. Run the flow. The `Value` output of the Number Block will be `123.456`.
+
+<Frame>
+  <img src="/images/number-block-example-02.png" alt="Number Block Example 2" />
+</Frame>
+
+## Example: Round a number
+
+1. Add a Number Block to your flow.
+2. Set the `Value` to `123.456`.
+3. Enable the `Round` setting and set `Round To` to `2`.
+4. Run the flow. The `Value` output of the Number Block will be `123.46`.
+
+<Frame>
+  <img src="/images/number-block-example-03.png" alt="Number Block Example 3" />
+</Frame>
+
+## Error Handling
+
+The Number Block will not error under normal circumstances. If the `Input` value cannot be converted to a number, it will default to the `Value` setting.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use the Number Block to convert a boolean to a number?">
+    Yes, you can use the Number Block to convert a boolean to a number. A `true` value will be converted to `1` and a `false` value will be converted to `0`.
+  </Accordion>
+
+  <Accordion title="What happens if I connect a non-numeric value to the Input of the Number Block?">
+    The Number Block will attempt to convert the input value to a number. If the conversion is not possible, the block will default to the `Value` setting.
+  </Accordion>
+
+  <Accordion title="Can I use the Number Block to round a number to an integer?">
+    Yes, you can use the Number Block to round a number to an integer by enabling the `Round` setting and setting `Round To` to `0`.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Text Block](/block-reference/data/text)
+- [Bool Block](/block-reference/data/bool)
+- [Compare Block](/block-reference/data/compare)
+- [Evaluate Block](/block-reference/data/evaluate)
+- [RNG Block](/block-reference/data/rng)

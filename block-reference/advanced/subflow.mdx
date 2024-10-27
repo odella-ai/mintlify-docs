@@ -1,0 +1,80 @@
+---
+id: subflow
+title: Subflow Block
+sidebarTitle: Subflow
+description: Execute another flow within the current flow for reusable logic and modular design
+---
+
+![Subflow Block Screenshot](./assets/subflow-block.png)
+
+## Overview
+
+The Subflow Block allows you to execute another flow within the current flow. This powerful feature enables:
+
+- Reusing logic across multiple flows
+- Breaking down complex flows into smaller, manageable pieces
+- Creating modular and maintainable workflow designs
+
+The block's inputs and outputs are dynamically defined by [Input Blocks](./input.mdx) and [Output Blocks](./output.mdx) within the subflow. It also offers an optional error output for robust error handling.
+
+## Inputs
+
+| Name           | Type | Description                                                   |
+|----------------|------|---------------------------------------------------------------|
+| (custom names) | Any  | Dynamic inputs based on the subflow's configured Input Blocks |
+
+## Outputs
+
+| Name           | Type   | Description                                                    |
+|----------------|--------|----------------------------------------------------------------|
+| (custom names) | Any    | Dynamic outputs based on the subflow's configured Output Blocks|
+| Error          | string | Error message (if enabled and an error occurs)                 |
+
+## Editor Settings
+
+| Setting          | Description                                        | Default |
+|------------------|----------------------------------------------------|---------|
+| Flow             | The subflow to execute (must be in same project)   | Required|
+| Use Error Output | Enable separate error output instead of block fail | False   |
+
+## Examples
+
+### Reusing Logic
+
+1. Create a subflow with Input, Text, and Output blocks
+2. In main flow, add Subflow Block and select the created subflow
+3. Connect inputs/outputs as needed
+
+![Subflow Reuse Example](./assets/subflow-block-example-01.png)
+
+### Error Handling
+
+1. Create a subflow with potential error (e.g., invalid vector store operation)
+2. In main flow, add Subflow Block and enable "Use Error Output"
+3. Connect error output to handle potential issues
+
+![Subflow Error Handling](./assets/subflow-block-example-02.png)
+
+## Error Handling
+
+- Without "Use Error Output": Subflow errors cause the entire block to fail
+- With "Use Error Output": Errors are sent to the Error output port for custom handling
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use subflows from different projects?">
+    No, subflows must be within the same project.
+  </Accordion>
+  <Accordion title="Can I use Subflow Blocks in loops or conditionals?">
+    Yes, Subflow Blocks can be used with Loop Controller and If Blocks for advanced flow control.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Input Block](./input.mdx)
+- [Output Block](./output.mdx)
+- [If Block](./if.mdx)
+- [Loop Controller Block](./loop-controller.mdx)
+- [Text Block](./text.mdx)

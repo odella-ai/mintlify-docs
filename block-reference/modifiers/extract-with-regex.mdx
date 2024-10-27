@@ -1,0 +1,89 @@
+---
+id: extract-with-regex
+title: Extract with Regex Block
+description: Extract strings from input using regular expressions
+sidebarTitle: Extract Regex
+---
+
+![Extract with Regex Block Screenshot](./assets/extract-with-regex-block.png)
+
+## Overview
+
+The Extract With Regex Block allows you to extract one or more strings from an input string using a regular expression. It's useful for parsing responses from Language Models (LLMs), extracting specific values from files, or any scenario where you need to match patterns in text.
+
+## Key Features
+
+- Extract multiple strings using capture groups
+- Configurable error handling for failed matches
+- Support for multiline mode
+- Flexible output options including all matches and success/failure flags
+
+## Inputs
+
+<ParamField path="Input" type="string">
+  The string to match the regex against. Required. Non-string inputs will be coerced to strings.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Output N" type="string">
+  One output port per capture group in the regex, containing the matched content.
+</ResponseField>
+
+<ResponseField name="Matches" type="string[]">
+  An array of all regex matches, ignoring capture groups.
+</ResponseField>
+
+<ResponseField name="Succeeded" type="boolean">
+  True if the regex matched the input string, false otherwise.
+</ResponseField>
+
+<ResponseField name="Failed" type="boolean">
+  True if the regex did not match the input string, false otherwise.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Error on failed" type="boolean" default={false}>
+  If enabled, the block will error if the regex doesn't match the input string.
+</ParamField>
+
+<ParamField path="Multiline Mode" type="boolean" default={false}>
+  Enables multiline mode for the regex, affecting `^` and `$` behavior.
+</ParamField>
+
+<ParamField path="Regex" type="string" default="([a-zA-Z]+)">
+  The regular expression to use for matching. Can be toggled to accept input from another block.
+</ParamField>
+
+## Example: Extract a command from an LLM response
+
+1. Create a Chat Block with a System Prompt:
+   ```
+   Your reply can initiate commands, for example `!hello` will cause "Hello world" to appear for the user. Try it out now!
+   ```
+2. Add an Extract With Regex Block and connect the Chat Block's output to its input.
+3. Set the Regex to `!([a-zA-Z]+)`.
+4. Connect the `Output 1` port to a Text Block to display the matched command.
+
+<Frame>
+  <img src="./assets/extract-with-regex-block-example-01.png" alt="Extract with Regex Example" />
+</Frame>
+
+## Error Handling
+
+- The block will error if the input string is not provided or if the regex is invalid.
+- If "Error on failed" is enabled, the block will error when the regex doesn't match the input.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How do I match a string that contains a special character?">
+    For special characters like newlines, you can include them literally in the regex editor. They will be preserved in the regular expression.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Extract Object Path Block](/block-reference/modifiers/extract-object-path)
+- [Match Block](/block-reference/modifiers/match)

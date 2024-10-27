@@ -1,0 +1,81 @@
+---
+id: confirm
+title: Confirm Block
+description: Prompt the user for confirmation and control flow based on their response
+sidebarTitle: Confirm
+---
+
+## Overview
+
+The Confirm Block is a user input block that prompts the user for confirmation. It returns either true or false based on the user's response, making it useful for controlling flow in your application based on user inputs.
+
+<Frame>
+  <img src="/images/confirm-block.png" alt="Confirm Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Message" type="string">
+  The message to display to the user when prompting for confirmation. This is optional and defaults to a generic confirmation message if not provided.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Confirmed" type="boolean">
+  Returns `true` if the user confirms, `false` if they deny.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Default Message" type="string" default="Are you sure you want to proceed?">
+  The default message to display if no input message is provided.
+</ParamField>
+
+<ParamField path="Confirm Button Text" type="string" default="Yes">
+  The text to display on the confirmation button.
+</ParamField>
+
+<ParamField path="Deny Button Text" type="string" default="No">
+  The text to display on the denial button.
+</ParamField>
+
+## Example: Confirming a Delete Action
+
+1. Add a Confirm Block to your flow before a critical delete action.
+2. Set the `Message` input to "Are you sure you want to delete this item? This action cannot be undone."
+3. Connect the `Confirmed` output to a conditional block.
+4. If `Confirmed` is true, proceed with the delete action. If false, skip the delete action.
+
+<Frame>
+  <img src="/images/confirm-block-example.png" alt="Confirm Block Example" />
+</Frame>
+
+## Error Handling
+
+The Confirm Block does not typically produce errors as it simply waits for user input. However, if there are issues with the user interface or the block fails to receive a response, it may timeout and return an error.
+
+<Warning>
+  Always provide clear and concise messages to users to ensure they understand the implications of their confirmation or denial.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I customize the appearance of the confirmation dialog?">
+    The basic appearance of the confirmation dialog is determined by the system. However, you can customize the message, and the text on the confirm and deny buttons through the block's settings.
+  </Accordion>
+
+  <Accordion title="How long will the Confirm Block wait for user input?">
+    The Confirm Block will typically wait indefinitely for user input. However, this may depend on the specific implementation and any timeout settings in your overall application flow.
+  </Accordion>
+
+  <Accordion title="Can I use the Confirm Block in a non-interactive environment?">
+    The Confirm Block is designed for interactive use and requires user input. In non-interactive environments, you may need to use a different approach or provide a default behavior.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [User Input Block](/block-reference/input-output/user-input)
+- [Conditional Block](/block-reference/logic/conditional)
+- [Text Block](/block-reference/data/text)

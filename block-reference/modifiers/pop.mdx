@@ -1,0 +1,91 @@
+---
+id: pop
+title: Pop Block
+description: Remove and return the first or last element from an array
+sidebarTitle: Pop
+---
+
+![Pop Block Screenshot](./assets/pop-block.png)
+
+## Overview
+
+The Pop Block removes either the first or last element from an array and outputs both the removed element and the remaining array. By default, it pops the last element. This block is useful for processing array elements one by one in a loop.
+
+## Key Features
+
+- Removes and returns the first or last element of an array
+- Outputs both the popped element and the remaining array
+- Configurable to pop from the front or back of the array
+- Useful for iterative array processing
+
+## Inputs
+
+<ParamField path="Array" type="any[]">
+  The array to pop from. Required. Non-array inputs will be coerced into an array.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Last" type="any">
+  The popped element (last or first, depending on settings).
+</ResponseField>
+
+<ResponseField name="Rest" type="any[]">
+  The remaining elements of the array after popping.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Pop from front" type="boolean" default={false}>
+  If enabled, the first element of the array will be popped instead of the last.
+</ParamField>
+
+## Example: Pop the last element from an array
+
+1. Create an Array Block with values `["John", "Doe", "30", "Engineer"]`.
+2. Add a Pop Block and connect the Array Block to its `Array` input.
+3. Run the flow. The `Last` output should be `"Engineer"` and the `Rest` output should be `["John", "Doe", "30"]`.
+
+<Frame>
+  <img src="./assets/pop-block-example-01.png" alt="Pop Block Example 1" />
+</Frame>
+
+## Example: Pop the first element from an array
+
+1. Create an Array Block with values `["John", "Doe", "30", "Engineer"]`.
+2. Add a Pop Block, enable the `Pop from front` setting, and connect the Array Block to its `Array` input.
+3. Run the flow. The `Last` output should be `"John"` and the `Rest` output should be `["Doe", "30", "Engineer"]`.
+
+<Frame>
+  <img src="./assets/pop-block-example-02.png" alt="Pop Block Example 2" />
+</Frame>
+
+## Error Handling
+
+The Pop Block will error if:
+- The `Array` input is not provided
+- The input is not an array (and cannot be coerced into one)
+- The input array is empty
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I pop multiple elements from an array at once?">
+    No, the Pop Block can only pop one element at a time. To remove multiple elements, use multiple Pop Blocks in sequence.
+  </Accordion>
+
+  <Accordion title="Can I use the Pop Block to pop elements from a string?">
+    No, the Pop Block only works with arrays. For string manipulation, consider using a Code Block with custom JavaScript.
+  </Accordion>
+
+  <Accordion title="What if the array is empty?">
+    The Pop Block will error if the array is empty. Use an If Block to check if the array is empty before popping from it.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Array Block](/block-reference/data/array)
+- [Slice Block](/block-reference/modifiers/slice)
+- [Code Block](/block-reference/code/code)
+- [Loop Controller Block](/block-reference/logic/loop-controller)

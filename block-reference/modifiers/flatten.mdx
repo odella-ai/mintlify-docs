@@ -1,0 +1,63 @@
+---
+id: flatten
+title: Flatten Block
+description: Flatten nested arrays into a single-level array
+sidebarTitle: Flatten
+---
+
+![Flatten Block Screenshot](./assets/flatten-block.png)
+
+## Overview
+
+The Flatten Block is designed to simplify complex nested array structures by flattening them into a single-level array. This block is particularly useful when dealing with multi-dimensional arrays or when you need to process all elements of a nested structure in a linear fashion.
+
+## Key Features
+
+- Flattens nested arrays of any depth into a single-level array
+- Preserves the order of elements from the original nested structure
+- Handles arrays containing both nested arrays and non-array elements
+
+## Inputs
+
+<ParamField path="Input" type="any[]">
+  The nested array structure to be flattened. Required. Non-array inputs will be returned as-is.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Flattened" type="any[]">
+  The resulting flattened array containing all elements from the input, with nested structures removed.
+</ResponseField>
+
+## Example: Flattening a Nested Array
+
+1. Create an Array Block with a nested array structure, e.g., `[1, [2, [3, 4]], 5, [6, 7]]`.
+2. Add a Flatten Block and connect the Array Block to its `Input`.
+3. Run the flow. The Flatten Block's `Flattened` output should be `[1, 2, 3, 4, 5, 6, 7]`.
+
+<Frame>
+  <img src="./assets/flatten-block-example.png" alt="Flatten Block Example" />
+</Frame>
+
+## Error Handling
+
+- If the input is not an array, the block will return the input as-is without throwing an error.
+- The block will not modify non-array elements within the structure.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Does the Flatten Block work with objects?">
+    The Flatten Block is designed to work with arrays. It will not flatten object structures. If you need to flatten objects, consider using a combination of other blocks or a custom function.
+  </Accordion>
+
+  <Accordion title="Is there a limit to the depth of nesting it can handle?">
+    The Flatten Block can handle arbitrarily deep nested array structures. However, extremely deep nesting may impact performance.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Array Block](/block-reference/data/array)
+- [Map Block](/block-reference/modifiers/map)
+- [Filter Block](/block-reference/modifiers/filter)

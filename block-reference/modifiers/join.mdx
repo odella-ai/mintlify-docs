@@ -1,0 +1,92 @@
+---
+id: join
+title: Join Block
+description: Concatenate an array of strings into a single string using a specified delimiter
+sidebarTitle: Join
+---
+
+![Join Block Screenshot](./assets/join-block.png)
+
+## Overview
+
+The Join Block concatenates an array of strings into a single string using a specified delimiter. It's useful for formatting lists of items or joining lines of text. The block supports special characters as delimiters and can flatten input arrays before joining.
+
+## Key Features
+
+- Concatenates multiple strings or array elements into a single string
+- Supports custom delimiters, including special characters like newline and tab
+- Can flatten nested arrays before joining
+- Coerces non-string inputs into strings
+
+## Inputs
+
+<ParamField path="Input [i]" type="string | any[]">
+  The strings or arrays to be joined. Dynamic number of inputs based on connections.
+</ParamField>
+
+<ParamField path="Join String" type="string">
+  The delimiter used to join the inputs. Only available if "Use Join String Input" is enabled.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Joined" type="string">
+  The resulting joined string.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Flatten" type="boolean" default={true}>
+  If enabled, the block will flatten array inputs before joining them.
+</ParamField>
+
+<ParamField path="Join String" type="string" default="\n">
+  The string used as a delimiter to join the inputs.
+</ParamField>
+
+<ParamField path="Use Join String Input" type="boolean" default={false}>
+  If enabled, the Join String can be provided via an input port.
+</ParamField>
+
+## Example: Join an array of strings with a newline
+
+1. Create an Array Block with values `["apple", "banana", "cherry"]`.
+2. Add a Join Block and set the Join String to `\n` in the settings.
+3. Connect the Array Block to the Join Block's `Input 1`.
+4. Run the flow. The output should be:
+   ```
+   apple
+   banana
+   cherry
+   ```
+
+<Frame>
+  <img src="./assets/join-block-example-01.png" alt="Join Block Example 1" />
+</Frame>
+
+## Error Handling
+
+The Join Block generally doesn't error. If an input is not provided, it outputs an empty string.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use special characters as the Join String?">
+    Yes, you can use special characters like newline (`\n`), tab (`\t`), and space (` `) as the Join String. Enter them literally in the Join String field in the settings.
+  </Accordion>
+
+  <Accordion title="Can I join an array of non-string values?">
+    Yes, you can join an array of any data type. The values will be coerced into strings before joining.
+  </Accordion>
+
+  <Accordion title="Can I use a dynamic Join String?">
+    Yes, enable the "Use Join String Input" setting to create a new input port for the Join String.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Split Text Block](/block-reference/modifiers/split-text)
+- [Array Block](/block-reference/data/array)
+- [Text Block](/block-reference/data/text)
+- [Code Block](/block-reference/code/code)

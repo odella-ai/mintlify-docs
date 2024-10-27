@@ -1,0 +1,90 @@
+---
+id: populate-template
+title: Populate Template Block
+description: Intelligently fill a pre-built template using AI, handling various content types including text, tables, and images
+sidebarTitle: Populate Template
+---
+
+## Overview
+
+The Populate Template Block is a powerful tool that combines pre-built templates with AI capabilities to generate comprehensive, context-aware documents. This block takes a template created in our template editor and uses a connected AI model to intelligently fill in the content based on the supplied context and the structure of the document itself. It can handle various content types including text blocks, tables, and images, making decisions on what to use where based on the AI model's understanding.
+
+<Frame>
+  <img src="/images/populate-template-block.png" alt="Populate Template Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Template" type="object">
+  The pre-built template created in the template editor. Required. This template defines the structure and placeholders for the document to be populated.
+</ParamField>
+
+<ParamField path="Context" type="string">
+  Additional context or information to guide the AI in populating the template. This can include background information, specific requirements, or any other relevant details.
+</ParamField>
+
+<ParamField path="AI Model" type="object">
+  The AI model to be used for intelligent content generation. Required. This should be connected from an AI provider block.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Populated Document" type="object">
+  The final document with all placeholders filled and content generated based on the template and context.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Content Types" type="array" default={["Text", "Table", "Image"]}>
+  Select the types of content the block should handle. You can enable or disable specific content types based on your template requirements.
+</ParamField>
+
+<ParamField path="Max Tokens" type="number" default={2048}>
+  The maximum number of tokens the AI model should generate for text content. Adjust this based on the expected length of your document.
+</ParamField>
+
+## Example: Generating a Business Report
+
+1. Create a template in the template editor with placeholders for an executive summary, market analysis table, and company logo.
+2. Add a Populate Template block to your flow.
+3. Connect your template to the `Template` input of the block.
+4. Add a Text block with relevant business context and connect it to the `Context` input.
+5. Connect an AI Model block (e.g., GPT-4) to the `AI Model` input.
+6. Run your flow. The block will output a fully populated business report with generated text, a filled market analysis table, and an appropriate image for the company logo.
+
+<Frame>
+  <img src="/images/populate-template-example.png" alt="Populate Template Example" />
+</Frame>
+
+## Error Handling
+
+- If the input template is invalid or missing required components, the block will return an error.
+- If the AI model fails to generate appropriate content for any section of the template, the block will retry a set number of times before failing.
+- If the generated content exceeds token limits or doesn't match the expected format for a specific placeholder, the block will provide a warning and attempt to adjust or truncate the content.
+
+<Warning>
+  Always review the generated document for accuracy and appropriateness, especially when dealing with sensitive or critical information.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How does the block handle different content types?">
+    The block uses the AI model to analyze the context and template structure, then generates appropriate content for each placeholder. For text, it generates natural language; for tables, it creates structured data; and for images, it either selects from a predefined set or generates descriptions for image creation.
+  </Accordion>
+
+  <Accordion title="Can I use custom formatting in my templates?">
+    Yes, the Populate Template block respects custom formatting defined in your template. This includes styles, layouts, and any special instructions you've included for specific sections.
+  </Accordion>
+
+  <Accordion title="Is there a limit to the template size or complexity?">
+    While there's no strict limit, very large or complex templates may require more processing time and could potentially hit token limits of the AI model. For extensive documents, consider breaking them into sections using multiple Populate Template blocks.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Draft Block](/block-reference/draft/draft)
+- [Ask AI Block](/block-reference/ai/ask-ai)
+- [Image Block](/block-reference/data/image)
+- [Table Block](/block-reference/data/table)

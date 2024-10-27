@@ -1,0 +1,97 @@
+---
+id: research-ai
+title: Research AI Block
+description: Leverage AI to conduct intelligent research across public or private document stores
+sidebarTitle: Research AI
+---
+
+## Overview
+
+The Research AI Block utilizes advanced AI capabilities to perform intelligent searches and research across multiple document stores. This block can search through public databases, private collections, or a combination of both, providing powerful and flexible research capabilities for various use cases.
+
+<Frame>
+  <img src="/images/research-ai-block.png" alt="Research AI Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Query" type="string">
+  The research query or question. Required. This guides the AI in conducting the research.
+</ParamField>
+
+<ParamField path="Document Stores" type="string[]">
+  An array of document store identifiers to search. Required. These can be public stores (e.g., "public_laws") or private stores (e.g., "private_contracts").
+</ParamField>
+
+<ParamField path="Search Mode" type="string">
+  The mode of search across multiple document stores. Required. Options are "OR" (intelligent routing to one store) or "AND" (combining results from all stores).
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Research Results" type="object">
+  An object containing the research findings, relevant documents, and any additional context provided by the AI.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for the research process.
+</ParamField>
+
+<ParamField path="Model" type="string" default="GPT-4">
+  The specific model to use for the request. Available models depend on the selected provider.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity in research.
+</ParamField>
+
+<Note>
+  Available settings may vary depending on the selected provider and model.
+</Note>
+
+## Example: AI-Powered Legal Research
+
+1. Add a Research AI block to your flow.
+2. Connect a Text block with a query like "What are the recent changes in copyright law regarding AI-generated content?" to the `Query` input.
+3. Set the `Document Stores` input to include relevant legal databases (e.g., ["public_laws", "case_law"]).
+4. Set the `Search Mode` to "AND" to combine results from all specified stores.
+5. Configure the AI provider and model in the block settings.
+6. Run your flow. The block will output comprehensive research results on recent copyright law changes related to AI-generated content.
+
+<Frame>
+  <img src="/images/research-ai-example.png" alt="Research AI Example" />
+</Frame>
+
+## Error Handling
+
+- If the input query is empty or invalid, the block will return an error.
+- If no valid document stores are specified, the block will return an error.
+- If the AI provider fails to conduct the research, the block will error after a certain number of retries.
+
+<Warning>
+  Always verify the accuracy and relevance of the research results, especially when using them for critical decision-making or legal purposes.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How does the Research AI block handle conflicting information from different sources?">
+    The AI attempts to reconcile conflicting information by analyzing the credibility of sources, considering the recency of information, and providing context for discrepancies. In cases of significant conflicts, the AI may highlight these differences in the research results.
+  </Accordion>
+
+  <Accordion title="Can I use the Research AI block with my own private document stores?">
+    Yes, the Research AI block can be configured to work with both public and private document stores. Ensure that your private stores are properly set up and accessible within your platform environment.
+  </Accordion>
+
+  <Accordion title="How does the 'OR' search mode differ from the 'AND' mode?">
+    In 'OR' mode, the AI intelligently selects the most appropriate document store to search based on the query, potentially improving speed and relevance. In 'AND' mode, the AI searches all specified stores and combines the results, providing a more comprehensive but potentially slower search.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Ask AI Block](/block-reference/ai/ask-ai)
+- [AI Filter Block](/block-reference/ai/ai-filter)
+- [Analyze Table Block](/block-reference/ai/analyze-table)

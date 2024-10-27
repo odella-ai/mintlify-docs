@@ -1,0 +1,71 @@
+---
+id: filter
+title: Filter Block
+description: Filter an array based on boolean conditions
+sidebarTitle: Filter
+---
+
+![Filter Block Screenshot](./assets/filter-block.png)
+
+## Overview
+
+The Filter Block allows you to filter an array based on a corresponding array of boolean values. It takes an array of any data type and an array of boolean values of the same length, then outputs a new array containing only the elements where the corresponding boolean value is `true`.
+
+This block is particularly useful for filtering arrays based on specific conditions, especially when combined with other blocks like [Compare](/block-reference/modifiers/compare) in a batched operation.
+
+## Inputs
+
+<ParamField path="Array" type="any[]">
+  The array to be filtered. Required. Non-array inputs will be coerced into an array.
+</ParamField>
+
+<ParamField path="Include" type="boolean[]">
+  An array of boolean values indicating whether to include each element in the array. Required. The length of this array should match the length of the Array input.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Filtered" type="any[]">
+  The filtered array, containing only the elements where the corresponding boolean value in the Include input was `true`.
+</ResponseField>
+
+## Example: Filter numbers greater than 3
+
+1. Create an Array Block with values `[1, 2, 3, 4, 5]`.
+2. Add a Compare Block, set comparison to `>`, and enable batching.
+3. Create a Number Block with value `3`.
+4. Connect the Array Block to Compare Block's `A` input, and Number Block to `B` input.
+5. Add a Filter Block, connect Array Block to `Array` input and Compare Block's `Result` to `Include` input.
+6. Run the flow. The Filter Block's `Filtered` output should be `[4, 5]`.
+
+<Frame>
+  <img src="./assets/filter-block-example-02.png" alt="Filter Block Example" />
+</Frame>
+
+## Error Handling
+
+The Filter Block will error if:
+- The `Array` or `Include` inputs are not provided
+- The lengths of the input arrays do not match
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if the lengths of the Array and Include inputs do not match?">
+    The Filter Block will error. The lengths of the Array and Include inputs should always match.
+  </Accordion>
+
+  <Accordion title="Can I use the Filter Block to filter an array of objects?">
+    Yes, you can use the Filter Block to filter an array of any data type, including objects. Just make sure to provide an array of boolean values indicating whether to include each object in the filtered array.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Array Block](/block-reference/data/array)
+- [Compare Block](/block-reference/modifiers/compare)
+- [Number Block](/block-reference/data/number)
+- [Extract Object Path Block](/block-reference/modifiers/extract-object-path)
+- [Evaluate Block](/block-reference/modifiers/evaluate)
+- [Coalesce Block](/block-reference/modifiers/coalesce)
+- [Join Block](/block-reference/modifiers/join)

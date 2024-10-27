@@ -1,0 +1,79 @@
+---
+id: coalesce
+title: Coalesce Block
+description: Returns the first non-null value from a list of inputs, similar to SQL's COALESCE function
+sidebarTitle: Coalesce
+---
+
+![Coalesce Block Screenshot](./assets/coalesce-block.png)
+
+## Overview
+
+The Coalesce Block functions similarly to the `COALESCE` function in SQL, returning the first non-null value from a list of inputs. In Lawme, "null" includes values that appear as "Not Ran" in the UI - blocks that have been excluded from the run due to control flow processing.
+
+This block is particularly useful when working with a set of blocks where only one will run, allowing you to return the output of the first block that actually executes. See the examples section for more information on using this with a [Match Block](/block-reference/logic/match).
+
+## Inputs
+
+<ParamField path="Conditional" type="boolean">
+  If connected, this can be used to run the coalesce block conditionally. If not connected, it's treated like any other input.
+</ParamField>
+
+<ParamField path="Input X" type="any">
+  One of the inputs to check for nullness. The first non-null input will be passed to the output port. The number of inputs is dynamic based on how many are connected.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Output" type="any">
+  The value of the first non-null input. If all inputs are null, the output will not run.
+</ResponseField>
+
+## Editor Settings
+
+This block has no configurable editor settings.
+
+## Example: Default Values / Null Checks
+
+You can use a Coalesce Block to perform null checks and set default values for a parameter.
+
+1. Create an If block but do not connect to its input, so it will not run.
+2. Connect the output of the If block to the Coalesce block.
+3. Connect a Text block with a hardcoded value to the 2nd input of the Coalesce block.
+4. Run the flow. The output of the Coalesce block will be the value of the Text block, since the If block was not run.
+
+<Frame>
+  <img src="/images/coalesce-block-example-01.png" alt="Coalesce Block Example 1" />
+</Frame>
+
+## Example: Getting a Single Value from a Match Block
+
+1. Create a [Match Block](/block-reference/logic/match) with a few different cases, say `1`, `2`, and `3`.
+2. For each case, use an [If Block](/block-reference/logic/if) to transform each case into a unique value, say `A`, `B`, and `C`. Use a [Text Block](/block-reference/data/text) connected to the `value` port of the If Blocks to set the value passed through for each case.
+3. Connect the outputs of each If block to one of the inputs on a Coalesce block.
+4. Connect an input to the Match block so that only one of the cases will run.
+5. Run the flow. The output of the Coalesce block will be the value of the If block that ran.
+
+This pattern is common when working with a Match block - you can get a unique value for each case using an If block, which is not dependent on the value passed into the Match block itself.
+
+<Frame>
+  <img src="/images/coalesce-block-example-02.png" alt="Coalesce Block Example 2" />
+</Frame>
+
+## Error Handling
+
+The Coalesce block cannot error in normal operation.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Will an empty string be passed over?">
+    No, an empty string is not considered nullable for the Coalesce Block. If you want to skip over empty strings, use an If Block to check for empty strings and return null if the string is empty.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Match Block](/block-reference/logic/match)
+- [If Block](/block-reference/logic/if)
+- [If/Else Block](/block-reference/logic/if-else)

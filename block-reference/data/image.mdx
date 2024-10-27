@@ -1,0 +1,92 @@
+---
+id: image
+title: Image Block
+description: Define a static image or convert binary data to image type for use with other blocks
+sidebarTitle: Image
+---
+
+## Overview
+
+The Image Block is used to define a static image for use with other blocks or convert binary data into an image type. It supports PNG, JPEG, and GIF formats and requires both image data and a media type specification.
+
+<Frame>
+  <img src="/images/image-block.png" alt="Image Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Data" type="string">
+  The data to be converted into an image. This input is only available if the "Use Data Input" setting is enabled. The input will be coerced into a string.
+</ParamField>
+
+<ParamField path="Media Type" type="string">
+  The media type of the image (PNG, JPEG, or GIF). This input is only available if the "Use Media Type Input" setting is enabled. Must be one of: `image/png`, `image/jpeg`, or `image/gif`.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Image" type="image">
+  The image that was created or converted from the input data.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Media Type" type="string" default="image/png">
+  The media type of the image (PNG, JPEG, or GIF).
+</ParamField>
+
+<ParamField path="Image" type="file">
+  The image file to be used. Click "Pick Image" to select an image from your local file system.
+</ParamField>
+
+<ParamField path="Use Data Input" type="boolean" default={false}>
+  If enabled, the block will use the data from the "Data" input port as the image data.
+</ParamField>
+
+<ParamField path="Use Media Type Input" type="boolean" default={false}>
+  If enabled, the block will use the value from the "Media Type" input port as the media type.
+</ParamField>
+
+## Example: Creating a Static Image
+
+1. Add an Image Block to your flow.
+2. In the block's settings, click "Pick Image" and select an image file from your local file system.
+3. Run the flow. The `Image` output of the Image Block will contain the selected image.
+
+<Frame>
+  <img src="/images/image-block-example.png" alt="Image Block Example" />
+</Frame>
+
+## Error Handling
+
+The Image Block will throw an error if:
+
+- The "Use Data Input" setting is enabled but no data is provided to the "Data" input port.
+- The "Use Media Type Input" setting is enabled but no valid media type is provided to the "Media Type" input port.
+- The provided image data cannot be converted to the specified media type.
+
+<Warning>
+  Ensure that the image data and media type are compatible to avoid errors.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use the Image Block to display an image in the Lawme UI?">
+    Yes, the Image Block can be used to display an image in the Lawme UI. The image will be visible in the block's output port when the flow is run.
+  </Accordion>
+
+  <Accordion title="Can I use the Image Block to convert a binary type into an image?">
+    Yes, you can use the Image Block to convert binary data into an image. Enable the "Use Data Input" setting and provide the binary data to the `Data` input. Make sure to set the correct media type.
+  </Accordion>
+
+  <Accordion title="What image formats are supported by the Image Block?">
+    The Image Block supports PNG, JPEG, and GIF formats.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Text Block](/block-reference/data/text)
+- [Audio Block](/block-reference/data/audio)
+- [File Block](/block-reference/data/file)

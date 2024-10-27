@@ -1,0 +1,120 @@
+---
+id: ask-ai
+title: Ask AI Block
+description: Send messages to over 250 AI models from 13 providers for chat completions
+sidebarTitle: Ask AI
+---
+
+## Overview
+
+The Ask AI Block allows you to send messages to over 250 different AI models from 13 different providers for chat completions. This versatile block provides a wide range of options for AI-powered conversations and text generation tasks.
+
+<Frame>
+  <img src="./assets/ask-ai-block.png" alt="Ask AI Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="System Prompt" type="string | chat-message">
+  A system prompt to be prepended to the main prompt message/messages. Optional. If not connected, no system prompt will be prepended.
+</ParamField>
+
+<ParamField path="Prompt" type="string | string[] | chat-message | chat-message[]">
+  The main prompt to send to the AI model. Can be one or more strings or chat-messages. Required. Strings will be converted into chat messages of type `user`, with no name.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Response" type="string">
+  The response from the AI model. The response will be streamed in, but subsequent blocks will not be executed until the response is finished.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for the request.
+</ParamField>
+
+<ParamField path="Model" type="string">
+  The specific model to use for the request. Available models depend on the selected provider.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values are more deterministic, higher values are more "creative".
+</ParamField>
+
+<ParamField path="Max Tokens" type="number" default={1024}>
+  The maximum number of tokens that the AI is allowed to return. When hitting the max tokens, the response will be cut off.
+</ParamField>
+
+<ParamField path="Stop Sequences" type="string[]">
+  Comma separated list of stop sequences. If any stop sequence is encountered, the response will end immediately.
+</ParamField>
+
+<ParamField path="Top P" type="number" default={1}>
+  Alternate sampling mode using the top X% of values. 0.1 corresponds to the top 10%.
+</ParamField>
+
+<ParamField path="Frequency Penalty" type="number" default={0}>
+  Applies a penalty for tokens based on their frequency in the text so far.
+</ParamField>
+
+<ParamField path="Presence Penalty" type="number" default={0}>
+  Applies a penalty for tokens based on whether they've appeared in the text so far.
+</ParamField>
+
+<ParamField path="Number of Completions" type="number" default={1}>
+  The number of alternative completions to generate.
+</ParamField>
+
+<ParamField path="Cache" type="boolean" default={false}>
+  Caches the response locally. If the Ask AI block gets the exact same prompt again, it will return the cached response instead of making a new request.
+</ParamField>
+
+<Note>
+  Available settings may vary depending on the selected provider and model.
+</Note>
+
+## Example: Simple Question Answering
+
+1. Add an Ask AI block to your flow.
+2. Add a Text block and enter your question in its editor.
+3. Connect the output of the Text block to the `Prompt` input of the Ask AI block.
+4. Select your desired provider and model in the Ask AI block settings.
+5. Run your flow. The AI's response will appear at the bottom of the Ask AI block.
+
+<Frame>
+  <img src="./assets/ask-ai-block-example.png" alt="Simple Question Answering Example" />
+</Frame>
+
+## Error Handling
+
+- If nothing is connected to the `Prompt` input, the Ask AI block will error.
+- If the request to the AI provider fails, the block will attempt to retry the request using a backoff algorithm.
+- If the request still fails after multiple retries, the Ask AI block will error.
+
+<Warning>
+  Be mindful of rate limits when using the Ask AI block, especially when [batching](/workflow/batching) requests.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use multiple AI providers in the same workflow?">
+    Yes, you can use multiple Ask AI blocks with different providers in the same workflow.
+  </Accordion>
+
+  <Accordion title="What happens if I connect an unsupported data type to the prompt input?">
+    The block will attempt to convert the value to a string. If successful, it will be treated as a user message. If conversion fails, the input will be ignored.
+  </Accordion>
+
+  <Accordion title="Are all settings available for all providers and models?">
+    No, available settings may vary depending on the selected provider and model. The block will adapt its settings based on your selection.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Text Block](/block-reference/data/text)
+- [Assemble Prompt Block](/block-reference/ai/assemble-prompt)
+- [AI Filter Block](/block-reference/ai/ai-filter)

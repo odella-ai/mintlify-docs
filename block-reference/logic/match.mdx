@@ -1,0 +1,86 @@
+---
+id: match
+title: Match Block
+description: Route control flow based on string matching against regular expressions
+sidebarTitle: Match
+---
+
+![Match Block Screenshot](./assets/match-block.png)
+
+## Overview
+
+The Match Block is used to route control flow based on matching a string input against a series of regular expressions. Each regular expression corresponds to an output of the block. This block is particularly useful for directing workflow based on the content of a string, such as checking for specific keywords in a user's message.
+
+## Key Features
+
+- Match string input against multiple regular expressions
+- Option to run either the first matching output or all matching outputs
+- Fallback 'Unmatched' output for when no match is found
+- Flexible value passing through matched outputs
+
+## Inputs
+
+<ParamField path="Test" type="string">
+  The string to be tested against the regular expressions. Required. Non-string inputs will be coerced to strings.
+</ParamField>
+
+<ParamField path="Value" type="any">
+  The value to be passed to the output port if a match is found. Optional. If not provided, the `Test` input will be used as the value.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Case [i]" type="any">
+  The output port corresponding to the ith regular expression. The number of these outputs is dynamic based on the number of configured cases.
+</ResponseField>
+
+<ResponseField name="Unmatched" type="any">
+  Executed if no match is found for the input string. Will not run if a match is found.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Exclusive" type="boolean" default={false}>
+  If enabled, only the first matched case will run. If disabled, all matching cases will run.
+</ParamField>
+
+<ParamField path="Cases" type="string[]" default={["YES", "NO"]}>
+  The list of regular expression cases to match against.
+</ParamField>
+
+## Example: Route control flow based on AI input
+
+1. Create a Chat Block with a prompt asking about preference for cats or dogs.
+2. Connect the Chat Block's `Message` output to a Match Block's `Test` input.
+3. Set up the Match Block with regex cases for "cats" and "dogs".
+4. Create three pairs of If Blocks and Text Blocks for different outcomes.
+5. Connect the Match Block's outputs to the corresponding If Blocks.
+6. Run the flow to see the routing based on the AI's response.
+
+<Frame>
+  <img src="./assets/match-block-example-01.png" alt="Match Block Example" />
+</Frame>
+
+## Error Handling
+
+The Match Block will error if the `Test` input is not provided. If no match is found, the `Unmatched` output will be executed.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can multiple cases match at once?">
+    Yes, multiple cases can match simultaneously. All corresponding output ports will be executed unless the 'Exclusive' setting is enabled.
+  </Accordion>
+
+  <Accordion title="Can I use the Match Block with numbers or lists?">
+    Yes, but inputs will be coerced into strings for matching. For lists, each string is typically placed on its own line for testing.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [If Block](/block-reference/logic/if)
+- [If/Else Block](/block-reference/logic/if-else)
+- [Loop Controller Block](/block-reference/logic/loop-controller)
+- [Coalesce Block](/block-reference/logic/coalesce)
+- [Control Flow](/docs/user-guide/workflow/control-flow)

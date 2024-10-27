@@ -1,0 +1,104 @@
+---
+id: extract-data
+title: Extract Data Block
+description: Leverage AI to extract structured data from unstructured text based on a flexible schema
+sidebarTitle: Extract Data
+---
+
+## Overview
+
+The Extract Data Block uses AI capabilities to extract structured data from unstructured text input. By defining a flexible schema, you can specify which fields to extract, their data types, and provide detailed descriptions to guide the AI model in accurately extracting the desired information.
+
+<Frame>
+  <img src="/images/extract-data-block.png" alt="Extract Data Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Text" type="string">
+  The input text from which data will be extracted. Required.
+</ParamField>
+
+<ParamField path="Schema" type="object">
+  A flexible schema defining the fields to be extracted, their data types, and descriptions. Required.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Extracted Data" type="object">
+  An object containing the extracted data, structured according to the defined schema.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for data extraction.
+</ParamField>
+
+<ParamField path="Model" type="string" default="GPT-3.5-turbo">
+  The specific model to use for the request. Choose from over 250 available AI models.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
+</ParamField>
+
+<ParamField path="Template Schema" type="string">
+  Select from pre-defined template schemas for common use cases, or create a custom schema.
+</ParamField>
+
+<Note>
+  Available settings may vary depending on the selected provider and model.
+</Note>
+
+## Example: Extracting Contact Information
+
+1. Add an Extract Data block to your flow.
+2. Connect your input text (e.g., an email or document) to the `Text` input of the Extract Data block.
+3. Define a schema in the block settings, for example:
+   ```json
+   {
+     "name": {"type": "string", "description": "Full name of the person"},
+     "email": {"type": "string", "description": "Email address"},
+     "phone": {"type": "string", "description": "Phone number"},
+     "company": {"type": "string", "description": "Company name"}
+   }
+   ```
+4. Select your desired provider and model in the Extract Data block settings.
+5. Run your flow. The block will output an object with the extracted contact information.
+
+<Frame>
+  <img src="/images/extract-data-example.png" alt="Extract Data Example" />
+</Frame>
+
+## Error Handling
+
+- If the input text is empty or invalid, the block will return an error.
+- If the schema is improperly formatted or contains invalid data types, the block will return an error.
+- If the AI provider fails to extract data according to the schema, the block will error after a certain number of retries.
+
+<Warning>
+  Always validate the output of the Extract Data block, especially when working with critical data or making important decisions based on the extracted information.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How flexible is the schema definition?">
+    The schema is highly flexible. You can define any number of fields with various data types (string, number, boolean, array, object) and provide detailed descriptions for each field to guide the AI in accurate extraction.
+  </Accordion>
+
+  <Accordion title="Can I use pre-defined schemas for common use cases?">
+    Yes, the Extract Data block provides template schemas for common use cases, which you can select in the editor. You can also modify these templates or create entirely custom schemas to suit your specific needs.
+  </Accordion>
+
+  <Accordion title="How does the block handle partial or ambiguous matches?">
+    The AI model will attempt to extract data based on the provided schema and descriptions. In cases of partial or ambiguous matches, it may provide the best possible match or leave fields empty if no suitable data is found. The accuracy depends on the quality of the input text and the specificity of the schema descriptions.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Analyze Table Block](/block-reference/ai/analyze-table)
+- [AI Filter Block](/block-reference/ai/ai-filter)
+- [Ask AI Block](/block-reference/ai/ask-ai)

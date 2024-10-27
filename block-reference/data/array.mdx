@@ -1,0 +1,107 @@
+---
+id: array
+title: Array Block
+description: Construct an array from one or more inputs of any type, with options for flattening and merging arrays
+sidebarTitle: Array
+---
+
+## Overview
+
+The Array Block is used to construct an array from one or more inputs of any type. It can also be used to merge multiple arrays into a single array using the `Flatten` setting.
+
+By default, inputs will be flattened, so if any of the inputs are arrays themselves, they will be merged into the output array. This behavior can be disabled by unchecking the `Flatten` setting.
+
+<Frame>
+  <img src="/images/array-block.png" alt="Array Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Input [i]" type="any">
+  The ith input to be added to the array. Dynamic number of inputs based on how many connections there are.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Output" type="any[]">
+  The array created from the inputs. The output will be a single array containing all valid inputs.
+</ResponseField>
+
+<ResponseField name="Indices" type="number[]">
+  The indices of the elements in the array. The output will be an array of numbers representing the array indices.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Flatten" type="boolean" default={true}>
+  If enabled, array inputs will be flattened before joining.
+</ParamField>
+
+<ParamField path="Deep" type="boolean" default={false}>
+  If enabled, array inputs will be flattened recursively.
+</ParamField>
+
+## Example: Creating an Array from Multiple Inputs
+
+1. Add an Array Block to your flow.
+2. Connect three Text blocks with values `"Hello"`, `"World"`, and `"!"` to `Input 1`, `Input 2`, and `Input 3` of the Array Block respectively.
+
+The `Output` of the Array Block will be `["Hello", "World", "!"]`.
+
+## Example: Creating an Array from Array Inputs
+
+1. Add an Array Block to your flow.
+2. Connect two Array blocks with values `["One", "Two"]` and `["Three", "Four"]` to `Input 1` and `Input 2` of the Array Block.
+3. Enable the `Flatten` setting.
+
+The `Output` of the Array Block will be `["One", "Two", "Three", "Four"]`.
+
+## Example: Using the Indices Output
+
+1. Add an Array Block with value `["Apple", "Banana", "Cherry"]`.
+2. Add a Text Block with text `"[{{index}}] - {{fruit}}"`.
+3. Connect the `Output` of the Array Block to the `Fruit` input of the Text Block.
+4. Connect the `Indices` output of the Array Block to the `Index` input of the Text Block.
+5. Enable the `Split` setting on the Text Block.
+
+The `Output` of the Text Block will be `["[0] - Apple", "[1] - Banana", "[2] - Cherry"]`.
+
+<Frame>
+  <img src="/images/array-block-example-04.png" alt="Array Block Example 4" />
+</Frame>
+
+## Flattening Arrays
+
+The `Flatten` setting treats each element of an array input as a separate element to be added to the main array. The `Deep` setting recursively flattens all array inputs.
+
+<Warning>
+  With flatten disabled, you can get arrays of arrays. These are not well supported in Lawme and you may have to use a [Code Block](/block-reference/data/code) to work with them.
+</Warning>
+
+## Error Handling
+
+If an input is missing or null, the Array Block will simply ignore it during the array creation process.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What happens if I connect a non-array block to the Array Block?">
+    The Array Block will treat it as a single element to be added to the array.
+  </Accordion>
+
+  <Accordion title="Can I connect an Array Block to another Array Block?">
+    Yes. If `Flatten` is enabled, each element of the input array will be treated as a separate element. If disabled, the input array will be added as a single element.
+  </Accordion>
+
+  <Accordion title="What happens if an input is missing or null?">
+    The Array Block will simply ignore it during the array creation process.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Code Block](/block-reference/data/code)
+- [Text Block](/block-reference/data/text)
+- [Number Block](/block-reference/data/number)
+- [Extract Object Path Block](/block-reference/data/extract-object-path)
+- [Pop Block](/block-reference/data/pop)

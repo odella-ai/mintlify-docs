@@ -1,0 +1,83 @@
+---
+id: wait-for-event
+title: Wait For Event Block
+description: Pause flow execution until a specific event is raised, enabling synchronization with external actions or other parts of the flow
+sidebarTitle: Wait For Event
+---
+
+## Overview
+
+The Wait For Event Block pauses the execution of a flow until a specific event is raised by a [Raise Event Block](/block-reference/advanced/raise-event) or the host project. This block is crucial for scenarios where you need to synchronize your flow with external actions or other parts of the flow.
+
+<Frame>
+  <img src="./assets/wait-for-event.png" alt="Wait For Event Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Data" type="any">
+  Any data to be passed through the block. This data will be outputted from the `Data` output port.
+</ParamField>
+
+<ParamField path="Event Name" type="string">
+  The name of the event to wait for. This input is only available if `Use Event Name Input` is enabled in the settings.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Data" type="any">
+  The data passed in through the `Data` input port. If no data is passed in, this output will not be available.
+</ResponseField>
+
+<ResponseField name="Event Data" type="any">
+  The data associated with the event that was raised. If the event has no associated data, this output will not be available.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Event Name" type="string" default="continue">
+  The name of the event to wait for. Must match the name of the event raised by the Raise Event Block or the host project.
+</ParamField>
+
+<ParamField path="Use Event Name Input" type="boolean" default={false}>
+  If enabled, the Event Name can be provided via the Event Name input port.
+</ParamField>
+
+## Examples
+
+### Example: Synchronizing with a Raise Event Block
+
+1. Create a [Raise Event Block](/block-reference/advanced/raise-event) and set the `Event Name` to `myEvent`.
+2. Add a Wait For Event Block and set the `Event Name` to `myEvent`.
+3. Connect a Text Block with "Raise Event" to the Raise Event Block's Data input.
+4. Connect another Text Block with "Waited" to the Wait For Event Block's Data input.
+5. Connect both blocks' outputs to separate Text Blocks.
+6. Run the flow. The Wait For Event Block will pause until the Raise Event Block raises `myEvent`.
+7. Observe how the Wait For Event Block outputs both its input data and the event data.
+
+<Frame>
+  <img src="./assets/wait-for-event-example-01.png" alt="Wait For Event Block Example" />
+</Frame>
+
+## Error Handling
+
+The Wait For Event Block does not generate errors under normal circumstances. If the expected event is not raised, the block will wait indefinitely.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I use the Wait For Event Block to wait for multiple events?">
+    No, each Wait For Event Block can only wait for a single event. To wait for multiple events, use multiple Wait For Event Blocks.
+  </Accordion>
+
+  <Accordion title="Can I use the Wait For Event Block with API calls?">
+    Yes, you can use an [HTTP Call Block](/block-reference/advanced/http-call) to make an API call, then use the Wait For Event Block to wait for an event raised in response to that call.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Raise Event Block](/block-reference/advanced/raise-event)
+- [HTTP Call Block](/block-reference/advanced/http-call)
+- [External Call Block](/block-reference/advanced/external-call)
+- [Code Block](/block-reference/advanced/code)

@@ -1,0 +1,92 @@
+---
+id: create-chart
+title: Create Chart Block
+description: Generate data visualizations from tabular data using AI-powered natural language prompts
+sidebarTitle: Create Chart
+---
+
+## Overview
+
+The Create Chart Block leverages AI capabilities to generate data visualizations from tabular data based on natural language prompts. By providing a table of data and a descriptive prompt, you can instruct the AI to create various types of charts, graphs, and other visual representations of your data.
+
+<Frame>
+  <img src="/images/create-chart-block.png" alt="Create Chart Block Screenshot" />
+</Frame>
+
+## Inputs
+
+<ParamField path="Table" type="object[]">
+  The input table containing the data to be visualized. Required. Should be an array of objects, where each object represents a row in the table.
+</ParamField>
+
+<ParamField path="Prompt" type="string">
+  A natural language prompt describing the desired chart or visualization. Required. This prompt guides the AI in generating the appropriate code for creating the chart.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Chart Image" type="string">
+  The resulting chart image in base64-encoded format. This can be used directly in image tags or saved as an image file.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Provider" type="string" default="OpenAI">
+  The AI provider to use for generating the chart code.
+</ParamField>
+
+<ParamField path="Model" type="string" default="GPT-3.5-turbo">
+  The specific model to use for the request. Available models depend on the selected provider.
+</ParamField>
+
+<ParamField path="Temperature" type="number" default={0.7}>
+  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
+</ParamField>
+
+<Note>
+  Available settings may vary depending on the selected provider and model.
+</Note>
+
+## Example: Creating a Bar Chart
+
+1. Add a Create Chart block to your flow.
+2. Connect your input table to the `Table` input of the Create Chart block.
+3. Add a Text block with a prompt like "Create a bar chart showing total sales by product category" and connect it to the `Prompt` input.
+4. Select your desired provider and model in the Create Chart block settings.
+5. Run your flow. The block will output a base64-encoded image of the requested bar chart.
+
+<Frame>
+  <img src="/images/create-chart-example.png" alt="Create Chart Example" />
+</Frame>
+
+## Error Handling
+
+- If the input table is empty or invalid, the block will return an error.
+- If the AI provider fails to generate appropriate code for chart creation, the block will error after a certain number of retries.
+- If the generated code encounters runtime errors during execution, the block will fail and provide error details.
+
+<Warning>
+  Always validate the output of the Create Chart block, especially when working with critical data or presenting important information visually.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What types of charts can the Create Chart block generate?">
+    The block can generate a wide variety of charts and graphs, including but not limited to: bar charts, line graphs, scatter plots, pie charts, histograms, and heatmaps. The specific types of charts available depend on the AI model's capabilities and the data provided.
+  </Accordion>
+
+  <Accordion title="Can I customize the appearance of the generated charts?">
+    While the block generates charts based on the prompt, you can include specific styling instructions in your prompt. For example, you might request certain colors, fonts, or layout preferences. The level of customization depends on the AI model's ability to interpret and implement these instructions.
+  </Accordion>
+
+  <Accordion title="How does the block handle large datasets?">
+    The Create Chart block can handle various dataset sizes, but performance may vary depending on the complexity of the data and the requested visualization. For very large datasets, consider aggregating or sampling the data before passing it to the block.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Analyze Table Block](/block-reference/ai/analyze-table)
+- [AI Filter Block](/block-reference/ai/ai-filter)
+- [Table Block](/block-reference/data/table)
