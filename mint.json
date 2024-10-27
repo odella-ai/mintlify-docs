@@ -143,7 +143,6 @@
         "block-reference/advanced/subflow",
         "block-reference/draft/table-to-file",
         "block-reference/draft/text-to-file",
-        "block-reference/modifiers/to-json",
         "block-reference/io/upload-file",
         "block-reference/io/user-input",
         "block-reference/advanced/wait-for-event"
