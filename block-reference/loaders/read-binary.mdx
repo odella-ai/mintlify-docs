@@ -15,14 +15,14 @@ The Read Binary Block allows you to read the contents of a file as raw binary da
 
 ## Inputs
 
-<ParamField path="File" type="file">
-  The input file to be read as binary. Required.
+<ParamField path="file" type="file" required>
+  The input file to be read as binary. The file must have a valid media type.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Binary Data" type="binary">
-  The raw binary content of the input file.
+<ResponseField name="output" type="binary">
+  The raw binary content of the input file as a Uint8Array.
 </ResponseField>
 
 ## Editor Settings
@@ -32,7 +32,7 @@ This block does not have any configurable settings in the editor.
 ## Example: Reading an Image File as Binary
 
 1. Add a Read Binary block to your flow.
-2. Connect a File block containing an image file to the `File` input of the Read Binary block.
+2. Connect a File block containing an image file to the `file` input of the Read Binary block.
 3. Run your flow. The block will output the raw binary data of the image file.
 
 <Frame>
@@ -42,6 +42,8 @@ This block does not have any configurable settings in the editor.
 ## Error Handling
 
 - If the input file is missing or invalid, the block will return an error.
+- If the file is missing a media type, the block will throw an error.
+- If a FileProvider is needed to load from URL but not available, the block will throw an error.
 - If there are issues reading the file (e.g., file permissions, corrupted file), the block will fail and provide error details.
 
 <Warning>

@@ -13,59 +13,51 @@ The Read Table Block is designed to read and parse CSV (Comma-Separated Values) 
 
 ## Inputs
 
-<ParamField path="File" type="file">
-  The input CSV file to be read and parsed. Required. This should be a file data value, typically provided by a File block or another block that outputs file data.
+<ParamField path="file" type="file" required>
+  The input CSV file to be read and parsed. Must have a media type of "text/csv". This should be a file data value, typically provided by a File block or another block that outputs file data.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Table" type="object[]">
-  An array of objects representing the parsed CSV data. Each object in the array corresponds to a row in the CSV file, with keys representing column headers and values representing cell contents.
+<ResponseField name="output" type="table">
+  A table data structure containing the parsed CSV data. Each row in the table corresponds to a row in the CSV file, with columns representing the CSV fields.
 </ResponseField>
 
-## Editor Settings
+## Error Handling
 
-<ParamField path="Has Header" type="boolean" default={true}>
-  Indicates whether the first row of the CSV file should be treated as column headers. If set to false, default column names (Column1, Column2, etc.) will be used.
-</ParamField>
+- If the input file is missing or invalid, the block will return an error.
+- If the file lacks a media type, the block will throw an error.
+- If the file's media type is not "text/csv", the block will throw an error.
+- If a FileProvider is needed to load from URL but not available, the block will throw an error.
+- If there are issues parsing the CSV file, the block will fail and provide error details.
 
-<ParamField path="Delimiter" type="string" default=",">
-  The character used to separate values in the CSV file. Common options include comma (,), semicolon (;), and tab (\t).
-</ParamField>
+<Warning>
+  Only CSV files with media type "text/csv" are currently supported. Ensure your input files are in CSV format with the correct media type.
+</Warning>
 
 ## Example: Reading a CSV File
 
 1. Add a Read Table block to your flow.
-2. Connect a File block containing a CSV file to the `File` input of the Read Table block.
-3. In the block settings, ensure "Has Header" is set to true if your CSV file includes a header row.
-4. Run your flow. The block will output a structured table representation of the CSV data.
+2. Connect a File block containing a CSV file to the `file` input.
+3. Run your flow. The block will parse the CSV and output a table data structure.
 
 <Frame>
   <img src="/images/read-table-example.png" alt="Read Table Example" />
 </Frame>
 
-## Error Handling
-
-- If the input file is missing or invalid, the block will return an error.
-- If there are issues parsing the CSV file (e.g., inconsistent number of columns), the block will fail and provide error details.
-
-<Warning>
-  Ensure that your CSV file is well-formed and consistent. Inconsistencies in the file structure may lead to parsing errors or unexpected results.
-</Warning>
-
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="Can this block read other tabular file formats besides CSV?">
-    The Read Table block is primarily designed for CSV files. For other tabular formats like Excel (.xlsx) or TSV, you may need to use specialized blocks or convert the files to CSV format first.
+  <Accordion title="What file types are supported?">
+    The Read Table block currently only supports CSV files with the media type "text/csv".
   </Accordion>
 
   <Accordion title="How does the block handle large CSV files?">
-    The Read Table block can handle moderately sized CSV files. For very large files, consider using streaming or chunking approaches to process the data in smaller batches.
+    The block reads and parses the entire CSV file into memory. For very large files, consider available memory and processing time implications.
   </Accordion>
 
-  <Accordion title="What happens if the CSV file contains non-string data types?">
-    By default, all values are read as strings. You may need to perform type conversion on the resulting table data if you require specific data types (e.g., numbers, dates) for further processing.
+  <Accordion title="What happens if the CSV file is malformed?">
+    If there are issues parsing the CSV file due to malformed data or inconsistent structure, the block will fail and provide error details.
   </Accordion>
 </AccordionGroup>
 
@@ -73,4 +65,4 @@ The Read Table Block is designed to read and parse CSV (Comma-Separated Values) 
 
 - [File Block](/block-reference/data/file)
 - [Analyze Table Block](/block-reference/ai/analyze-table)
-- [Write Table Block](/block-reference/io/write-table)
+- [Table Block](/block-reference/data/table)

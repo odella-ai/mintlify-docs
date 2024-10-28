@@ -13,44 +13,64 @@ The Extract YAML Block is designed to parse YAML content from input strings and 
 
 ## Key Features
 
-- Extract YAML data from input strings
+- Extract YAML data from input strings with a specified root property name
 - Convert YAML to JavaScript objects
-- Support for multiple YAML documents in a single input
+- Optional JSONPath querying of extracted YAML
 - Configurable error handling for invalid YAML
 
 ## Inputs
 
-<ParamField path="Input" type="string">
-  The string containing YAML data to be extracted. Required.
+<ParamField path="input" type="string" required>
+  The string containing YAML data to be extracted.
+</ParamField>
+
+<ParamField path="rootPropertyName" type="string">
+  The name of the root YAML property to extract. Only available when "Use Root Property Name Input" is enabled in settings.
+</ParamField>
+
+<ParamField path="objectPath" type="string">
+  A JSONPath query to extract specific data from the YAML object. Only available when "Use Object Path Input" is enabled in settings.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="YAML Objects" type="object[]">
-  An array of JavaScript objects representing the extracted YAML data.
+<ResponseField name="output" type="object | any">
+  The extracted and parsed YAML data. If using an Object Path, this will be the first matching value. If no valid YAML is found or no matches are found, this output will be control-flow-excluded.
 </ResponseField>
 
-<ResponseField name="Count" type="number">
-  The number of YAML objects extracted from the input string.
+<ResponseField name="matches" type="any[]">
+  When using an Object Path, this contains all values that match the path query. Only available when an Object Path is specified.
+</ResponseField>
+
+<ResponseField name="noMatch" type="string">
+  The raw YAML text that was attempted to be parsed, only output when parsing fails or no matches are found.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Extract First Only" type="boolean" default={false}>
-  If enabled, only the first YAML object found will be extracted and returned.
+<ParamField path="rootPropertyName" type="string" default="yamlDocument">
+  The name of the root YAML property to extract. The input text must have this property name followed by a colon somewhere in it.
 </ParamField>
 
-<ParamField path="Throw Error on Invalid YAML" type="boolean" default={true}>
-  If enabled, the block will throw an error when no valid YAML is found in the input string.
+<ParamField path="useRootPropertyNameInput" type="boolean" default={false}>
+  When enabled, allows the root property name to be provided via an input port instead of being set in the settings.
+</ParamField>
+
+<ParamField path="objectPath" type="string">
+  A JSONPath query to extract specific data from the YAML object. Uses JSONPath syntax.
+</ParamField>
+
+<ParamField path="useObjectPathInput" type="boolean" default={false}>
+  When enabled, allows the object path to be provided via an input port instead of being set in the settings.
 </ParamField>
 
 ## Example: Extracting YAML from a Configuration File
 
-1. Create a new flow and add a Text Block with YAML content.
-2. Add an Extract YAML Block and connect the Text Block's output to its `Input`.
-3. Configure the Extract YAML Block settings based on your needs.
-4. Add a JSON View Block to visualize the extracted YAML data as objects.
-5. Run the flow to see the extracted YAML converted to JavaScript objects.
+1. Create a new flow and add a Text Block with YAML content that includes a root property name (e.g., `yamlDocument:`).
+2. Add an Extract YAML Block and connect the Text Block's output to its `input`.
+3. Configure the root property name and optional object path in the settings.
+4. Connect the outputs to view the extracted and parsed YAML data.
+5. Run the flow to see the results.
 
 <Frame>
   <img src="./assets/extract-yaml-block-example.png" alt="Extract YAML Block Example" />
@@ -58,23 +78,24 @@ The Extract YAML Block is designed to parse YAML content from input strings and 
 
 ## Error Handling
 
-- If no valid YAML is found in the input string and "Throw Error on Invalid YAML" is enabled, the block will throw an error.
-- If "Throw Error on Invalid YAML" is disabled and no valid YAML is found, the block will output an empty array.
+- If no valid YAML is found under the specified root property name, the `output` will be control-flow-excluded and `noMatch` will contain the raw text.
+- If an object path is specified but no matches are found, the `output` will be control-flow-excluded.
+- If the YAML parsing fails, the `output` will be control-flow-excluded and `noMatch` will contain the attempted YAML text.
 
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="What happens if there are multiple YAML documents in the input string?">
-    By default, the block will extract all YAML documents found in the input string and return them as an array of objects. If "Extract First Only" is enabled, only the first YAML document will be extracted and returned.
+  <Accordion title="What is the root property name used for?">
+    The root property name (default: "yamlDocument") is used to locate the YAML content within the input text. The block looks for this property name followed by a colon, and considers all indented text after it as part of the YAML to parse.
   </Accordion>
 
-  <Accordion title="Can this block handle complex YAML structures?">
-    Yes, the Extract YAML Block can handle nested YAML structures of any complexity, as long as they are valid YAML.
+  <Accordion title="How does the Object Path feature work?">
+    The Object Path uses JSONPath syntax to query the parsed YAML object. When specified, it allows you to extract specific values from the YAML structure. The first match is provided in the `output`, while all matches are available in the `matches` output.
   </Accordion>
 </AccordionGroup>
 
 ## See Also
 
 - [Extract JSON Block](/block-reference/modifiers/extract-json)
-- [JSON Parse Block](/block-reference/data/json-parse)
+- [Extract Object Path Block](/block-reference/modifiers/extract-object-path)
 - [Text Block](/block-reference/data/text)

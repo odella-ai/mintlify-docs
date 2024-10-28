@@ -1,0 +1,72 @@
+---
+id: extract-markdown-table-blocks
+title: Extract Markdown Table Blocks
+description: Extract table blocks from markdown-formatted text
+sidebarTitle: Extract Markdown Table Blocks
+---
+
+![Extract Markdown Table Blocks Screenshot](./assets/extract-markdown-table-blocks.png)
+
+## Overview
+
+The Extract Markdown Table Blocks block is designed to parse markdown-formatted text and extract all table blocks within it. This is particularly useful when working with documentation, README files, or any text that contains tables in markdown format.
+
+## Inputs
+
+<ParamField path="input" type="string" required>
+  The markdown-formatted text from which to extract table blocks.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="firstBlock" type="table">
+  The first table block found in the input markdown, converted to a Table value. If no table blocks are found, this output will be control-flow-excluded.
+</ResponseField>
+
+<ResponseField name="allBlocks" type="table[]">
+  An array of Table values, where each Table represents a table block extracted from the input markdown.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="coerceToTable" type="boolean" default={false}>
+  When enabled, attempts to coerce the extracted content into table format. This can help handle some malformed markdown tables.
+</ParamField>
+
+## Example: Extracting Tables from Documentation
+
+1. Create a new flow and add an Extract Markdown Table Blocks block.
+2. Add a Text block with markdown content containing table blocks and connect it to the `input` of the Extract Markdown Table Blocks block.
+3. Connect any of the outputs to view the extracted tables or header information.
+4. Run the flow to see the results.
+
+<Frame>
+  <img src="/images/extract-markdown-table-blocks-example.png" alt="Extract Markdown Table Blocks Example" />
+</Frame>
+
+## Error Handling
+
+- If no table blocks are found in the input markdown, the `firstBlock` output will be control-flow-excluded and `allBlocks` will be an empty array.
+- The block will not throw an error for invalid markdown; it will attempt to extract any table blocks it can identify.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What format are the tables expected to be in?">
+    The block expects tables to be formatted using standard markdown table syntax with pipe characters (|) separating columns and hyphens (-) in the separator row.
+  </Accordion>
+
+  <Accordion title="How are table headers handled?">
+    Table headers are identified by the separator row (containing hyphens) that follows the header row. The headers are preserved in the output Table values.
+  </Accordion>
+
+  <Accordion title="Does this block handle complex table formatting?">
+    Yes, the block handles standard markdown table formatting including text alignment indicators (:---:) and varying column widths. However, nested tables or HTML tables are not supported.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Extract Markdown Code Blocks](/block-reference/modifiers/extract-markdown-code-blocks)
+- [Extract JSON Block](/block-reference/modifiers/extract-json)
+- [Text Block](/block-reference/data/text)

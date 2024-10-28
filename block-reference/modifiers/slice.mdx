@@ -11,42 +11,57 @@ sidebarTitle: Slice
 
 The Slice Block extracts a portion of an array. It takes an array as input and outputs a new array that starts at a specified index and contains a specified number of elements. This block is useful for manipulating arrays, such as extracting a subset of data from a larger dataset.
 
+## Key Features
+
+- Extract a subset of elements from an array
+- Configurable start index and count
+- Option to provide start and count values via input ports
+- Handles empty/undefined inputs gracefully
+
 ## Inputs
 
-<ParamField path="Input" type="any[]">
-  The array to be sliced. Required. Non-array inputs will be coerced into an array.
+<ParamField path="input" type="any[]" required>
+  The array to be sliced.
 </ParamField>
 
-<ParamField path="Start" type="number" default={0}>
-  The index at which to start the slice. Optional. Will be coerced into a number if not provided as one.
+<ParamField path="start" type="number">
+  The index at which to start the slice. Only available when "Use Start Input" is enabled.
 </ParamField>
 
-<ParamField path="Count" type="number">
-  The number of elements to include in the slice. Optional. If not provided, all elements from the start index will be included. Will be coerced into a number if not provided as one.
+<ParamField path="count" type="number">
+  The number of elements to include in the slice. Only available when "Use Count Input" is enabled.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Output" type="any[]">
+<ResponseField name="output" type="any[]">
   The sliced array containing the extracted elements from the input array.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Start" type="number" default={0}>
-  The index at which to start the slice. If not provided, the slice will start at the beginning.
+<ParamField path="start" type="number" default={0}>
+  The index at which to start the slice. If not provided, defaults to 0.
 </ParamField>
 
-<ParamField path="Count" type="number">
-  The number of elements to include in the slice. If not provided, all elements will be included.
+<ParamField path="count" type="number">
+  The number of elements to include in the slice. If not provided, includes all elements from start to end.
+</ParamField>
+
+<ParamField path="useStartInput" type="boolean" default={false}>
+  When enabled, allows the start index to be provided via an input port instead of being set in the settings.
+</ParamField>
+
+<ParamField path="useCountInput" type="boolean" default={false}>
+  When enabled, allows the count to be provided via an input port instead of being set in the settings.
 </ParamField>
 
 ## Example: Slice an array
 
 1. Create an Array Block with values `[1, 2, 3, 4, 5]`.
 2. Add a Slice Block and set the `Start` to `2` and the `Count` to `2`.
-3. Connect the Array Block to the Slice Block's `Input`.
-4. Run the flow. The Slice Block's `Output` should be `[3, 4]`.
+3. Connect the Array Block to the Slice Block's `input`.
+4. Run the flow. The Slice Block's `output` should be `[3, 4]`.
 
 <Frame>
   <img src="./assets/slice-block-example-01.png" alt="Slice Block Example" />
@@ -54,8 +69,9 @@ The Slice Block extracts a portion of an array. It takes an array as input and o
 
 ## Error Handling
 
-- The block will error if the `Input` is not provided or is not an array.
-- It will also error if the `Start` or `Count` is not a number.
+- The block will error if the `input` is not provided or is not an array
+- If start or count inputs are enabled but not connected, the block will use the default values
+- Using a negative count will result in an error
 
 ## FAQ
 

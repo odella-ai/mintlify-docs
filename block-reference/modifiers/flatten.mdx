@@ -13,27 +13,27 @@ The Flatten Block is designed to simplify complex nested array structures by fla
 
 ## Key Features
 
-- Flattens nested arrays of any depth into a single-level array
+- Flattens nested arrays one level deep
 - Preserves the order of elements from the original nested structure
 - Handles arrays containing both nested arrays and non-array elements
 
 ## Inputs
 
-<ParamField path="Input" type="any[]">
-  The nested array structure to be flattened. Required. Non-array inputs will be returned as-is.
+<ParamField path="input" type="any[][]" required>
+  The nested array structure to be flattened. Must be a nested array (array of arrays). Non-nested arrays or other types will result in an error.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Flattened" type="any[]">
-  The resulting flattened array containing all elements from the input, with nested structures removed.
+<ResponseField name="output" type="any[]">
+  The resulting flattened array containing all elements from the input, with one level of nesting removed.
 </ResponseField>
 
 ## Example: Flattening a Nested Array
 
-1. Create an Array Block with a nested array structure, e.g., `[1, [2, [3, 4]], 5, [6, 7]]`.
-2. Add a Flatten Block and connect the Array Block to its `Input`.
-3. Run the flow. The Flatten Block's `Flattened` output should be `[1, 2, 3, 4, 5, 6, 7]`.
+1. Create an Array Block with a nested array structure, e.g., `[[1, 2], [3, 4], [5, 6]]`.
+2. Add a Flatten Block and connect the Array Block to its `input`.
+3. Run the flow. The Flatten Block's `output` will be `[1, 2, 3, 4, 5, 6]`.
 
 <Frame>
   <img src="./assets/flatten-block-example.png" alt="Flatten Block Example" />
@@ -41,18 +41,19 @@ The Flatten Block is designed to simplify complex nested array structures by fla
 
 ## Error Handling
 
-- If the input is not an array, the block will return the input as-is without throwing an error.
-- The block will not modify non-array elements within the structure.
+- If no input is provided, the block will error with "Input is required"
+- If the input is not a nested array (array of arrays), the block will error with "Input is not a nested array"
+- The block will only flatten one level deep - for deeper nesting, multiple Flatten blocks can be chained
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="Does the Flatten Block work with objects?">
-    The Flatten Block is designed to work with arrays. It will not flatten object structures. If you need to flatten objects, consider using a combination of other blocks or a custom function.
+    No, the Flatten Block is designed to work only with nested arrays. It will error if given objects or other non-array inputs.
   </Accordion>
 
-  <Accordion title="Is there a limit to the depth of nesting it can handle?">
-    The Flatten Block can handle arbitrarily deep nested array structures. However, extremely deep nesting may impact performance.
+  <Accordion title="How deep does the flattening go?">
+    The Flatten Block only flattens one level deep. For example, `[[1, [2, 3]], [4, 5]]` becomes `[1, [2, 3], 4, 5]`. To flatten deeper levels, chain multiple Flatten blocks together.
   </Accordion>
 </AccordionGroup>
 

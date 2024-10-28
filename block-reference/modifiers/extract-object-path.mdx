@@ -20,24 +20,32 @@ The Extract Object Path Block allows you to run [JSONPath](https://www.npmjs.com
 
 ## Inputs
 
-<ParamField path="Object" type="object | any[] | string">
-  The object, array, or string to query using the JSONPath. Required.
+<ParamField path="object" type="object | any[] | string" required>
+  The object, array, or string to query using the JSONPath.
+</ParamField>
+
+<ParamField path="path" type="string" required>
+  The JSONPath query to use for extracting properties from the input object. Only available when "Use Path Input" is enabled in settings.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Match" type="any">
-  The first value that matches the specified path. If no match is found, this output will not run.
+<ResponseField name="match" type="any">
+  The first value that matches the specified path. If no match is found, this output will be control-flow-excluded.
 </ResponseField>
 
-<ResponseField name="All Matches" type="any[]">
+<ResponseField name="all_matches" type="any[]">
   An array of all values that match the specified path. If no matches are found, this output will run with an empty array.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Path" type="string" default="$">
-  The JSONPath query to use for extracting properties from the input object. This setting can be toggled to accept input from another block.
+<ParamField path="path" type="string" default="$">
+  The JSONPath query to use for extracting properties from the input object. Uses JSONPath syntax.
+</ParamField>
+
+<ParamField path="usePathInput" type="boolean" default={false}>
+  When enabled, allows the path to be provided via an input port instead of being set in the settings.
 </ParamField>
 
 ## Example: Extract a property from an object
@@ -59,8 +67,9 @@ The Extract Object Path Block allows you to run [JSONPath](https://www.npmjs.com
 
 ## Error Handling
 
-- If the path is invalid, the block will throw an error.
-- If the path is valid but no value is found, the `Match` output will not run, and the `All Matches` output will run with an empty array.
+- If the path is invalid or not provided, the block will throw an error
+- If the path is valid but no value is found, the `match` output will be control-flow-excluded and the `all_matches` output will run with an empty array
+- If the input object is undefined or null, it will be treated as null for the JSONPath query
 
 ## FAQ
 

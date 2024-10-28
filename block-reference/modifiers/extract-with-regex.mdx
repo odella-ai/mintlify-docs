@@ -20,40 +20,48 @@ The Extract With Regex Block allows you to extract one or more strings from an i
 
 ## Inputs
 
-<ParamField path="Input" type="string">
-  The string to match the regex against. Required. Non-string inputs will be coerced to strings.
+<ParamField path="input" type="string" required>
+  The string to match the regex against. Non-string inputs will be coerced to strings.
+</ParamField>
+
+<ParamField path="regex" type="string">
+  The regular expression to use for matching. Only available when "Use Regex Input" is enabled in settings.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Output N" type="string">
-  One output port per capture group in the regex, containing the matched content.
+<ResponseField name="output1, output2, etc" type="string">
+  One output port per capture group in the regex, containing the matched content for that capture group.
 </ResponseField>
 
-<ResponseField name="Matches" type="string[]">
-  An array of all regex matches, ignoring capture groups.
+<ResponseField name="matches" type="string[]">
+  An array of all matched strings from the first capture group.
 </ResponseField>
 
-<ResponseField name="Succeeded" type="boolean">
+<ResponseField name="succeeded" type="boolean">
   True if the regex matched the input string, false otherwise.
 </ResponseField>
 
-<ResponseField name="Failed" type="boolean">
+<ResponseField name="failed" type="boolean">
   True if the regex did not match the input string, false otherwise.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Error on failed" type="boolean" default={false}>
+<ParamField path="errorOnFailed" type="boolean" default={false}>
   If enabled, the block will error if the regex doesn't match the input string.
 </ParamField>
 
-<ParamField path="Multiline Mode" type="boolean" default={false}>
+<ParamField path="multilineMode" type="boolean" default={false}>
   Enables multiline mode for the regex, affecting `^` and `$` behavior.
 </ParamField>
 
-<ParamField path="Regex" type="string" default="([a-zA-Z]+)">
-  The regular expression to use for matching. Can be toggled to accept input from another block.
+<ParamField path="regex" type="string" default="([a-zA-Z]+)">
+  The regular expression to use for matching.
+</ParamField>
+
+<ParamField path="useRegexInput" type="boolean" default={false}>
+  When enabled, allows the regex to be provided via an input port instead of being set in the settings.
 </ParamField>
 
 ## Example: Extract a command from an LLM response

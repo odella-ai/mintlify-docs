@@ -14,36 +14,36 @@ The Hash Block calculates the MD5 or SHA hash of incoming data. This block is pa
 ## Key Features
 
 - Support for multiple hash algorithms (MD5, SHA-1, SHA-256, SHA-512)
-- Ability to hash various input types (strings, numbers, objects, arrays)
-- Configurable output format (hex, base64)
+- Converts input to string before hashing
+- Outputs hash value as a string
 
 ## Inputs
 
-<ParamField path="Input" type="any">
-  The data to be hashed. Required. Can be a string, number, object, or array.
+<ParamField path="input" type="string" required>
+  The data to be hashed. Required. Non-string inputs will be coerced to strings.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Hash" type="string">
+<ResponseField name="hash" type="string">
   The calculated hash value of the input data.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Algorithm" type="string" default="MD5">
-  The hash algorithm to use. Options include MD5, SHA-1, SHA-256, and SHA-512.
-</ParamField>
-
-<ParamField path="Output Format" type="string" default="hex">
-  The format of the output hash. Options are "hex" for hexadecimal or "base64" for Base64 encoding.
+<ParamField path="algorithm" type="string" default="sha256">
+  The hash algorithm to use. Options:
+  - `md5`: MD5 algorithm
+  - `sha1`: SHA-1 algorithm  
+  - `sha256`: SHA-256 algorithm
+  - `sha512`: SHA-512 algorithm
 </ParamField>
 
 ## Example: Generating a Hash for Data Comparison
 
 1. Create a Text Block with some sample data, e.g., "Hello, World!".
-2. Add a Hash Block and connect the Text Block's output to its `Input`.
-3. Configure the Hash Block to use SHA-256 algorithm and hex output format.
+2. Add a Hash Block and connect the Text Block's output to its `input`.
+3. Configure the Hash Block to use SHA-256 algorithm.
 4. Run the flow to see the generated hash value.
 
 <Frame>
@@ -52,8 +52,8 @@ The Hash Block calculates the MD5 or SHA hash of incoming data. This block is pa
 
 ## Error Handling
 
-- If the input is undefined or null, the block will output an empty string.
-- Invalid algorithm selections will result in an error.
+- If the input is undefined or null, the block will error
+- Invalid algorithm selections will result in an error
 
 ## FAQ
 
@@ -62,8 +62,8 @@ The Hash Block calculates the MD5 or SHA hash of incoming data. This block is pa
     The choice of algorithm depends on your specific use case. MD5 is faster but less secure, while SHA-256 and SHA-512 provide stronger security but are slightly slower. For most general purposes, SHA-256 is a good balance of security and performance.
   </Accordion>
 
-  <Accordion title="Can I hash complex objects or arrays?">
-    Yes, the Hash Block can handle complex objects and arrays. These inputs will be serialized before hashing, ensuring consistent results for equivalent data structures.
+  <Accordion title="How are non-string inputs handled?">
+    All inputs are coerced to strings before hashing. Numbers, objects, and arrays will be converted to their string representations automatically.
   </Accordion>
 </AccordionGroup>
 

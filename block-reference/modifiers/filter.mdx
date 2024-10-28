@@ -15,18 +15,18 @@ This block is particularly useful for filtering arrays based on specific conditi
 
 ## Inputs
 
-<ParamField path="Array" type="any[]">
-  The array to be filtered. Required. Non-array inputs will be coerced into an array.
+<ParamField path="array" type="any[]" required>
+  The array to be filtered. Non-array inputs will be coerced into an array.
 </ParamField>
 
-<ParamField path="Include" type="boolean[]">
-  An array of boolean values indicating whether to include each element in the array. Required. The length of this array should match the length of the Array input.
+<ParamField path="include" type="boolean[]" required>
+  An array of boolean values indicating whether to include each element in the array. The length of this array should match the length of the array input.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Filtered" type="any[]">
-  The filtered array, containing only the elements where the corresponding boolean value in the Include input was `true`.
+<ResponseField name="filtered" type="any[]">
+  The filtered array, containing only the elements where the corresponding boolean value in the include input was `true`. The output maintains the data type of the input array.
 </ResponseField>
 
 ## Example: Filter numbers greater than 3
@@ -35,8 +35,8 @@ This block is particularly useful for filtering arrays based on specific conditi
 2. Add a Compare Block, set comparison to `>`, and enable batching.
 3. Create a Number Block with value `3`.
 4. Connect the Array Block to Compare Block's `A` input, and Number Block to `B` input.
-5. Add a Filter Block, connect Array Block to `Array` input and Compare Block's `Result` to `Include` input.
-6. Run the flow. The Filter Block's `Filtered` output should be `[4, 5]`.
+5. Add a Filter Block, connect Array Block to `array` input and Compare Block's `Result` to `include` input.
+6. Run the flow. The Filter Block's `filtered` output should be `[4, 5]`.
 
 <Frame>
   <img src="./assets/filter-block-example-02.png" alt="Filter Block Example" />
@@ -45,14 +45,14 @@ This block is particularly useful for filtering arrays based on specific conditi
 ## Error Handling
 
 The Filter Block will error if:
-- The `Array` or `Include` inputs are not provided
+- The `array` or `include` inputs are not provided
 - The lengths of the input arrays do not match
 
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="What happens if the lengths of the Array and Include inputs do not match?">
-    The Filter Block will error. The lengths of the Array and Include inputs should always match.
+  <Accordion title="What happens if the lengths of the array and include inputs do not match?">
+    The Filter Block will error. The lengths of the array and include inputs should always match.
   </Accordion>
 
   <Accordion title="Can I use the Filter Block to filter an array of objects?">

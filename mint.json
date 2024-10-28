@@ -106,7 +106,7 @@
       "group": "Loader Blocks",
       "pages": [
         "block-reference/loaders/read-binary",
-        "block-reference/loaders/read-file",
+        "block-reference/loaders/read-text",
         "block-reference/loaders/read-table"
       ]
     },
@@ -143,6 +143,7 @@
         "block-reference/modifiers/chunk",
         "block-reference/modifiers/extract-json",
         "block-reference/modifiers/extract-markdown-code-blocks",
+        "block-reference/modifiers/extract-markdown-table-blocks",
         "block-reference/modifiers/extract-yaml",
         "block-reference/modifiers/filter",
         "block-reference/modifiers/flatten",
