@@ -9,40 +9,51 @@ sidebarTitle: Switch
 
 ## Overview
 
-The Switch Block is a control flow block that routes the input value to different outputs based on a boolean condition. It evaluates the condition and directs the value to either the TRUE or FALSE output port accordingly.
+The Switch Block is a control flow block that routes the input value to different outputs based on a boolean condition. It evaluates the condition and directs the value to either the True or False output port accordingly.
+
+## Key Features
+
+- Routes values based on a condition
+- Control flow excluded values for unmatched paths
 
 ## Inputs
 
-<ParamField path="Condition" type="boolean">
-  The condition to evaluate. If truthy, the value is passed to the TRUE output. If falsy, the value is passed to the FALSE output. Required.
+<ParamField path="Condition" type="any">
+  If this is truthy, the value will be passed through the True port. Otherwise, it will be passed through the False port. An unconnected port is considered false.
 </ParamField>
 
 <ParamField path="Value" type="any">
-  The value to be routed based on the condition. This value is passed unchanged to either the TRUE or FALSE output. Required.
+  The value to pass through the True or False port. If unconnected, it will be undefined.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="TRUE" type="any">
-  The output port that receives the input value if the condition is truthy.
+<ResponseField name="True" type="any">
+  The `value` passed through if the condition is truthy. Control-flow-excluded if condition is falsy.
 </ResponseField>
 
-<ResponseField name="FALSE" type="any">
-  The output port that receives the input value if the condition is falsy.
+<ResponseField name="False" type="any">
+  The `value` passed through if the condition is falsy. Control-flow-excluded if condition is truthy.
 </ResponseField>
 
 ## Editor Settings
 
-This block has no configurable editor settings.
+<ParamField path="Don't run unconnected value" type="boolean" default={true}>
+  If enabled, unconnected value input is control-flow-excluded. If disabled (legacy behavior), unconnected value will pass through undefined.
+</ParamField>
+
+<ParamField path="Width" type="number" default={150}>
+  The width of the block in pixels.
+</ParamField>
 
 ## Example: Route a message based on a condition
 
 1. Create a Bool Block and set its value to `true`.
 2. Create a Text Block with the value "Hello, World!".
 3. Create a Switch Block. Connect the Bool Block to `Condition` and the Text Block to `Value`.
-4. Add two Text Blocks to display the output, one connected to TRUE and one to FALSE.
-5. Run the flow. The "Hello, World!" message should appear in the Text Block connected to TRUE.
-6. Change the Bool Block to `false` and run again. The message should now appear in the Text Block connected to FALSE.
+4. Add two Text Blocks to display the output, one connected to True and one to False.
+5. Run the flow. The "Hello, World!" message should appear in the Text Block connected to True.
+6. Change the Bool Block to `false` and run again. The message should now appear in the Text Block connected to False.
 
 <Frame>
   <img src="./assets/switch-block-example.png" alt="Switch Block Example" />
@@ -50,17 +61,24 @@ This block has no configurable editor settings.
 
 ## Error Handling
 
-The Switch block will not throw an error under normal circumstances. If the condition input is missing or cannot be coerced to a boolean, it will be treated as falsy.
+The Switch block will not throw an error under normal circumstances. The following values are considered falsy:
+
+- Boolean `false`
+- Empty string
+- Empty array
+- Control-flow-excluded values
+- Undefined/unconnected inputs
+- Empty chat messages
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="What happens if the Value input is not provided?">
-    If the Value input is not provided, the Switch block will pass `undefined` to the selected output port.
+    If "Don't run unconnected value" is enabled (default), the value will be control-flow-excluded. If disabled, undefined will be passed through.
   </Accordion>
 
   <Accordion title="Can I use complex conditions with the Switch block?">
-    The Switch block expects a boolean condition. For complex conditions, you may need to use other logic blocks (like If/Else or Match) to evaluate the condition before feeding it into the Switch block.
+    The Switch block accepts any input type for the condition and coerces it to a boolean. For complex conditions, you may want to evaluate them before the Switch block.
   </Accordion>
 </AccordionGroup>
 

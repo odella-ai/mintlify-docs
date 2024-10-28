@@ -1,20 +1,19 @@
 ---
 id: code
 title: Code Block
-description: Run arbitrary Python code securely during your flow's execution
+description: Run Python code securely during your flow's execution
 sidebarTitle: Code
 ---
 
-## Overview
-
-The Code Block allows you to run arbitrary Python code securely during your flow's execution. This versatile block uses secure remote code execution to ensure safety while providing powerful functionality. It can be used for various purposes, including:
+The Code Block allows you to run Python code securely during your flow's execution using Azure Code Interpreter. This block provides a safe and isolated environment for executing custom Python code. Common use cases include:
 
 - Performing complex calculations
-- Implementing custom, domain-specific logic that is complex to represent in Lawme blocks alone
-- Using Python functions that are not available in other blocks
+- Implementing custom data processing logic
+- Using Python libraries and functions
+- Data transformation and analysis
 
 <Note>
-  The Code Block only supports Python code execution. It uses secure remote code execution to ensure safety and isolation.
+  The Code Block only supports Python code execution.
 </Note>
 
 <Frame>
@@ -23,28 +22,48 @@ The Code Block allows you to run arbitrary Python code securely during your flow
 
 ## Inputs
 
-<ParamField path="(custom names)" type="any">
-  The input values passed into the code function. Dynamic based on the inputs configured in the editor.
+<ParamField path="input1" type="any" required={false}>
+  Default input port. Input names are configurable and each creates a corresponding port. Values are accessible in your Python code via the `inputs` dictionary with typed values (e.g., `inputs["input1"]["type"]`, `inputs["input1"]["value"]`).
 </ParamField>
 
-## Outputs
+## Outputs 
 
-<ResponseField name="(custom names)" type="any">
-  The outputs from the execution of the code block. Dynamic based on the outputs configured in the editor.
+<ResponseField name="output1" type="any">
+  Default output port. Output names are configurable and each creates a corresponding port. The code must return a dictionary with typed values matching the configured output names (e.g., `{"output1": {"type": "string", "value": "result"}}`).
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Inputs" type="string[]" default={["input"]}>
-  The names of the inputs that can be accessible inside the code block. The names of the inputs configured here correspond with the properties of the provided `inputs` variable. Each input creates a corresponding input port on the block.
+<ParamField path="Inputs" type="stringList" default={["input1"]}>
+  List of input names. Each name creates an input port on the block. Names are sanitized to be valid Python identifiers (only alphanumeric and underscore characters).
 </ParamField>
 
-<ParamField path="Outputs" type="string[]" default={["output"]}>
-  The names of the outputs that the code block will return. The names of the outputs configured here must correspond with the properties of the object returned by the Code block. Each output creates a corresponding output port on the block.
+<ParamField path="Outputs" type="stringList" default={["output1"]}>
+  List of output names. Each name creates an output port on the block. The code must return values for all configured outputs.
 </ParamField>
 
-## Code Inputs
+<ParamField path="AI Assist" type="custom">
+  An AI assistant to help write and modify your code.
+</ParamField>
 
-The inputs to the code block are accessible in the special variable `inputs`. To access the input named `foo`, it is accessible on `inputs.foo`.
+<ParamField path="Code" type="code" language="python">
+  The Python code to execute. Must include a `main(inputs)` function that processes the inputs and returns a dictionary of outputs. Default template:
 
-All inputs have the following structure:
+  ```python
+  def main(inputs):
+    return {
+      "output1": {
+        "type": inputs["input1"]["type"],
+        "value": inputs["input1"]["value"]
+      }
+    }
+  ```
+</ParamField>
+
+## Code Structure
+
+Your code must:
+- Define a `main(inputs)` function
+- Access inputs through the `inputs` dictionary where each input has `type` and `value` properties
+- Return a dictionary with output names matching those configured in settings
+- Each output must have `type` and `value` properties

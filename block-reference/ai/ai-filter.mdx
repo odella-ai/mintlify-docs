@@ -15,78 +15,110 @@ The AI Filter Block applies a filter operation over an array of values where the
 
 ## Inputs
 
-<ParamField path="Array" type="any[]">
-  The array of values to be filtered. Required. Can be an array of any data type.
+<ParamField path="System Prompt" type="string">
+  The system prompt to send to the model. Optional. Used to provide high-level guidance to the AI model.
 </ParamField>
 
-<ParamField path="Filter Prompt" type="string">
-  The prompt describing the filter condition to be evaluated by the AI model. Required. This prompt will be used to generate the filter condition for each array element.
+<ParamField path="Condition Prompt" type="string" required>
+  The condition prompt to filter the array. Required. This prompt describes the criteria that each array element will be evaluated against.
+</ParamField>
+
+<ParamField path="Input" type="any[]" required>
+  The input array to filter. Required. Can be an array of any data type.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Filtered Array" type="any[]">
-  The array containing only the elements that passed the filter. The data type of the output array will match the input array's element type.
+<ResponseField name="Indicies" type="number[]">
+  The index numbers of each element that passed the filter condition.
+</ResponseField>
+
+<ResponseField name="Output" type="any[]">
+  The filtered input array containing only the elements that passed the condition.
+</ResponseField>
+
+<ResponseField name="Cost" type="number">
+  The total cost of the AI operations in USD.
+</ResponseField>
+
+<ResponseField name="Duration" type="number">
+  The time in milliseconds that the filtering operation took to complete.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for evaluating the filter condition.
+<ParamField path="AI Model" type="string" default="gpt-3.5-turbo">
+  The AI model to use for evaluating filter conditions. Available models are dynamically populated based on the LLM provider configuration.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-3.5-turbo">
-  The specific model to use for the request. Available models depend on the selected provider.
+<ParamField path="Temperature" type="number" default={0} min={0} max={2}>
+  The sampling temperature to use. Values between 0-2. Higher values (0.8) make output more random, lower values (0.2) make it more focused and deterministic.
 </ParamField>
 
-<ParamField path="Temperature" type="number" default={0.7}>
-  The sampling temperature to use. Lower values are more deterministic, higher values are more "creative".
+<ParamField path="Top P" type="number" default={1} min={0} max={1}>
+  Alternative to temperature sampling. Only tokens comprising the top P probability mass are considered. For example, 0.1 means only tokens in the top 10% probability are considered.
 </ParamField>
 
-<Note>
-  Available settings may vary depending on the selected provider and model.
-</Note>
+<ParamField path="Use Top P" type="boolean" default={false}>
+  Toggle between using top P sampling or temperature sampling.
+</ParamField>
 
-## Example: Filtering a List of Ideas
+<ParamField path="Max Tokens" type="number" default={2048}>
+  The maximum number of tokens to generate in each chat completion.
+</ParamField>
 
-1. Add an AI Filter block to your flow.
-2. Connect an array of ideas to the `Array` input of the AI Filter block.
-3. Add a Text block with a filter prompt like "Keep only the innovative and feasible business ideas" and connect it to the `Filter Prompt` input.
-4. Select your desired provider and model in the AI Filter block settings.
-5. Run your flow. The filtered list of ideas will appear at the output of the AI Filter block.
+<ParamField path="Stop" type="string">
+  A sequence where the API will stop generating further tokens.
+</ParamField>
+
+<ParamField path="Presence Penalty" type="number" min={-2} max={2}>
+  Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+</ParamField>
+
+<ParamField path="Frequency Penalty" type="number" min={-2} max={2}>
+  Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
+</ParamField>
+
+<ParamField path="Seed" type="number">
+  If specified, the model will attempt to generate deterministic results for repeated requests with the same seed and parameters.
+</ParamField>
+
+### Advanced Settings
+
+<ParamField path="Custom Max Tokens" type="number">
+  Overrides the max number of tokens a model can support. Leave blank for preconfigured token limits.
+</ParamField>
+
+<ParamField path="Cache Responses" type="boolean" default={false}>
+  If enabled, requests with the same parameters and messages will be cached for immediate responses without an API call.
+</ParamField>
+
+<ParamField path="Use for subgraph partial output" type="boolean" default={false}>
+  If enabled, streaming responses from this node will be shown in Subgraph nodes that call this graph.
+</ParamField>
+
+## Error Handling
+
+- The block will retry failed attempts up to 3 times with exponential backoff
+- Token limits are automatically enforced based on the selected model
+- Invalid responses (non TRUE/FALSE) from the model will trigger an error
+- The block includes built-in timeout handling and request cancellation support
+
+## Example Usage
+
+1. Connect an array of items to the Input port
+2. Add a condition prompt like "Keep only items that are environmentally sustainable products"
+3. Optionally add a system prompt for additional context
+4. Configure the model and parameters in the settings
+5. Connect the Output port to use the filtered results
 
 <Frame>
   <img src="/images/ai-filter-example.png" alt="AI Filter Example" />
 </Frame>
 
-## Error Handling
+## Notes
 
-- If the input array is empty, the block will output an empty array.
-- If the AI provider fails to evaluate the filter condition for an element, that element will be excluded from the output array.
-- If the AI provider consistently fails to evaluate the filter condition, the block will error after a certain number of retries.
-
-<Warning>
-  Be mindful of rate limits and processing time when using the AI Filter block on large arrays, especially when [batching](/workflow/batching) requests.
-</Warning>
-
-## FAQ
-
-<AccordionGroup>
-  <Accordion title="Can I use different AI models for different elements in the array?">
-    No, the AI Filter block uses the same provider and model for all elements in the array. If you need to use different models, you can use multiple AI Filter blocks in sequence.
-  </Accordion>
-
-  <Accordion title="How does the AI determine whether an element passes the filter?">
-    The AI evaluates each element against the filter prompt you provide. It uses its natural language understanding capabilities to interpret the prompt and apply it to each element.
-  </Accordion>
-
-  <Accordion title="Is there a limit to the size of the input array?">
-    While there's no hard limit, processing very large arrays may take a considerable amount of time and could potentially hit rate limits with the AI provider. It's recommended to batch or chunk large arrays for more efficient processing.
-  </Accordion>
-</AccordionGroup>
-
-## See Also
-
-- [Ask AI Block](/block-reference/ai/ask-ai)
-- [Array Block](/block-reference/data/array)
-- [Filter Block](/block-reference/modifiers/filter)
+- The block automatically handles token counting and cost tracking
+- Responses are strictly evaluated as TRUE/FALSE
+- The block supports parallel processing of array elements
+- Built-in caching can improve performance for repeated operations

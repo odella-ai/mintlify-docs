@@ -15,22 +15,26 @@ The Text to File Block transforms plain text or markdown into styled document fi
 
 ## Inputs
 
-<ParamField path="Text" type="string">
-  The input text to be converted into a file. This can be plain text or markdown-formatted text.
+<ParamField path="text" type="string" required>
+  The text to convert to files. The input will be coerced to a string if needed.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Files" type="object[]">
-  An array of file data objects. Each object contains the converted file in the specified format(s).
+<ResponseField name="files" type="file[]">
+  The converted file output in the specified formats.
+</ResponseField>
+
+<ResponseField name="duration" type="number">
+  The time taken to process the conversion in milliseconds.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Output Formats" type="string[]" default={["PDF"]}>
-  The desired output file formats. You can select one or more of the following options:
-  - PDF: Portable Document Format, widely used for sharing documents
-  - MS Word: Microsoft Word document format (.docx)
+<ParamField path="formats" type="string[]" default={["pdf", "docx"]}>
+  The output file formats to generate. Supported formats:
+  - pdf: Portable Document Format
+  - docx: Microsoft Word Document
 </ParamField>
 
 ## What is Markdown?
@@ -48,7 +52,7 @@ You don't need to know markdown to use this block, but if you do, you can create
 ## Example: Creating a PDF Report
 
 1. Add a Text to File block to your flow.
-2. Connect a Text block with your report content to the `Text` input. You can use markdown formatting if desired.
+2. Connect a Text block with your report content to the `text` input. You can use markdown formatting if desired.
 3. In the block settings, select "PDF" as the Output Format.
 4. Run your flow. The block will output a PDF file containing your styled report.
 
@@ -58,11 +62,20 @@ You don't need to know markdown to use this block, but if you do, you can create
 
 ## Error Handling
 
-- If the input text is empty, the block will return an error.
-- If there's an issue converting the text to the specified file format(s), the block will fail and provide error details.
+The block will retry failed attempts with the following behavior:
+- Maximum retry time of 5 minutes
+- Exponential backoff starting at 500ms up to 5000ms
+- Traces failed attempts for debugging
+- Aborts if the process is cancelled
+
+Common errors include:
+- No Docme endpoint configured in settings
+- Empty or missing input text
+- API rate limit exceeded (429)
+- Internal service errors (500)
 
 <Warning>
-  Always review the generated files to ensure the formatting and content appear as expected, especially when using markdown or when creating documents for professional use.
+  Always ensure your environment is correctly configured with a Docme endpoint and that input text is properly formatted.
 </Warning>
 
 ## FAQ

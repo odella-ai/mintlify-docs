@@ -14,54 +14,56 @@ The Raise Event Block allows you to trigger events from within your flow. These 
 
 The block requires an event name and optionally accepts event data. The event name identifies the event when raised, while the event data can include any additional information you want to associate with the event.
 
-<Note>
-  In the Lawme application, there's a special event named `toast` that can display a toast message. The `toast` event accepts a string as its data, which becomes the message content.
-</Note>
-
 <Frame>
   <img src="./assets/raise-event-block.png" alt="Raise Event Block Screenshot" />
 </Frame>
 
 ## Inputs
 
-<ParamField path="Event Name" type="string">
-  The name of the event to raise. This input is only available if `Use Event Name Input` is enabled in the settings. Required. Non-string inputs will be coerced into strings.
+<ParamField path="Event Name" type="string" required>
+  The name of the event to raise. This input is only available if `Use Event Name Input` is enabled in the settings. Any non-string inputs will be automatically coerced to strings.
 </ParamField>
 
 <ParamField path="Data" type="any">
-  The data to associate with the event. Optional. The input will be coerced into the appropriate data type based on the value.
+  The data to associate with the event. Optional. Can be any data type.
 </ParamField>
 
 ## Outputs
 
 <ResponseField name="Result" type="any">
-  The data that was associated with the event. If no `Data` input is provided, this will be an empty string (`""`).
+  Returns the same data that was provided to the Data input. If no data was provided, returns an empty string.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Event Name" type="string">
-  The name of the event to raise. Required if `Use Event Name Input` is disabled.
+<ParamField path="Event Name" type="string" default="toast">
+  The name of the event to raise. Required if `Use Event Name Input` is disabled. Defaults to "toast".
 </ParamField>
 
 <ParamField path="Use Event Name Input" type="boolean" default={false}>
-  If enabled, the Event Name can be provided via the Event Name input port.
+  When enabled, allows the Event Name to be provided via an input port instead of being set in the settings.
 </ParamField>
+
+## Block Body Display
+
+The block body will either display:
+- The configured event name (when using settings)
+- "(Using Input)" (when using the Event Name input port)
 
 ## Examples
 
-### Example 1: Raise an event with data
+### Example 1: Using the Toast Event
 
 1. Create a Text Block with the content "Hello, world!".
 2. Add a Raise Event Block and set the Event Name to `toast`.
 3. Connect the Text Block to the `Data` input of the Raise Event Block.
-4. Run the flow. The `Result` output will be "Hello, world!", and a toast message will appear in the Lawme application.
+4. Run the flow. The `Result` output will be "Hello, world!", and a toast message will appear.
 
 <Frame>
   <img src="./assets/raise-event-block-toast.png" alt="Raise Event Block Toast Example" />
 </Frame>
 
-### Example 2: Synchronize flow parts using events
+### Example 2: Synchronize Flow Parts
 
 1. Create a [Chat Block](/block-reference/ai/chat) with a prompt "What is your name?" using a [Text Block](/block-reference/data/text).
 2. Add a Raise Event Block, set the Event Name to `chat`, and connect the Chat Block's `Response` output to the Raise Event Block's `Data` input.
@@ -74,7 +76,9 @@ The block requires an event name and optionally accepts event data. The event na
 
 ## Error Handling
 
-The Raise Event Block will error if the `Event Name` is not provided.
+The Raise Event Block will error if:
+- The Event Name is not provided when using the Event Name input
+- The Event Name setting is empty when not using the input port
 
 ## FAQ
 

@@ -15,18 +15,18 @@ This block is particularly useful when working with a set of blocks where only o
 
 ## Inputs
 
-<ParamField path="Conditional" type="boolean">
-  If connected, this can be used to run the coalesce block conditionally. If not connected, it's treated like any other input.
+<ParamField path="conditional" type="boolean">
+  If connected, this can be used to run the coalesce block conditionally. If not connected, it's treated like any other input. If this input is control-flow-excluded, the entire block will be control-flow-excluded.
 </ParamField>
 
-<ParamField path="Input X" type="any">
-  One of the inputs to check for nullness. The first non-null input will be passed to the output port. The number of inputs is dynamic based on how many are connected.
+<ParamField path="input[i]" type="any">
+  One of the inputs to check for nullness. The first non-null input will be passed to the output port. The number of inputs is dynamic based on how many are connected. Each input is numbered sequentially starting from 1.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Output" type="any">
-  The value of the first non-null input. If all inputs are null, the output will not run.
+<ResponseField name="output" type="any">
+  The value of the first non-null input. If all inputs are null or control-flow-excluded, the output will be control-flow-excluded.
 </ResponseField>
 
 ## Editor Settings
@@ -69,6 +69,10 @@ The Coalesce block cannot error in normal operation.
 <AccordionGroup>
   <Accordion title="Will an empty string be passed over?">
     No, an empty string is not considered nullable for the Coalesce Block. If you want to skip over empty strings, use an If Block to check for empty strings and return null if the string is empty.
+  </Accordion>
+
+  <Accordion title="How are inputs numbered?">
+    Input ports are numbered sequentially starting from 1 (input1, input2, etc). The number of input ports automatically adjusts based on the highest numbered port that has a connection.
   </Accordion>
 </AccordionGroup>
 

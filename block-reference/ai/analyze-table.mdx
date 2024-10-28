@@ -15,73 +15,87 @@ The Analyze Table Block uses AI capabilities to perform complex analysis and tra
 
 ## Inputs
 
-<ParamField path="Table" type="object[]">
-  The input table to be analyzed. Required. Should be an array of objects, where each object represents a row in the table.
+<ParamField path="Table" type="table" required>
+  The input table to be analyzed. Should be an array of objects, where each object represents a row in the table.
 </ParamField>
 
-<ParamField path="Prompt" type="string">
-  A natural language prompt describing the analysis or transformation to be performed on the table. Required. This prompt guides the AI in generating the appropriate code for table analysis.
+<ParamField path="Prompt" type="string" required>
+  A natural language prompt describing the analysis or transformation to be performed on the table. This input is only available if "Use Prompt Input" is enabled in settings. The prompt guides the AI in generating the appropriate code for table analysis.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Result Table" type="object[]">
+<ResponseField name="Output" type="table">
   The resulting table after analysis or transformation. The structure of this table will depend on the operations specified in the prompt.
+</ResponseField>
+
+<ResponseField name="Duration" type="number">
+  The time in milliseconds that the block took to execute.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for analyzing the table.
+<ParamField path="AI Model" type="string" default="default">
+  The specific model to use for generating the analysis code. Available models are dynamically populated based on the LLM provider configuration.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-3.5-turbo">
-  The specific model to use for the request. Available models depend on the selected provider.
+<ParamField path="Use Prompt Input" type="boolean" default={false}>
+  When enabled, allows the prompt to be provided via an input port instead of being set in the settings.
 </ParamField>
 
-<ParamField path="Temperature" type="number" default={0.7}>
-  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
+<ParamField path="Prompt" type="string">
+  The analysis prompt to use when "Use Prompt Input" is disabled. Describe the analysis you would like to perform on the table. The AI will generate the code for you.
 </ParamField>
 
-<Note>
-  Available settings may vary depending on the selected provider and model.
-</Note>
+## Requirements
 
-## Example: Calculating Summary Statistics
-
-1. Add an Analyze Table block to your flow.
-2. Connect your input table to the `Table` input of the Analyze Table block.
-3. Add a Text block with a prompt like "Calculate the average age, total salary, and count of employees for each department" and connect it to the `Prompt` input.
-4. Select your desired provider and model in the Analyze Table block settings.
-5. Run your flow. The block will output a new table with the requested summary statistics.
-
-<Frame>
-  <img src="/images/analyze-table-example.png" alt="Analyze Table Example" />
-</Frame>
+- An LLM provider must be configured in the workflow context
+- A code interpreter endpoint must be set in the settings (Azure Code Interpreter)
 
 ## Error Handling
 
-- If the input table is empty or invalid, the block will return an error.
-- If the AI provider fails to generate appropriate code for table analysis, the block will error after a certain number of retries.
-- If the generated code encounters runtime errors during execution, the block will fail and provide error details.
+The block will retry failed attempts up to 3 times with exponential backoff when encountering errors:
+- Retries occur between 500ms and 5000ms apart
+- Maximum of 3 retries before failing
+- Error details are provided in the trace logs
+
+Common errors include:
+- Missing or invalid input table
+- Failed code generation from AI
+- Runtime errors in generated analysis code
+- Missing configuration for LLM provider or code interpreter
 
 <Warning>
   Always validate the output of the Analyze Table block, especially when working with critical data or making important decisions based on the results.
 </Warning>
 
+## Example Usage
+
+1. Add an Analyze Table block to your flow
+2. Connect your input table to the `Table` input
+3. Either:
+   - Enable "Use Prompt Input" and connect a prompt via the input port
+   - Disable "Use Prompt Input" and enter your analysis prompt in settings
+4. Select your desired AI model
+5. Run the flow to get the analyzed table output
+
+<Frame>
+  <img src="/images/analyze-table-example.png" alt="Analyze Table Example" />
+</Frame>
+
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="What types of analysis can the Analyze Table block perform?">
-    The block can perform a wide range of operations, including but not limited to: aggregations, filtering, sorting, pivoting, calculating summary statistics, and applying complex transformations. The capabilities are largely determined by the AI model's understanding of the prompt and its ability to generate appropriate code.
+    The block can perform a wide range of operations using pandas, including: aggregations, filtering, sorting, pivoting, calculating summary statistics, and applying complex transformations. The capabilities are largely determined by the AI model's ability to generate appropriate pandas code.
   </Accordion>
 
-  <Accordion title="Can the Analyze Table block handle large datasets?">
-    While the block can process large datasets, performance may vary depending on the size of the input table and the complexity of the requested analysis. For very large datasets, consider using batching or chunking strategies.
+  <Accordion title="How does the block handle date-time data?">
+    The block automatically handles messy date-time formats in the input data, converting them to appropriate pandas datetime objects for analysis.
   </Accordion>
 
-  <Accordion title="How does the block ensure data privacy and security?">
-    The Analyze Table block processes data locally within your workflow. However, the prompt and a sample of your data may be sent to the AI provider for code generation. Always ensure you're complying with data privacy regulations and your organization's policies when using this block.
+  <Accordion title="How is the analysis performed securely?">
+    The analysis code is executed in an isolated Azure Code Interpreter environment. The data is processed securely within this environment and only the results are returned.
   </Accordion>
 </AccordionGroup>
 

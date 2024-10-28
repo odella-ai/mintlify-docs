@@ -11,21 +11,35 @@ sidebarTitle: Race Inputs
 
 The Race Inputs Block is used to handle multiple inputs and output the value of the first input to finish, force-cancelling the other inputs. This block is particularly useful when you have multiple operations that can potentially fulfill the same requirement, and you want to use the result of the operation that finishes first.
 
+## Key Features
+
+- Dynamically creates input ports based on connections
+- Outputs the first completed input value
+- Cancels remaining inputs after first completion
+- Hidden by default in the block menu
+- Belongs to the Logic group
+
 ## Inputs
 
 <ParamField path="Input [i]" type="any">
-  The ith input to be raced. The number of inputs is dynamic based on the number of connections made to the block.
+  The ith input to be raced. The number of inputs is dynamic based on the connections made to the block. Each input port is labeled as "Input 1", "Input 2", etc.
 </ParamField>
 
 ## Outputs
 
 <ResponseField name="Result" type="any">
-  The value of the first input to finish. If no inputs finish, this output will not run.
+  The value of the first input to finish. If no inputs finish or all inputs are control-flow-excluded, this output will be control-flow-excluded.
 </ResponseField>
 
 ## Editor Settings
 
-This block has no configurable editor settings.
+<ParamField path="Hidden" type="boolean" default={true}>
+  Whether the block is hidden in the block menu. This block is hidden by default.
+</ParamField>
+
+<ParamField path="Width" type="number" default={300}>
+  The width of the block in pixels.
+</ParamField>
 
 ## Example: Race two Chats
 
@@ -41,13 +55,19 @@ This block has no configurable editor settings.
 
 ## Error Handling
 
-The Race Inputs Block will not error if none of the inputs finish. Instead, the `Result` output will not run.
+The Race Inputs Block will not error if none of the inputs finish. Instead, the `Result` output will be control-flow-excluded. If all inputs are control-flow-excluded, the output will also be control-flow-excluded.
+
+## Technical Details
+
+- Input ports are dynamically created based on the highest numbered connected input port plus one
+- Input ports are named "input1", "input2", etc.
+- The output port is named "result"
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="What happens if none of the inputs finish?">
-    If none of the inputs finish, the Race Inputs Block will not error. The `Result` output will not run.
+    If none of the inputs finish, the Race Inputs Block will not error. The `Result` output will be control-flow-excluded.
   </Accordion>
 
   <Accordion title="Can I use the Race Inputs Block with inputs of different data types?">

@@ -130,6 +130,7 @@
         "block-reference/data/array",
         "block-reference/data/audio",
         "block-reference/data/bool",
+        "block-reference/data/date",
         "block-reference/data/file",
         "block-reference/data/image",
         "block-reference/data/number",

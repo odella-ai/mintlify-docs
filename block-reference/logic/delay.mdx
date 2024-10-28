@@ -13,7 +13,7 @@ The Delay Block introduces a specified pause in the execution of your workflow. 
 
 ## Inputs
 
-<ParamField path="Delay" type="number" default={0}>
+<ParamField path="Delay (ms)" type="number">
   The delay time in milliseconds. This input is only available if the "Use Delay Input" setting is enabled.
 </ParamField>
 
@@ -23,18 +23,18 @@ The Delay Block introduces a specified pause in the execution of your workflow. 
 
 ## Outputs
 
-<ResponseField name="Output[i]" type="any">
-  The ith output from the execution of the delay block. Each output corresponds to its respective input and is returned after the specified delay.
+<ResponseField name="Output [i]" type="any">
+  The ith output from the execution of the delay block. Each output corresponds to its respective input and is returned after the specified delay. The number of outputs matches the number of inputs minus 1.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Delay" type="number" default={0}>
+<ParamField path="Delay (ms)" type="number" default={0}>
   The delay time in milliseconds. This value is used if the "Use Delay Input" setting is disabled.
 </ParamField>
 
 <ParamField path="Use Delay Input" type="boolean" default={false}>
-  If enabled, the block will use the "Delay" input as the delay time. If disabled, it will use the delay time specified in the "Delay" setting.
+  If enabled, adds a "Delay (ms)" input port that can override the delay time specified in settings.
 </ParamField>
 
 ## Example: Delaying a Message

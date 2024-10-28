@@ -20,32 +20,32 @@ The Match Block is used to route control flow based on matching a string input a
 
 ## Inputs
 
-<ParamField path="Test" type="string">
-  The string to be tested against the regular expressions. Required. Non-string inputs will be coerced to strings.
+<ParamField path="Test" type="string" required>
+  The value that will be tested against each of the cases. Non-string inputs will be coerced to strings.
 </ParamField>
 
 <ParamField path="Value" type="any">
-  The value to be passed to the output port if a match is found. Optional. If not provided, the `Test` input will be used as the value.
+  The value passed through to the output port that matches. If unconnected, the test value will be passed through.
 </ParamField>
 
 ## Outputs
 
 <ResponseField name="Case [i]" type="any">
-  The output port corresponding to the ith regular expression. The number of these outputs is dynamic based on the number of configured cases.
+  The value (or test if value is unconnected) passed through if the test value matches the corresponding regex case. The number of these outputs is dynamic based on the number of configured cases. Each output is labeled with its corresponding regex pattern, or "Case N" if the pattern is empty.
 </ResponseField>
 
 <ResponseField name="Unmatched" type="any">
-  Executed if no match is found for the input string. Will not run if a match is found.
+  The value (or test if value is unconnected) passed through if no regexes match. Will not run if any match is found.
 </ResponseField>
 
 ## Editor Settings
 
 <ParamField path="Exclusive" type="boolean" default={false}>
-  If enabled, only the first matched case will run. If disabled, all matching cases will run.
+  If enabled, only the first matching branch will be ran. If disabled, all matching cases will run.
 </ParamField>
 
 <ParamField path="Cases" type="string[]" default={["YES", "NO"]}>
-  The list of regular expression cases to match against.
+  The list of regular expressions to match against. Each case corresponds to an output port.
 </ParamField>
 
 ## Example: Route control flow based on AI input

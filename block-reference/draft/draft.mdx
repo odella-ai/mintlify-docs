@@ -15,94 +15,108 @@ The Multi-Modal Draft Block leverages AI to generate various types of documents 
 
 ## Inputs
 
-<ParamField path="Context" type="object">
-  An object containing key-value pairs for interpolation into the template. This provides additional information or context to be considered in the document drafting process.
+<ParamField path="systemPrompt" type="string" optional>
+  The system prompt to send to the model. This provides high-level instructions or context for the AI model.
 </ParamField>
 
-<ParamField path="Images" type="array" optional>
-  An array of image objects to be analyzed and incorporated into the document. Each image object should contain a URL or base64-encoded image data.
+<ParamField path="prompt" type="string" optional>
+  The prompt to send to the model. Only available when "Use Prompt Input" is enabled.
+</ParamField>
+
+<ParamField path="images" type="image[]" optional>
+  An array of images to be analyzed and incorporated into the document. Only available when "Multi-Modal" is enabled.
+</ParamField>
+
+<ParamField path="(Template Variables)" type="string" optional>
+  When using templates, additional inputs are dynamically generated based on the template's variables. These inputs are used to customize the template output.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Draft" type="string">
-  The generated document draft based on the input template, context, and images.
+<ResponseField name="output" type="string">
+  The generated document draft based on the inputs and template.
+</ResponseField>
+
+<ResponseField name="duration" type="number">
+  The time taken to generate the draft in milliseconds.
+</ResponseField>
+
+<ResponseField name="wordCount" type="number">
+  The number of words in the generated draft.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Document Type" type="string" default="Custom">
-  Select from predefined document types or choose "Custom" for a user-defined template.
+<ParamField path="AI Model" type="string" default="gpt-4">
+  The AI model to use for document generation. Available models are dynamically populated based on your configuration.
 </ParamField>
 
-<ParamField path="Example Templates" type="string">
-  A selection of example templates for common document types. Only visible when a predefined document type is selected.
+<ParamField path="Multi-Modal" type="boolean" default={false}>
+  When enabled, allows the block to process both text and image inputs to generate the output.
 </ParamField>
 
-<ParamField path="Custom Template" type="string">
-  An optimized template for custom document drafting. Only visible when "Custom" is selected as the document type.
+<ParamField path="Use Prompt Input" type="boolean" default={false}>
+  When enabled, allows direct prompt input instead of using templates.
 </ParamField>
 
-<ParamField path="AI Model" type="string" default="GPT-4">
-  The AI model to use for document generation. Ensure the selected model supports multi-modal inputs.
+<ParamField path="Drafting Prompt Template" type="string" default="Legal Brief">
+  Select from predefined templates: Legal Brief, Research Report, Email, or Letter. Only available when "Use Prompt Input" is disabled.
 </ParamField>
 
-## Example Document Types
+<ParamField path="Word Count" type="number" default={800} min={500} max={2000}>
+  The target word count for the generated document. Only available when "Use Prompt Input" is disabled.
+</ParamField>
 
-The Multi-Modal Draft Block provides example templates for the following document types:
+## Example Templates
 
-1. Legal Briefs with Evidence Analysis
-2. Product Descriptions with Visual Details
-3. Research Reports with Data Visualization
-4. Travel Guides with Landmark Recognition
+The Draft Block includes the following pre-configured templates:
 
-## Example: Drafting a Product Description
+- Legal Brief
+- Research Report
+- Email
+- Letter
 
-1. Add a Multi-Modal Draft Block to your flow.
-2. In the block's settings, select "Product Description" as the Document Type.
-3. Choose an appropriate example template or modify it as needed.
-4. Connect an Object block with product details to the "Context" input.
-5. Connect an array of product images to the "Images" input.
-6. Run the flow. The Draft Block will output a generated product description incorporating both textual and visual information.
+Each template is optimized for its specific use case and includes relevant variables for customization.
+
+## Example: Using a Template
+
+1. Add a Draft Block to your flow
+2. Select your desired template from "Drafting Prompt Template"
+3. Configure the word count and other settings
+4. Connect required inputs based on the template variables
+5. Run the flow to generate your document
 
 <Frame>
-  <img src="/images/draft-block-example.png" alt="Multi-Modal Draft Block Example" />
+  <img src="/images/draft-block-example.png" alt="Draft Block Example" />
 </Frame>
-
-## Custom Drafting
-
-For more specific document needs:
-
-1. Select "Custom" as the Document Type.
-2. Use the optimized custom template provided, filling in the necessary details.
-3. Add context and images as needed.
-4. Run the flow to generate your custom document draft.
 
 ## Error Handling
 
-The Multi-Modal Draft Block will return an error if:
-- The input template is empty or too vague.
-- The AI model fails to generate a coherent document.
-- The generated content exceeds the model's maximum token limit.
-- Provided images are in an unsupported format or cannot be processed.
+The Draft Block includes robust error handling with automatic retries for:
+- API rate limit exceeded (429 errors)
+- API timeouts (408 errors)
+- Network failures
+- Other recoverable errors
+
+The block will display appropriate error messages and retry automatically when possible.
 
 <Warning>
-  Always review and edit AI-generated content for accuracy, coherence, and appropriateness before use in professional or legal contexts.
+  The block has a maximum retry time of 5 minutes and will throw an error if unable to complete within this timeframe.
 </Warning>
 
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="How does the block handle image inputs?">
-    The block uses advanced AI capabilities to analyze and interpret the content of input images. It then incorporates relevant visual information into the generated document, enhancing the overall quality and context of the output.
+  <Accordion title="How does Multi-Modal drafting work?">
+    When Multi-Modal is enabled, the block can process both text and image inputs simultaneously. The AI model analyzes the images and incorporates relevant visual information into the generated document.
   </Accordion>
 
-  <Accordion title="Can I use the Multi-Modal Draft Block for languages other than English?">
-    Yes, the Multi-Modal Draft Block can generate content in multiple languages. Specify the desired language in your template for best results. Note that image analysis capabilities may vary by language.
+  <Accordion title="What's the difference between using a template and direct prompt input?">
+    Templates provide structured, pre-configured prompts optimized for specific document types. Direct prompt input gives you more flexibility but requires you to craft your own prompting strategy.
   </Accordion>
 
-  <Accordion title="How long can the generated documents be?">
-    The length of generated documents is limited by the token limit of the chosen AI model. For longer documents, consider breaking the task into sections or using multiple Multi-Modal Draft Blocks.
+  <Accordion title="How are retries handled?">
+    The block automatically retries failed attempts with exponential backoff, with delays between 500ms and 5000ms. It handles rate limits and timeouts gracefully while keeping you informed of retry status.
   </Accordion>
 </AccordionGroup>
 
@@ -111,4 +125,4 @@ The Multi-Modal Draft Block will return an error if:
 - [Ask AI Block](/block-reference/ai/ask-ai)
 - [Text Block](/block-reference/data/text)
 - [Image Block](/block-reference/data/image)
-- [Analyze Table Block](/block-reference/ai/analyze-table)
+- [Object Block](/block-reference/data/object)

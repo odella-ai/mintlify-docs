@@ -11,39 +11,25 @@ sidebarTitle: Output
 
 The Flow Output Block is a crucial component for defining the outputs of a flow. Each instance of this block represents an individual output, where the value passed into it becomes part of the overall flow output. When a flow is used as a subflow, each Flow Output Block transforms into an output port on the subflow block.
 
-## Key Features
-
-- Define multiple outputs for a flow
-- Specify data types for outputs
-- Enable dynamic output based on flow execution
-- Seamless integration with subflows
-
-## How It Works
-
-1. Add a Flow Output Block to your flow
-2. Configure the output's ID and data type
-3. Connect the desired value to the block's input
-4. When the flow is executed, the value will be included in the flow's output
-
 ## Inputs
 
-<ParamField path="Value" type="any" required>
+<ParamField path="value" type="any" required>
   The value to be outputted from the flow. The data type should match the type specified in the Editor Settings.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Value Output" type="any">
+<ResponseField name="valueOutput" type="any">
   The value that was passed into the block. The data type matches the type specified in the Editor Settings.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="ID" type="string" default="output" required>
+<ParamField path="id" type="string" default="output" required>
   The unique identifier for the output. This ID is used when referencing the output and defines the output port name when used as a subflow.
 </ParamField>
 
-<ParamField path="Data Type" type="string" default="string">
+<ParamField path="dataType" type="string" default="string">
   Specifies the expected data type for the output. The input value will be coerced to this type if necessary.
 </ParamField>
 

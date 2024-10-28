@@ -15,36 +15,52 @@ The Confirm Block is a user input block that prompts the user for confirmation. 
 
 ## Inputs
 
-<ParamField path="Message" type="string">
-  The message to display to the user when prompting for confirmation. This is optional and defaults to a generic confirmation message if not provided.
+<ParamField path="prompt" type="string" optional>
+  The message to display to the user when prompting for confirmation. Only available when "Use Input" is enabled.
+</ParamField>
+
+<ParamField path="wait" type="any" optional>
+  A value to wait for before showing the confirmation prompt. Only available when "Wait For Input" is enabled.
+</ParamField>
+
+<ParamField path="value" type="string" optional>
+  A value that will be passed through to either the True or False output depending on the user's response.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Confirmed" type="boolean">
-  Returns `true` if the user confirms, `false` if they deny.
+<ResponseField name="output" type="any">
+  The `value` input is passed through this output if the user confirms positively.
+</ResponseField>
+
+<ResponseField name="falseOutput" type="any">
+  The `value` input is passed through this output if the user confirms negatively.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Default Message" type="string" default="Are you sure you want to proceed?">
-  The default message to display if no input message is provided.
+<ParamField path="prompt" type="string" default="Please confirm to continue.">
+  The message to display to the user when prompting for confirmation. Only editable when "Use Input" is disabled.
 </ParamField>
 
-<ParamField path="Confirm Button Text" type="string" default="Yes">
-  The text to display on the confirmation button.
+<ParamField path="useInput" type="boolean" default={false}>
+  When enabled, allows the prompt message to be provided via the prompt input port instead of the editor settings.
 </ParamField>
 
-<ParamField path="Deny Button Text" type="string" default="No">
-  The text to display on the denial button.
+<ParamField path="useWaitForInput" type="boolean" default={false}>
+  When enabled, delays showing the confirmation prompt until the "Wait For" input receives a value.
+</ParamField>
+
+<ParamField path="renderingFormat" type="string" optional>
+  The format to render the prompt in. Can be either "preformatted" or "markdown".
 </ParamField>
 
 ## Example: Confirming a Delete Action
 
 1. Add a Confirm Block to your flow before a critical delete action.
-2. Set the `Message` input to "Are you sure you want to delete this item? This action cannot be undone."
-3. Connect the `Confirmed` output to a conditional block.
-4. If `Confirmed` is true, proceed with the delete action. If false, skip the delete action.
+2. Set the `prompt` to "Are you sure you want to delete this item? This action cannot be undone."
+3. Connect your delete action to the `value` input
+4. The delete action will only execute if the user confirms positively via the `output` port. The `falseOutput` port can be used to handle the negative confirmation case.
 
 <Frame>
   <img src="/images/confirm-block-example.png" alt="Confirm Block Example" />
@@ -61,16 +77,16 @@ The Confirm Block does not typically produce errors as it simply waits for user 
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="Can I customize the appearance of the confirmation dialog?">
-    The basic appearance of the confirmation dialog is determined by the system. However, you can customize the message, and the text on the confirm and deny buttons through the block's settings.
+  <Accordion title="What's the difference between using the prompt setting vs input?">
+    When "Use Input" is disabled, the prompt message is set statically in the editor settings. When enabled, the prompt can be dynamically provided via the prompt input port.
   </Accordion>
 
-  <Accordion title="How long will the Confirm Block wait for user input?">
-    The Confirm Block will typically wait indefinitely for user input. However, this may depend on the specific implementation and any timeout settings in your overall application flow.
+  <Accordion title="How does the Wait For Input feature work?">
+    When "Wait For Input" is enabled, the confirmation prompt won't be shown until a value is received on the "Wait For" input port. This allows you to sequence confirmations after other operations complete.
   </Accordion>
 
-  <Accordion title="Can I use the Confirm Block in a non-interactive environment?">
-    The Confirm Block is designed for interactive use and requires user input. In non-interactive environments, you may need to use a different approach or provide a default behavior.
+  <Accordion title="What happens to the value input?">
+    The value input is passed through to either the True or False output depending on how the user responds to the confirmation prompt. This allows you to conditionally route data based on user confirmation.
   </Accordion>
 </AccordionGroup>
 

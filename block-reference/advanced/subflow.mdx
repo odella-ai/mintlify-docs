@@ -1,80 +1,120 @@
 ---
 id: subflow
 title: Subflow Block
-sidebarTitle: Subflow
 description: Execute another flow within the current flow for reusable logic and modular design
+sidebarTitle: Subflow
 ---
-
-![Subflow Block Screenshot](./assets/subflow-block.png)
 
 ## Overview
 
-The Subflow Block allows you to execute another flow within the current flow. This powerful feature enables:
+The Subflow Block allows you to execute another flow within the current flow. This powerful feature enables you to reuse logic across multiple flows, break down complex flows into smaller pieces, and create modular workflow designs.
 
-- Reusing logic across multiple flows
-- Breaking down complex flows into smaller, manageable pieces
-- Creating modular and maintainable workflow designs
+<Note>
+  Subflows must be within the same project and cannot reference flows from different projects.
+</Note>
 
-The block's inputs and outputs are dynamically defined by [Input Blocks](./input.mdx) and [Output Blocks](./output.mdx) within the subflow. It also offers an optional error output for robust error handling.
+<Frame>
+  <img src="./assets/subflow-block.png" alt="Subflow Block Screenshot" />
+</Frame>
 
 ## Inputs
 
-| Name           | Type | Description                                                   |
-|----------------|------|---------------------------------------------------------------|
-| (custom names) | Any  | Dynamic inputs based on the subflow's configured Input Blocks |
+<ParamField path="(Dynamic Inputs)" type="any">
+  The inputs are dynamically generated based on the Input Blocks configured in the selected subflow. Each Input Block in the subflow creates a corresponding input port on the Subflow Block.
+</ParamField>
+
+<ParamField path="Wait For" type="any">
+  Only shown when "Wait For Input" is enabled. Used to delay execution until this input is ready.
+</ParamField>
 
 ## Outputs
 
-| Name           | Type   | Description                                                    |
-|----------------|--------|----------------------------------------------------------------|
-| (custom names) | Any    | Dynamic outputs based on the subflow's configured Output Blocks|
-| Error          | string | Error message (if enabled and an error occurs)                 |
+<ResponseField name="(Dynamic Outputs)" type="any">
+  The outputs are dynamically generated based on the Output Blocks configured in the selected subflow. Each Output Block in the subflow creates a corresponding output port on the Subflow Block.
+</ResponseField>
+
+<ResponseField name="Error" type="string">
+  Contains any error message if an error occurs during subflow execution. Only available when "Use Error Output" is enabled.
+</ResponseField>
+
+<ResponseField name="Duration" type="number">
+  The time in milliseconds that the subflow took to execute.
+</ResponseField>
 
 ## Editor Settings
 
-| Setting          | Description                                        | Default |
-|------------------|----------------------------------------------------|---------|
-| Flow             | The subflow to execute (must be in same project)   | Required|
-| Use Error Output | Enable separate error output instead of block fail | False   |
+<ParamField path="Flow" type="flow" required>
+  Select the flow to execute as a subflow. The flow must exist within the same project.
+</ParamField>
+
+<ParamField path="Use Error Output" type="boolean" default={false}>
+  When enabled, errors during subflow execution will be sent to the Error output port instead of causing the block to fail. This allows for custom error handling logic.
+</ParamField>
+
+<ParamField path="Wait For Input" type="boolean" default={false}>
+  When enabled, adds a "Wait For" input port that delays execution until that input is ready.
+</ParamField>
+
+<ParamField path="(Dynamic Settings)" type="any">
+  For each Input Block in the selected subflow, a corresponding setting appears allowing you to set a default value for that input.
+</ParamField>
+
+## Notes
+
+- The block's inputs and outputs are determined by the Input and Output Blocks in the selected subflow
+- Errors can either fail the block or be handled via the Error output port
+- Subflows can be nested within other subflows for complex workflow organization
+- The subflow must be in the same project as the parent flow
+- Default values can be set for any input, which will be used if no connection is made to that input port
 
 ## Examples
 
-### Reusing Logic
+### Example 1: Basic Subflow Usage
 
-1. Create a subflow with Input, Text, and Output blocks
-2. In main flow, add Subflow Block and select the created subflow
-3. Connect inputs/outputs as needed
+1. Create a new flow called "Greeting" with:
+   - An Input Block named "name"
+   - A Text Block with content "Hello, {inputs.name}!"
+   - An Output Block named "message"
 
-![Subflow Reuse Example](./assets/subflow-block-example-01.png)
+2. In your main flow:
+   - Add a Subflow Block
+   - Select "Greeting" as the Flow
+   - Connect a Text Block with a name to the "name" input
+   - Use the "message" output as needed
 
-### Error Handling
+<Frame>
+  <img src="./assets/subflow-block-example-01.png" alt="Basic Subflow Example" />
+</Frame>
 
-1. Create a subflow with potential error (e.g., invalid vector store operation)
-2. In main flow, add Subflow Block and enable "Use Error Output"
-3. Connect error output to handle potential issues
+### Example 2: Error Handling
 
-![Subflow Error Handling](./assets/subflow-block-example-02.png)
+1. Create a subflow that might produce errors
+2. In your main flow:
+   - Add a Subflow Block
+   - Enable "Use Error Output"
+   - Connect the Error output to handle potential issues
+   - Add error handling logic as needed
 
-## Error Handling
-
-- Without "Use Error Output": Subflow errors cause the entire block to fail
-- With "Use Error Output": Errors are sent to the Error output port for custom handling
+<Frame>
+  <img src="./assets/subflow-block-example-02.png" alt="Error Handling Example" />
+</Frame>
 
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="Can I use subflows from different projects?">
-    No, subflows must be within the same project.
+  <Accordion title="Can subflows be nested?">
+    Yes, you can use Subflow Blocks within other subflows to create hierarchical workflow structures.
   </Accordion>
-  <Accordion title="Can I use Subflow Blocks in loops or conditionals?">
-    Yes, Subflow Blocks can be used with Loop Controller and If Blocks for advanced flow control.
+
+  <Accordion title="What happens if an error occurs in the subflow?">
+    If "Use Error Output" is enabled, the error message will be sent to the Error output port. Otherwise, the block will fail and stop the flow execution.
+  </Accordion>
+
+  <Accordion title="Can I modify the subflow's inputs and outputs?">
+    Yes, by modifying the Input and Output Blocks in the subflow. Changes will automatically update the ports on any Subflow Blocks using that flow.
+  </Accordion>
+
+  <Accordion title="How can I track how long a subflow takes to execute?">
+    The Duration output port provides the execution time in milliseconds for each run of the subflow.
   </Accordion>
 </AccordionGroup>
-
-## See Also
-
-- [Input Block](./input.mdx)
-- [Output Block](./output.mdx)
-- [If Block](./if.mdx)
-- [Loop Controller Block](./loop-controller.mdx)
-- [Text Block](./text.mdx)

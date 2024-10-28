@@ -18,17 +18,21 @@ By default, inputs will be flattened, so if any of the inputs are arrays themsel
 ## Inputs
 
 <ParamField path="Input [i]" type="any">
-  The ith input to be added to the array. Dynamic number of inputs based on how many connections there are.
+  An input to create the array from. If an array, will be flattened if the "Flatten" option is enabled. The number of inputs is dynamic based on how many connections there are.
 </ParamField>
 
 ## Outputs
 
 <ResponseField name="Output" type="any[]">
-  The array created from the inputs. The output will be a single array containing all valid inputs.
+  The array created from the inputs.
 </ResponseField>
 
 <ResponseField name="Indices" type="number[]">
-  The indices of the elements in the array. The output will be an array of numbers representing the array indices.
+  The indices of the array. I.e. [0, 1, 2, 3, etc]. Useful for zipping with the output array to get the indexes.
+</ResponseField>
+
+<ResponseField name="Length" type="number">
+  The length of the output array.
 </ResponseField>
 
 ## Editor Settings

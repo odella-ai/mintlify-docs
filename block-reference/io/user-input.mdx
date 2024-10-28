@@ -11,45 +11,48 @@ sidebarTitle: User Input
 
 The User Input Block allows you to prompt users for input during flow execution. This block is essential for creating interactive workflows where user input is required to proceed. It can use either static prompts defined in the block settings or dynamic prompts provided via the block's input.
 
-## Key Features
-
-- Prompt users for input during flow execution
-- Support for both static and dynamic prompts
-- Output user responses as arrays
-- Option to output questions and answers together
-
-## How It Works
-
-1. Add a User Input Block to your flow
-2. Configure the prompt(s) either in the block settings or via input
-3. When the flow reaches this block, it pauses and prompts the user for input
-4. The user's response becomes the output of the block
-5. Flow execution resumes with the user's input
-
 ## Inputs
 
-<ParamField path="Questions" type="string[]" optional>
-  An array of questions to prompt the user. Only available when the "Use Input" toggle is enabled in the block settings.
+<ParamField path="questions" type="string[]" optional>
+  An array of questions to prompt the user. Only available when "Use Input" is enabled.
+</ParamField>
+
+<ParamField path="wait" type="any" optional>
+  A value to wait for before showing the input prompt. Only available when "Wait For Input" is enabled.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Answers Only" type="string[]">
-  An array containing the user's answers to the prompted questions.
+<ResponseField name="output" type="string[]">
+  An array containing just the user's answers to the prompted questions.
 </ResponseField>
 
-<ResponseField name="Q & A" type="string[]">
+<ResponseField name="questions" type="string[]">
+  An array containing just the questions that were asked.
+</ResponseField>
+
+<ResponseField name="questionsAndAnswers" type="string[]">
   An array containing the questions and answers formatted as "Question\nAnswer".
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Prompt" type="string" required>
-  The question to prompt the user. Can be overridden by the "Questions" input if "Use Input" is enabled.
+<ParamField path="prompt" type="string" default="This is an example question?">
+  The message to display to the user when prompting for input. Only editable when "Use Input" is disabled.
 </ParamField>
 
-<ParamField path="Use Input" type="boolean" default={false}>
-  When enabled, allows prompts to be provided via the "Questions" input instead of using the static "Prompt" setting.
+<ParamField path="useInput" type="boolean" default={false}>
+  When enabled, allows the prompt message to be provided via the questions input port instead of the editor settings.
+</ParamField>
+
+<ParamField path="useWaitForInput" type="boolean" default={false}>
+  When enabled, delays showing the input prompt until the "Wait For" input receives a value.
+</ParamField>
+
+<ParamField path="renderingFormat" type="string" default="markdown">
+  The format to render the prompt in. Options:
+  - markdown: Renders the prompt as markdown
+  - preformatted: Renders the prompt as preformatted text
 </ParamField>
 
 ## Examples
@@ -96,8 +99,14 @@ The User Input Block does not typically produce errors as it simply waits for us
     If the user submits without providing input, the block will output an empty string for that prompt.
   </Accordion>
 
-  <Accordion title="Can I use this block for non-interactive flows?">
-    The User Input Block is designed for interactive use and requires user input. For non-interactive flows, consider using predefined inputs or other data sources.
+  <Accordion title="How does the Wait For Input feature work?">
+    When "Wait For Input" is enabled, the input prompt won't be shown until a value is received on the "Wait For" input port. This allows you to sequence prompts after other operations complete.
+  </Accordion>
+
+  <Accordion title="What's the difference between the output formats?">
+    - "Answers Only" gives you just the user responses
+    - "Questions Only" gives you just the questions asked
+    - "Q & A" combines each question and answer pair with a newline between them
   </Accordion>
 </AccordionGroup>
 

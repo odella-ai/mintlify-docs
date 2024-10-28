@@ -21,6 +21,10 @@ The Compare Block allows you to perform comparison operations between two input 
   The second value for comparison. Required.
 </ParamField>
 
+<ParamField path="Comparison Function" type="string">
+  The comparison function to use. Only available when "Use Comparison Function Input" is enabled in settings.
+</ParamField>
+
 ## Outputs
 
 <ResponseField name="Output" type="boolean">
@@ -30,7 +34,23 @@ The Compare Block allows you to perform comparison operations between two input 
 ## Editor Settings
 
 <ParamField path="Comparison Function" type="string" default="==">
-  The comparison function to be used for the operation. Available options are '==', '<', '>', '<=', '>=', '!=', 'and', 'or', 'xor'.
+  The comparison function to be used for the operation. Available options are:
+  - `==`: Equal to
+  - `!=`: Not equal to
+  - `<`: Less than
+  - `>`: Greater than
+  - `<=`: Less than or equal to
+  - `>=`: Greater than or equal to
+  - `and`: Logical AND
+  - `or`: Logical OR
+  - `xor`: Logical XOR
+  - `nand`: Logical NAND
+  - `nor`: Logical NOR
+  - `xnor`: Logical XNOR
+</ParamField>
+
+<ParamField path="Use Comparison Function Input" type="boolean" default={false}>
+  When enabled, adds a "Comparison Function" input port that can override the comparison function setting.
 </ParamField>
 
 ## Example: Compare two numbers
@@ -46,7 +66,12 @@ The Compare Block allows you to perform comparison operations between two input 
 
 ## Error Handling
 
-The Compare Block does not have specific error handling. If the inputs are not of the same type, the block will attempt to coerce the second input (`B`) to the type of the first input (`A`).
+If input A is not provided:
+- For `==` comparison: Returns `true` if B is also not provided, `false` otherwise
+- For `!=` comparison: Returns `true` if B is provided, `false` otherwise  
+- For all other comparisons: Returns `false`
+
+If the inputs are not of the same type, the block will attempt to coerce the second input (`B`) to the type of the first input (`A`).
 
 ## FAQ
 
@@ -56,7 +81,7 @@ The Compare Block does not have specific error handling. If the inputs are not o
   </Accordion>
 
   <Accordion title="Can I use the Compare Block to compare arrays or objects?">
-    Yes, you can use the Compare Block to compare arrays or objects. However, the comparison will be performed using JavaScript's strict equality (`===`), which may not give the expected results for arrays or objects. For a deep comparison of arrays or objects, consider using a Code Block.
+    Yes, you can use the Compare Block to compare arrays or objects. The comparison will be performed using a deep equality check that compares all nested values.
   </Accordion>
 </AccordionGroup>
 
