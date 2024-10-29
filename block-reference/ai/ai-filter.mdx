@@ -40,14 +40,6 @@ The AI Filter Block applies a filter operation over an array of values where the
   The filtered input array containing only the elements that passed the condition.
 </ResponseField>
 
-<ResponseField name="Cost" type="number">
-  The total cost of the AI operations in USD.
-</ResponseField>
-
-<ResponseField name="Duration" type="number">
-  The time in milliseconds that the filtering operation took to complete.
-</ResponseField>
-
 ## Editor Settings
 
 <ParamField path="AI Model" type="string" default="gpt-3.5-turbo">
@@ -114,10 +106,6 @@ The AI Filter Block applies a filter operation over an array of values where the
 3. Optionally add a system prompt for additional context
 4. Configure the model and parameters in the settings
 5. Connect the Output port to use the filtered results
-
-<Frame>
-  <img src="/images/ai-filter-example.png" alt="AI Filter Example" />
-</Frame>
 
 ## Notes
 

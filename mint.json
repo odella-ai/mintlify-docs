@@ -54,7 +54,8 @@
         "product/documents",
         "product/templates",
         "product/security",
-        "product/models"
+        "product/models",
+        "product/integrations"
       ]
     },
     {
