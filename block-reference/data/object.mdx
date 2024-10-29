@@ -16,19 +16,29 @@ The Object Block creates an object from input values and a JSON template. It aut
 ## Inputs
 
 <ParamField path="(Dynamic)" type="any">
-  Input values to be inserted into the JSON template. Input names are dynamically generated from the JSON template. Non-string inputs are coerced to strings.
+  Input values to be inserted into the JSON template. Input names are dynamically generated from the JSON template based on values wrapped in double curly braces (e.g. `{{input}}`). Non-string inputs are automatically converted to strings.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Output" type="object">
-  The object created from the input values and JSON template.
+<ResponseField name="output" type="object | object[]">
+  The object or array created from the input values and JSON template. The type will be `object[]` if the template defines an array, otherwise it will be `object`.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="JSON Template" type="string" default='{ "key": "{{input}}" }'>
-  The JSON template for creating the object. Input values are inserted into this template.
+<ParamField path="jsonTemplate" type="code" language="json" default='{ "key": "{{input}}" }'>
+  The JSON template for creating the object. Input values are inserted into this template using double curly brace syntax (e.g. `{{input}}`). The template must be valid JSON.
+
+  Values wrapped in quotes (e.g. `"{{input}}"`) will be treated as strings and escaped appropriately. Values without quotes will be inserted directly as JSON values.
+</ParamField>
+
+<ParamField path="width" type="number" default={200}>
+  The width of the block in pixels.
+</ParamField>
+
+<ParamField path="hidden" type="boolean" default={true}>
+  Whether the block is hidden in the block menu.
 </ParamField>
 
 ## Example: Creating an object from multiple inputs
@@ -73,7 +83,15 @@ The Object Block will error if:
   </Accordion>
 
   <Accordion title="How are input values escaped?">
-    Input values are automatically escaped. String inputs use `JSON.stringify()`. Non-string inputs are first converted to strings using `JSON.stringify()`, then escaped.
+    Input values are automatically escaped based on whether they appear in quotes in the template:
+    - Values in quotes (e.g. `"{{input}}"`) are escaped as strings using `JSON.stringify()`
+    - String values in quotes get a single `JSON.stringify()`
+    - Non-string values in quotes get a double `JSON.stringify()` to properly escape them
+    - Values without quotes are stringified directly as JSON values
+  </Accordion>
+
+  <Accordion title="What happens to null or undefined input values?">
+    If an input value is null or undefined, it will be converted to `null` in the output JSON.
   </Accordion>
 </AccordionGroup>
 

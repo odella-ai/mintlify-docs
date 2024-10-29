@@ -15,45 +15,68 @@ The HTTP Call Block allows you to make HTTP requests to specified URLs with cust
 
 ## Inputs
 
-<ParamField path="Method" type="string" default="GET">
-  The HTTP method to use for the request (GET, POST, PUT, DELETE, etc.).
+<ParamField path="Method" type="string">
+  The HTTP method to use for the request (GET, POST, PUT, DELETE). Only shown when "Use Input" is enabled for Method.
 </ParamField>
 
 <ParamField path="URL" type="string">
-  The URL to make the HTTP request to.
+  The URL to make the HTTP request to. Only shown when "Use Input" is enabled for URL.
 </ParamField>
 
 <ParamField path="Headers" type="object">
-  An object representing the headers to include in the HTTP request.
+  An object containing the headers to include in the HTTP request. Only shown when "Use Input" is enabled for Headers. Can accept a string containing JSON or an object.
 </ParamField>
 
 <ParamField path="Body" type="string">
-  The body of the HTTP request. Typically used for POST or PUT requests.
+  The body of the HTTP request. Only shown when "Use Input" is enabled for Body. Can accept a string or an object that will be stringified.
 </ParamField>
 
 ## Outputs
 
 <ResponseField name="Body" type="string">
-  The body of the HTTP response. If the response body is not a string, this output will not be available.
+  The raw text body of the HTTP response.
 </ResponseField>
 
 <ResponseField name="JSON" type="object">
-  If the response body is a JSON object, this output will contain the parsed JSON object. Otherwise, this output will not be available.
+  If the response has a content-type of application/json, this output will contain the parsed JSON object. Otherwise, this output will not be available.
 </ResponseField>
 
 <ResponseField name="Status Code" type="number">
-  The status code of the HTTP response.
+  The HTTP status code of the response.
 </ResponseField>
 
 <ResponseField name="Headers" type="object">
-  The headers of the HTTP response.
+  An object containing the headers from the HTTP response.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Error on non-200 status code" type="boolean" default={true}>
-  If enabled, the block will error if the status code of the HTTP response is not 200.
+<ParamField path="Method" type="select" default="GET">
+  The HTTP method to use. Options are GET, POST, PUT, or DELETE. Has an "Use Input" toggle to accept the method via input instead.
 </ParamField>
+
+<ParamField path="URL" type="string">
+  The URL to make the request to. Has a "Use Input" toggle to accept the URL via input instead.
+</ParamField>
+
+<ParamField path="Headers" type="code" language="json">
+  JSON object containing request headers. Has a "Use Input" toggle to accept headers via input instead.
+</ParamField>
+
+<ParamField path="Body" type="code" language="json">
+  The request body. Has a "Use Input" toggle to accept body content via input instead.
+</ParamField>
+
+<ParamField path="Error on non-200 status code" type="boolean" default={true}>
+  If enabled, the block will error if the response status code is not 200.
+</ParamField>
+
+## Notes
+
+- When running in a browser environment, requests may be limited by CORS policies. If you encounter CORS issues, try using the Node executor instead.
+- Headers provided via input can be either a JSON string or an object
+- Body content provided via input can be either a string or an object (which will be stringified)
+- The JSON output is only available when the response has a content-type of application/json
 
 ## Examples
 

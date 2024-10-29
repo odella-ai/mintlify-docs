@@ -15,44 +15,56 @@ The Describe Image Block uses Vision Language Model (VLM) capabilities to analyz
 
 ## Inputs
 
-<ParamField path="Image" type="file">
-  The input image to be analyzed. Required. Supported formats include JPEG, PNG, and GIF.
+<ParamField path="systemPrompt" type="string">
+  The system prompt to send to the model. Optional. Used to provide high-level guidance to the AI model.
 </ParamField>
 
-<ParamField path="Prompt" type="string">
-  An optional natural language prompt to guide the image description. This can be used to focus the AI on specific aspects of the image or to request particular types of information.
+<ParamField path="prompt" type="chat-message | chat-message[]">
+  The prompt message or messages to send to the model. Only available if "Use Prompt Input" is enabled in settings.
+</ParamField>
+
+<ParamField path="image" type="image" required>
+  The input image to be analyzed. Required. The image will be converted to a data URI before being sent to the model.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Description" type="string">
-  The resulting description of the image. The content and focus of this description will depend on the input image and any provided prompt.
+<ResponseField name="output" type="string">
+  The resulting description of the image. The content and focus of this description will depend on the input image and any provided prompts.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for image description. Ensure the chosen provider supports Vision Language Models.
+<ParamField path="model" type="string" default="gpt-4o">
+  The AI vision model used to describe the image. Available models are dynamically populated based on the LLM provider configuration.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-4 Vision">
-  The specific model to use for the request. Available models depend on the selected provider.
+<ParamField path="usePromptInput" type="boolean" default={false}>
+  When enabled, allows the prompt to be provided via an input port instead of being set in the settings.
 </ParamField>
 
-<ParamField path="Temperature" type="number" default={0.7}>
+<ParamField path="prompt" type="string" default="Describe the image in detail. If the image is a chart, provide an overview of the data and any trends or insights. If the image is of anything else, describe the content of the image.">
+  The prompt to use when "Use Prompt Input" is disabled. This text will be sent to the model along with the image.
+</ParamField>
+
+<ParamField path="maxTokens" type="number" default={2048}>
+  The maximum number of tokens to generate in the response.
+</ParamField>
+
+<ParamField path="temperature" type="number" default={0}>
   The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity in descriptions.
 </ParamField>
 
 <Note>
-  Available settings may vary depending on the selected provider and model.
+  Available settings may vary depending on the selected LLM provider and model.
 </Note>
 
 ## Example: Analyzing a Chart Image
 
 1. Add a Describe Image block to your flow.
-2. Connect your input image (e.g., a chart or graph) to the `Image` input of the Describe Image block.
-3. Add a Text block with a prompt like "Describe the main trends and key data points in this chart" and connect it to the `Prompt` input.
-4. Select your desired provider and model in the Describe Image block settings.
+2. Connect your input image (e.g., a chart or graph) to the `image` input of the Describe Image block.
+3. Add a Text block with a prompt like "Describe the main trends and key data points in this chart" and connect it to the `prompt` input if using prompt input mode.
+4. Select your desired model in the Describe Image block settings.
 5. Run your flow. The block will output a detailed description of the chart, focusing on the trends and key data points.
 
 <Frame>
@@ -62,7 +74,7 @@ The Describe Image Block uses Vision Language Model (VLM) capabilities to analyz
 ## Error Handling
 
 - If the input image is empty, invalid, or in an unsupported format, the block will return an error.
-- If the AI provider fails to analyze the image, the block will error after a certain number of retries.
+- If the AI provider fails to analyze the image, the block will retry up to 3 times with exponential backoff (1-10 seconds between retries).
 - If the image is too large or complex for the model to process, the block may return an error or a partial description.
 
 <Warning>

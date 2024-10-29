@@ -11,53 +11,50 @@ sidebarTitle: Upload File
 
 The Upload File Block is a user input component that prompts users to upload a file. It's designed to wait for the user to select and upload a file before proceeding with the workflow. This block is particularly useful when you need to incorporate user-provided files into your flow for further processing or analysis.
 
-## Key Features
-
-- Accept file uploads from users
-- Limit accepted file types (PDF, CSV, MS Word)
-- Customizable prompt message
-- Flexible input options for prompt text
-
-## How It Works
-
-1. Add an Upload File Block to your flow
-2. Configure the accepted file types and prompt message in the Editor Settings
-3. When the flow reaches this block, it will pause and wait for the user to upload a file
-4. Once a file is uploaded, the block outputs the file data and the flow continues
-
 ## Inputs
 
-<ParamField path="Prompt" type="string" optional>
-  The prompt message displayed to the user. Only available if the `Use Prompt Input` setting is enabled.
+<ParamField path="questions" type="string[]" optional>
+  The questions/prompts to display to the user. Only available when "Use Input" is enabled.
+</ParamField>
+
+<ParamField path="wait" type="any" optional>
+  A value to wait for before showing the file upload prompt. Only available when "Wait For Input" is enabled.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="File" type="file">
+<ResponseField name="output" type="file">
   The uploaded file data. This can be used in subsequent blocks for processing or analysis.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Accepted File Types" type="string[]" default={["pdf", "csv", "docx"]}>
-  An array of file extensions that the block will accept. Options include "pdf", "csv", and "docx" (MS Word).
+<ParamField path="prompt" type="string" default="This is an example question?">
+  The message displayed to the user when prompted to upload a file. Only editable when "Use Input" is disabled.
 </ParamField>
 
-<ParamField path="Prompt" type="string" default="Please upload a file">
-  The message displayed to the user when prompted to upload a file.
+<ParamField path="useInput" type="boolean" default={false}>
+  When enabled, allows the prompt message to be provided via the questions input port instead of the editor settings.
 </ParamField>
 
-<ParamField path="Use Prompt Input" type="boolean" default={false}>
-  When enabled, allows the prompt message to be provided via an input port.
+<ParamField path="useWaitForInput" type="boolean" default={false}>
+  When enabled, delays showing the file upload prompt until the "Wait For" input receives a value.
+</ParamField>
+
+<ParamField path="acceptedFileTypes" type="string[]" default={["application/pdf", "application/msword", "text/csv", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]}>
+  The file types that the block will accept. Default supported types:
+  - PDF files (application/pdf)
+  - Microsoft Word documents (application/msword)
+  - CSV files (text/csv) 
+  - Modern Word documents (.docx)
 </ParamField>
 
 ## Example: Uploading a CSV for Analysis
 
 1. Add an Upload File Block to your flow.
-2. In the Editor Settings, set `Accepted File Types` to ["csv"].
-3. Set the `Prompt` to "Please upload a CSV file for analysis".
-4. Connect the `File` output to a Table Block to parse the CSV data.
-5. Add subsequent blocks to analyze or visualize the data.
+2. Set the `prompt` to "Please upload a CSV file for analysis".
+3. Connect the `output` to subsequent blocks to process the uploaded file.
+4. When the flow runs, users will be prompted to upload a file matching the accepted types.
 
 <Frame>
   <img src="/images/upload-file-example.png" alt="Upload File Example" />
@@ -65,7 +62,7 @@ The Upload File Block is a user input component that prompts users to upload a f
 
 ## Error Handling
 
-- If a user attempts to upload a file type that is not accepted, the block will display an error message and continue waiting for a valid file.
+- If a user attempts to upload a file type that is not in the accepted file types list, the block will display an error message and continue waiting for a valid file.
 - If there are issues with file upload (e.g., network errors, file corruption), the block will fail and provide error details.
 
 <Warning>
@@ -75,16 +72,16 @@ The Upload File Block is a user input component that prompts users to upload a f
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="Can I accept file types other than PDF, CSV, and MS Word?">
-    Currently, the Upload File Block is limited to accepting PDF, CSV, and MS Word files. If you need to accept other file types, you may need to use a custom solution or contact support for potential extensions.
+  <Accordion title="What's the difference between using the prompt setting vs input?">
+    When "Use Input" is disabled, the prompt message is set statically in the editor settings. When enabled, the prompts can be dynamically provided via the questions input port.
   </Accordion>
 
-  <Accordion title="Is there a file size limit for uploads?">
-    File size limits may vary depending on your system configuration and available resources. It's recommended to test with files of various sizes and implement appropriate error handling for oversized files.
+  <Accordion title="How does the Wait For Input feature work?">
+    When "Wait For Input" is enabled, the file upload prompt won't be shown until a value is received on the "Wait For" input port. This allows you to sequence file uploads after other operations complete.
   </Accordion>
 
-  <Accordion title="How can I process the uploaded file in subsequent blocks?">
-    The `File` output of the Upload File Block can be connected to various other blocks depending on the file type. For example, CSV files can be parsed with a Table Block, while PDF files might be processed with a Document Analysis Block.
+  <Accordion title="What file types are supported?">
+    By default, the block accepts PDF files, Microsoft Word documents (both .doc and .docx formats), and CSV files. The accepted file types are configured through the MIME types in the block settings.
   </Accordion>
 </AccordionGroup>
 

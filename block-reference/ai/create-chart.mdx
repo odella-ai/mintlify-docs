@@ -15,75 +15,70 @@ The Create Chart Block leverages AI capabilities to generate data visualizations
 
 ## Inputs
 
-<ParamField path="Table" type="object[]">
-  The input table containing the data to be visualized. Required. Should be an array of objects, where each object represents a row in the table.
+<ParamField path="Table" type="table" required>
+  The input table containing the data to be visualized. Should be an array of objects, where each object represents a row in the table.
 </ParamField>
 
-<ParamField path="Prompt" type="string">
-  A natural language prompt describing the desired chart or visualization. Required. This prompt guides the AI in generating the appropriate code for creating the chart.
+<ParamField path="Prompt" type="string" required>
+  A natural language prompt describing the desired chart or visualization. This input is only available if "Use Prompt Input" is enabled in settings. The prompt guides the AI in generating the appropriate code for creating the chart.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Chart Image" type="string">
-  The resulting chart image in base64-encoded format. This can be used directly in image tags or saved as an image file.
+<ResponseField name="Output" type="image">
+  The resulting chart as a PNG image. Can be used directly in image tags or saved as an image file.
+</ResponseField>
+
+<ResponseField name="Duration" type="number">
+  The time in milliseconds that the block took to execute.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for generating the chart code.
+<ParamField path="AI Model" type="string" default="default">
+  The specific model to use for generating the chart code. Available models are dynamically populated based on the LLM provider configuration. Uses a custom LLM dropdown element.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-3.5-turbo">
-  The specific model to use for the request. Available models depend on the selected provider.
+<ParamField path="Use Prompt Input" type="boolean" default={false}>
+  When enabled, allows the prompt to be provided via an input port instead of being set in the settings.
 </ParamField>
 
-<ParamField path="Temperature" type="number" default={0.7}>
-  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
+<ParamField path="Prompt" type="string">
+  The prompt to use when "Use Prompt Input" is disabled. Describe the chart you would like to create given the input table. The AI will generate the code for you.
 </ParamField>
 
-<Note>
-  Available settings may vary depending on the selected provider and model.
-</Note>
+## Error Handling
 
-## Example: Creating a Bar Chart
+The block will retry failed attempts up to 3 times with exponential backoff:
+- Minimum retry delay: 500ms
+- Maximum retry delay: 5000ms 
+- Retry factor: 2.5x
+- Includes randomization
 
-1. Add a Create Chart block to your flow.
-2. Connect your input table to the `Table` input of the Create Chart block.
-3. Add a Text block with a prompt like "Create a bar chart showing total sales by product category" and connect it to the `Prompt` input.
-4. Select your desired provider and model in the Create Chart block settings.
-5. Run your flow. The block will output a base64-encoded image of the requested bar chart.
+Error messages will be logged and the block will show:
+- Code execution errors from the interpreter
+- Missing configuration errors
+- Response parsing errors
+
+## Notes
+
+- Uses seaborn library for chart generation
+- Automatically handles date-time data formatting
+- Optimizes charts for clarity and readability
+- Includes proper axis labels, legends, and titles
+- Limited to 2048 tokens for model responses
+
+## Example Usage
+
+1. Connect your input table to the Table input
+2. Enable "Use Prompt Input" if you want to provide the prompt dynamically
+3. Write a descriptive prompt like "Create a bar chart showing sales by month"
+4. Select your desired AI model
+5. The block will generate a PNG chart based on your specifications
 
 <Frame>
   <img src="/images/create-chart-example.png" alt="Create Chart Example" />
 </Frame>
-
-## Error Handling
-
-- If the input table is empty or invalid, the block will return an error.
-- If the AI provider fails to generate appropriate code for chart creation, the block will error after a certain number of retries.
-- If the generated code encounters runtime errors during execution, the block will fail and provide error details.
-
-<Warning>
-  Always validate the output of the Create Chart block, especially when working with critical data or presenting important information visually.
-</Warning>
-
-## FAQ
-
-<AccordionGroup>
-  <Accordion title="What types of charts can the Create Chart block generate?">
-    The block can generate a wide variety of charts and graphs, including but not limited to: bar charts, line graphs, scatter plots, pie charts, histograms, and heatmaps. The specific types of charts available depend on the AI model's capabilities and the data provided.
-  </Accordion>
-
-  <Accordion title="Can I customize the appearance of the generated charts?">
-    While the block generates charts based on the prompt, you can include specific styling instructions in your prompt. For example, you might request certain colors, fonts, or layout preferences. The level of customization depends on the AI model's ability to interpret and implement these instructions.
-  </Accordion>
-
-  <Accordion title="How does the block handle large datasets?">
-    The Create Chart block can handle various dataset sizes, but performance may vary depending on the complexity of the data and the requested visualization. For very large datasets, consider aggregating or sampling the data before passing it to the block.
-  </Accordion>
-</AccordionGroup>
 
 ## See Also
 

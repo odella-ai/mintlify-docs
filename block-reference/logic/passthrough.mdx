@@ -11,21 +11,34 @@ sidebarTitle: Passthrough
 
 The Passthrough Block is a simple utility that passes input values to outputs without any modifications. It's useful for scenarios where you need to route values through specific paths in your flow without altering them, such as grouping values from different branches or controlling wire flow.
 
+## Key Features
+
+- Dynamically creates input and output ports based on connections
+- Passes values through without modification
+- Hidden by default in the block menu
+- Useful for organizing complex flows
+
 ## Inputs
 
 <ParamField path="Input [i]" type="any">
-  The ith input to be passed through. The number of inputs is dynamic based on the connections made to the block.
+  The ith input to be passed through. The number of inputs is dynamic based on the connections made to the block. Each input port is labeled as "Input 1", "Input 2", etc.
 </ParamField>
 
 ## Outputs
 
 <ResponseField name="Output [i]" type="any">
-  The ith output from the passthrough. Each output corresponds to its respective input.
+  The ith output from the passthrough. Each output corresponds to its respective input, passing through the exact same value. The number of outputs is always one less than the number of inputs.
 </ResponseField>
 
 ## Editor Settings
 
-This block has no configurable editor settings.
+<ParamField path="Hidden" type="boolean" default={true}>
+  Whether the block is hidden in the block menu. This block is hidden by default since it's primarily used internally.
+</ParamField>
+
+<ParamField path="Width" type="number" default={175}>
+  The width of the block in pixels.
+</ParamField>
 
 ## Example: Grouping Values
 
@@ -40,7 +53,15 @@ This block has no configurable editor settings.
 
 ## Error Handling
 
-The Passthrough Block does not perform any error handling. If an input is missing or null, the corresponding output will also be missing or null.
+The Passthrough Block does not perform any error handling. It simply passes through whatever values it receives on its inputs to the corresponding outputs. If an input is control-flow-excluded, the corresponding output will also be control-flow-excluded.
+
+## Technical Details
+
+- The block dynamically creates input ports based on the highest numbered connected input port plus one
+- The number of output ports is always one less than the number of input ports
+- Input ports are named "input1", "input2", etc.
+- Output ports are named "output1", "output2", etc.
+- The block belongs to the "Logic" group in the block menu
 
 ## FAQ
 
@@ -51,6 +72,10 @@ The Passthrough Block does not perform any error handling. If an input is missin
 
   <Accordion title="Can the Passthrough Block be used to delay execution?">
     No, the Passthrough Block does not introduce any delay. For timed delays, consider using the Delay Block instead.
+  </Accordion>
+
+  <Accordion title="Why is this block hidden by default?">
+    The Passthrough Block is primarily used internally for organizing flows and is hidden by default to avoid cluttering the block menu. However, it can still be used by directly creating it in your flow.
   </Accordion>
 </AccordionGroup>
 

@@ -20,30 +20,30 @@ The Pop Block removes either the first or last element from an array and outputs
 
 ## Inputs
 
-<ParamField path="Array" type="any[]">
-  The array to pop from. Required. Non-array inputs will be coerced into an array.
+<ParamField path="array" type="any[]" required>
+  The array to pop from. Required. Non-array inputs will not be coerced.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Last" type="any">
-  The popped element (last or first, depending on settings).
+<ResponseField name="lastItem" type="any">
+  The popped element. Will be labeled as "First" if popping from front, "Last" if popping from back.
 </ResponseField>
 
-<ResponseField name="Rest" type="any[]">
+<ResponseField name="restOfArray" type="any[]">
   The remaining elements of the array after popping.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Pop from front" type="boolean" default={false}>
+<ParamField path="fromFront" type="boolean" default={false}>
   If enabled, the first element of the array will be popped instead of the last.
 </ParamField>
 
 ## Example: Pop the last element from an array
 
 1. Create an Array Block with values `["John", "Doe", "30", "Engineer"]`.
-2. Add a Pop Block and connect the Array Block to its `Array` input.
+2. Add a Pop Block and connect the Array Block to its `array` input.
 3. Run the flow. The `Last` output should be `"Engineer"` and the `Rest` output should be `["John", "Doe", "30"]`.
 
 <Frame>
@@ -53,8 +53,8 @@ The Pop Block removes either the first or last element from an array and outputs
 ## Example: Pop the first element from an array
 
 1. Create an Array Block with values `["John", "Doe", "30", "Engineer"]`.
-2. Add a Pop Block, enable the `Pop from front` setting, and connect the Array Block to its `Array` input.
-3. Run the flow. The `Last` output should be `"John"` and the `Rest` output should be `["Doe", "30", "Engineer"]`.
+2. Add a Pop Block, enable the `Pop from front` setting, and connect the Array Block to its `array` input.
+3. Run the flow. The `First` output should be `"John"` and the `Rest` output should be `["Doe", "30", "Engineer"]`.
 
 <Frame>
   <img src="./assets/pop-block-example-02.png" alt="Pop Block Example 2" />
@@ -63,8 +63,8 @@ The Pop Block removes either the first or last element from an array and outputs
 ## Error Handling
 
 The Pop Block will error if:
-- The `Array` input is not provided
-- The input is not an array (and cannot be coerced into one)
+- The `array` input is not provided
+- The input is not an array
 - The input array is empty
 
 ## FAQ

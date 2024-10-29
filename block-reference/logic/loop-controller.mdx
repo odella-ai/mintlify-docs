@@ -22,31 +22,41 @@ The Loop Controller Block is a powerful tool that allows you to create loops in 
 ## Inputs
 
 <ParamField path="Continue" type="any">
-  If truthy, the loop continues executing. If falsy, the loop stops. Coerced to boolean. Optional, defaults to true if not provided.
+  If truthy, the loop continues executing. If falsy, the loop stops. Coerced to boolean. Optional, defaults to true if not provided or if the value is "Not Ran".
 </ParamField>
 
 <ParamField path="Input X" type="any">
-  The value that changes in each iteration of the loop. Required.
+  The value that changes in each iteration of the loop. The number of inputs is dynamic based on connections. Each input has a corresponding default input.
 </ParamField>
 
 <ParamField path="Input X Default" type="any">
-  The initial value of the loop. Required.
+  The initial value for the corresponding Input X. Required for each Input X. If any default input is control-flow-excluded, all outputs will be control-flow-excluded.
 </ParamField>
 
 ## Outputs
 
 <ResponseField name="Break" type="any[]">
-  If the `Continue` input is falsy, this output runs with an array of all input values. Does not run if `Continue` is truthy.
+  If the `Continue` input is falsy, this output runs with an array of all input values. Does not run if `Continue` is truthy, instead outputting a control-flow-excluded value.
+</ResponseField>
+
+<ResponseField name="Iteration" type="number">
+  The current iteration number, starting at 1 for the first iteration.
 </ResponseField>
 
 <ResponseField name="Output X" type="any">
-  The value of the corresponding input or default input. On the first iteration, it's the value from the default input. On subsequent iterations, it's the value from the input on the previous iteration.
+  The value of the corresponding input or default input. On the first iteration, it's the value from the default input. On subsequent iterations, it's the value from the input on the previous iteration. The number of outputs matches the number of inputs.
 </ResponseField>
 
 ## Editor Settings
 
 <ParamField path="Max Iterations" type="number" default={100}>
-  The maximum number of iterations the loop can run. If exceeded, the loop will error.
+  The maximum number of iterations the loop can run.
+</ParamField>
+
+<ParamField path="At Max Iterations" type="string" default="error">
+  What should happen when max iterations is reached:
+  - `error`: Throw an error (default)
+  - `break`: Break the loop as if Continue was false
 </ParamField>
 
 ## Example: AI Chatting To Itself
@@ -63,7 +73,7 @@ This example demonstrates a loop that continues indefinitely:
 </Frame>
 
 <Note>
-  This loop will never break on its own. It will fail after 100 iterations by default.
+  This loop will never break on its own. It will fail after 100 iterations by default unless "At Max Iterations" is set to "break".
 </Note>
 
 ## Example: Iterating Over an Array
@@ -82,7 +92,9 @@ This example shows how to iterate over an array and append " Mapped" to each ele
 
 ## Error Handling
 
-The Loop Controller Block will error if the loop exceeds the maximum number of iterations specified in the `Max Iterations` setting.
+The Loop Controller Block will error if:
+- The loop exceeds the maximum number of iterations and "At Max Iterations" is set to "error"
+- Any required default inputs are not connected
 
 ## FAQ
 
@@ -96,15 +108,15 @@ The Loop Controller Block will error if the loop exceeds the maximum number of i
   </Accordion>
 
   <Accordion title="What happens if I don't connect the default input port?">
-    This currently results in undefined behavior. Always connect all default inputs.
+    If any default inputs are control-flow-excluded, all outputs will be control-flow-excluded. Always connect all default inputs.
   </Accordion>
 
   <Accordion title="How can I remember the ports better?">
-    Give descriptive names to blocks connected to input ports, or remember that input ports come in pairs.
+    Input ports come in pairs (Input X and Input X Default). The block will automatically name outputs based on connected input block names.
   </Accordion>
 
   <Accordion title="Why does the loop controller have a maximum number of iterations?">
-    This prevents accidental infinite loops. For truly infinite loops, set the maximum to an extremely high number.
+    This prevents accidental infinite loops. You can choose whether to error or break when the maximum is reached using the "At Max Iterations" setting.
   </Accordion>
 </AccordionGroup>
 

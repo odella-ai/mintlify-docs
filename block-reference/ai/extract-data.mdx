@@ -15,46 +15,109 @@ The Extract Data Block uses AI capabilities to extract structured data from unst
 
 ## Inputs
 
-<ParamField path="Text" type="string">
-  The input text from which data will be extracted. Required.
+<ParamField path="systemPrompt" type="string">
+  The system prompt to send to the model. Optional. Used to provide high-level guidance to the AI model.
 </ParamField>
 
-<ParamField path="Schema" type="object">
-  A flexible schema defining the fields to be extracted, their data types, and descriptions. Required.
+<ParamField path="context" type="string" required>
+  The context to extract the specified schema(s) from. Required.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Extracted Data" type="object">
-  An object containing the extracted data, structured according to the defined schema.
+<ResponseField name="all" type="object[]">
+  An array of objects containing all extracted data, structured according to the defined schema.
+</ResponseField>
+
+<ResponseField name="[schemaField]" type="any[]">
+  For each field defined in the schema, an array containing the extracted values for that field. The type will match the schema field type.
+</ResponseField>
+
+<ResponseField name="duration" type="number">
+  The time in milliseconds that the block took to execute.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for data extraction.
+<ParamField path="AI Model" type="string" default="gpt-3.5-turbo">
+  The AI model to use for data extraction. Available models are dynamically populated based on the LLM provider configuration.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-3.5-turbo">
-  The specific model to use for the request. Choose from over 250 available AI models.
+<ParamField path="Schema" type="object">
+  The schema defining what data to extract. Specify field names, types, and descriptions to guide the extraction.
 </ParamField>
 
-<ParamField path="Temperature" type="number" default={0.7}>
-  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
+### Parameters
+
+<ParamField path="Temperature" type="number" default={0} min={0} max={2} step={0.1}>
+  What sampling temperature to use. Higher values like 0.8 make output more random, while lower values like 0.2 make it more focused and deterministic.
 </ParamField>
 
-<ParamField path="Template Schema" type="string">
-  Select from pre-defined template schemas for common use cases, or create a custom schema.
+<ParamField path="Top P" type="number" default={1} min={0} max={1} step={0.1}>
+  Alternative to temperature sampling. Only tokens comprising the top P probability mass are considered. For example, 0.1 means only tokens in the top 10% probability are considered.
 </ParamField>
 
-<Note>
-  Available settings may vary depending on the selected provider and model.
-</Note>
+<ParamField path="Use Top P" type="boolean" default={false}>
+  Whether to use top p sampling instead of temperature sampling.
+</ParamField>
+
+<ParamField path="Max Tokens" type="number" default={8192}>
+  The maximum number of tokens to generate in the completion.
+</ParamField>
+
+<ParamField path="Stop" type="string">
+  A sequence where the API will stop generating further tokens.
+</ParamField>
+
+<ParamField path="Presence Penalty" type="number" min={-2} max={2} step={0.1}>
+  Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+</ParamField>
+
+<ParamField path="Frequency Penalty" type="number" min={-2} max={2} step={0.1}>
+  Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
+</ParamField>
+
+<ParamField path="Seed" type="number" step={1}>
+  If specified, OpenAI will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.
+</ParamField>
+
+### Advanced
+
+<ParamField path="Cache Responses" type="boolean" default={false}>
+  If enabled, requests with the same parameters and messages will be cached for immediate responses without an API call.
+</ParamField>
+
+<ParamField path="Use for subgraph partial output" type="boolean">
+  If enabled, streaming responses from this node will be shown in Subgraph nodes that call this graph.
+</ParamField>
+
+<ParamField path="Error on invalid output(s)" type="boolean">
+  If enabled, the node will error if any of the results returned do not conform to the schema.
+</ParamField>
+
+## Error Handling
+
+The block will retry failed attempts up to 3 times with exponential backoff:
+- Minimum retry delay: 500ms
+- Maximum retry delay: 5000ms
+- Retry factor: 2.5x
+- Includes randomization
+- Maximum retry time: 5 minutes
+
+Error messages will be logged for:
+- Invalid schema validation
+- Missing LLM provider configuration
+- API errors and timeouts
+- Aborted requests
+
+<Warning>
+  Always validate the output of the Extract Data block, especially when working with critical data or making important decisions based on the extracted information.
+</Warning>
 
 ## Example: Extracting Contact Information
 
 1. Add an Extract Data block to your flow.
-2. Connect your input text (e.g., an email or document) to the `Text` input of the Extract Data block.
+2. Connect your input text (e.g., an email or document) to the `Context` input.
 3. Define a schema in the block settings, for example:
    ```json
    {
@@ -64,38 +127,12 @@ The Extract Data Block uses AI capabilities to extract structured data from unst
      "company": {"type": "string", "description": "Company name"}
    }
    ```
-4. Select your desired provider and model in the Extract Data block settings.
-5. Run your flow. The block will output an object with the extracted contact information.
+4. Select your desired provider and model.
+5. Run your flow. The block will output an object with the extracted information.
 
 <Frame>
   <img src="/images/extract-data-example.png" alt="Extract Data Example" />
 </Frame>
-
-## Error Handling
-
-- If the input text is empty or invalid, the block will return an error.
-- If the schema is improperly formatted or contains invalid data types, the block will return an error.
-- If the AI provider fails to extract data according to the schema, the block will error after a certain number of retries.
-
-<Warning>
-  Always validate the output of the Extract Data block, especially when working with critical data or making important decisions based on the extracted information.
-</Warning>
-
-## FAQ
-
-<AccordionGroup>
-  <Accordion title="How flexible is the schema definition?">
-    The schema is highly flexible. You can define any number of fields with various data types (string, number, boolean, array, object) and provide detailed descriptions for each field to guide the AI in accurate extraction.
-  </Accordion>
-
-  <Accordion title="Can I use pre-defined schemas for common use cases?">
-    Yes, the Extract Data block provides template schemas for common use cases, which you can select in the editor. You can also modify these templates or create entirely custom schemas to suit your specific needs.
-  </Accordion>
-
-  <Accordion title="How does the block handle partial or ambiguous matches?">
-    The AI model will attempt to extract data based on the provided schema and descriptions. In cases of partial or ambiguous matches, it may provide the best possible match or leave fields empty if no suitable data is found. The accuracy depends on the quality of the input text and the specificity of the schema descriptions.
-  </Accordion>
-</AccordionGroup>
 
 ## See Also
 

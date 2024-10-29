@@ -9,25 +9,32 @@ sidebarTitle: Shuffle
 
 ## Overview
 
-The Shuffle Block randomizes the order of elements in an array. It takes an array as input and outputs a new array with the elements in a shuffled order. This block uses the [Fisher-Yates (aka Knuth) shuffle algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) to ensure a fair distribution of permutations.
+The Shuffle Block randomizes the order of elements in an array. It's like shuffling a deck of cards - you give it a list of items, and it mixes them up into a random order. This is useful when you want to randomize a playlist, create random selections, or add variety to any ordered list.
+
+## Key Features
+
+- Randomly reorders any list of items
+- Creates a new shuffled list (keeps your original list unchanged)
+- Works with any type of items (numbers, text, objects, etc.)
+- Automatically handles single items by treating them as a one-item list
 
 ## Inputs
 
-<ParamField path="Array" type="any[]">
-  The array to shuffle. Required.
+<ParamField path="array" type="any[]" required>
+  The list of items you want to shuffle. If you input a single item instead of a list, it will be treated as a one-item list.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Shuffled" type="any[]">
-  The input array with its order randomized.
+<ResponseField name="shuffled" type="any[]">
+  A new list containing all your input items in a random order.
 </ResponseField>
 
-## Example: Shuffle an array of numbers
+## Example: Shuffle a List of Numbers
 
-1. Create an Array Block with values `[1, 2, 3, 4, 5]`.
-2. Add a Shuffle Block and connect the Array Block to its `Array` input.
-3. Run the flow. The Shuffle Block's `Shuffled` output should contain the numbers 1 through 5 in a random order.
+1. Create an Array Block with numbers `[1, 2, 3, 4, 5]`
+2. Add a Shuffle Block and connect the Array Block to its `array` input
+3. Run the flow. The Shuffle Block's `shuffled` output will contain the same numbers in a random order, like `[3, 1, 5, 2, 4]`
 
 <Frame>
   <img src="./assets/shuffle-block-example-01.png" alt="Shuffle Block Example" />
@@ -35,21 +42,22 @@ The Shuffle Block randomizes the order of elements in an array. It takes an arra
 
 ## Error Handling
 
-- The block will error if the `Array` input is not provided or is not an array.
+- If nothing is connected to the input, the block will output an empty list
+- If you input a single item instead of a list, it will work fine - it just treats it as a one-item list
 
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="Can I shuffle an array of objects?">
-    Yes, the Shuffle Block can shuffle arrays of any data type, including objects.
+  <Accordion title="Can I shuffle a list of anything, not just numbers?">
+    Yes! You can shuffle lists of any type of items - text, numbers, objects, or even mixed content.
   </Accordion>
 
-  <Accordion title="Does the Shuffle Block modify the original array?">
-    No, the Shuffle Block does not modify the original array. It creates a new array with the elements in a shuffled order.
+  <Accordion title="Does shuffling change my original list?">
+    No, your original list stays exactly the same. The Shuffle Block creates a new list with the items in a random order.
   </Accordion>
 
-  <Accordion title="Is the shuffle algorithm truly random?">
-    The Shuffle Block uses the Fisher-Yates (aka Knuth) shuffle algorithm, which is considered a fair shuffle algorithm. However, it relies on the JavaScript `Math.random()` function, which is not suitable for cryptographic purposes.
+  <Accordion title="How random is the shuffle?">
+    The shuffle is random enough for most everyday purposes (like shuffling songs or cards), but shouldn't be used for security or gambling purposes where you need true randomness.
   </Accordion>
 </AccordionGroup>
 

@@ -15,60 +15,64 @@ The Research AI Block utilizes advanced AI capabilities to perform intelligent s
 
 ## Inputs
 
-<ParamField path="Query" type="string">
-  The research query or question. Required. This guides the AI in conducting the research.
-</ParamField>
-
-<ParamField path="Document Stores" type="string[]">
-  An array of document store identifiers to search. Required. These can be public stores (e.g., "public_laws") or private stores (e.g., "private_contracts").
-</ParamField>
-
-<ParamField path="Search Mode" type="string">
-  The mode of search across multiple document stores. Required. Options are "OR" (intelligent routing to one store) or "AND" (combining results from all stores).
+<ParamField path="Question" type="string | chat-message | chat-message[] | string[]" required>
+  The question or questions to research. Required. This guides the AI in conducting the research. Can be provided as a string, chat message, array of chat messages, or array of strings.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Research Results" type="object">
-  An object containing the research findings, relevant documents, and any additional context provided by the AI.
+<ResponseField name="Question" type="string">
+  The question that was researched.
+</ResponseField>
+
+<ResponseField name="Answer" type="string">
+  The answer to the research question.
+</ResponseField>
+
+<ResponseField name="Sources" type="object[]">
+  The cited sources supporting the response.
+</ResponseField>
+
+<ResponseField name="All" type="string">
+  A combined output containing the question, answer and discovered sources.
+</ResponseField>
+
+<ResponseField name="Duration" type="number">
+  The time in milliseconds that the block took to execute.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for the research process.
+<ParamField path="Document Store" type="string[]">
+  Select up to 5 document stores to search over. The available options are dynamically populated based on your configured document stores.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-4">
-  The specific model to use for the request. Available models depend on the selected provider.
-</ParamField>
-
-<ParamField path="Temperature" type="number" default={0.7}>
-  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity in research.
+<ParamField path="Mode" type="string" default="OR">
+  How to combine the search results across multiple document stores:
+  - OR: Routes to the most relevant store
+  - AND: Combines results from all stores
 </ParamField>
 
 <Note>
-  Available settings may vary depending on the selected provider and model.
+  A DocumentStoreProvider must be configured to use this block.
 </Note>
-
-## Example: AI-Powered Legal Research
-
-1. Add a Research AI block to your flow.
-2. Connect a Text block with a query like "What are the recent changes in copyright law regarding AI-generated content?" to the `Query` input.
-3. Set the `Document Stores` input to include relevant legal databases (e.g., ["public_laws", "case_law"]).
-4. Set the `Search Mode` to "AND" to combine results from all specified stores.
-5. Configure the AI provider and model in the block settings.
-6. Run your flow. The block will output comprehensive research results on recent copyright law changes related to AI-generated content.
-
-<Frame>
-  <img src="/images/research-ai-example.png" alt="Research AI Example" />
-</Frame>
 
 ## Error Handling
 
-- If the input query is empty or invalid, the block will return an error.
-- If no valid document stores are specified, the block will return an error.
-- If the AI provider fails to conduct the research, the block will error after a certain number of retries.
+The block will retry failed attempts up to 3 times with exponential backoff:
+- Minimum retry delay: 500ms
+- Maximum retry delay: 5000ms
+- Retry factor: 2.5x
+- Includes randomization
+- Maximum retry time: 5 minutes
+
+Error messages will be logged for:
+- No document stores selected
+- Invalid document store IDs
+- Missing DocumentStoreProvider configuration
+- API rate limits (will retry)
+- API timeouts (will retry)
+- Other API errors
 
 <Warning>
   Always verify the accuracy and relevance of the research results, especially when using them for critical decision-making or legal purposes.

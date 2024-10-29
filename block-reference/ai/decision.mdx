@@ -15,59 +15,81 @@ The Decision Block leverages AI capabilities to make binary decisions based on i
 
 ## Inputs
 
-<ParamField path="Value" type="any">
-  The input value to be evaluated. Required. This can be any type of data that the AI model can process.
+<ParamField path="System Prompt" type="string">
+  The system prompt to send to the model. Optional. Used to provide high-level guidance to the AI model.
 </ParamField>
 
-<ParamField path="Prompt" type="string">
-  A natural language prompt describing the decision criteria. Required. This prompt guides the AI in evaluating the input value.
+<ParamField path="Condition Prompt" type="any" required>
+  A prompt outlining a TRUE/FALSE decision criteria. Required. The prompt must satisfy a condition to be satisfied.
+</ParamField>
+
+<ParamField path="Value" type="any" required>
+  The value to pass through the True or False port. Required. If unconnected, it will be undefined.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="TRUE" type="boolean">
-  This output is triggered if the AI determines the condition described in the prompt is true for the given input value.
+<ResponseField name="True" type="any">
+  The `value` passed through if the condition is truthy.
 </ResponseField>
 
-<ResponseField name="FALSE" type="boolean">
-  This output is triggered if the AI determines the condition described in the prompt is false for the given input value.
+<ResponseField name="False" type="any">
+  The `value` passed through if the condition is falsy.
+</ResponseField>
+
+<ResponseField name="Cost" type="number">
+  The total cost of the AI operations in USD.
+</ResponseField>
+
+<ResponseField name="Duration" type="number">
+  The time in milliseconds that the block took to execute.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for making the decision.
+<ParamField path="Don't run unconnected value" type="boolean" default={true}>
+  When enabled, unconnected values will be excluded from control flow.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-3.5-turbo">
-  The specific model to use for the request. Available models depend on the selected provider.
+<ParamField path="AI Model" type="string" default="gpt-3.5-turbo">
+  The AI model used to evaluate the decision. Available models are dynamically populated based on the LLM provider configuration. Uses a custom LLM dropdown element.
 </ParamField>
 
-<ParamField path="Temperature" type="number" default={0.7}>
-  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
-</ParamField>
+## Error Handling
 
-<Note>
-  Available settings may vary depending on the selected provider and model.
-</Note>
+The block will retry failed attempts up to 3 times with exponential backoff:
+- Minimum retry delay: 500ms
+- Maximum retry delay: 5000ms
+- Retry factor: 2.5x
+- Includes randomization
+- Maximum retry time: 5 minutes
+
+Error messages will be logged for:
+- Invalid responses (must contain TRUE or FALSE)
+- Missing LLM provider configuration
+- Token limit exceeded errors
+- API errors and timeouts
 
 ## Example: Categorizing Customer Feedback
 
 1. Add a Decision block to your flow.
 2. Connect your input text (customer feedback) to the `Value` input of the Decision block.
-3. Add a Text block with a prompt like "Determine if this customer feedback is positive" and connect it to the `Prompt` input.
-4. Connect the `TRUE` output to a block that handles positive feedback.
-5. Connect the `FALSE` output to a block that handles negative feedback.
+3. Add a Text block with a prompt like "Determine if this customer feedback is positive" and connect it to the `Condition Prompt` input.
+4. Connect the `True` output to a block that handles positive feedback.
+5. Connect the `False` output to a block that handles negative feedback.
 6. Run your flow. The Decision block will evaluate each piece of feedback and direct it to the appropriate handling process.
 
 <Frame>
   <img src="/images/decision-block-example.png" alt="Decision Block Example" />
 </Frame>
 
-## Error Handling
+## Notes
 
-- If the input value is empty or invalid, the block may return an error or default to the FALSE output.
-- If the AI provider fails to make a decision, the block will error after a certain number of retries.
+- Token counts are checked against model limits before execution
+- Costs are calculated per-token based on model pricing
+- Responses are case-insensitive but must contain TRUE or FALSE
+- System prompts are optional but can help guide the model
+- Cache can be enabled/disabled per model configuration
 
 <Warning>
   While the Decision block can handle complex decision-making tasks, it's important to validate its decisions for critical applications and provide clear, unambiguous prompts.

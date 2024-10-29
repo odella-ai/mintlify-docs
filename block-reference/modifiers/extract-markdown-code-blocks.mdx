@@ -5,42 +5,38 @@ description: Extract code blocks from markdown-formatted text
 sidebarTitle: Extract Markdown Code Blocks
 ---
 
+![Extract Markdown Code Blocks Screenshot](./assets/extract-markdown-code-blocks.png)
+
 ## Overview
 
 The Extract Markdown Code Blocks block is designed to parse markdown-formatted text and extract all code blocks within it. This is particularly useful when working with documentation, README files, or any text that contains code snippets in markdown format.
 
-<Frame>
-  <img src="/images/extract-markdown-code-blocks.png" alt="Extract Markdown Code Blocks Screenshot" />
-</Frame>
-
 ## Inputs
 
-<ParamField path="Input" type="string">
-  The markdown-formatted text from which to extract code blocks. Required.
+<ParamField path="input" type="string" required>
+  The markdown-formatted text from which to extract code blocks.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Code Blocks" type="string[]">
+<ResponseField name="firstBlock" type="string">
+  The first code block found in the input markdown. If no code blocks are found, this output will be control-flow-excluded.
+</ResponseField>
+
+<ResponseField name="allBlocks" type="string[]">
   An array of strings, where each string represents a code block extracted from the input markdown.
 </ResponseField>
 
-<ResponseField name="Count" type="number">
-  The number of code blocks extracted from the input markdown.
+<ResponseField name="languages" type="string[]">
+  An array of strings containing the language identifiers specified for each code block. For example, in "```python", "python" would be the language identifier.
 </ResponseField>
-
-## Editor Settings
-
-<ParamField path="Include Language Identifier" type="boolean" default={false}>
-  If enabled, the language identifier (if present) will be included at the beginning of each extracted code block.
-</ParamField>
 
 ## Example: Extracting Code from a README
 
 1. Create a new flow and add an Extract Markdown Code Blocks block.
-2. Add a Text block with markdown content containing code blocks and connect it to the `Input` of the Extract Markdown Code Blocks block.
-3. Add a JSON View block to visualize the extracted code blocks.
-4. Run the flow to see the array of extracted code blocks.
+2. Add a Text block with markdown content containing code blocks and connect it to the `input` of the Extract Markdown Code Blocks block.
+3. Connect any of the outputs to view the extracted code blocks or language information.
+4. Run the flow to see the results.
 
 <Frame>
   <img src="/images/extract-markdown-code-blocks-example.png" alt="Extract Markdown Code Blocks Example" />
@@ -48,14 +44,18 @@ The Extract Markdown Code Blocks block is designed to parse markdown-formatted t
 
 ## Error Handling
 
-- If no code blocks are found in the input markdown, the block will output an empty array.
+- If no code blocks are found in the input markdown, the `firstBlock` output will be control-flow-excluded and `allBlocks` will be an empty array.
 - The block will not throw an error for invalid markdown; it will attempt to extract any code blocks it can identify.
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="What format are the code blocks expected to be in?">
-    The block expects code blocks to be formatted using triple backticks (```) as per standard markdown syntax. Both fenced code blocks and indented code blocks are supported.
+    The block expects code blocks to be formatted using triple backticks (```) as per standard markdown syntax. Both fenced code blocks with optional language identifiers are supported.
+  </Accordion>
+
+  <Accordion title="How are language identifiers handled?">
+    Language identifiers are extracted from the opening fence of code blocks (e.g., ```python). If no language is specified, an empty string is used in the languages array.
   </Accordion>
 
   <Accordion title="Does this block handle inline code?">

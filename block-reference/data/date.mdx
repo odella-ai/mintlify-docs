@@ -1,0 +1,74 @@
+---
+id: date
+title: Date Block
+description: Select a date value for use in your workflow
+sidebarTitle: Date
+---
+
+## Overview
+
+The Date Block provides a date picker to select a specific date value that can be used in your workflow. The selected date is output in ISO string format.
+
+<Frame>
+  <img src="/images/date-block.png" alt="Date Block Screenshot" />
+</Frame>
+
+## Inputs
+
+This block does not have any inputs.
+
+## Outputs
+
+<ResponseField name="data" type="datetime">
+  The selected date value in ISO string format.
+</ResponseField>
+
+## Editor Settings
+
+<ParamField path="Date" type="datePicker">
+  The date value to output. Uses a date picker interface to select a date.
+</ParamField>
+
+<ParamField path="Width" type="number" default={300}>
+  The width of the block in pixels.
+</ParamField>
+
+<ParamField path="Hidden" type="boolean" default={true}>
+  Whether the block is hidden in the block menu.
+</ParamField>
+
+## Example: Using a Date Block
+
+1. Add a Date Block to your flow
+2. Use the date picker to select your desired date
+3. Connect the `data` output to another block that accepts datetime values
+4. Run the flow. The selected date will be passed to the connected block.
+
+## Error Handling
+
+The Date Block will throw an error if:
+
+- The selected date is invalid
+- The date cannot be converted to ISO string format
+
+<Warning>
+  Ensure the selected date is valid to avoid errors in blocks consuming the date value.
+</Warning>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What format is the date output in?">
+    The Date Block outputs dates in ISO string format (e.g. "2024-01-01T00:00:00.000Z").
+  </Accordion>
+
+  <Accordion title="Can I input dates programmatically?">
+    No, the Date Block only allows date selection through its date picker interface. For programmatic date handling, consider using other blocks that accept date inputs.
+  </Accordion>
+</AccordionGroup>
+
+## See Also
+
+- [Number Block](/block-reference/data/number)
+- [Text Block](/block-reference/data/text)
+- [Bool Block](/block-reference/data/bool)

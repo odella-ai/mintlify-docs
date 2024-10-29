@@ -1,13 +1,13 @@
 ---
 id: text
 title: Text Block
-description: Output a string of text with optional interpolation of input values
+description: Output a string of text with dynamic interpolation using {{tags}}
 sidebarTitle: Text
 ---
 
 ## Overview
 
-The Text Block is used to output a string of text. It can also interpolate values using `{{tags}}` within the text. This block is particularly useful for creating dynamic text based on the inputs to the block. The Text Block supports markdown, allowing you to create richly formatted text.
+The Text Block outputs a string of text and can interpolate values using `{{tags}}` within the text. The inputs are dynamically generated based on the interpolation tags used in the text.
 
 <Frame>
   <img src="/images/text-block.png" alt="Text Block Screenshot" />
@@ -16,68 +16,72 @@ The Text Block is used to output a string of text. It can also interpolate value
 ## Inputs
 
 <ParamField path="(Dynamic)" type="string">
-  The inputs are dynamically generated based on the interpolation tags used in the text. For example, if the text contains `{{name}}`, there will be an input named `name`.
+  The inputs are dynamically generated based on the interpolation tags used in the text. For example, if the text contains `{{name}}`, an input named `name` will be created. All inputs are optional and accept string values. If an input is not connected, its tag will be replaced with an empty string.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Output" type="string">
-  The output text after interpolation.
+<ResponseField name="output" type="string">
+  The output text after interpolating all input values into their corresponding tags.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Text" type="string" default="{{input}}">
-  The text to output. You can use interpolation tags in the format `{{tag}}` to insert the values of the inputs.
+<ParamField path="text" type="code" language="prompt-interpolation-markdown" default="{{input}}">
+  The text to output. You can use interpolation tags in the format `{{tag}}` to insert input values. The text supports markdown formatting and will be displayed with syntax highlighting in the editor.
+</ParamField>
+
+<ParamField path="width" type="number" default={250}>
+  The width of the block in pixels.
+</ParamField>
+
+<ParamField path="hidden" type="boolean" default={true}>
+  Whether the block is hidden in the block menu.
 </ParamField>
 
 ## Example: Simple Text Output
 
-1. Add a Text Block to your flow.
-2. Set the `Text` to `Hello World!`.
-3. Run the flow. The `Output` of the Text Block will be `Hello World!`.
+1. Add a Text Block to your flow
+2. Set the text to `Hello World!`
+3. Run the flow. The output will be `Hello World!`
 
 <Frame>
-  <img src="/images/text-block-example-01.png" alt="Text Block Example 1" />
+  <img src="/images/text-block-example-1.png" alt="Text Block Example 1" />
 </Frame>
 
-## Example: Interpolation
+## Example: Using Interpolation
 
-1. Add a Text Block to your flow.
-2. Set the `Text` to `Hello, {{name}}!`.
-3. Add another Text Block and set its text to `Lawme`. Connect it to the `name` input of the first Text Block.
-4. Run the flow. The `Output` of the first Text Block will be `Hello, Lawme!`.
+1. Add a Text Block and set the text to `Hello {{name}}!`
+2. Add another Text Block with value "World"
+3. Connect the second block's output to the `name` input of the first block
+4. Run the flow. The output will be `Hello World!`
 
 <Frame>
-  <img src="/images/text-block-example-02.png" alt="Text Block Example 2" />
+  <img src="/images/text-block-example-2.png" alt="Text Block Example 2" />
 </Frame>
 
 ## Error Handling
 
-The Text Block does not have any notable error handling behavior. If an input is missing or null, the corresponding interpolation tag will be replaced with an empty string.
+The Text Block handles missing or null inputs gracefully by replacing their tags with empty strings. No errors will be thrown during normal operation.
 
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="Can I use markdown in the Text Block?">
-    Yes, the Text Block supports markdown. You can use markdown syntax in the text to create richly formatted text.
+  <Accordion title="Can I use multiple interpolation tags?">
+    Yes, you can use any number of unique interpolation tags in your text. Each tag will create a corresponding input on the block.
   </Accordion>
 
-  <Accordion title="Can I use the Text Block to create a template?">
-    Yes, you can use the Text Block to create a template by using interpolation tags. You can then connect other blocks to the inputs of the Text Block to fill in the values of the tags.
+  <Accordion title="What happens if an input is missing?">
+    If an input is not connected or its value is null, the corresponding tag will be replaced with an empty string in the output.
   </Accordion>
 
-  <Accordion title="Can I use the Text Block to concatenate strings?">
-    Yes, you can use the Text Block to concatenate strings by using interpolation tags. For example, you can set the text to `{{string1}}{{string2}}` to concatenate the values of `string1` and `string2`.
+  <Accordion title="Does the Text Block support markdown?">
+    Yes, the text content supports markdown formatting and will be displayed with syntax highlighting in the editor.
   </Accordion>
 </AccordionGroup>
 
 ## See Also
 
-- [Code Block](/block-reference/data/code)
-- [Number Block](/block-reference/data/number)
-- [Boolean Block](/block-reference/data/bool)
 - [Object Block](/block-reference/data/object)
-- [Array Block](/block-reference/data/array)
-- [Extract Object Path Block](/block-reference/data/extract-object-path)
-- [Extract with Regex Block](/block-reference/data/extract-with-regex)
+- [Number Block](/block-reference/data/number)
+- [Code Block](/block-reference/advanced/code)

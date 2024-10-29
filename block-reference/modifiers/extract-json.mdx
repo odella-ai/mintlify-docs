@@ -9,52 +9,31 @@ sidebarTitle: Extract JSON
 
 ## Overview
 
-The Extract JSON Block is a modifier that extracts JSON data from a string input. This block is particularly useful when dealing with unstructured text that contains JSON data, such as API responses or log files. It attempts to parse and extract valid JSON objects or arrays from the input string.
-
-## Key Features
-
-- Extract JSON data from string inputs
-- Handle multiple JSON objects within a single string
-- Option to extract only the first JSON object found
-- Configurable error handling for invalid JSON
+The Extract JSON Block finds and parses the first JSON object or array in the input text. It attempts to locate JSON data between curly braces `{}` or square brackets `[]` and parse it into a JavaScript object.
 
 ## Inputs
 
-<ParamField path="Input" type="string">
-  The input string containing JSON data to be extracted. Required.
+<ParamField path="input" type="string" required>
+  The input string containing JSON data to be extracted. The block will search for the first valid JSON object or array in this string.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="JSON" type="object | array">
-  The extracted JSON data. If multiple JSON objects are found, this will be an array of objects.
+<ResponseField name="output" type="object">
+  The extracted and parsed JSON data as a JavaScript object. If no valid JSON is found or parsing fails, this output will be control-flow-excluded.
 </ResponseField>
 
-<ResponseField name="First" type="object">
-  The first JSON object extracted from the input string.
+<ResponseField name="noMatch" type="string">
+  If no valid JSON could be parsed, this output will contain the original input string. If JSON was successfully parsed, this output will be control-flow-excluded.
 </ResponseField>
 
-<ResponseField name="Count" type="number">
-  The number of JSON objects extracted from the input string.
-</ResponseField>
+## Example: Extracting JSON from Text
 
-## Editor Settings
-
-<ParamField path="Extract First Only" type="boolean" default={false}>
-  If enabled, only the first JSON object found will be extracted and returned.
-</ParamField>
-
-<ParamField path="Throw Error on Invalid JSON" type="boolean" default={true}>
-  If enabled, the block will throw an error when no valid JSON is found in the input string.
-</ParamField>
-
-## Example: Extracting JSON from an API Response
-
-1. Create a new flow and add an HTTP Request Block to fetch data from an API.
-2. Add an Extract JSON Block and connect the HTTP Request Block's `Response Body` output to its `Input`.
-3. Configure the Extract JSON Block settings based on your needs.
-4. Add a JSON View Block to visualize the extracted JSON data.
-5. Run the flow to see the extracted JSON from the API response.
+1. Add an Extract JSON block to your flow
+2. Connect a string containing JSON data to the input
+3. The block will attempt to find and parse the first JSON object
+4. If successful, the parsed object will be available at the `output` port
+5. If unsuccessful, the original string will be available at the `noMatch` port
 
 <Frame>
   <img src="./assets/extract-json-block-example.png" alt="Extract JSON Block Example" />
@@ -62,23 +41,26 @@ The Extract JSON Block is a modifier that extracts JSON data from a string input
 
 ## Error Handling
 
-- If no valid JSON is found in the input string and "Throw Error on Invalid JSON" is enabled, the block will throw an error.
-- If "Throw Error on Invalid JSON" is disabled and no valid JSON is found, the block will output an empty object or array.
+- If no valid JSON is found or if parsing fails, the `output` port will be control-flow-excluded and the original input string will be available at the `noMatch` port
+- If valid JSON is found and parsed successfully, the `noMatch` port will be control-flow-excluded and the parsed object will be available at the `output` port
 
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="What happens if there are multiple JSON objects in the input string?">
-    By default, the block will extract all JSON objects found in the input string and return them as an array. If "Extract First Only" is enabled, only the first JSON object will be extracted and returned.
+  <Accordion title="What types of JSON structures can be extracted?">
+    The block can extract both JSON objects (enclosed in curly braces {}) and JSON arrays (enclosed in square brackets []). It will find the first occurrence of either structure in the input string.
   </Accordion>
 
-  <Accordion title="Can this block handle nested JSON structures?">
-    Yes, the Extract JSON Block can handle nested JSON structures of any complexity, as long as they are valid JSON.
+  <Accordion title="What happens if there are multiple JSON objects in the input?">
+    The block will only extract the first valid JSON object or array it finds in the input string. Subsequent JSON objects will be ignored.
+  </Accordion>
+
+  <Accordion title="How does the block handle invalid JSON?">
+    If the block cannot parse valid JSON from the input string, it will output the original string to the `noMatch` port and control-flow-exclude the `output` port.
   </Accordion>
 </AccordionGroup>
 
 ## See Also
 
-- [JSON Parse Block](/block-reference/data/json-parse)
-- [JSON Stringify Block](/block-reference/data/json-stringify)
-- [HTTP Request Block](/block-reference/apis/http-request)
+- [Object Block](/block-reference/data/object)
+- [HTTP Call Block](/block-reference/advanced/http-call)

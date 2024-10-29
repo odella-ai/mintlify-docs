@@ -15,60 +15,71 @@ The Generate Questions Block uses AI capabilities to create a specified number o
 
 ## Inputs
 
-<ParamField path="Prompt" type="string">
-  A natural language prompt guiding the question generation process. Required. This prompt helps direct the AI in creating relevant and focused questions.
+<ParamField path="systemPrompt" type="string">
+  The system prompt to send to the model. Optional. Used to provide high-level guidance to the AI model.
 </ParamField>
 
-<ParamField path="Value" type="string">
-  The input value or context for which questions should be generated. Required. This could be a topic, a piece of text, or any other relevant information.
+<ParamField path="context" type="string | chat-message | chat-message[] | array">
+  The context to generate related questions from. Optional. Can be a string, chat message, array of chat messages, or other array types that can be coerced to strings.
 </ParamField>
 
-<ParamField path="Number of Questions" type="number">
-  The desired number of questions to generate. Required. This determines how many questions the block will output.
+<ParamField path="instruction" type="string">
+  Available when using the "Blank" template. The instruction for generating questions.
+</ParamField>
+
+<ParamField path="question" type="string">
+  Available when using the "Research Questions" template. The question to generate research queries for.
 </ParamField>
 
 ## Outputs
 
-<ResponseField name="Questions" type="string[]">
-  An array of generated questions. Each element in the array is a string representing a single question.
+<ResponseField name="questions" type="string[]">
+  An array of generated questions based on the input context and prompts.
+</ResponseField>
+
+<ResponseField name="duration" type="number">
+  The time in milliseconds that the block took to execute.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for generating questions. Choose from over 250 available AI models.
+<ParamField path="AI Model" type="string" default="default">
+  The AI model to use for generating questions. Available models are dynamically populated based on the LLM provider configuration. Only models supporting function calls are shown.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-3.5-turbo">
-  The specific model to use for the request. Available models depend on the selected provider.
+<ParamField path="From Template" type="string" default="Research Questions">
+  Choose from predefined templates:
+  - Blank: A simple template with custom instruction
+  - Research Questions: Template for generating Google search queries
 </ParamField>
 
-<ParamField path="Temperature" type="number" default={0.7}>
-  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity in question generation.
+<ParamField path="Number of Questions" type="number" default={3} min={1} max={10}>
+  The number of questions to generate. Must be between 1 and 10.
 </ParamField>
 
-<Note>
-  Additional AI model parameters may be available depending on the selected provider and model.
-</Note>
+<ParamField path="Temperature" type="number" default={0.5} min={0} max={1} step={0.1}>
+  Controls randomness in the output. Lower values make the output more focused and deterministic.
+</ParamField>
 
-## Example: Generating Research Questions
-
-1. Add a Generate Questions block to your flow.
-2. Connect a Text block with a prompt like "Generate research questions about climate change" to the `Prompt` input.
-3. Connect another Text block with a value like "Impact of rising sea levels on coastal cities" to the `Value` input.
-4. Set the `Number of Questions` to 5 (or your desired number).
-5. Configure the AI provider and model in the block settings.
-6. Run your flow. The block will output an array of 5 research questions related to the impact of rising sea levels on coastal cities.
-
-<Frame>
-  <img src="/images/generate-questions-example.png" alt="Generate Questions Example" />
-</Frame>
+<ParamField path="Prompt Text" type="code">
+  The prompt template text. Supports interpolation using {{variable}} syntax. Uses custom prompt interpolation highlighting.
+</ParamField>
 
 ## Error Handling
 
-- If the input prompt or value is empty, the block will return an error.
-- If the number of questions is not a positive integer, the block will return an error.
-- If the AI provider fails to generate questions, the block will error after a certain number of retries.
+The block will retry failed attempts up to 3 times with exponential backoff:
+- Minimum retry delay: 500ms
+- Maximum retry delay: 5000ms
+- Retry factor: 2.5x
+- Includes randomization
+- Maximum retry time: 5 minutes
+
+Error messages will be logged for:
+- Invalid number of questions (must be 1-10)
+- Empty or invalid responses
+- API rate limits (will retry)
+- API timeouts (will retry)
+- Other API errors
 
 <Warning>
   Always review the generated questions for relevance and appropriateness, especially when using them for critical research or decision-making processes.

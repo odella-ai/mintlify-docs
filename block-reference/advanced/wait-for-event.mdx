@@ -15,32 +15,32 @@ The Wait For Event Block pauses the execution of a flow until a specific event i
 
 ## Inputs
 
-<ParamField path="Data" type="any">
-  Any data to be passed through the block. This data will be outputted from the `Data` output port.
+<ParamField path="Event Name" type="string">
+  The name of the event to wait for. This input is only available if `Use Event Name Input` is enabled in the settings. The value will be coerced to a string.
 </ParamField>
 
-<ParamField path="Event Name" type="string">
-  The name of the event to wait for. This input is only available if `Use Event Name Input` is enabled in the settings.
+<ParamField path="Data" type="any">
+  Any data to be passed through the block. This data will be outputted from the `Data` output port. Optional.
 </ParamField>
 
 ## Outputs
 
 <ResponseField name="Data" type="any">
-  The data passed in through the `Data` input port. If no data is passed in, this output will not be available.
+  The data passed in through the `Data` input port, passed through unchanged. If no data was provided to the input, this output will not be available.
 </ResponseField>
 
 <ResponseField name="Event Data" type="any">
-  The data associated with the event that was raised. If the event has no associated data, this output will not be available.
+  The data associated with the event that was raised. The type depends on what data was included when the event was raised. If the event has no associated data, this output will not be available.
 </ResponseField>
 
 ## Editor Settings
 
 <ParamField path="Event Name" type="string" default="continue">
-  The name of the event to wait for. Must match the name of the event raised by the Raise Event Block or the host project.
+  The name of the event to wait for. Must match the name of the event raised by the Raise Event Block or the host project. Only used if `Use Event Name Input` is disabled.
 </ParamField>
 
 <ParamField path="Use Event Name Input" type="boolean" default={false}>
-  If enabled, the Event Name can be provided via the Event Name input port.
+  If enabled, the Event Name can be provided via the Event Name input port instead of being set in the settings.
 </ParamField>
 
 ## Examples

@@ -15,74 +15,65 @@ The Auto System Prompt Block is designed to automatically generate system prompt
 
 ## Inputs
 
-<ParamField path="Prompt" type="string">
-  The user-provided prompt that describes the desired outcome or task for the AI model. Required.
+<ParamField path="Input" type="string" required>
+  A question and/or task for the agent to complete. Required. The input can be provided as:
+  - A string
+  - An array of strings (will be joined with newlines)
+  - A chat message
+  - An array of chat messages (messages will be joined with newlines)
+  Other input types will be coerced to strings when possible.
 </ParamField>
 
 ## Outputs
 
+<ResponseField name="Name" type="string">
+  The name of the generated agent, typically including an emoji indicating its specialty (e.g. "💰 Finance Agent").
+</ResponseField>
+
 <ResponseField name="System Prompt" type="string">
-  The automatically generated system prompt that can be used to guide AI models in other blocks.
+  The generated role/system prompt for the agent, tailored to the input task.
+</ResponseField>
+
+<ResponseField name="Duration" type="number">
+  The time in milliseconds that the block took to execute.
 </ResponseField>
 
 ## Editor Settings
 
-<ParamField path="Provider" type="string" default="OpenAI">
-  The AI provider to use for generating the system prompt.
+<ParamField path="GPT Model" type="string" default="gpt-3.5-turbo">
+  The specific GPT model to use for generating the system prompt. Available models are dynamically populated based on the LLM provider configuration. Has a "Use Input" toggle to accept the model via input instead.
 </ParamField>
 
-<ParamField path="Model" type="string" default="GPT-3.5-turbo">
-  The specific model to use for the request. Available models depend on the selected provider.
-</ParamField>
+## Error Handling
 
-<ParamField path="Temperature" type="number" default={0.7}>
-  The sampling temperature to use. Lower values produce more focused and deterministic outputs, while higher values allow for more creativity.
-</ParamField>
+The block will retry failed attempts up to 3 times with exponential backoff when encountering errors:
 
-<Note>
-  Available settings may vary depending on the selected provider and model.
-</Note>
+- For rate limit (429) errors, it will display "API rate limit exceeded, retrying..."
+- For timeout (408) errors, it will display "API timed out, retrying..."
+- Other 4xx errors will fail immediately with an error message
+- The maximum retry time is 5 minutes
 
-## Example: Enhancing an Ask AI Block
+## Default Values
 
-1. Add an Auto System Prompt block to your flow.
-2. Connect a Text block with a prompt like "Summarize scientific articles" to the `Prompt` input of the Auto System Prompt block.
-3. Add an Ask AI block to your flow.
-4. Connect the `System Prompt` output from the Auto System Prompt block to the `System` input of the Ask AI block.
-5. Connect your input text to the `Prompt` input of the Ask AI block.
-6. Run your flow. The Auto System Prompt block will generate a tailored system prompt, which will then guide the Ask AI block in summarizing scientific articles more effectively.
+If the AI fails to generate a proper response, the block will fall back to these defaults:
+
+- Default Name: "Default Agent"
+- Default Role: "You are an AI critical thinker research assistant. Your sole purpose is to write well written, critically acclaimed, objective and structured reports on given text."
+
+## Notes
+
+- The block requires an LLM provider to be configured in the workflow context
+- The block will automatically coerce various input types to strings
+- The generated agent roles are tailored to specific domains (finance, business, travel, etc.)
+- The block supports legal expertise and can target specific legal specialties when applicable
+
+## Example Usage
+
+1. Connect a Text block containing your task/question to the Input port
+2. Select your desired GPT model in the settings
+3. Connect the Name and System Prompt outputs to other blocks that need agent configuration
+4. The block will generate a domain-specific agent name and role based on the input
 
 <Frame>
   <img src="/images/auto-system-prompt-example.png" alt="Auto System Prompt Example" />
 </Frame>
-
-## Error Handling
-
-- If the input prompt is empty or invalid, the block may generate a generic system prompt or return an error.
-- If the AI provider fails to generate a system prompt, the block will error after a certain number of retries.
-
-<Warning>
-  While the Auto System Prompt block can significantly improve AI model guidance, it's important to review and potentially refine the generated system prompts for critical applications.
-</Warning>
-
-## FAQ
-
-<AccordionGroup>
-  <Accordion title="How does the Auto System Prompt block improve AI model performance?">
-    By generating tailored system prompts, this block helps set the context and goals for AI models more precisely. This can lead to more relevant and focused outputs from blocks like Ask AI.
-  </Accordion>
-
-  <Accordion title="Can I edit the generated system prompt before using it?">
-    Yes, you can connect the output of the Auto System Prompt block to a Text block for manual editing before passing it to another AI block.
-  </Accordion>
-
-  <Accordion title="Is this block necessary for every AI interaction in my flow?">
-    While not strictly necessary, using the Auto System Prompt block can often lead to improved results, especially for complex or specialized tasks.
-  </Accordion>
-</AccordionGroup>
-
-## See Also
-
-- [Ask AI Block](/block-reference/ai/ask-ai)
-- [AI Filter Block](/block-reference/ai/ai-filter)
-- [Text Block](/block-reference/data/text)
