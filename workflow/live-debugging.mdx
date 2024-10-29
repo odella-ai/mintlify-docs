@@ -5,8 +5,11 @@ description: "Learn how to debug your workflows in real-time using Lawme's live 
 
 Lawme offers powerful live debugging capabilities that allow you to inspect the output of each block in your workflow as it executes. This feature enables you to identify and resolve issues quickly, ensuring your workflows perform as expected.
 
-<Frame>
-  <img src="../assets/workflows_live.gif" alt="Workflow Live Flow" />
+<Frame className="block dark:hidden">
+  <img src="../assets/workflows_live_light.gif" alt="Workflow Live Flow (Light Mode)" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="../assets/workflows_live_dark.gif" alt="Workflow Live Flow (Dark Mode)" />
 </Frame>
 
 ## Inspecting Block Outputs
@@ -15,25 +18,22 @@ As your workflow runs, you can view the output of each block in real-time. This 
 
 ## Interface Elements
 
-<CardGroup cols={2}>
+<CardGroup cols={3}>
   <Card
     title="Currently Executing Blocks"
     icon="circle-play"
-    href="#currently-executing-blocks"
   >
     Blocks that are currently executing are highlighted in purple, making it easy to track the progress of your workflow.
   </Card>
   <Card
     title="Execution Picker"
     icon="list-ol"
-    href="#execution-picker"
   >
     When a block runs multiple times, a numeric picker appears above the block's output, allowing you to view results of each execution separately.
   </Card>
   <Card
     title="Flow Execution Indicator"
     icon="spinner"
-    href="#flow-execution-indicator"
   >
     A spinner appears next to the flow name in the Flows list when a flow is running, including subflows.
   </Card>
@@ -57,14 +57,12 @@ When a flow is running, including subflows, a spinner appears next to the flow n
   <Card
     title="Pausing Execution"
     icon="pause"
-    href="#pausing-execution"
   >
     Pause the current execution to examine the flow's state without stopping it completely.
   </Card>
   <Card
     title="Aborting Execution"
     icon="stop"
-    href="#aborting-execution"
   >
     Stop the execution entirely when needed.
   </Card>

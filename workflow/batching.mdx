@@ -1,95 +1,116 @@
 ---
 title: "Batching"
-description: "Learn how to use batching to process multiple items at once in Lawme workflows"
+description: "Learn how to process multiple documents or tasks at once in Lawme workflows"
 ---
 
 <Callout type="info">
-  Batching allows you to process multiple items simultaneously, making your workflows faster and more efficient.
+  Batching lets you handle multiple documents or tasks at the same time, similar to having multiple assistants working in parallel.
 </Callout>
 
 ## What is Batching?
 
-<Frame>
-  <img src="../assets/workflows_batch.gif" alt="Workflow Batching" />
+<Frame className="block dark:hidden">
+  <img src="../assets/workflows_batch_light.gif" alt="Workflow Batching (Light Mode)" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="../assets/workflows_batch_dark.gif" alt="Workflow Batching (Dark Mode)" />
 </Frame>
 
-Batching is akin to having multiple workers performing the same task at the same time. In Lawme, you can convert any block into a "Batch" block to enable batching:
+Think of batching like having multiple assistants working on similar tasks simultaneously. For example, instead of reviewing 10 contracts one after another, batching allows you to have 10 reviews happening at the same time. This makes your workflow much faster.
+
+To use batching in Lawme, you simply:
 
 <Steps>
-  1. Locate the block you want to batch
-  2. Find the "Batch" toggle
-  3. Switch the toggle on to enable batching
+  1. Select any block in your workflow that you want to run multiple times
+  2. Look for the "Batch" option in the block's settings
+  3. Turn it on to enable parallel processing
 </Steps>
 
-## How Batching Works
+## How Batching Makes Your Work Easier
 
-When you use batching:
+Here's what happens when you use batching:
 
-<Card title="Multiple Executions" icon="clone">
-  The block runs multiple times simultaneously, each time with a different piece of information.
+<Card title="Parallel Processing" icon="clone">
+  Instead of processing documents one at a time, Lawme works on multiple documents simultaneously - like having a team of paralegals instead of just one.
 </Card>
 
-<Card title="Input and Output" icon="arrows-left-right">
-  The block can accept lists of information and will produce lists of results.
+<Card title="Automatic Organization" icon="arrows-left-right">
+  Lawme keeps track of all the documents being processed and organizes the results for you automatically.
 </Card>
 
-<Card title="Flexible Input" icon="puzzle-piece">
-  If you provide the block with a single item and a list, it will use the single item for each run with the items from the list.
-</Card>
+## When Should You Use Batching?
 
-## When to Use Batching
+Batching is particularly useful in the following scenarios:
 
 <CardGroup cols={2}>
-  <Card title="Processing Files" icon="file">
-    Read multiple files concurrently
+  <Card title="High Volume Processing" icon="layer-group">
+    When you have multiple items (documents, questions, cases) that need the same type of processing
   </Card>
-  <Card title="API Requests" icon="cloud">
-    Send several requests at the same time
+  <Card title="Repetitive Tasks" icon="rotate">
+    For tasks that are repetitive and follow a standard process without needing custom handling
   </Card>
-  <Card title="Data Analysis" icon="chart-bar">
-    Analyse multiple data sets in parallel
+  <Card title="Consistency Requirements" icon="equals">
+    When you need uniform output across multiple items, like standardized document formatting or response structures
   </Card>
-  <Card title="Document Generation" icon="file-word">
-    Create multiple documents simultaneously
+  <Card title="Speed Priority" icon="bolt">
+    In time-sensitive situations where processing items individually would create unacceptable delays
+  </Card>
+  <Card title="Scalable Workflows" icon="arrow-up-right-dots">
+    For processes that may need to scale up, such as handling multiple jurisdictions or growing document volumes
+  </Card>
+  <Card title="Resource Optimization" icon="chart-line">
+    When you want to maximize efficiency by parallel processing instead of sequential handling
   </Card>
 </CardGroup>
 
-## Chaining Batched Blocks
+## Creating Workflows with Batching
 
-You can connect batched blocks to create powerful workflows:
+<Frame className="block dark:hidden">
+  <img src="../assets/batch_example_light.gif" alt="Workflow Batching (Light Mode)" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="../assets/batch_example_dark.gif" alt="Workflow Batching (Dark Mode)" />
+</Frame>
 
-<Steps>
-  1. Use a batched block to read multiple files
-  2. Connect it to a batched Text block to process each file's content
-  3. Then connect to a batched Chat block to analyse each processed file with AI
-</Steps>
-
-This setup allows you to process multiple files through several steps, all at the same time!
-
-## Combining Results
-
-After batching, you might want to bring all the results back together. Here are some ways to do that:
+When designing workflows that use batching, keep these tips in mind:
 
 <CardGroup cols={2}>
-  <Card title="Text and Prompt Blocks" icon="paragraph">
-    Automatically join lists of text into one
+  <Card title="Input Structure" icon="arrow-right-to-bracket">
+    Ensure your input block provides an array or list of items to be processed. Each item will be processed in parallel when it reaches a batched block.
   </Card>
-  <Card title="Chat Block" icon="comments">
-    Can handle lists of messages or text
-  </Card>
-  <Card title="Extract Object Path" icon="sitemap">
-    Pick out specific information from lists of data
-  </Card>
-  <Card title="Pop Block" icon="hand-point-up">
-    Get a single item from a list
-  </Card>
-  <Card title="Code Block" icon="code">
-    Write custom code to combine results (for advanced users)
+  <Card title="Output Handling" icon="arrow-right-from-bracket">
+    Remember that batched blocks will output arrays of results. Structure your subsequent blocks to handle multiple results appropriately.
   </Card>
 </CardGroup>
+
+<Steps>
+  1. Start with an Input Block that accepts multiple items
+  2. Connect to blocks where parallel processing makes sense
+  3. Enable batching on those blocks through their settings
+  4. Add blocks to handle the batched outputs
+  5. Test with a small batch first to ensure correct processing
+</Steps>
+
+<Tip>
+  Use the "If" block after batched operations to process results conditionally. For example, you might want to handle successful and failed items differently.
+</Tip>
+
+## Real-World Example
+
+Here's a practical example of how batching works:
+
+<Steps>
+  1. You have 20 contracts that need review
+  2. Set up a workflow with batching enabled
+  3. Upload all 20 contracts at once
+  4. Lawme processes all contracts simultaneously
+  5. Receive organized results for all contracts
+</Steps>
+
+What would have taken hours to process sequentially can now be completed in a fraction of the time!
 
 <Warning>
-  Lawme doesn't support batching within batching (nested batching). If you need more complex setups, consider using a batched Subflow Block, which allows for more flexibility.
+  While batching is powerful, remember that you can't batch a batch (no nesting). If you need more complex processing, consider using a Subflow Block with batching enabled.
 </Warning>
 
-By using batching in your workflows, you can make your legal processes much faster and more efficient, handling multiple tasks at once with ease.
+Think of batching as your virtual team of assistants, working together to complete your legal tasks more efficiently. It's one of the easiest ways to multiply your productivity in Lawme.
