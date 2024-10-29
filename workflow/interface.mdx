@@ -44,32 +44,31 @@ Lawme's workflow interface is designed to be intuitive yet powerful, allowing yo
 
 Saving your work in Lawme is crucial to ensure that all your changes are preserved. Here's what you need to know about saving:
 
-<Frame>
+<Frame className="block dark:hidden">
   <img
-    src="../assets/workflow_save_01.gif"
-    alt="Workflow Save"
+    src="../assets/workflow_save_light.gif"
+    alt="Workflow Save (Light Mode)"
   />
 </Frame>
-
-<Frame>
+<Frame className="hidden dark:block">
   <img
-    src="../assets/workflow_save_02.gif"
-    alt="Workflow Save"
+    src="../assets/workflow_save_dark.gif"
+    alt="Workflow Save (Dark Mode)"
   />
 </Frame>
 
 <CardGroup cols={2}>
   <Card
-    title="Auto-Save"
-    icon="clock"
+    title="Save Before Running"
+    icon="play"
   >
-    Lawme automatically saves your work every few minutes to prevent data loss.
+    Lawme automatically saves your work before you run a workflow, ensuring your changes are always protected when executing your flows.
   </Card>
   <Card
     title="Manual Save"
     icon="floppy-disk"
   >
-    You can manually save at any time by pressing Ctrl+S (Windows) or Cmd+S (Mac).
+    Manually save your work at any time by pressing Ctrl+S (Windows) or Cmd+S (Mac).
   </Card>
 </CardGroup>
 
@@ -93,10 +92,16 @@ Lawme provides visual indicators to show the save status of your work:
 
 The sidebar is your central navigation hub, offering quick access to project information, flows, and flow-specific details.
 
-<Frame>
+<Frame className="block dark:hidden">
   <img
-    src="../assets/workflow_sidebar.gif"
-    alt="Sidebar"
+    src="../assets/workflow_sidebar_light.gif"
+    alt="Sidebar (Light Mode)"
+  />
+</Frame>
+<Frame className="hidden dark:block">
+  <img
+    src="../assets/workflow_sidebar_dark.gif"
+    alt="Sidebar (Dark Mode)"
   />
 </Frame>
 
@@ -172,8 +177,14 @@ To delete a workflow:
 
 <Frame>
   <img
-    src="../assets/workflow_canvas.gif"
-    alt="Workflow Canvas"
+    className="dark:hidden"
+    src="../assets/workflow_canvas_light.gif"
+    alt="Workflow Canvas Light Mode"
+  />
+  <img
+    className="hidden dark:block"
+    src="../assets/workflow_canvas_dark.gif"
+    alt="Workflow Canvas Dark Mode"
   />
 </Frame>
 
@@ -189,10 +200,16 @@ The Flow Canvas is where your legal workflows come to life. Here's how to naviga
 
 ## Block Editor
 
-<Frame>
+<Frame className="block dark:hidden">
   <img
-    src="../assets/workflow_block_editor.gif"
-    alt="Workflow Block Editor"
+    src="../assets/workflow_block_edit_light.gif"
+    alt="Workflow Block Editor (Light Mode)"
+  />
+</Frame>
+<Frame className="hidden dark:block">
+  <img
+    src="../assets/workflow_block_edit_dark.gif"
+    alt="Workflow Block Editor (Dark Mode)"
   />
 </Frame>
 
@@ -231,8 +248,14 @@ Control your workflow execution and access additional features:
 
 <Frame>
   <img
-    src="../assets/workflow_action.gif"
-    alt="Workflow Action Bar"
+    className="dark:hidden"
+    src="../assets/workflow_action_light.gif"
+    alt="Workflow Action Bar (Light Mode)"
+  />
+  <img
+    className="hidden dark:block"
+    src="../assets/workflow_action_dark.gif"
+    alt="Workflow Action Bar (Dark Mode)"
   />
 </Frame>
 
