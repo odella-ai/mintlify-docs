@@ -132,6 +132,7 @@
         "block-reference/data/bool",
         "block-reference/data/date",
         "block-reference/data/file",
+        "block-reference/data/text",
         "block-reference/data/image",
         "block-reference/data/number",
         "block-reference/data/object"
