@@ -8,6 +8,12 @@ sidebarTitle: Shuffle
 ![Shuffle Block Screenshot](./assets/shuffle-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/shuffle_light.png" alt="Shuffle Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/shuffle_dark.png" alt="Shuffle Block Screenshot" />
+</Frame>
 
 The Shuffle Block randomizes the order of elements in an array. It's like shuffling a deck of cards - you give it a list of items, and it mixes them up into a random order. This is useful when you want to randomize a playlist, create random selections, or add variety to any ordered list.
 
@@ -35,10 +41,6 @@ The Shuffle Block randomizes the order of elements in an array. It's like shuffl
 1. Create an Array Block with numbers `[1, 2, 3, 4, 5]`
 2. Add a Shuffle Block and connect the Array Block to its `array` input
 3. Run the flow. The Shuffle Block's `shuffled` output will contain the same numbers in a random order, like `[3, 1, 5, 2, 4]`
-
-<Frame>
-  <img src="./assets/shuffle-block-example-01.png" alt="Shuffle Block Example" />
-</Frame>
 
 ## Error Handling
 

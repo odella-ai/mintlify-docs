@@ -8,6 +8,12 @@ sidebarTitle: Abort Flow
 ![Abort Flow Block Screenshot](./assets/abort-flow-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/abort_flow_light.png" alt="Abort Flow Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/abort_flow_dark.png" alt="Abort Flow Block Screenshot" />
+</Frame>
 
 The Abort Flow Block is used to stop the execution of the entire flow immediately. It can either "successfully" abort the flow (early-exit), or "error" abort the flow. This block is useful for stopping the flow under certain conditions or for handling errors.
 
@@ -46,10 +52,6 @@ This block does not have any outputs.
 3. Connect any block to the `data` input of the Abort Flow block.
 4. Run your flow. The flow will abort immediately after the Abort Flow block is processed.
 
-<Frame>
-  <img src="/images/abort-flow-success-example.png" alt="Successfully Aborting Flow Example" />
-</Frame>
-
 ## Example: Aborting a flow with an error
 
 1. Add an Abort Flow block to your flow.
@@ -57,10 +59,6 @@ This block does not have any outputs.
 3. Optionally, enter an error message in the "Error Message" setting.
 4. Connect any block to the `data` input of the Abort Flow block.
 5. Run your flow. The flow will abort with an error message.
-
-<Frame>
-  <img src="/images/abort-flow-error-example.png" alt="Aborting Flow with Error Example" />
-</Frame>
 
 ## Error Handling
 

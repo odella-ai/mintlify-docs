@@ -8,6 +8,12 @@ sidebarTitle: Filter
 ![Filter Block Screenshot](./assets/filter-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/filter_light.png" alt="Filter Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/filter_dark.png" alt="Filter Block Screenshot" />
+</Frame>
 
 The Filter Block allows you to filter an array based on a corresponding array of boolean values. It takes an array of any data type and an array of boolean values of the same length, then outputs a new array containing only the elements where the corresponding boolean value is `true`.
 
@@ -37,10 +43,6 @@ This block is particularly useful for filtering arrays based on specific conditi
 4. Connect the Array Block to Compare Block's `A` input, and Number Block to `B` input.
 5. Add a Filter Block, connect Array Block to `array` input and Compare Block's `Result` to `include` input.
 6. Run the flow. The Filter Block's `filtered` output should be `[4, 5]`.
-
-<Frame>
-  <img src="./assets/filter-block-example-02.png" alt="Filter Block Example" />
-</Frame>
 
 ## Error Handling
 

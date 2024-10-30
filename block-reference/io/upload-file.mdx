@@ -8,6 +8,12 @@ sidebarTitle: Upload File
 ![Upload File Block Screenshot](./assets/upload-file-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/upload_file_light.png" alt="Upload File Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/upload_file_dark.png" alt="Upload File Block Screenshot" />
+</Frame>
 
 The Upload File Block is a user input component that prompts users to upload a file. It's designed to wait for the user to select and upload a file before proceeding with the workflow. This block is particularly useful when you need to incorporate user-provided files into your flow for further processing or analysis.
 
@@ -56,9 +62,6 @@ The Upload File Block is a user input component that prompts users to upload a f
 3. Connect the `output` to subsequent blocks to process the uploaded file.
 4. When the flow runs, users will be prompted to upload a file matching the accepted types.
 
-<Frame>
-  <img src="/images/upload-file-example.png" alt="Upload File Example" />
-</Frame>
 
 ## Error Handling
 

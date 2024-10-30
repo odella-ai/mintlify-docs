@@ -8,6 +8,12 @@ sidebarTitle: Race Inputs
 ![Race Inputs Block Screenshot](./assets/race-inputs-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/race_inputs_light.png" alt="Race Inputs Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/race_inputs_dark.png" alt="Race Inputs Block Screenshot" />
+</Frame>
 
 The Race Inputs Block is used to handle multiple inputs and output the value of the first input to finish, force-cancelling the other inputs. This block is particularly useful when you have multiple operations that can potentially fulfill the same requirement, and you want to use the result of the operation that finishes first.
 
@@ -48,10 +54,6 @@ The Race Inputs Block is used to handle multiple inputs and output the value of 
 3. Add another Prompt Block with a longer prompt like "Describe in detail the story of Hamlet." Connect it to the second Chat Block's `Prompt` input.
 4. Connect both Chat Block outputs to a Race Inputs block.
 5. Run the flow. The first Chat will finish quickly, and the Race Inputs block will output its response. The second Chat Block gets canceled.
-
-<Frame>
-  <img src="./assets/race-inputs-block-example-01.png" alt="Race Inputs Block Example" />
-</Frame>
 
 ## Error Handling
 

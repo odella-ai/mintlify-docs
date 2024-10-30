@@ -9,8 +9,11 @@ sidebarTitle: Read Binary
 
 The Read Binary Block allows you to read the contents of a file as raw binary data. This is particularly useful when working with non-text files or when you need to process file contents in their original binary format.
 
-<Frame>
-  <img src="/images/read-binary-block.png" alt="Read Binary Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/read_binary_light.png" alt="Read Binary Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/read_binary_dark.png" alt="Read Binary Block Screenshot" />
 </Frame>
 
 ## Inputs
@@ -34,10 +37,6 @@ This block does not have any configurable settings in the editor.
 1. Add a Read Binary block to your flow.
 2. Connect a File block containing an image file to the `file` input of the Read Binary block.
 3. Run your flow. The block will output the raw binary data of the image file.
-
-<Frame>
-  <img src="/images/read-binary-example.png" alt="Read Binary Example" />
-</Frame>
 
 ## Error Handling
 

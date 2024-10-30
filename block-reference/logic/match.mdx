@@ -8,6 +8,12 @@ sidebarTitle: Match
 ![Match Block Screenshot](./assets/match-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/match_light.png" alt="Match Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/match_dark.png" alt="Match Block Screenshot" />
+</Frame>
 
 The Match Block is used to route control flow based on matching a string input against a series of regular expressions. Each regular expression corresponds to an output of the block. This block is particularly useful for directing workflow based on the content of a string, such as checking for specific keywords in a user's message.
 
@@ -57,9 +63,6 @@ The Match Block is used to route control flow based on matching a string input a
 5. Connect the Match Block's outputs to the corresponding If Blocks.
 6. Run the flow to see the routing based on the AI's response.
 
-<Frame>
-  <img src="./assets/match-block-example-01.png" alt="Match Block Example" />
-</Frame>
 
 ## Error Handling
 

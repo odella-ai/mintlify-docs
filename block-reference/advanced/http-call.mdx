@@ -9,8 +9,11 @@ sidebarTitle: HTTP Call
 
 The HTTP Call Block allows you to make HTTP requests to specified URLs with custom methods, headers, and body. This versatile block is essential for interacting with external APIs or services within your workflow.
 
-<Frame>
-  <img src="./assets/http-call-block.png" alt="HTTP Call Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/http_call_light.png" alt="HTTP Call Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/http_call_dark.png" alt="HTTP Call Block Screenshot" />
 </Frame>
 
 ## Inputs
@@ -84,10 +87,6 @@ The HTTP Call Block allows you to make HTTP requests to specified URLs with cust
 
 1. Create an HTTP Call Block and set the `Method` to `GET` and the `URL` to `https://jsonplaceholder.typicode.com/todos/1`.
 2. Run the flow. You should see all of the response data, such as the headers, response code, and body, in the output panel.
-
-<Frame>
-  <img src="./assets/http-call-block-example-01.png" alt="HTTP Call Block GET Example" />
-</Frame>
 
 ### Example 2: Make a POST request to an API
 

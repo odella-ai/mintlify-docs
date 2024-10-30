@@ -9,8 +9,11 @@ sidebarTitle: Confirm
 
 The Confirm Block is a user input block that prompts the user for confirmation. It returns either true or false based on the user's response, making it useful for controlling flow in your application based on user inputs.
 
-<Frame>
-  <img src="/images/confirm-block.png" alt="Confirm Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/confirm_block_light.png" alt="Confirm Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/confirm_block_dark.png" alt="Confirm Block Screenshot" />
 </Frame>
 
 ## Inputs
@@ -61,10 +64,6 @@ The Confirm Block is a user input block that prompts the user for confirmation. 
 2. Set the `prompt` to "Are you sure you want to delete this item? This action cannot be undone."
 3. Connect your delete action to the `value` input
 4. The delete action will only execute if the user confirms positively via the `output` port. The `falseOutput` port can be used to handle the negative confirmation case.
-
-<Frame>
-  <img src="/images/confirm-block-example.png" alt="Confirm Block Example" />
-</Frame>
 
 ## Error Handling
 

@@ -8,6 +8,12 @@ sidebarTitle: Slice
 ![Slice Block Screenshot](./assets/slice-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/slice_light.png" alt="Slice Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/slice_dark.png" alt="Slice Block Screenshot" />
+</Frame>
 
 The Slice Block extracts a portion of an array. It takes an array as input and outputs a new array that starts at a specified index and contains a specified number of elements. This block is useful for manipulating arrays, such as extracting a subset of data from a larger dataset.
 
@@ -62,10 +68,6 @@ The Slice Block extracts a portion of an array. It takes an array as input and o
 2. Add a Slice Block and set the `Start` to `2` and the `Count` to `2`.
 3. Connect the Array Block to the Slice Block's `input`.
 4. Run the flow. The Slice Block's `output` should be `[3, 4]`.
-
-<Frame>
-  <img src="./assets/slice-block-example-01.png" alt="Slice Block Example" />
-</Frame>
 
 ## Error Handling
 

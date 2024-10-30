@@ -8,6 +8,12 @@ sidebarTitle: User Input
 ![User Input Block Screenshot](./assets/user-input-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/user_input_light.png" alt="User Input Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/user_input_dark.png" alt="User Input Block Screenshot" />
+</Frame>
 
 The User Input Block allows you to prompt users for input during flow execution. This block is essential for creating interactive workflows where user input is required to proceed. It can use either static prompts defined in the block settings or dynamic prompts provided via the block's input.
 
@@ -64,10 +70,6 @@ The User Input Block allows you to prompt users for input during flow execution.
 3. Run the flow. It will pause and prompt the user for input.
 4. After the user submits their name, the flow continues with the input as the block's output.
 
-<Frame>
-  <img src="/images/user-input-static-example.png" alt="User Input Static Prompt Example" />
-</Frame>
-
 ### Dynamic Prompts
 
 1. Add a User Input Block and enable the "Use Input" toggle.
@@ -75,10 +77,6 @@ The User Input Block allows you to prompt users for input during flow execution.
 3. Connect the Array Block to the User Input Block's "Questions" input.
 4. Run the flow. It will prompt the user with both questions sequentially.
 5. The block's output will be an array containing the user's answers.
-
-<Frame>
-  <img src="/images/user-input-dynamic-example.png" alt="User Input Dynamic Prompts Example" />
-</Frame>
 
 ## Error Handling
 

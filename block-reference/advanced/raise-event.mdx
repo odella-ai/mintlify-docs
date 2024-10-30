@@ -14,8 +14,11 @@ The Raise Event Block allows you to trigger events from within your flow. These 
 
 The block requires an event name and optionally accepts event data. The event name identifies the event when raised, while the event data can include any additional information you want to associate with the event.
 
-<Frame>
-  <img src="./assets/raise-event-block.png" alt="Raise Event Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/raise_event_block_light.png" alt="Raise Event Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/raise_event_block_dark.png" alt="Raise Event Block Screenshot" />
 </Frame>
 
 ## Inputs
@@ -59,20 +62,12 @@ The block body will either display:
 3. Connect the Text Block to the `Data` input of the Raise Event Block.
 4. Run the flow. The `Result` output will be "Hello, world!", and a toast message will appear.
 
-<Frame>
-  <img src="./assets/raise-event-block-toast.png" alt="Raise Event Block Toast Example" />
-</Frame>
-
 ### Example 2: Synchronize Flow Parts
 
 1. Create a [Chat Block](/block-reference/ai/chat) with a prompt "What is your name?" using a [Text Block](/block-reference/data/text).
 2. Add a Raise Event Block, set the Event Name to `chat`, and connect the Chat Block's `Response` output to the Raise Event Block's `Data` input.
 3. In another part of the flow, add a [Wait For Event Block](/block-reference/advanced/wait-for-event) with the Event Name set to `chat`.
 4. Run the flow. The Wait For Event Block will pause execution until the Chat Block completes.
-
-<Frame>
-  <img src="./assets/raise-event-block-example-02.png" alt="Raise Event Block Synchronization Example" />
-</Frame>
 
 ## Error Handling
 

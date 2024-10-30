@@ -11,8 +11,11 @@ The Array Block is used to construct an array from one or more inputs of any typ
 
 By default, inputs will be flattened, so if any of the inputs are arrays themselves, they will be merged into the output array. This behavior can be disabled by unchecking the `Flatten` setting.
 
-<Frame>
-  <img src="/images/array-block.png" alt="Array Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block_reference/assets/array_block_light.png" alt="Array Block Screenshot (Light Mode)" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block_reference/assets/array_block_dark.png" alt="Array Block Screenshot (Dark Mode)" />
 </Frame>
 
 ## Inputs
@@ -69,10 +72,6 @@ The `Output` of the Array Block will be `["One", "Two", "Three", "Four"]`.
 5. Enable the `Split` setting on the Text Block.
 
 The `Output` of the Text Block will be `["[0] - Apple", "[1] - Banana", "[2] - Cherry"]`.
-
-<Frame>
-  <img src="/images/array-block-example-04.png" alt="Array Block Example 4" />
-</Frame>
 
 ## Flattening Arrays
 

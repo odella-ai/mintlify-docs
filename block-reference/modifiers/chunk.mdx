@@ -8,6 +8,12 @@ sidebarTitle: Chunk
 ![Chunk Block Screenshot](./assets/chunk-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/chunk_light.png" alt="Chunk Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/chunk_dark.png" alt="Chunk Block Screenshot" />
+</Frame>
 
 The Chunk Block is used to split a string into an array of strings based on a token count. This is particularly useful for handling large text inputs that exceed token limits in Language Models (LLMs), or for truncating strings to specific token counts.
 
@@ -67,10 +73,6 @@ The Chunk Block is used to split a string into an array of strings based on a to
 2. Add a Chunk Block and connect the Text Block to its input.
 3. Configure the desired token count and overlap in the settings.
 4. Run the flow. The text will be split into chunks based on your settings.
-
-<Frame>
-  <img src="./assets/chunk-block-example.png" alt="Chunk Block Example" />
-</Frame>
 
 ## Error Handling
 

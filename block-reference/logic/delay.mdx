@@ -8,6 +8,12 @@ sidebarTitle: Delay
 ![Delay Block Screenshot](./assets/delay-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/delay_light.png" alt="Delay Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/delay_dark.png" alt="Delay Block Screenshot" />
+</Frame>
 
 The Delay Block introduces a specified pause in the execution of your workflow. It accepts any number of inputs and, after the set delay, passes these input values to the outputs without modification. This block is particularly useful for controlling the timing and pacing of your workflow execution.
 
@@ -43,10 +49,6 @@ The Delay Block introduces a specified pause in the execution of your workflow. 
 2. Add a Delay block and set its "Delay" setting to 5000 (5 seconds).
 3. Connect the output of the Text block to the first input of the Delay block.
 4. Run the flow. You'll notice that the output of the Delay block appears after a 5-second pause.
-
-<Frame>
-  <img src="./assets/delay-block-example-01.png" alt="Delay Block Example" />
-</Frame>
 
 ## Error Handling
 

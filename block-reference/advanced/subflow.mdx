@@ -13,8 +13,11 @@ The Subflow Block allows you to execute another flow within the current flow. Th
   Subflows must be within the same project and cannot reference flows from different projects.
 </Note>
 
-<Frame>
-  <img src="./assets/subflow-block.png" alt="Subflow Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/subflow_block_light.png" alt="Subflow Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/subflow_block_dark.png" alt="Subflow Block Screenshot" />
 </Frame>
 
 ## Inputs
@@ -81,10 +84,6 @@ The Subflow Block allows you to execute another flow within the current flow. Th
    - Select "Greeting" as the Flow
    - Connect a Text Block with a name to the "name" input
    - Use the "message" output as needed
-
-<Frame>
-  <img src="./assets/subflow-block-example-01.png" alt="Basic Subflow Example" />
-</Frame>
 
 ### Example 2: Error Handling
 

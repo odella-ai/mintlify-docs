@@ -8,6 +8,13 @@ sidebarTitle: Coalesce
 ![Coalesce Block Screenshot](./assets/coalesce-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/coalesce_light.png" alt="Coalesce Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/coalesce_dark.png" alt="Coalesce Block Screenshot" />
+</Frame>
+
 
 The Coalesce Block functions similarly to the `COALESCE` function in SQL, returning the first non-null value from a list of inputs. In Lawme, "null" includes values that appear as "Not Ran" in the UI - blocks that have been excluded from the run due to control flow processing.
 
@@ -42,10 +49,6 @@ You can use a Coalesce Block to perform null checks and set default values for a
 3. Connect a Text block with a hardcoded value to the 2nd input of the Coalesce block.
 4. Run the flow. The output of the Coalesce block will be the value of the Text block, since the If block was not run.
 
-<Frame>
-  <img src="/images/coalesce-block-example-01.png" alt="Coalesce Block Example 1" />
-</Frame>
-
 ## Example: Getting a Single Value from a Match Block
 
 1. Create a [Match Block](/block-reference/logic/match) with a few different cases, say `1`, `2`, and `3`.
@@ -55,10 +58,6 @@ You can use a Coalesce Block to perform null checks and set default values for a
 5. Run the flow. The output of the Coalesce block will be the value of the If block that ran.
 
 This pattern is common when working with a Match block - you can get a unique value for each case using an If block, which is not dependent on the value passed into the Match block itself.
-
-<Frame>
-  <img src="/images/coalesce-block-example-02.png" alt="Coalesce Block Example 2" />
-</Frame>
 
 ## Error Handling
 

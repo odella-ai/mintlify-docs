@@ -8,6 +8,12 @@ sidebarTitle: Hash
 ![Hash Block Screenshot](./assets/hash-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/hash_light.png" alt="Hash Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/hash_dark.png" alt="Hash Block Screenshot" />
+</Frame>
 
 The Hash Block calculates the MD5 or SHA hash of incoming data. This block is particularly useful for performing equivalency comparisons, data integrity checks, or generating unique identifiers based on content.
 
@@ -45,10 +51,6 @@ The Hash Block calculates the MD5 or SHA hash of incoming data. This block is pa
 2. Add a Hash Block and connect the Text Block's output to its `input`.
 3. Configure the Hash Block to use SHA-256 algorithm.
 4. Run the flow to see the generated hash value.
-
-<Frame>
-  <img src="./assets/hash-block-example.png" alt="Hash Block Example" />
-</Frame>
 
 ## Error Handling
 

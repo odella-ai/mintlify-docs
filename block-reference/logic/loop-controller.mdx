@@ -8,6 +8,12 @@ sidebarTitle: Loop Controller
 ![Loop Controller Block Screenshot](./assets/loop-controller-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/loop_controller_light.png" alt="Loop Controller Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/loop_controller_dark.png" alt="Loop Controller Block Screenshot" />
+</Frame>
 
 The Loop Controller Block is a powerful tool that allows you to create loops in your flow. It's the only block in Lawme that can contain cycles of blocks, including itself. This block maintains the state of the loop and controls the flow of values through it.
 
@@ -68,10 +74,6 @@ This example demonstrates a loop that continues indefinitely:
 3. Combine the existing message history with the AI's response.
 4. Feed the combined history back into the Loop Controller.
 
-<Frame>
-  <img src="./assets/loop-controller-block-example-01.png" alt="Loop Controller Block Example 1" />
-</Frame>
-
 <Note>
   This loop will never break on its own. It will fail after 100 iterations by default unless "At Max Iterations" is set to "break".
 </Note>
@@ -85,10 +87,6 @@ This example shows how to iterate over an array and append " Mapped" to each ele
 3. Push the new value into an output array using an Array Block.
 4. Use a Compare Block to check if the input array is empty and break the loop.
 5. Connect an Output block to the `Break` output of the Loop Controller.
-
-<Frame>
-  <img src="./assets/loop-controller-block-example-02.png" alt="Loop Controller Block Example 2" />
-</Frame>
 
 ## Error Handling
 

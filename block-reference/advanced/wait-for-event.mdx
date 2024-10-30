@@ -9,8 +9,11 @@ sidebarTitle: Wait For Event
 
 The Wait For Event Block pauses the execution of a flow until a specific event is raised by a [Raise Event Block](/block-reference/advanced/raise-event) or the host project. This block is crucial for scenarios where you need to synchronize your flow with external actions or other parts of the flow.
 
-<Frame>
-  <img src="./assets/wait-for-event.png" alt="Wait For Event Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/wait_for_event_light.png" alt="Wait For Event Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/wait_for_event_dark.png" alt="Wait For Event Block Screenshot" />
 </Frame>
 
 ## Inputs
@@ -54,10 +57,6 @@ The Wait For Event Block pauses the execution of a flow until a specific event i
 5. Connect both blocks' outputs to separate Text Blocks.
 6. Run the flow. The Wait For Event Block will pause until the Raise Event Block raises `myEvent`.
 7. Observe how the Wait For Event Block outputs both its input data and the event data.
-
-<Frame>
-  <img src="./assets/wait-for-event-example-01.png" alt="Wait For Event Block Example" />
-</Frame>
 
 ## Error Handling
 

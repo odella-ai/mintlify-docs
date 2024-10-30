@@ -8,6 +8,12 @@ sidebarTitle: Extract JSON
 ![Extract JSON Block Screenshot](./assets/extract-json-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/extract_json_light.png" alt="Extract JSON Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/extract_json_dark.png" alt="Extract JSON Block Screenshot" />
+</Frame>
 
 The Extract JSON Block finds and parses the first JSON object or array in the input text. It attempts to locate JSON data between curly braces `{}` or square brackets `[]` and parse it into a JavaScript object.
 
@@ -34,10 +40,6 @@ The Extract JSON Block finds and parses the first JSON object or array in the in
 3. The block will attempt to find and parse the first JSON object
 4. If successful, the parsed object will be available at the `output` port
 5. If unsuccessful, the original string will be available at the `noMatch` port
-
-<Frame>
-  <img src="./assets/extract-json-block-example.png" alt="Extract JSON Block Example" />
-</Frame>
 
 ## Error Handling
 

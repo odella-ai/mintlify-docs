@@ -8,6 +8,12 @@ sidebarTitle: Index
 ![Index Block Screenshot](./assets/index-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/index_light.png" alt="Index Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/index_dark.png" alt="Index Block Screenshot" />
+</Frame>
 
 The Index Block allows you to retrieve values from an array at specified indices. It can return a single value when given a single index or multiple values when provided with an array of indices. This block is particularly useful for extracting specific elements from arrays or for reordering array elements based on a set of indices.
 
@@ -46,10 +52,6 @@ The Index Block allows you to retrieve values from an array at specified indices
 2. Add an Index Block and connect the Array Block to its `array` input.
 3. Create a Number Block with value `2` (or an Array Block with values `[0, 2, 4]`) and connect it to the Index Block's `indicies` input.
 4. Run the flow. The Index Block's `output` will be `30` (or `[10, 30, 50]` if using an array of indices).
-
-<Frame>
-  <img src="./assets/index-block-example.png" alt="Index Block Example" />
-</Frame>
 
 ## Error Handling
 

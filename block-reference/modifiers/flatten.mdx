@@ -8,6 +8,12 @@ sidebarTitle: Flatten
 ![Flatten Block Screenshot](./assets/flatten-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/flatten_light.png" alt="Flatten Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/flatten_dark.png" alt="Flatten Block Screenshot" />
+</Frame>
 
 The Flatten Block is designed to simplify complex nested array structures by flattening them into a single-level array. This block is particularly useful when dealing with multi-dimensional arrays or when you need to process all elements of a nested structure in a linear fashion.
 
@@ -34,10 +40,6 @@ The Flatten Block is designed to simplify complex nested array structures by fla
 1. Create an Array Block with a nested array structure, e.g., `[[1, 2], [3, 4], [5, 6]]`.
 2. Add a Flatten Block and connect the Array Block to its `input`.
 3. Run the flow. The Flatten Block's `output` will be `[1, 2, 3, 4, 5, 6]`.
-
-<Frame>
-  <img src="./assets/flatten-block-example.png" alt="Flatten Block Example" />
-</Frame>
 
 ## Error Handling
 

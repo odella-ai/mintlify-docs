@@ -12,6 +12,12 @@ sidebarTitle: Output
 The Flow Output Block is a crucial component for defining the outputs of a flow. Each instance of this block represents an individual output, where the value passed into it becomes part of the overall flow output. When a flow is used as a subflow, each Flow Output Block transforms into an output port on the subflow block.
 
 ## Inputs
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/output_block_light.png" alt="Output Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/output_block_dark.png" alt="Output Block Screenshot" />
+</Frame>
 
 <ParamField path="value" type="any" required>
   The value to be outputted from the flow. The data type should match the type specified in the Editor Settings.
@@ -42,13 +48,6 @@ The Flow Output Block is a crucial component for defining the outputs of a flow.
 3. Connect the Text Block to the Flow Output Block's Value input
 4. In another flow, use a Subflow Block referencing the first flow
 5. Run the second flow to see the "greeting" output with the value "Hello, world!"
-
-<Frame>
-  <img src="./assets/output-block-example-01.png" alt="Output Block Example 1" />
-</Frame>
-<Frame>
-  <img src="./assets/output-block-example-01-2.png" alt="Output Block Example 1 (continued)" />
-</Frame>
 
 ## Error Handling
 

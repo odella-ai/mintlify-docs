@@ -8,6 +8,12 @@ sidebarTitle: Pop
 ![Pop Block Screenshot](./assets/pop-block.png)
 
 ## Overview
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/pop_light.png" alt="Pop Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/pop_dark.png" alt="Pop Block Screenshot" />
+</Frame>
 
 The Pop Block removes either the first or last element from an array and outputs both the removed element and the remaining array. By default, it pops the last element. This block is useful for processing array elements one by one in a loop.
 
@@ -46,19 +52,11 @@ The Pop Block removes either the first or last element from an array and outputs
 2. Add a Pop Block and connect the Array Block to its `array` input.
 3. Run the flow. The `Last` output should be `"Engineer"` and the `Rest` output should be `["John", "Doe", "30"]`.
 
-<Frame>
-  <img src="./assets/pop-block-example-01.png" alt="Pop Block Example 1" />
-</Frame>
-
 ## Example: Pop the first element from an array
 
 1. Create an Array Block with values `["John", "Doe", "30", "Engineer"]`.
 2. Add a Pop Block, enable the `Pop from front` setting, and connect the Array Block to its `array` input.
 3. Run the flow. The `First` output should be `"John"` and the `Rest` output should be `["Doe", "30", "Engineer"]`.
-
-<Frame>
-  <img src="./assets/pop-block-example-02.png" alt="Pop Block Example 2" />
-</Frame>
 
 ## Error Handling
 
