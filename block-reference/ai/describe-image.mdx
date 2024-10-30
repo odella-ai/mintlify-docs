@@ -8,9 +8,11 @@ sidebarTitle: Describe Image
 ## Overview
 
 The Describe Image Block uses Vision Language Model (VLM) capabilities to analyze and describe images. By providing an image and an optional natural language prompt, you can instruct the AI to focus on specific aspects or provide general descriptions of the image content.
-
-<Frame>
-  <img src="/images/describe-image-block.png" alt="Describe Image Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/describe_image_light.png" alt="Describe Image Screenshot (Light Mode)" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/describe_image_dark.png" alt="Describe Image Screenshot (Dark Mode)" />
 </Frame>
 
 ## Inputs
@@ -66,10 +68,6 @@ The Describe Image Block uses Vision Language Model (VLM) capabilities to analyz
 3. Add a Text block with a prompt like "Describe the main trends and key data points in this chart" and connect it to the `prompt` input if using prompt input mode.
 4. Select your desired model in the Describe Image block settings.
 5. Run your flow. The block will output a detailed description of the chart, focusing on the trends and key data points.
-
-<Frame>
-  <img src="/images/describe-image-example.png" alt="Describe Image Example" />
-</Frame>
 
 ## Error Handling
 

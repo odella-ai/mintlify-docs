@@ -9,8 +9,11 @@ sidebarTitle: Ask AI
 
 The Ask AI Block allows you to send messages to over 250 different AI models for chat completions. This versatile block provides a wide range of options for AI-powered conversations and text generation tasks.
 
-<Frame>
-  <img src="./assets/ask-ai-block.png" alt="Ask AI Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/ask_ai_light.png" alt="Ask AI Screenshot (Light Mode)" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/ask_ai_dark.png" alt="Ask AI Screenshot (Dark Mode)" />
 </Frame>
 
 ## Inputs
@@ -148,10 +151,6 @@ The Ask AI Block allows you to send messages to over 250 different AI models for
 3. Connect the output of the Text block to the `Prompt` input of the Ask AI block.
 4. Select your desired model in the Ask AI block settings.
 5. Run your flow. The AI's response will appear at the bottom of the Ask AI block.
-
-<Frame>
-  <img src="./assets/ask-ai-block-example.png" alt="Simple Question Answering Example" />
-</Frame>
 
 ## Error Handling
 

@@ -9,8 +9,11 @@ sidebarTitle: Decision
 
 The Decision Block leverages AI capabilities to make binary decisions based on input values and natural language prompts. It acts as an AI-powered equivalent of a traditional switch block, evaluating whether a condition is true or false and directing the flow accordingly.
 
-<Frame>
-  <img src="/images/decision-block.png" alt="Decision Block Screenshot" />
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/decision_light.png" alt="Decision Block Screenshot (Light Mode)" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/decision_dark.png" alt="Decision Block Screenshot (Dark Mode)" />
 </Frame>
 
 ## Inputs
@@ -78,10 +81,6 @@ Error messages will be logged for:
 4. Connect the `True` output to a block that handles positive feedback.
 5. Connect the `False` output to a block that handles negative feedback.
 6. Run your flow. The Decision block will evaluate each piece of feedback and direct it to the appropriate handling process.
-
-<Frame>
-  <img src="/images/decision-block-example.png" alt="Decision Block Example" />
-</Frame>
 
 ## Notes
 
