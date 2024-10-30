@@ -5,19 +5,18 @@ description: Define outputs for your flow, enabling data to be returned from wor
 sidebarTitle: Output
 ---
 
-![Output Block Screenshot](./assets/output-block.png)
+<Frame className="block dark:hidden">
+  <img src="/block-reference/assets/output_light.png" alt="Output Block Screenshot" />
+</Frame>
+<Frame className="hidden dark:block">
+  <img src="/block-reference/assets/output_dark.png" alt="Output Block Screenshot" />
+</Frame>
 
 ## Overview
 
 The Flow Output Block is a crucial component for defining the outputs of a flow. Each instance of this block represents an individual output, where the value passed into it becomes part of the overall flow output. When a flow is used as a subflow, each Flow Output Block transforms into an output port on the subflow block.
 
 ## Inputs
-<Frame className="block dark:hidden">
-  <img src="/block-reference/assets/output_block_light.png" alt="Output Block Screenshot" />
-</Frame>
-<Frame className="hidden dark:block">
-  <img src="/block-reference/assets/output_block_dark.png" alt="Output Block Screenshot" />
-</Frame>
 
 <ParamField path="value" type="any" required>
   The value to be outputted from the flow. The data type should match the type specified in the Editor Settings.

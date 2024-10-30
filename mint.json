@@ -146,6 +146,8 @@
         "block-reference/modifiers/extract-json",
         "block-reference/modifiers/extract-markdown-code-blocks",
         "block-reference/modifiers/extract-markdown-table-blocks",
+        "block-reference/modifiers/extract-object-path",
+        "block-reference/modifiers/extract-with-regex",
         "block-reference/modifiers/extract-yaml",
         "block-reference/modifiers/filter",
         "block-reference/modifiers/flatten",
@@ -154,7 +156,8 @@
         "block-reference/modifiers/join",
         "block-reference/modifiers/pop",
         "block-reference/modifiers/shuffle",
-        "block-reference/modifiers/slice"
+        "block-reference/modifiers/slice",
+        "block-reference/modifiers/to-json"
       ]
     },
     {
@@ -163,6 +166,7 @@
         "block-reference/advanced/code",
         "block-reference/advanced/comment",
         "block-reference/advanced/http-call",
+        "block-reference/advanced/raise-event",
         "block-reference/advanced/subflow",
         "block-reference/advanced/wait-for-event"
       ]
