@@ -10,14 +10,14 @@ import { Callout, Card, CardGroup } from '@mintlify/components';
   Workflows are the heart of Lawme, driving your virtual assistants and simplifying routine tasks.
 </Callout>
 
-<Frame className="block dark:hidden">
+<Frame>
   <img
+    className="dark:hidden"
     src="../assets/workflows_overview_light.gif"
     alt="Workflow Overview (Light Mode)"
   />
-</Frame>
-<Frame className="hidden dark:block">
   <img
+    className="hidden dark:block"
     src="../assets/workflows_overview_dark.gif"
     alt="Workflow Overview (Dark Mode)"
   />
@@ -49,17 +49,9 @@ Workflows are essential to your operations in Lawme. They handle repetitive task
 
 ## Creating Your Workflows
 
-<Frame className="block dark:hidden">
-  <img
-    src="../assets/workflows_new_light.gif"
-    alt="Workflow Overview (Light Mode)"
-  />
-</Frame>
-<Frame className="hidden dark:block">
-  <img
-    src="../assets/workflows_new_dark.gif"
-    alt="Workflow Overview (Dark Mode)"
-  />
+<Frame>
+  <img src="../assets/workflows_new_light.gif" alt="Workflow Overview" className="block dark:hidden" />
+  <img src="../assets/workflows_new_dark.gif" alt="Workflow Overview" className="hidden dark:block" />
 </Frame>
 
 Lawme offers flexible options for setting up workflows:
@@ -96,17 +88,9 @@ Lawme offers flexible options for setting up workflows:
 
 ## Connecting Workflows to Assistants
 
-<Frame className="block dark:hidden">
-  <img
-    src="../assets/workforce_add_application_light.gif"
-    alt="Workflow Connect Workflows (Light Mode)"
-  />
-</Frame>
-<Frame className="hidden dark:block">
-  <img
-    src="../assets/workforce_edit_application_dark.gif"
-    alt="Workflow Connect Workflows (Dark Mode)"
-  />
+<Frame>
+  <img src="../assets/workforce_add_application_light.gif" alt="Workflow Connect Workflows (Light Mode)" className="block dark:hidden" />
+  <img src="../assets/workforce_edit_application_dark.gif" alt="Workflow Connect Workflows (Dark Mode)" className="hidden dark:block" />
 </Frame>
 
 Workflows are attached to virtual employees through their application configuration, enabling them to intelligently execute tasks during communication:
