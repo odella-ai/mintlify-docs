@@ -4,5 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "mintlify dev --port 3334"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0",
+    "turndown": "^7.2.0"
   }
 }

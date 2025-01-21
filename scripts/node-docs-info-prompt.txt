@@ -1,0 +1,443 @@
+# Block Reference Quick Info
+
+Path: draft/draft.mdx
+ID: draft
+Name: Multi-Modal Draft Block
+Description: Generate various document types using AI-powered drafting capabilities with text and image inputs
+
+---
+
+Path: draft/text-to-file.mdx
+ID: text-to-file
+Name: Text to File Block
+Description: Convert text or markdown into styled document files
+
+---
+
+Path: draft/populate-template.mdx
+ID: populate-template
+Name: Populate Template Block
+Description: Intelligently fill a pre-built template using AI, handling various content types including text, tables, and images
+
+---
+
+Path: draft/table-to-file.mdx
+ID: table-to-file
+Name: Table to File Block
+Description: Convert tabular data into a CSV file
+
+---
+
+Path: advanced/subflow.mdx
+ID: subflow
+Name: Subflow Block
+Description: Execute another flow within the current flow for reusable logic and modular design
+
+---
+
+Path: advanced/wait-for-event.mdx
+ID: wait-for-event
+Name: Wait For Event Block
+Description: Pause flow execution until a specific event is raised, enabling synchronization with external actions or other parts of the flow
+
+---
+
+Path: advanced/http-call.mdx
+ID: http-call
+Name: HTTP Call Block
+Description: Make HTTP requests to external APIs and services
+
+---
+
+Path: advanced/code.mdx
+ID: code
+Name: Code Block
+Description: Run Python code securely during your flow's execution
+
+---
+
+Path: advanced/raise-event.mdx
+ID: raise-event
+Name: Raise Event Block
+Description: Trigger events within your flow for host project interaction or flow synchronization
+
+---
+
+Path: advanced/comment.mdx
+ID: comment
+Name: Comment Block
+Description: Add notes or comments to your flow for better organization and understanding
+
+---
+
+Path: modifiers/to-json.mdx
+ID: to-json
+Name: To JSON Block
+Description: Convert any value into a JSON string representation
+
+---
+
+Path: modifiers/extract-json.mdx
+ID: extract-json
+Name: Extract JSON Block
+Description: Extract JSON data from a string input
+
+---
+
+Path: modifiers/index.mdx
+ID: index
+Name: Index Block
+Description: Retrieve values from an array at specified indices
+
+---
+
+Path: modifiers/join.mdx
+ID: join
+Name: Join Block
+Description: Concatenate an array of strings into a single string using a specified delimiter
+
+---
+
+Path: modifiers/hash.mdx
+ID: hash
+Name: Hash Block
+Description: Calculate MD5 or SHA hash of input data for equivalency comparisons
+
+---
+
+Path: modifiers/extract-markdown-table-blocks.mdx
+ID: extract-markdown-table-blocks
+Name: Extract Markdown Table Blocks
+Description: Extract table blocks from markdown-formatted text
+
+---
+
+Path: modifiers/extract-yaml.mdx
+ID: extract-yaml
+Name: Extract YAML Block
+Description: Extract YAML data from strings and convert to JavaScript objects
+
+---
+
+Path: modifiers/flatten.mdx
+ID: flatten
+Name: Flatten Block
+Description: Flatten nested arrays into a single-level array
+
+---
+
+Path: modifiers/extract-object-path.mdx
+ID: extract-object-path
+Name: Extract Object Path Block
+Description: Extract data from objects or arrays using JSONPath queries
+
+---
+
+Path: modifiers/extract-with-regex.mdx
+ID: extract-with-regex
+Name: Extract with Regex Block
+Description: Extract strings from input using regular expressions
+
+---
+
+Path: modifiers/pop.mdx
+ID: pop
+Name: Pop Block
+Description: Remove and return the first or last element from an array
+
+---
+
+Path: modifiers/chunk.mdx
+ID: chunk
+Name: Chunk Block
+Description: Split a string into an array of strings based on token count
+
+---
+
+Path: modifiers/filter.mdx
+ID: filter
+Name: Filter Block
+Description: Filter an array based on boolean conditions
+
+---
+
+Path: modifiers/extract-markdown-code-blocks.mdx
+ID: extract-markdown-code-blocks
+Name: Extract Markdown Code Blocks
+Description: Extract code blocks from markdown-formatted text
+
+---
+
+Path: modifiers/shuffle.mdx
+ID: shuffle
+Name: Shuffle Block
+Description: Randomize the order of elements in an array
+
+---
+
+Path: modifiers/slice.mdx
+ID: slice
+Name: Slice Block
+Description: Extract a portion of an array based on specified start index and count
+
+---
+
+Path: io/user-input.mdx
+ID: user-input
+Name: User Input Block
+Description: Prompt users for input during flow execution, enabling interactive workflows
+
+---
+
+Path: io/input.mdx
+ID: input
+Name: Flow Input Block
+Description: Define inputs for your flow, enabling reusable and dynamic workflows
+
+---
+
+Path: io/output.mdx
+ID: output
+Name: Flow Output Block
+Description: Define outputs for your flow, enabling data to be returned from workflows
+
+---
+
+Path: io/confirm.mdx
+ID: confirm
+Name: Confirm Block
+Description: Prompt the user for confirmation and control flow based on their response
+
+---
+
+Path: io/upload-file.mdx
+ID: upload-file
+Name: Upload File Block
+Description: Allow users to upload files for use in your workflow
+
+---
+
+Path: logic/race-inputs.mdx
+ID: race-inputs
+Name: Race Inputs Block
+Description: Handle multiple inputs and output the value of the first input to finish
+
+---
+
+Path: logic/delay.mdx
+ID: delay
+Name: Delay Block
+Description: Introduce a timed delay in the execution of your workflow
+
+---
+
+Path: logic/passthrough.mdx
+ID: passthrough
+Name: Passthrough Block
+Description: Pass input values through without modification
+
+---
+
+Path: logic/abort-flow.mdx
+ID: abort-flow
+Name: Abort Flow Block
+Description: Stop the execution of the entire flow immediately, either successfully or with an error
+
+---
+
+Path: logic/loop-controller.mdx
+ID: loop-controller
+Name: Loop Controller Block
+Description: Create loops in your flow and control the iteration of values
+
+---
+
+Path: logic/compare.mdx
+ID: compare
+Name: Compare Block
+Description: Perform comparison operations between two input values
+
+---
+
+Path: logic/coalesce.mdx
+ID: coalesce
+Name: Coalesce Block
+Description: Returns the first non-null value from a list of inputs, similar to SQL's COALESCE function
+
+---
+
+Path: logic/if-else.mdx
+ID: if-else
+Name: If/Else Block
+Description: Choose between two different values based on a condition
+
+---
+
+Path: logic/match.mdx
+ID: match
+Name: Match Block
+Description: Route control flow based on string matching against regular expressions
+
+---
+
+Path: logic/switch.mdx
+ID: switch
+Name: Switch Block
+Description: Route control flow based on a boolean condition
+
+---
+
+Path: agents/auto-system-prompt.mdx
+ID: auto-system-prompt
+Name: Auto System Prompt Block
+Description: Automatically generate system prompts to improve AI model guidance
+
+---
+
+Path: ai/analyze-table.mdx
+ID: analyze-table
+Name: Analyze Table Block
+Description: Leverage AI to analyze and transform tabular data based on natural language prompts
+
+---
+
+Path: ai/decision.mdx
+ID: decision
+Name: Decision Block
+Description: Use AI to make binary decisions based on input values and natural language prompts
+
+---
+
+Path: ai/ask-ai.mdx
+ID: ask-ai
+Name: Ask AI Block
+Description: Send messages to over 250 AI models for chat completions
+
+---
+
+Path: ai/extract-data.mdx
+ID: extract-data
+Name: Extract Data Block
+Description: Leverage AI to extract structured data from unstructured text based on a flexible schema
+
+---
+
+Path: ai/describe-image.mdx
+ID: describe-image
+Name: Describe Image Block
+Description: Leverage AI to analyze and describe images based on natural language prompts
+
+---
+
+Path: ai/generate-questions.mdx
+ID: generate-questions
+Name: Generate Questions Block
+Description: Leverage AI to generate multiple questions based on a given prompt and value
+
+---
+
+Path: ai/ai-filter.mdx
+ID: ai-filter
+Name: AI Filter Block
+Description: Apply AI-powered filtering to arrays using various models and providers
+
+---
+
+Path: ai/research-ai.mdx
+ID: research-ai
+Name: Research AI Block
+Description: Leverage AI to conduct intelligent research across public or private document stores
+
+---
+
+Path: ai/create-chart.mdx
+ID: create-chart
+Name: Create Chart Block
+Description: Generate data visualizations from tabular data using AI-powered natural language prompts
+
+---
+
+Path: data/array.mdx
+ID: array
+Name: Array Block
+Description: Construct an array from one or more inputs of any type, with options for flattening and merging arrays
+
+---
+
+Path: data/file.mdx
+ID: file
+Name: File Block
+Description: Upload and use file data in your workflow
+
+---
+
+Path: data/bool.mdx
+ID: bool
+Name: Bool Block
+Description: Output a boolean constant or convert an input value into a boolean
+
+---
+
+Path: data/number.mdx
+ID: number
+Name: Number Block
+Description: Output a constant number value or convert an input value into a number
+
+---
+
+Path: data/text.mdx
+ID: text
+Name: Text Block
+Description: Output a string of text with dynamic interpolation using {{tags}}
+
+---
+
+Path: data/image.mdx
+ID: image
+Name: Image Block
+Description: Define a static image for use with other nodes. Can convert a binary type into an image type.
+
+---
+
+Path: data/audio.mdx
+ID: audio
+Name: Audio Block (requires support to enable)
+Description: We have the ability to define audio samples and convert binary data to audio type, but this requires support to enable
+
+---
+
+Path: data/date.mdx
+ID: date
+Name: Date Block
+Description: Select a date value for use in your workflow
+
+---
+
+Path: data/object.mdx
+ID: object
+Name: Object Block
+Description: Create an object from input values and a JSON template
+
+---
+
+Path: loaders/read-table.mdx
+ID: read-table
+Name: Read Table Block
+Description: Read and parse CSV files into table data structures
+
+---
+
+Path: loaders/read-text.mdx
+ID: read-text
+Name: Read Text Block
+Description: Read the contents of a file as text or markdown
+
+---
+
+Path: loaders/read-binary.mdx
+ID: read-binary
+Name: Read Binary Block
+Description: Read the contents of a file as binary data
+
+---
+
