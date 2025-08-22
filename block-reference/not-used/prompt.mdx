@@ -4,8 +4,7 @@ title: Prompt Block
 sidebarTitle: Prompt
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+ 
 
 ## Overview
 
@@ -17,16 +16,9 @@ This block can also compute a token count for the generated chat message, which 
 
 A useful pattern is to use the default message `{{input}}` to convert any text into a prompt message.
 
-<Tabs
-  defaultValue="inputs"
-  values={[
-    {label: 'Inputs', value: 'inputs'},
-    {label: 'Outputs', value: 'outputs'},
-    {label: 'Editor Settings', value: 'settings'},
-  ]
-}>
+<Tabs>
 
-<TabItem value="inputs">
+<Tab title="Inputs">
 
 ## Inputs
 
@@ -37,9 +29,9 @@ A useful pattern is to use the default message `{{input}}` to convert any text i
 | Name           | `string`  | The name to attach to the chat message. This input is only available if `Use Name Input` is enabled.                              | (empty)       | The input will be coerced into a string if it is not a string.                                                            |
 | (custom names) | `string`  | The values to be interpolated into the prompt text. The names of these inputs are dynamically generated based on the prompt text. | (empty)       | The input will be coerced into a string if it is not a string. Each input creates a corresponding input port on the block. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="outputs">
+<Tab title="Outputs">
 
 ## Outputs
 
@@ -48,9 +40,9 @@ A useful pattern is to use the default message `{{input}}` to convert any text i
 | Output      | `chat-message` | The generated chat message.                                                                                            | The output will be a chat message containing the interpolated prompt text, the type, and the optional name. |
 | Token Count | `number`       | The number of tokens in the generated chat message. This output is only available if `Compute Token Count` is enabled. | The output will be a number representing the number of tokens in the chat message.                          |
 
-</TabItem>
+</Tab>
 
-<TabItem value="settings">
+<Tab title="Editor Settings">
 
 ## Editor Settings
 
@@ -62,7 +54,7 @@ A useful pattern is to use the default message `{{input}}` to convert any text i
 | Compute Token Count  | If enabled, a `Token Count` output port will be added to the block, allowing you to compute the number of tokens in the chat message. This can be useful for keeping track of the total number of tokens used in a conversation with an LLM. | False         | No               | N/A             |
 | Prompt Text          | The text of the chat message. You can use `{{input}}` to dynamically insert values into the message.                                                                                                                                        | `{{input}}`   | No               | `string`        |
 
-</TabItem>
+</Tab>
 
 </Tabs>
 

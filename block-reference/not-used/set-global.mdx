@@ -4,8 +4,7 @@ title: Set Global Block
 sidebarTitle: Set Global
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+ 
 
 ![Set Global Block Screenshot](./assets/set-global-block.png)
 
@@ -15,16 +14,9 @@ The Set Global Block is used to set a global value that is shared across all flo
 
 The Set Global Block allows you to specify the ID of the global value and the value itself. The ID can be either a static string or an input value. The value can be of any data type.
 
-<Tabs
-  defaultValue="inputs"
-  values={[
-    {label: 'Inputs', value: 'inputs'},
-    {label: 'Outputs', value: 'outputs'},
-    {label: 'Editor Settings', value: 'settings'},
-  ]
-}>
+<Tabs>
 
-<TabItem value="inputs">
+<Tab title="Inputs">
 
 ## Inputs
 
@@ -33,9 +25,9 @@ The Set Global Block allows you to specify the ID of the global value and the va
 | Value       | Any       | The value to be set as the global value.                                                             | (required)    | The input will be coerced into the data type specified in the block's settings.                       |
 | Variable ID | `string`  | The ID of the global value to be set. This input is only available if `Use Variable ID Input` is on. | (optional)    | The input will be coerced into a string if it is not a string. The ID must be unique in the context. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="outputs">
+<Tab title="Outputs">
 
 ## Outputs
 
@@ -44,9 +36,9 @@ The Set Global Block allows you to specify the ID of the global value and the va
 | Value          | Any       | The value that was set as the global value.                             | The output will be of the same data type as the `Value` input.                                                              |
 | Previous Value | Any       | The previous value of the global variable before the new value was set. | The output will be of the same data type as the `Value` input. If there was no previous value, this output will not be ran. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="settings">
+<Tab title="Editor Settings">
 
 ## Editor Settings
 
@@ -55,7 +47,7 @@ The Set Global Block allows you to specify the ID of the global value and the va
 | ID        | The ID of the global value to be set.                                                   | (required)    | Yes              | `string`        |
 | Data Type | The data type of the value to be set. This determines how the `Value` input is coerced. | `string`      | No               | N/A             |
 
-</TabItem>
+</Tab>
 
 </Tabs>
 

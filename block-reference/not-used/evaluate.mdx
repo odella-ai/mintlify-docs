@@ -4,8 +4,7 @@ title: Evaluate Block
 sidebarTitle: Evaluate
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+ 
 
 ![Evaluate Block Screenshot](./assets/evaluate-block.png)
 
@@ -13,16 +12,9 @@ import TabItem from '@theme/TabItem';
 
 The Evaluate Block performs a mathematical operation on the input values and outputs the result. It supports a variety of operations including addition, subtraction, multiplication, division, exponentiation, modulus, absolute value, and negation.
 
-<Tabs
-  defaultValue="inputs"
-  values={[
-    {label: 'Inputs', value: 'inputs'},
-    {label: 'Outputs', value: 'outputs'},
-    {label: 'Editor Settings', value: 'settings'},
-  ]
-}>
+<Tabs>
 
-<TabItem value="inputs">
+<Tab title="Inputs">
 
 ## Inputs
 
@@ -31,9 +23,9 @@ The Evaluate Block performs a mathematical operation on the input values and out
 | A     | `number`  | The first operand for the operation.  | (Required)                      | The input will be coerced into a number if it is not a number. |
 | B     | `number`  | The second operand for the operation. | (Required for binary operators) | The input will be coerced into a number if it is not a number. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="outputs">
+<Tab title="Outputs">
 
 ## Outputs
 
@@ -41,9 +33,9 @@ The Evaluate Block performs a mathematical operation on the input values and out
 | ------ | --------- | ---------------------------- | ----- |
 | Output | `number`  | The result of the operation. |       |
 
-</TabItem>
+</Tab>
 
-<TabItem value="settings">
+<Tab title="Editor Settings">
 
 ## Editor Settings
 
@@ -51,7 +43,7 @@ The Evaluate Block performs a mathematical operation on the input values and out
 | --------- | ---------------------------------------------------------------------------------------------------------------- | ------------- | ---------------- | --------------- |
 | Operation | The operation to perform on the input values. Options include `+`, `-`, `*`, `/`, `^`, `%`, `abs`, and `negate`. | `+`           | Yes              | `string`        |
 
-</TabItem>
+</Tab>
 
 </Tabs>
 

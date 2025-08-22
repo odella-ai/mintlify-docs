@@ -4,9 +4,7 @@ title: Assemble Prompt Block
 sidebarTitle: Assemble Prompt
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Admonition from '@theme/Admonition';
+ 
 
 ## Overview
 
@@ -16,16 +14,9 @@ If a string is connected to any of the inputs, it will be converted to a User ty
 
 ![Assemble Prompt Block Screenshot](./assets/assemble-prompt-block.png)
 
-<Tabs
-  defaultValue="inputs"
-  values={[
-    {label: 'Inputs', value: 'inputs'},
-    {label: 'Outputs', value: 'outputs'},
-    {label: 'Editor Settings', value: 'settings'},
-  ]
-}>
+<Tabs>
 
-<TabItem value="inputs">
+<Tab title="Inputs">
 
 ## Inputs
 
@@ -33,9 +24,9 @@ If a string is connected to any of the inputs, it will be converted to a User ty
 | ----------- | ---------------------------- | ------------------------------------------ | ------------- | ---------------------------------------------------------------- |
 | Message [i] | chat-message, chat-message[] | The ith chat message input to be assembled | N/A           | Dynamic number of inputs based on how many connections there are |
 
-</TabItem>
+</Tab>
 
-<TabItem value="outputs">
+<Tab title="Outputs">
 
 ## Outputs
 
@@ -43,15 +34,15 @@ If a string is connected to any of the inputs, it will be converted to a User ty
 | ------ | -------------- | --------------------------- | ------------------------------------------------------------------------------------ |
 | Prompt | chat-message[] | The assembled chat messages | The output will be a single prompt resulting from assembling all valid chat messages |
 
-</TabItem>
+</Tab>
 
-<TabItem value="settings">
+<Tab title="Editor Settings">
 
 ## Editor Settings
 
 This block does not have any specific settings.
 
-</TabItem>
+</Tab>
 
 </Tabs>
 

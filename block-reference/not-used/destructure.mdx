@@ -4,8 +4,7 @@ title: Destructure Block
 sidebarTitle: Desctucture
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+ 
 
 ![Destructure Block Screenshot](./assets/destructure-block.png)
 
@@ -13,16 +12,9 @@ import TabItem from '@theme/TabItem';
 
 The Destructure Block is used to extract multiple values from an object or array at once. It uses JSONPath notation to navigate through the input value and extract the values at the specified paths. This block is similar to the [Extract Object Path Block](./extract-object-path.mdx), but it allows you to specify multiple paths and extract multiple values at once, which can be more convenient than using multiple Extract Object Path blocks.
 
-<Tabs
-  defaultValue="inputs"
-  values={[
-    {label: 'Inputs', value: 'inputs'},
-    {label: 'Outputs', value: 'outputs'},
-    {label: 'Editor Settings', value: 'settings'},
-  ]
-}>
+<Tabs>
 
-<TabItem value="inputs">
+<Tab title="Inputs">
 
 ## Inputs
 
@@ -30,9 +22,9 @@ The Destructure Block is used to extract multiple values from an object or array
 | ------ | --------- | ---------------------------------- | ------------- | ----- |
 | Object | `object`  | The object to extract values from. | (required)    |       |
 
-</TabItem>
+</Tab>
 
-<TabItem value="outputs">
+<Tab title="Outputs">
 
 ## Outputs
 
@@ -40,9 +32,9 @@ The Destructure Block is used to extract multiple values from an object or array
 | ---------- | --------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | (JSONPath) | `any`     | The value extracted from the object at the corresponding path. | If the value is not found, this port is not ran. The number of outputs is dynamic based on the number of paths specified in the settings. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="settings">
+<Tab title="Editor Settings">
 
 ## Editor Settings
 
@@ -50,7 +42,7 @@ The Destructure Block is used to extract multiple values from an object or array
 | ------- | ------------------------------------------------------------------------------------------------ | ------------- | ---------------- | --------------- |
 | Paths   | One or more JSONPath expressions. Each expression will correspond to an output port of the block. | `['$.value']` | No               | `string[]`      |
 
-</TabItem>
+</Tab>
 
 </Tabs>
 

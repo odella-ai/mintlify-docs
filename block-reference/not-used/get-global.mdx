@@ -4,8 +4,7 @@ title: Get Global Block
 sidebarTitle: Get Global
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+ 
 
 ![Get Global Block Screenshot](./assets/get-global-block.png)
 
@@ -17,16 +16,9 @@ The block can be configured to retrieve the value on demand, which means it will
 
 The block can also be configured to wait until the variable is available. This is useful when the global value is set by another block that might not have completed its execution when this block runs.
 
-<Tabs
-  defaultValue="inputs"
-  values={[
-    {label: 'Inputs', value: 'inputs'},
-    {label: 'Outputs', value: 'outputs'},
-    {label: 'Editor Settings', value: 'settings'},
-  ]
-}>
+<Tabs>
 
-<TabItem value="inputs">
+<Tab title="Inputs">
 
 ## Inputs
 
@@ -34,9 +26,9 @@ The block can also be configured to wait until the variable is available. This i
 | ----------- | --------- | ------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------- |
 | Variable ID | `string`  | The ID of the global variable to retrieve. This input is only available if the "Use Input" toggle is checked. | N/A           | The input will be coerced into a string if it is not a string. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="outputs">
+<Tab title="Outputs">
 
 ## Outputs
 
@@ -44,9 +36,9 @@ The block can also be configured to wait until the variable is available. This i
 | ----- | --------- | --------------------------------- | ------------------------------------------------------------------------------------- |
 | Value | (any)     | The value of the global variable. | The data type of the output will be the same as the data type of the global variable. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="settings">
+<Tab title="Editor Settings">
 
 ## Editor Settings
 
@@ -57,7 +49,7 @@ The block can also be configured to wait until the variable is available. This i
 | On Demand   | If enabled, the global variable will be read when blocks need it, rather than when this block executes. Cannot be used with "Wait". | True          | No               | N/A             |
 | Wait        | If enabled, the block will wait until the variable is available. Cannot be used with "On Demand".                                  | False         | No               | N/A             |
 
-</TabItem>
+</Tab>
 
 </Tabs>
 

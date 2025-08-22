@@ -4,8 +4,7 @@ title: Assemble Message Block
 sidebarTitle: Assemble Message
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+ 
 
 ![Assemble Message Block Screenshot](./assets/assemble-message-block.png)
 
@@ -15,16 +14,9 @@ The Assemble Message Block is designed to assemble a single chat message from mu
 
 The Assemble Message Block outputs a chat message in the same format as a [Prompt Block](./prompt.mdx).
 
-<Tabs
-  defaultValue="inputs"
-  values={[
-    {label: 'Inputs', value: 'inputs'},
-    {label: 'Outputs', value: 'outputs'},
-    {label: 'Editor Settings', value: 'settings'},
-  ]
-}>
+<Tabs>
 
-<TabItem value="inputs">
+<Tab title="Inputs">
 
 ## Inputs
 
@@ -32,9 +24,9 @@ The Assemble Message Block outputs a chat message in the same format as a [Promp
 | ------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------- |
 | Part N | `string`/`string[]`/`image`/`image[]` | A part of the message to assemble. Arrays connected to inputs will be flattened, so connecting a single `image[]` connection will put multiple images into the message. | N/A           | Dynamic number of input ports based on how many inputs are already connected to the block. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="outputs">
+<Tab title="Outputs">
 
 ## Outputs
 
@@ -42,9 +34,9 @@ The Assemble Message Block outputs a chat message in the same format as a [Promp
 | ------- | -------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Message | `chat-message` | The assembled chat message. The message will be in the same format as a message from a [Prompt Block](./prompt.mdx). | The output will be a chat message containing the assembled data. The type of the message will be the specified type. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="settings">
+<Tab title="Editor Settings">
 
 ## Editor Settings
 
@@ -52,7 +44,7 @@ The Assemble Message Block outputs a chat message in the same format as a [Promp
 | ------- | --------------------------------------------------------------------------------------------------------- | ------------- | ---------------- | --------------- |
 | Type    | The type of message to assemble. The value should be either 'system', 'user', 'assistant', or 'function'. | 'user'        | Yes              | `string`        |
 
-</TabItem>
+</Tab>
 
 </Tabs>
 

@@ -4,8 +4,7 @@ title: Split Text Block
 sidebarTitle: Split Text
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+ 
 
 ## Overview
 
@@ -15,16 +14,9 @@ The block allows you to specify the delimiter either directly in the block setti
 
 When entering special characters such as a new line in the block settings, put the literal character, not the escape sequence. For example, to split a string by a new line, press the Enter key to insert a new line in the block settings.
 
-<Tabs
-  defaultValue="inputs"
-  values={[
-    {label: 'Inputs', value: 'inputs'},
-    {label: 'Outputs', value: 'outputs'},
-    {label: 'Editor Settings', value: 'settings'},
-  ]
-}>
+<Tabs>
 
-<TabItem value="inputs">
+<Tab title="Inputs">
 
 ## Inputs
 
@@ -33,9 +25,9 @@ When entering special characters such as a new line in the block settings, put t
 | String    | `string`  | The string that should be split.                                                                        | (required)    | The input will be coerced into a string if it is not a string. |
 | Delimiter | `string`  | The delimiter to split the string by. This input is only available if `Use Delimiter Input` is enabled. | (empty)       | The input will be coerced into a string if it is not a string. |
 
-</TabItem>
+</Tab>
 
-<TabItem value="outputs">
+<Tab title="Outputs">
 
 ## Outputs
 
@@ -43,9 +35,9 @@ When entering special characters such as a new line in the block settings, put t
 | ------------ | ---------- | --------------------------------------------------------------------------------------------- | ----- |
 | Split String | `string[]` | The array of substrings resulting from splitting the input string by the specified delimiter. |       |
 
-</TabItem>
+</Tab>
 
-<TabItem value="settings">
+<Tab title="Editor Settings">
 
 ## Editor Settings
 
@@ -54,7 +46,7 @@ When entering special characters such as a new line in the block settings, put t
 | Delimiter           | The delimiter to split the string by.                                   | `,`           | Yes              | `string`        |
 | Use Delimiter Input | If enabled, the delimiter can be provided via the Delimiter input port. | False         | No               | N/A             |
 
-</TabItem>
+</Tab>
 
 </Tabs>
 
