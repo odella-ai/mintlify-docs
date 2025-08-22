@@ -1,0 +1,198 @@
+---
+title: "DOCX Template"
+description: "Learn how to create and configure DOCX templates with Mustache syntax and AI-powered field detection for automated document generation"
+---
+
+import { Callout } from '@mintlify/components';
+
+## Create Your First DOCX Template
+
+DOCX templates in Odella are perfect for dynamic document creation with flexible layouts. Using Mustache-like syntax, you can create powerful templates for contracts, letters, and general legal documents that require substantial content variation and intelligent automation.
+
+<Callout type="info" emoji="📄">
+  DOCX templates work best with documents that require dynamic content, such as contracts, letters, and legal documents where layout can adapt to varying content lengths.
+</Callout>
+
+## Step-by-Step Template Creation
+
+<Steps>
+  <Step title="Upload Your DOCX Document">
+    Start by uploading your Word document to Odella. Navigate to the Templates section and click "Create New Template," then select "DOCX Template" and upload your file. Ensure your document is properly formatted and contains the content structure you want to template.
+  </Step>
+  
+  <Step title="Name and Describe Your Template">
+    Give your template a clear, descriptive name and detailed description. This is crucial - your AI employees use this information to determine which template to use in different contexts. Be specific about the document's purpose, when it should be used, and any special requirements.
+  </Step>
+  
+  <Step title="Edit Document with Mustache Syntax">
+    Enter the template drafting editor where you can modify your document using Mustache syntax to define variables, conditions, and loops. Mustache is a logic-less templating language that uses double curly braces `{{ }}` as delimiters. This syntax allows you to create dynamic content that adapts based on data inputs while maintaining document structure and formatting. Use the following syntax elements to create dynamic content:
+
+    | Syntax | Purpose | Example | Detailed Explanation |
+    |--------|---------|---------|---------------------|
+    | `{{ variable_name }}` | Insert a variable value | `{{ client_name }}`, `{{ contract_date }}` | Simple variable interpolation - replaces the placeholder with the actual value from your data. The variable name should be descriptive and match the data field exactly. Variables are case-sensitive and can include underscores but should avoid spaces. |
+    | `{{ ? condition }} content {{ / condition }}` | Conditional content display | `{{ ? is_corporate }} This is a corporate agreement {{ / is_corporate }}` | Conditional sections that only display content when the condition evaluates to true. The condition can be any boolean variable or expression. Content between the opening and closing tags will only appear in the final document if the condition is met. Perfect for showing different clauses based on client type, agreement terms, or other binary decisions. |
+    | `{{ # items }} {{ item_value }} {{ / items }}` | Loop through list items | `{{ # witnesses }} {{ name }}, {{ title }} {{ / witnesses }}` | Iteration blocks that repeat content for each item in a list or array. The opening tag `{{ # items }}` starts the loop, and the closing tag `{{ / items }}` ends it. Everything between these tags will be repeated for each item in the collection. Inside the loop, you can access properties of each item using dot notation or simple variable names. |
+    | `{{! comment text }}` | Add comments (not rendered) | `{{! This section handles payment terms }}` | Comment blocks that are ignored during template processing and won't appear in the final document. Use these for documentation, notes to other template editors, or temporary removal of content. Comments are essential for maintaining complex templates and explaining business logic to future editors. |
+
+    **Advanced Mustache Features:**
+    - **Nested Properties:** Access nested object properties using dot notation: `{{ client.address.street }}`
+    - **Inverted Sections:** Use `{{ ^ condition }}` to show content when a condition is false
+    - **Partial Templates:** Include reusable template sections with `{{ > partial_name }}`
+    - **Lambda Functions:** Execute custom functions during template processing for complex data manipulation
+
+    Use these elements to make your document dynamic and responsive to different data inputs while maintaining professional formatting and legal precision.
+  </Step>
+  
+  <Step title="Sync Template Fields">
+    After templating your document with Mustache syntax, click "Sync Document" to sync the template fields with the template system. Our AI automatically detects all template variables and generates intelligent instructions for how to fill each field, including data type detection and contextual filling guidance. The system analyzes variable names, surrounding context, and document structure to create appropriate filling instructions.
+  </Step>
+  
+  <Step title="Review and Configure Field Instructions">
+    Review all detected template fields and their auto-generated instructions. You can adjust the prompts to change the tone, set default values, and modify drafting instructions based on your specific requirements. Each field displays its type, current instruction, and preview of how it will be populated. Fine-tune these instructions to ensure the AI understands exactly how to fill each field according to your legal standards and formatting preferences.
+  </Step>
+  
+  <Step title="Save and Publish">
+    When you're finished configuring all fields and instructions, save and publish your template. The template is now available for use and can be attached directly to an AI employee or integrated into workflows for automated document generation.
+  </Step>
+</Steps>
+
+## Advanced Template Configuration
+
+<CardGroup cols={2}>
+  <Card title="Variable Types" icon="pen-to-square">
+    Configure different data types for variables including text, dates, numbers, and boolean values. Set formatting requirements and validation rules for each variable type. Define how dates should be formatted, whether numbers need currency symbols, and how boolean values should be displayed.
+  </Card>
+  <Card title="Conditional Logic" icon="code-branch">
+    Create smart conditional sections that show or hide content based on data values, such as different clauses for different contract types or client categories. Combine multiple conditions using nested logic to create sophisticated document variations.
+  </Card>
+  <Card title="Dynamic Lists" icon="list">
+    Use loop syntax to handle dynamic lists of items like witnesses, terms, payment schedules, or any repeating data structures in your documents. Lists can contain complex objects with multiple properties, allowing for rich, detailed repetitions.
+  </Card>
+  <Card title="Default Values" icon="shield-check">
+    Set intelligent default values for common fields and define fallback content when optional data is not provided. Create graceful degradation where missing data doesn't break your document flow.
+  </Card>
+</CardGroup>
+
+## Comprehensive Mustache Syntax Examples
+
+<Callout type="tip" emoji="💡">
+  **Real-World Template Patterns with Detailed Explanations:**
+  
+  - **Simple Variable Insertion:** 
+    ```
+    Dear {{ client_name }},
+    ```
+    This replaces `{{ client_name }}` with the actual client's name from your data. The variable name should exactly match the field name in your data source.
+  
+  - **Complex Conditional Logic:** 
+    ```
+    {{ ? is_individual }} 
+    acting in their individual capacity 
+    {{ / is_individual }}
+    {{ ? is_corporate }} 
+    acting through its duly authorized representatives 
+    {{ / is_corporate }}
+    ```
+    This creates mutually exclusive content blocks. Only one section will appear based on the client type. Conditions can be chained to handle multiple scenarios.
+  
+  - **Advanced Date Formatting:** 
+    ```
+    Date: {{ contract_date }}
+    Effective Date: {{ ? effective_date }}{{ effective_date }}{{ / effective_date }}{{ ^ effective_date }}{{ contract_date }}{{ / effective_date }}
+    ```
+    This shows how to handle optional dates with fallbacks. If no effective date is provided, it defaults to the contract date.
+  
+  - **Complex List Iteration:** 
+    ```
+    Witnesses:
+    {{ # witnesses }}
+    {{ loop_index }}. {{ name }} ({{ title }}){{ ? address }}, residing at {{ address }}{{ / address }}
+    {{ / witnesses }}
+    ```
+    This creates a numbered list of witnesses with optional address information. The `loop_index` provides automatic numbering.
+  
+  - **Nested Conditional Lists:** 
+    ```
+    {{ ? has_attachments }}
+    Attachments:
+    {{ # attachments }}
+    - {{ filename }}{{ ? description }}: {{ description }}{{ / description }}
+    {{ / attachments }}
+    {{ / has_attachments }}
+    ```
+    This shows how to combine conditionals with loops - only showing the attachments section if attachments exist.
+  
+  - **Documentation Comments:** 
+    ```
+    {{! Payment terms section - modify based on client credit rating }}
+    Payment Terms: {{ payment_terms }}
+    {{! TODO: Add late fee calculation formula }}
+    ```
+    Use comments to document business logic, remind about future updates, or explain complex template sections to other team members.
+
+  **Advanced Patterns:**
+  
+  - **Inverted Conditions (Show when false):**
+    ```
+    {{ ^ is_premium_client }}
+    Standard terms and conditions apply.
+    {{ / is_premium_client }}
+    ```
+    This content only appears for non-premium clients.
+  
+  - **Multiple Property Access:**
+    ```
+    {{ client.company.legal_name }} 
+    (a {{ client.company.state }} {{ client.company.entity_type }})
+    ```
+    Access nested object properties using dot notation for complex data structures.
+  
+  - **Conditional Formatting:**
+    ```
+    Total Amount: {{ ? currency_symbol }}{{ currency_symbol }}{{ / currency_symbol }}{{ amount }}{{ ? is_estimate }} (estimated){{ / is_estimate }}
+    ```
+    This shows how to conditionally include formatting elements like currency symbols and qualifiers.
+</Callout>
+
+## Best Practices
+
+<Steps>
+  <Step title="Descriptive Variable Names">
+    Use clear, descriptive variable names like `{{ client_full_legal_name }}` rather than generic names like `{{ name1 }}`. This helps with AI understanding and template maintenance. Consider using naming conventions like `entity_type`, `agreement_date`, `billing_address_line1` to create consistency across your templates.
+  </Step>
+  
+  <Step title="Logical Content Structure">
+    Organize your template with logical sections and use comments to document complex conditional logic or loops for future reference and maintenance. Group related variables together and use whitespace effectively to make your template code readable.
+  </Step>
+  
+  <Step title="Comprehensive Field Instructions">
+    Provide detailed instructions for each template field, including formatting requirements, tone preferences, and any special considerations for AI population. Specify whether fields should be formal or casual, how dates should be formatted, and any legal language requirements.
+  </Step>
+  
+  <Step title="Regular Testing">
+    Test your templates with sample data to ensure all variables, conditions, and loops work correctly before publishing to production use. Test edge cases like empty lists, missing optional fields, and different data combinations to ensure robust template behavior.
+  </Step>
+</Steps>
+
+## Using Your DOCX Template
+
+Once published, your DOCX template can be used in two main ways:
+
+<CardGroup cols={2}>
+  <Card title="AI Employee Integration" icon="robot">
+    Attach the template directly to an AI employee to enable automatic document generation as part of their capabilities. The AI employee can then generate documents using this template when needed, automatically populating all variables based on available data and context.
+  </Card>
+  <Card title="Workflow Integration" icon="diagram-project">
+    Integrate the template into your custom workflows using the "Populate Template" block, enabling automated document generation at any stage of your business processes. Templates can be triggered by specific events, data changes, or user actions within your workflows.
+  </Card>
+</CardGroup>
+
+<Callout type="info" emoji="📖">
+  For detailed instructions on how to use your published templates with AI employees and workflows, see our [Using Templates](/templates/04_using-templates) guide.
+</Callout>
+
+<Callout type="warning" emoji="⚖️">
+  Always review your DOCX templates thoroughly before publishing them. Test all template variables, conditions, and loops to ensure they work correctly and produce the expected output. Pay special attention to conditional logic to ensure all possible data combinations produce valid documents.
+</Callout>
+
+Ready to create your first DOCX template? Follow these steps to transform your static documents into intelligent, AI-powered document generation tools with dynamic content capabilities!

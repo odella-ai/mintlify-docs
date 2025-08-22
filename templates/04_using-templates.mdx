@@ -1,0 +1,249 @@
+---
+title: "Using Templates"
+description: "Learn how to use Odella's intelligent templates with the Template Agent for automated document generation in workflows and AI employee integrations"
+---
+
+import { Callout } from '@mintlify/components';
+
+## Using Your Templates for Automated Document Generation
+
+Once you've created and published your templates, Odella's intelligent Template Agent takes over to handle all aspects of document population and generation. The Template Agent is a sophisticated AI system that can be integrated directly into workflows or power your AI employees to automatically populate templates with the right information from any available source.
+
+<Callout type="info" emoji="🤖">
+  The Template Agent is your intelligent document generation assistant that handles information gathering, data population, and template completion automatically across all your business processes.
+</Callout>
+
+## Template Agent Overview
+
+The Template Agent is Odella's core intelligence for template management and document generation. It acts as an autonomous system that:
+
+<CardGroup cols={2}>
+  <Card title="Information Discovery" icon="magnifying-glass">
+    Automatically searches through connected applications, databases, and provided files to find the information needed to populate template fields.
+  </Card>
+  <Card title="User Interaction Management" icon="comments">
+    Intelligently asks users for missing information when needed, using context-aware questions based on the template requirements and available data.
+  </Card>
+  <Card title="Multi-Source Data Integration" icon="link">
+    Seamlessly pulls information from various sources including CRM systems, document repositories, email systems, and other connected business applications.
+  </Card>
+  <Card title="Content Processing" icon="file-text">
+    Reads and extracts relevant information from uploaded documents, transcribes audio files, and processes various file formats to gather template data.
+  </Card>
+</CardGroup>
+
+## Two Primary Integration Methods
+
+The Template Agent can be utilized in two powerful ways to streamline your document generation processes:
+
+### 1. Direct Workflow Integration
+
+<Steps>
+  <Step title="Add Template Block to Workflow">
+    In your workflow builder, add a "Populate Template" block at any stage where document generation is needed. Select your published template from the dropdown menu of available templates.
+  </Step>
+  
+  <Step title="Configure Data Sources">
+    Connect the Template Agent to relevant data sources for this workflow step. This can include previous workflow outputs, connected applications, uploaded files, or user input forms.
+  </Step>
+  
+  <Step title="Set Information Gathering Rules">
+    Configure how the Template Agent should handle missing information - whether to search connected systems first, ask the user immediately, or use default values when appropriate.
+  </Step>
+  
+  <Step title="Define Output Actions">
+    Specify what happens with the generated document - save to a specific location, email to recipients, attach to a case file, or pass to the next workflow step.
+  </Step>
+</Steps>
+
+### 2. AI Employee Integration
+
+<Steps>
+  <Step title="Assign Templates to AI Employees">
+    Attach one or more templates to your AI employees through the AI employee configuration interface. Each AI employee can have access to multiple templates for different document types.
+  </Step>
+  
+  <Step title="Define Usage Context">
+    Configure when and how the AI employee should use each template by providing context rules, trigger conditions, and decision-making criteria for template selection.
+  </Step>
+  
+  <Step title="Enable Autonomous Generation">
+    Set up the AI employee to automatically generate documents when specific conditions are met, such as case milestones, client requests, or scheduled deadlines.
+  </Step>
+  
+  <Step title="Configure Review Processes">
+    Establish review and approval workflows for AI-generated documents, including automatic routing to appropriate staff members for final review.
+  </Step>
+</Steps>
+
+## Template Agent Intelligence Features
+
+### Intelligent Information Gathering
+
+The Template Agent employs sophisticated strategies to populate template fields:
+
+<CardGroup cols={2}>
+  <Card title="Connected Application Search" icon="database">
+    Automatically searches your connected CRM, case management systems, document repositories, and other business applications to find relevant information for template fields.
+  </Card>
+  <Card title="Document Analysis" icon="file-search">
+    Reads and analyzes uploaded documents, contracts, correspondence, and other files to extract relevant information for template population.
+  </Card>
+  <Card title="Audio Transcription" icon="microphone">
+    Transcribes audio recordings, client meetings, depositions, and voice notes to extract key information needed for document generation.
+  </Card>
+  <Card title="Contextual User Queries" icon="question-circle">
+    Generates intelligent questions to ask users for missing information, using context from the template and available data to ask the most relevant questions.
+  </Card>
+</CardGroup>
+
+### Smart Data Processing
+
+<Callout type="tip" emoji="🧠">
+  **Template Agent Processing Capabilities:**
+  
+  - **Format Recognition:** Automatically detects and converts data formats (dates, addresses, phone numbers) to match template requirements
+  - **Language Understanding:** Interprets natural language input and converts it to structured template data
+  - **Relationship Mapping:** Understands relationships between different pieces of information and populates related fields intelligently
+  - **Validation Checking:** Verifies data accuracy and completeness before populating template fields
+</Callout>
+
+## Advanced Template Agent Features
+
+### Dynamic Information Discovery
+
+<Steps>
+  <Step title="Progressive Information Gathering">
+    The Template Agent uses a progressive approach, starting with the most readily available information and gradually expanding its search to fill remaining template fields.
+  </Step>
+  
+  <Step title="Context-Aware Searching">
+    Searches are performed with full context awareness - understanding the document type, client information, case details, and other relevant factors to find the most appropriate data.
+  </Step>
+  
+  <Step title="Cross-Reference Validation">
+    Automatically cross-references information from multiple sources to ensure accuracy and consistency across all template fields.
+  </Step>
+  
+  <Step title="Learning and Adaptation">
+    The Template Agent learns from previous document generations and user feedback to improve its information gathering strategies over time.
+  </Step>
+</Steps>
+
+### User Interaction Management
+
+When the Template Agent needs additional information from users, it employs intelligent interaction strategies:
+
+<CardGroup cols={2}>
+  <Card title="Contextual Questions" icon="chat-dots">
+    Generates specific, relevant questions based on the template requirements and already-available information, minimizing user burden.
+  </Card>
+  <Card title="Suggested Responses" icon="lightbulb">
+    Provides intelligent suggestions and auto-complete options based on similar previous cases and common responses.
+  </Card>
+  <Card title="Progressive Disclosure" icon="layer-group">
+    Asks for information in logical order, using previous answers to inform subsequent questions and reduce the total number of required inputs.
+  </Card>
+  <Card title="Multi-Modal Input" icon="universal-access">
+    Accepts information through various methods including text input, file uploads, voice recordings, and selections from dropdown menus.
+  </Card>
+</CardGroup>
+
+## Template Agent Configuration Options
+
+### Information Source Prioritization
+
+Configure how the Template Agent prioritizes different information sources:
+
+<Steps>
+  <Step title="Primary Sources">
+    Set primary data sources like your main CRM or case management system that should be searched first for template information.
+  </Step>
+  
+  <Step title="Secondary Sources">
+    Configure secondary sources such as document repositories, email systems, or external databases for additional information gathering.
+  </Step>
+  
+  <Step title="User Input Triggers">
+    Define conditions that trigger user input requests - when automated searches fail, when specific field types require human input, or when verification is needed.
+  </Step>
+  
+  <Step title="Default Value Application">
+    Establish rules for when to apply default values versus when to continue searching for or requesting specific information.
+  </Step>
+</Steps>
+
+### Processing and Output Options
+
+<CardGroup cols={2}>
+  <Card title="Quality Assurance" icon="shield-check">
+    Configure automatic quality checks, validation rules, and review requirements before document generation is completed.
+  </Card>
+  <Card title="Output Formatting" icon="file-export">
+    Set output preferences including file formats, naming conventions, storage locations, and distribution methods.
+  </Card>
+  <Card title="Approval Workflows" icon="clipboard-check">
+    Establish approval processes for AI-generated documents, including routing to appropriate reviewers and tracking approval status.
+  </Card>
+  <Card title="Integration Actions" icon="share-nodes">
+    Configure post-generation actions such as automatic filing, client notifications, calendar updates, or integration with other business systems.
+  </Card>
+</CardGroup>
+
+## Best Practices for Template Agent Usage
+
+<Steps>
+  <Step title="Data Source Optimization">
+    Ensure your connected applications have clean, well-organized data to maximize the Template Agent's ability to find relevant information automatically.
+  </Step>
+  
+  <Step title="Template Field Clarity">
+    Use clear, descriptive field names and comprehensive instructions in your templates to help the Template Agent understand exactly what information is needed.
+  </Step>
+  
+  <Step title="User Experience Design">
+    Design user interaction flows that minimize burden while ensuring all necessary information is collected for accurate document generation.
+  </Step>
+  
+  <Step title="Continuous Monitoring">
+    Regularly review Template Agent performance and user feedback to optimize information gathering strategies and improve automation effectiveness.
+  </Step>
+</Steps>
+
+## Error Handling and Fallback Strategies
+
+The Template Agent includes robust error handling and fallback mechanisms:
+
+<Callout type="warning" emoji="⚠️">
+  **Template Agent Fallback Strategies:**
+  
+  - **Missing Information:** Automatically identifies alternative data sources or prompts users with specific requests for missing information
+  - **Data Conflicts:** Presents conflicts to users with context and recommendations for resolution
+  - **System Unavailability:** Gracefully handles temporary system outages by caching requests and retrying operations
+  - **Validation Failures:** Provides clear error messages and guidance for correcting data issues before document generation
+</Callout>
+
+## Monitoring and Analytics
+
+Track Template Agent performance and document generation metrics:
+
+<CardGroup cols={2}>
+  <Card title="Success Rates" icon="chart-line">
+    Monitor how often the Template Agent successfully populates templates without requiring user input or manual intervention.
+  </Card>
+  <Card title="Information Sources" icon="pie-chart">
+    Analyze which data sources are most frequently used and identify opportunities to improve data connectivity and organization.
+  </Card>
+  <Card title="User Interaction Patterns" icon="users">
+    Track user interaction patterns to optimize question flows and reduce the burden on users while maintaining data quality.
+  </Card>
+  <Card title="Document Quality" icon="award">
+    Monitor document quality metrics and user satisfaction to continuously improve template configuration and Agent performance.
+  </Card>
+</CardGroup>
+
+<Callout type="info" emoji="📊">
+  Regular monitoring of Template Agent performance helps you identify optimization opportunities and ensures your document generation processes remain efficient and accurate over time.
+</Callout>
+
+Ready to put your templates to work? The Template Agent transforms your static templates into intelligent, autonomous document generation tools that seamlessly integrate with your entire business workflow ecosystem!

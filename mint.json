@@ -51,12 +51,21 @@
       "group": "Product Overview",
       "pages": [
         "product/workforce",
+        "product/templates",
         "product/workflows",
         "product/documents",
-        "product/templates",
         "product/security",
         "product/models",
         "product/integrations"
+      ]
+    },
+    {
+      "group": "Templates",
+      "pages": [
+        "templates/01_overview",
+        "templates/02_pdf-template",
+        "templates/03_docx-template",
+        "templates/04_using-templates"
       ]
     },
     {

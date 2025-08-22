@@ -1,0 +1,113 @@
+---
+title: "PDF Template"
+description: "Learn how to create and configure PDF templates with AI-powered form field detection for automated document generation"
+---
+
+import { Callout } from '@mintlify/components';
+
+## Create Your First PDF Template
+
+PDF templates in Odella are perfect for form-based documents where layout precision matters. Our AI automatically detects form fields and helps you configure intelligent filling instructions for seamless automation.
+
+<Callout type="info" emoji="📋">
+  PDF templates work best with documents that have existing form fields, such as government forms, applications, and standardized legal documents.
+</Callout>
+
+## Step-by-Step Template Creation
+
+<Steps>
+  <Step title="Upload Your PDF Template">
+    Start by uploading your PDF document to Odella. Navigate to the Templates section and click "Create New Template," then select "PDF Template" and upload your file. Ensure your PDF contains form fields for optimal AI detection.
+  </Step>
+  
+  <Step title="AI Form Field Detection">
+    Once uploaded, our AI automatically scans your PDF and detects all available form fields. The system identifies field types (text, checkboxes, dropdowns, signatures) and generates initial filling instructions for each field based on field names and context.
+  </Step>
+  
+  <Step title="Name and Describe Your Template">
+    Give your template a clear, descriptive name and detailed description. This is crucial - your AI employees use this information to determine which template to use in different contexts. Be specific about the document's purpose, when it should be used, and any special requirements.
+  </Step>
+  
+  <Step title="Review and Configure Form Fields">
+    Enter the template drafting view where you can review all detected form fields and their auto-generated instructions. Each field displays its type, current instruction, and preview of how it will be filled.
+  </Step>
+  
+  <Step title="Customize Field Instructions">
+    Fine-tune the instructions for each form field to match your specific needs. You can set default values, specify formatting requirements, adjust the drafting tone, or provide contextual guidance for the AI employee.
+  </Step>
+  
+  <Step title="Review and Publish">
+    Review your template configuration to ensure all fields are properly configured and instructions are clear. Once satisfied, publish your template to make it available for use by your AI employees and in workflows.
+  </Step>
+</Steps>
+
+## Advanced Field Configuration
+
+<CardGroup cols={2}>
+  <Card title="Default Values" icon="pen-to-square">
+    Set standard default values for fields that typically contain the same information, such as company names, addresses, or standard legal language.
+  </Card>
+  <Card title="Formatting Instructions" icon="text-size">
+    Specify formatting requirements like date formats (MM/DD/YYYY), currency notation, or text case preferences (uppercase, lowercase, title case).
+  </Card>
+  <Card title="Conditional Logic" icon="code-branch">
+    Create smart instructions that adapt based on context, such as "Use formal tone for court documents, casual tone for internal communications."
+  </Card>
+  <Card title="Validation Rules" icon="shield-check">
+    Define validation criteria to ensure data accuracy, such as required field lengths, acceptable value ranges, or format validation.
+  </Card>
+</CardGroup>
+
+## Instruction Examples
+
+<Callout type="tip" emoji="💡">
+  **Example Instructions for Common Fields:**
+  
+  - **Client Name Field:** "Insert the full legal name of the client as it appears in official documents. Use title case formatting."
+  - **Date Field:** "Use MM/DD/YYYY format. If no specific date is provided, use today's date."
+  - **Legal Description:** "Provide a comprehensive but concise description using formal legal language. Limit to 200 words maximum."
+  - **Signature Field:** "Insert '[CLIENT SIGNATURE]' placeholder for manual signing or use digital signature if available in workflow."
+</Callout>
+
+## Best Practices
+
+<Steps>
+  <Step title="Descriptive Naming">
+    Use clear, specific names like "Court Filing Motion Template" rather than generic names like "Legal Form 1." Include the document type and purpose.
+  </Step>
+  
+  <Step title="Comprehensive Descriptions">
+    Write detailed descriptions explaining when to use the template, required information, and any special considerations. This helps AI employees select the correct template.
+  </Step>
+  
+  <Step title="Field Organization">
+    Group related fields logically and provide context about how they relate to each other. This improves the AI's understanding of the document structure.
+  </Step>
+  
+  <Step title="Regular Updates">
+    Periodically review and update your templates based on usage patterns and feedback to maintain accuracy and relevance.
+  </Step>
+</Steps>
+
+## Using Your PDF Template
+
+Once published, your PDF template can be used in two main ways:
+
+<CardGroup cols={2}>
+  <Card title="AI Employee Integration" icon="robot">
+    Attach the template directly to an AI employee to enable automatic document generation as part of their capabilities. The AI employee can then generate documents using this template when needed.
+  </Card>
+  <Card title="Workflow Integration" icon="diagram-project">
+    Integrate the template into your custom workflows using the "Populate Template" block, enabling automated document generation at any stage of your business processes.
+  </Card>
+</CardGroup>
+
+<Callout type="info" emoji="📖">
+  For detailed instructions on how to use your published templates with AI employees and workflows, see our [Using Templates](/templates/04_using-templates) guide.
+</Callout>
+
+<Callout type="warning" emoji="⚖️">
+  Always review your PDF templates thoroughly before publishing them. Verify that all form fields are properly configured and that the instructions are clear and accurate for optimal AI performance.
+</Callout>
+
+Ready to create your first PDF template? Follow these steps to transform your static forms into intelligent, AI-powered document generation tools!
