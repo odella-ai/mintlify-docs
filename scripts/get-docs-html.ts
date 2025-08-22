@@ -4,7 +4,7 @@ import TurndownService from 'turndown';
 async function getDocsHtml(path: string): Promise<string> {
     try {
         // Make request to docs site
-        const response = await fetch(`https://docs.lawme.ai/block-reference/${path}`);
+        const response = await fetch(`https://docs.odella.ai/block-reference/${path}`);
         
         if (!response.ok) {
             throw new Error(`Failed to fetch docs: ${response.status} ${response.statusText}`);

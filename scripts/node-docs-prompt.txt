@@ -3006,7 +3006,7 @@ description: Create loops in your flow and control the iteration of values
 sidebarTitle: Loop Controller
 ---
 ## Overview
-The Loop Controller Block is a powerful tool that allows you to create loops in your flow. It's the only block in Lawme that can contain cycles of blocks, including itself. This block maintains the state of the loop and controls the flow of values through it.
+The Loop Controller Block is a powerful tool that allows you to create loops in your flow. It's the only block in Odella that can contain cycles of blocks, including itself. This block maintains the state of the loop and controls the flow of values through it.
 
 ## Key Features
 
@@ -3217,7 +3217,7 @@ sidebarTitle: Coalesce
 ---
 
 ## Overview
-The Coalesce Block functions similarly to the `COALESCE` function in SQL, returning the first non-null value from a list of inputs. In Lawme, "null" includes values that appear as "Not Ran" in the UI - blocks that have been excluded from the run due to control flow processing.
+The Coalesce Block functions similarly to the `COALESCE` function in SQL, returning the first non-null value from a list of inputs. In Odella, "null" includes values that appear as "Not Ran" in the UI - blocks that have been excluded from the run due to control flow processing.
 
 This block is particularly useful when working with a set of blocks where only one will run, allowing you to return the output of the first block that actually executes. See the examples section for more information on using this with a [Match Block](/block-reference/logic/match).
 
@@ -3337,7 +3337,7 @@ The If/Else block will not throw an error under normal circumstances. If both th
 ## FAQ
 
 <AccordionGroup>
-  <Accordion title="What is considered truthy in Lawme?">
+  <Accordion title="What is considered truthy in Odella?">
     The following values are considered truthy:
     - Boolean `true`
     - Any non-zero number
@@ -4382,7 +4382,7 @@ description: Apply AI-powered filtering to arrays using various models and provi
 sidebarTitle: AI Filter
 ---
 ## Overview
-The AI Filter Block applies a filter operation over an array of values where the filter condition is evaluated by one of the AI models from the 250+ models LawMe connects to. This powerful block allows you to leverage AI capabilities to perform complex filtering tasks on your data.## Inputs
+The AI Filter Block applies a filter operation over an array of values where the filter condition is evaluated by one of the AI models from the 250+ models Odella connects to. This powerful block allows you to leverage AI capabilities to perform complex filtering tasks on your data.## Inputs
 
 <ParamField path="System Prompt" type="string">
   The system prompt to send to the model. Optional. Used to provide high-level guidance to the AI model.
@@ -4743,7 +4743,7 @@ The `Output` of the Text Block will be `["[0] - Apple", "[1] - Banana", "[2] - C
 The `Flatten` setting treats each element of an array input as a separate element to be added to the main array. The `Deep` setting recursively flattens all array inputs.
 
 <Warning>
-  With flatten disabled, you can get arrays of arrays. These are not well supported in Lawme and you may have to use a [Code Block](/block-reference/data/code) to work with them.
+  With flatten disabled, you can get arrays of arrays. These are not well supported in Odella and you may have to use a [Code Block](/block-reference/data/code) to work with them.
 </Warning>
 
 ## Error Handling
@@ -5272,7 +5272,7 @@ The Audio Block will throw an error if:
   </Accordion>
 
   <Accordion title="Can I use the Audio Block to play audio?">
-    The Audio Block shows a playback bar on the Lawme UI, but otherwise, it cannot be used to play back audio during the flow's execution.
+    The Audio Block shows a playback bar on the Odella UI, but otherwise, it cannot be used to play back audio during the flow's execution.
   </Accordion>
 </AccordionGroup>
 
