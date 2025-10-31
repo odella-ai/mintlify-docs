@@ -1,6 +1,6 @@
 ---
 title: "DOCX Template"
-description: "Learn how to create and configure DOCX templates with Mustache syntax and AI-powered field detection for automated document generation"
+description: "Learn how to create and configure DOCX templates with Mustache-like syntax and AI-powered field detection for automated document generation"
 ---
 
  
@@ -25,22 +25,7 @@ DOCX templates in Odella are perfect for dynamic document creation with flexible
   </Step>
   
   <Step title="Edit Document with Mustache Syntax">
-    Enter the template drafting editor where you can modify your document using Mustache syntax to define variables, conditions, and loops. Mustache is a logic-less templating language that uses double curly braces `{{ }}` as delimiters. This syntax allows you to create dynamic content that adapts based on data inputs while maintaining document structure and formatting. Use the following syntax elements to create dynamic content:
-
-    | Syntax | Purpose | Example | Detailed Explanation |
-    |--------|---------|---------|---------------------|
-    | `{{ variable_name }}` | Insert a variable value | `{{ client_name }}`, `{{ contract_date }}` | Simple variable interpolation - replaces the placeholder with the actual value from your data. The variable name should be descriptive and match the data field exactly. Variables are case-sensitive and can include underscores but should avoid spaces. |
-    | `{{ ? condition }} content {{ / condition }}` | Conditional content display | `{{ ? is_corporate }} This is a corporate agreement {{ / is_corporate }}` | Conditional sections that only display content when the condition evaluates to true. The condition can be any boolean variable or expression. Content between the opening and closing tags will only appear in the final document if the condition is met. Perfect for showing different clauses based on client type, agreement terms, or other binary decisions. |
-    | `{{ # items }} {{ item_value }} {{ / items }}` | Loop through list items | `{{ # witnesses }} {{ name }}, {{ title }} {{ / witnesses }}` | Iteration blocks that repeat content for each item in a list or array. The opening tag `{{ # items }}` starts the loop, and the closing tag `{{ / items }}` ends it. Everything between these tags will be repeated for each item in the collection. Inside the loop, you can access properties of each item using dot notation or simple variable names. |
-    | `{{! comment text }}` | Add comments (not rendered) | `{{! This section handles payment terms }}` | Comment blocks that are ignored during template processing and won't appear in the final document. Use these for documentation, notes to other template editors, or temporary removal of content. Comments are essential for maintaining complex templates and explaining business logic to future editors. |
-
-    **Advanced Mustache Features:**
-    - **Nested Properties:** Access nested object properties using dot notation: `{{ client.address.street }}`
-    - **Inverted Sections:** Use `{{ ^ condition }}` to show content when a condition is false
-    - **Partial Templates:** Include reusable template sections with `{{ > partial_name }}`
-    - **Lambda Functions:** Execute custom functions during template processing for complex data manipulation
-
-    Use these elements to make your document dynamic and responsive to different data inputs while maintaining professional formatting and legal precision.
+    Enter the template drafting editor where you can modify your document using Mustache syntax to define variables, conditions, loops, equations, and formatting. The syntax uses double curly braces `{{ }}` as delimiters and allows you to create dynamic content that adapts based on data inputs while maintaining document structure and formatting.
   </Step>
   
   <Step title="Sync Template Fields">
@@ -56,103 +41,152 @@ DOCX templates in Odella are perfect for dynamic document creation with flexible
   </Step>
 </Steps>
 
+## Template Syntax Reference
+
+### Variables
+
+Insert dynamic values into your template using variable syntax.
+
+#### Basic Variables
+
+**Syntax:** `{{ variable_name }}`
+
+Simple variable interpolation replaces the placeholder with the actual value from your data. Variable names should be descriptive and match the data field exactly. Variables are case-sensitive and can include underscores but should avoid spaces.
+
+**Example:** `{{ client_name }}`, `{{ contract_date }}`
+
+#### Transform Pipes
+
+**Syntax:** `{{ variable_name | formatter }}` or `{{ variable_name | formatter(arg1, arg2) }}`
+
+Post-process variables with formatters for text transformation, currency formatting, or image embedding. Chain multiple pipes with additional `|` operators.
+
+**Available Pipes:**
+- `lowercase` - Converts text to lowercase
+- `uppercase` - Converts text to uppercase
+- `capitalize` - Capitalizes the first letter of each word
+- `currency(currencyISO, fractionDigits, locale)` - Formats as currency (default: USD, 0 decimals, en locale)
+- `image(width, height)` - Embeds an image from URL with specified dimensions
+
+**Example:** `{{ amount | currency(USD, 2) }}`, `{{ name | capitalize }}`
+
+### Conditionals
+
+Control which content appears based on conditions.
+
+#### Simple Conditionals
+
+**Syntax:** `{{ ? condition }} content {{ / condition }}`
+
+Conditional sections that only display content when the condition evaluates to true. Perfect for showing different clauses based on client type, agreement terms, or other binary decisions.
+
+**Example:** `{{ ? is_corporate }} This is a corporate agreement {{ / is_corporate }}`
+
+#### Inverted Conditionals
+
+**Syntax:** `{{ ^ condition }} content {{ / condition }}`
+
+Shows content when a condition is false. This is shorthand for `{{ if not condition }}`.
+
+**Example:** `{{ ^ is_premium_client }} Standard terms apply {{ / is_premium_client }}`
+
+#### If/Else Branching
+
+**Syntax:** `{{ if condition }} ... {{ else if condition_b }} ... {{ else }} ... {{ /endif }}`
+
+Multi-branch conditional sections with explicit if/else if/else logic. Note that `{{ ? condition }}` is shorthand for `{{ if condition }}` and `{{ ^ condition }}` is shorthand for `{{ if not condition }}`. Close blocks with `{{ /endif }}`.
+
+**Example:** `{{ if is_corporate }}Corporate{{ else if is_nonprofit }}Nonprofit{{ else }}Individual{{ /endif }}`
+
+### Loops
+
+Iterate through lists and arrays to generate repeating content.
+
+**Syntax:** `{{ # items }} {{ item_value }} {{ / items }}`
+
+Iteration blocks that repeat content for each item in a list or array. The opening tag `{{ # items }}` starts the loop, and the closing tag `{{ / items }}` ends it. Everything between these tags will be repeated for each item in the collection. Inside the loop, you can access properties of each item directly.
+
+**Example:** `{{ # witnesses }} {{ name }}, {{ title }} {{ / witnesses }}`
+
+**Special Variables:**
+- `{{ loop_index }}` - Provides automatic numbering starting from 1
+
+### Equations
+
+Compute values inline using arithmetic and function expressions.
+
+**Syntax:** `{{= expression }}`
+
+Evaluates arithmetic or function expressions. Reference variables using bracket notation `[variable_name]`. Basic arithmetic operators (`+`, `-`, `*`, `/`, `%`, `^`) and parentheses are supported.
+
+**Example:** `{{= 1 + 1 }}`, `{{= SUM([amounts]) }}`, `{{= ROUND([amount] * [tax_rate], 2) }}`
+
+<Callout type="info" emoji="🧮">
+  Variables in equations must be wrapped in square brackets: `[amount]`, `[tax_rate]`, `[prices]`.
+</Callout>
+
+#### Supported Equation Functions
+
+##### Aggregation Functions
+
+- **SUM(...numbers)** - Adds all numbers. Example: `{{=SUM([prices])}}`
+- **AVERAGE(...numbers)** - Returns arithmetic mean. Example: `{{=AVERAGE([scores])}}`
+- **COUNT(...values)** - Counts numbers in arguments. Example: `{{=COUNT([items])}}`
+- **MAX(...numbers)** - Returns largest value. Example: `{{=MAX([prices])}}`
+- **MIN(...numbers)** - Returns smallest value. Example: `{{=MIN([prices])}}`
+- **SUMPRODUCT(...arrays)** - Multiplies corresponding array components and sums. Example: `{{=SUMPRODUCT([quantities], [prices])}}`
+- **PRODUCT(...numbers)** - Multiplies all numbers. Example: `{{=PRODUCT([width], [height], [depth])}}`
+
+##### Rounding Functions
+
+- **ROUND(number, digits)** - Rounds to specified digits (default 0). Example: `{{=ROUND([amount], 2)}}`
+- **CEILING(number, significance)** - Rounds up to nearest multiple (default 1). Example: `{{=CEILING([amount], 5)}}`
+- **FLOOR(number, significance)** - Rounds down to nearest multiple (default 1). Example: `{{=FLOOR([amount], 5)}}`
+
+##### Math Functions
+
+- **ABS(number)** - Returns absolute value. Example: `{{=ABS([balance])}}`
+- **SQRT(number)** - Returns square root. Example: `{{=SQRT([area])}}`
+- **POWER(number, power)** - Raises to power. Example: `{{=POWER([base], 2)}}`
+- **MOD(number, divisor)** - Returns remainder from division. Example: `{{=MOD([total], 10)}}`
+
+##### Text Functions
+
+- **CONCATENATE(...text)** - Joins text strings. Example: `{{=CONCATENATE([first_name], " ", [last_name])}}`
+- **LEFT(text, numChars)** - Returns first N characters (default 1). Example: `{{=LEFT([code], 3)}}`
+- **RIGHT(text, numChars)** - Returns last N characters (default 1). Example: `{{=RIGHT([code], 4)}}`
+- **LEN(text)** - Returns string length. Example: `{{=LEN([description])}}`
+- **UPPER(text)** - Converts to uppercase. Example: `{{=UPPER([name])}}`
+- **LOWER(text)** - Converts to lowercase. Example: `{{=LOWER([email])}}`
+
+##### Logical Functions
+
+- **IF(condition, trueValue, falseValue)** - Returns value based on condition. Example: `{{=IF([is_premium], [price] * 0.9, [price])}}`
+
+### Comments
+
+**Syntax:** `{{! comment text }}`
+
+Comment blocks that are ignored during template processing and won't appear in the final document. Use these for documentation, notes to other template editors, or temporary removal of content.
+
+**Example:** `{{! This section handles payment terms }}`
+
 ## Advanced Template Configuration
 
 <CardGroup cols={2}>
   <Card title="Variable Types" icon="pen-to-square">
-    Configure different data types for variables including text, dates, numbers, and boolean values. Set formatting requirements and validation rules for each variable type. Define how dates should be formatted, whether numbers need currency symbols, and how boolean values should be displayed.
+    Configure different data types for variables including text, dates, numbers, and boolean values. Set formatting requirements and validation rules for each variable type.
   </Card>
   <Card title="Conditional Logic" icon="code-branch">
-    Create smart conditional sections that show or hide content based on data values, such as different clauses for different contract types or client categories. Combine multiple conditions using nested logic to create sophisticated document variations.
+    Create smart conditional sections that show or hide content based on data values, such as different clauses for different contract types or client categories.
   </Card>
   <Card title="Dynamic Lists" icon="list">
-    Use loop syntax to handle dynamic lists of items like witnesses, terms, payment schedules, or any repeating data structures in your documents. Lists can contain complex objects with multiple properties, allowing for rich, detailed repetitions.
+    Use loop syntax to handle dynamic lists of items like witnesses, terms, payment schedules, or any repeating data structures in your documents.
   </Card>
   <Card title="Default Values" icon="shield-check">
-    Set intelligent default values for common fields and define fallback content when optional data is not provided. Create graceful degradation where missing data doesn't break your document flow.
+    Set intelligent default values for common fields and define fallback content when optional data is not provided.
   </Card>
 </CardGroup>
-
-## Comprehensive Mustache Syntax Examples
-
-<Callout type="tip" emoji="💡">
-  **Real-World Template Patterns with Detailed Explanations:**
-  
-  - **Simple Variable Insertion:** 
-    ```
-    Dear {{ client_name }},
-    ```
-    This replaces `{{ client_name }}` with the actual client's name from your data. The variable name should exactly match the field name in your data source.
-  
-  - **Complex Conditional Logic:** 
-    ```
-    {{ ? is_individual }} 
-    acting in their individual capacity 
-    {{ / is_individual }}
-    {{ ? is_corporate }} 
-    acting through its duly authorized representatives 
-    {{ / is_corporate }}
-    ```
-    This creates mutually exclusive content blocks. Only one section will appear based on the client type. Conditions can be chained to handle multiple scenarios.
-  
-  - **Advanced Date Formatting:** 
-    ```
-    Date: {{ contract_date }}
-    Effective Date: {{ ? effective_date }}{{ effective_date }}{{ / effective_date }}{{ ^ effective_date }}{{ contract_date }}{{ / effective_date }}
-    ```
-    This shows how to handle optional dates with fallbacks. If no effective date is provided, it defaults to the contract date.
-  
-  - **Complex List Iteration:** 
-    ```
-    Witnesses:
-    {{ # witnesses }}
-    {{ loop_index }}. {{ name }} ({{ title }}){{ ? address }}, residing at {{ address }}{{ / address }}
-    {{ / witnesses }}
-    ```
-    This creates a numbered list of witnesses with optional address information. The `loop_index` provides automatic numbering.
-  
-  - **Nested Conditional Lists:** 
-    ```
-    {{ ? has_attachments }}
-    Attachments:
-    {{ # attachments }}
-    - {{ filename }}{{ ? description }}: {{ description }}{{ / description }}
-    {{ / attachments }}
-    {{ / has_attachments }}
-    ```
-    This shows how to combine conditionals with loops - only showing the attachments section if attachments exist.
-  
-  - **Documentation Comments:** 
-    ```
-    {{! Payment terms section - modify based on client credit rating }}
-    Payment Terms: {{ payment_terms }}
-    {{! TODO: Add late fee calculation formula }}
-    ```
-    Use comments to document business logic, remind about future updates, or explain complex template sections to other team members.
-
-  **Advanced Patterns:**
-  
-  - **Inverted Conditions (Show when false):**
-    ```
-    {{ ^ is_premium_client }}
-    Standard terms and conditions apply.
-    {{ / is_premium_client }}
-    ```
-    This content only appears for non-premium clients.
-  
-  - **Multiple Property Access:**
-    ```
-    {{ client.company.legal_name }} 
-    (a {{ client.company.state }} {{ client.company.entity_type }})
-    ```
-    Access nested object properties using dot notation for complex data structures.
-  
-  - **Conditional Formatting:**
-    ```
-    Total Amount: {{ ? currency_symbol }}{{ currency_symbol }}{{ / currency_symbol }}{{ amount }}{{ ? is_estimate }} (estimated){{ / is_estimate }}
-    ```
-    This shows how to conditionally include formatting elements like currency symbols and qualifiers.
-</Callout>
 
 ## Best Practices
 
@@ -190,6 +224,179 @@ Once published, your DOCX template can be used in two main ways:
 <Callout type="info" emoji="📖">
   For detailed instructions on how to use your published templates with AI employees and workflows, see our [Using Templates](/templates/04_using-templates) guide.
 </Callout>
+
+## Template Examples
+
+<Callout type="tip" emoji="💡">
+  Below are real-world template patterns with detailed explanations to help you build sophisticated documents.
+</Callout>
+
+### Variable Examples
+
+#### Simple Variable Insertion
+
+```
+Dear {{ client_name }},
+```
+
+This replaces `{{ client_name }}` with the actual client's name from your data. The variable name should exactly match the field name in your data source.
+
+#### Transform Pipe Examples
+
+**Basic Text Formatting:**
+```
+Company: {{ company_name | uppercase }}
+Email: {{ email | lowercase }}
+Client Name: {{ full_name | capitalize }}
+```
+
+**Currency Formatting:**
+```
+Total: {{ amount | currency(USD, 2, en) }}
+Price: {{ price | currency(EUR, 2, de) }}
+Balance: {{ balance | currency(GBP, 0, en-GB) }}
+```
+
+**Chaining Multiple Pipes:**
+```
+{{ company_name | lowercase | capitalize }}
+```
+This first converts to lowercase, then capitalizes each word.
+
+**Image Embedding:**
+```
+{{ company_logo | image(300, 150) }}
+```
+Embeds the image at 300px width and 150px height.
+
+### Conditional Examples
+
+#### Simple Conditional Logic
+
+```
+{{ ? is_individual }} 
+acting in their individual capacity 
+{{ / is_individual }}
+{{ ? is_corporate }} 
+acting through its duly authorized representatives 
+{{ / is_corporate }}
+```
+
+This creates mutually exclusive content blocks. Only one section will appear based on the client type.
+
+#### If/Else/Else If Chain
+
+```
+{{ if is_individual }}
+acting in their individual capacity
+{{ else if is_corporate }}
+acting through its duly authorized representatives
+{{ else }}
+acting as applicable
+{{ /endif }}
+```
+
+Equivalent branching using explicit if/else if/else with a closing `{{ /endif }}`.
+
+#### Inverted Conditions
+
+```
+{{ ^ is_premium_client }}
+Standard terms and conditions apply.
+{{ / is_premium_client }}
+```
+
+This content only appears for non-premium clients.
+
+#### Conditional Formatting
+
+```
+Total Amount: {{ ? currency_symbol }}{{ currency_symbol }}{{ / currency_symbol }}{{ amount }}{{ ? is_estimate }} (estimated){{ / is_estimate }}
+```
+
+This shows how to conditionally include formatting elements like currency symbols and qualifiers.
+
+### Loop Examples
+
+#### Simple List Iteration
+
+```
+Witnesses:
+{{ # witnesses }}
+{{ loop_index }}. {{ name }} ({{ title }}){{ ? address }}, residing at {{ address }}{{ / address }}
+{{ / witnesses }}
+```
+
+This creates a numbered list of witnesses with optional address information. The `loop_index` provides automatic numbering.
+
+#### Nested Conditional Lists
+
+```
+{{ ? has_attachments }}
+Attachments:
+{{ # attachments }}
+- {{ filename }}{{ ? description }}: {{ description }}{{ / description }}
+{{ / attachments }}
+{{ / has_attachments }}
+```
+
+This shows how to combine conditionals with loops - only showing the attachments section if attachments exist.
+
+### Equation Examples
+
+#### Basic Equations
+
+```
+{{=1 + 1}}
+{{=SUM([line_items])}}
+{{=ROUND([amount] * [tax_rate], 2)}}
+{{=IF([is_discounted], [amount] * 0.9, [amount])}}
+{{=CONCATENATE("Total: $", ROUND(SUM([prices]), 2))}}
+{{=SUMPRODUCT([quantities], [unit_prices])}}
+{{=AVERAGE([scores]) * 100}}
+```
+
+#### Loops with Equations
+
+You can combine loops with equations to display lists and calculate totals. Use dot notation `[array.property]` to access nested properties within arrays when using equations:
+
+```
+Assets:
+{{#assets}}
+Item {{idx}}: {{value}}
+{{/assets}}
+
+Total Asset Value: {{=SUM([assets.value])}}
+```
+
+This example loops through an `assets` array to display each item, then uses `{{=SUM([assets.value])}}` to calculate the total of all `value` properties in the array.
+
+#### Complex Invoice Example
+
+```
+Line Items:
+{{#line_items}}
+- {{description}}: ${{price}} x {{quantity}} = ${{=ROUND([price] * [quantity], 2)}}
+{{/line_items}}
+
+Subtotal: ${{=SUM([line_items.total])}}
+Tax ({{tax_rate}}%): ${{=ROUND(SUM([line_items.total]) * [tax_rate] / 100, 2)}}
+Grand Total: ${{=ROUND(SUM([line_items.total]) * (1 + [tax_rate] / 100), 2)}}
+```
+
+<Callout type="tip" emoji="💡">
+  Equations can be nested and combined. For example: `{{=ROUND(SUM([amounts]) * [tax_rate], 2)}}` calculates the sum of amounts, multiplies by tax rate, and rounds to 2 decimal places.
+</Callout>
+
+### Comment Examples
+
+```
+{{! Payment terms section - modify based on client credit rating }}
+Payment Terms: {{ payment_terms }}
+{{! TODO: Add late fee calculation formula }}
+```
+
+Use comments to document business logic, remind about future updates, or explain complex template sections to other team members.
 
 <Callout type="warning" emoji="⚖️">
   Always review your DOCX templates thoroughly before publishing them. Test all template variables, conditions, and loops to ensure they work correctly and produce the expected output. Pay special attention to conditional logic to ensure all possible data combinations produce valid documents.
