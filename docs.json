@@ -1,6 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Starter Kit",
+  "description": "Build your AI workforce with Odella - digital employees that execute tasks, automate workflows, and scale instantly.",
   "theme": "almond",
   "logo": {
     "href": "https://odella.ai",
@@ -8,10 +9,16 @@
     "light": "/logo/light.png"
   },
   "favicon": "/favicon.png",
+  "thumbnails": {
+    "appearance": "light"
+  },
   "colors": {
     "primary": "#7C5CFE",
     "light": "#B09DFE",
     "dark": "#5740B2"
+  },
+  "appearance": {
+    "default": "light"
   },
   "navbar": {
     "links": [
@@ -218,6 +225,23 @@
       "github": "https://www.github.com/helpmefindlaw",
       "linkedin": "https://www.linkedin.com/company/odella-ai"
     }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
+  },
+  "seo": {
+    "indexing": "all"
+  },
+  "errors": {
+    "404": {
+      "redirect": false
+    }
+  },
+  "integrations": {
   }
-  
 }
