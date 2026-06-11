@@ -1,0 +1,43 @@
+---
+title: "Actions"
+description: "Run worker automations when external events happen."
+---
+
+**Actions** let a worker respond to events from connected services. Instead of waiting for a person to ask or a calendar time to arrive, an action starts when a configured trigger occurs.
+
+<Note>
+Actions are feature-gated. If your workspace does not have Actions enabled, this section will not appear in the app.
+</Note>
+
+## What an action contains
+
+| Setting | What it does |
+| --- | --- |
+| **Service** | The connected provider that sends the event. |
+| **Trigger** | The event that starts the action, such as a new message, file, item, or record. |
+| **Trigger configuration** | Required provider-specific fields. These change depending on the selected trigger. |
+| **Filters and conditions** | Rules that decide whether the worker should act on the event. |
+| **Target work** | The workflow or task the worker runs when the event matches. |
+| **Enabled** | Turns the action on or off without deleting it. |
+
+## Using action cards
+
+Each action appears as a card. From the card, you can:
+
+- Review the action summary.
+- See configured conditions.
+- Open details.
+- Enable or disable the action.
+
+## When to use Actions
+
+Use actions for work like:
+
+- Processing new inbound emails that match certain criteria
+- Starting a workflow when a record changes in an external system
+- Reviewing new files as they arrive
+- Creating follow-up work from operational events
+
+<Warning>
+Actions can trigger work automatically. Before enabling actions that send messages, edit records, or perform destructive operations, review the worker's Security & Privacy settings.
+</Warning>

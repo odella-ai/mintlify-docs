@@ -1,243 +1,288 @@
 ---
 title: 'All Blocks'
-description: 'A comprehensive list of all built-in blocks in Odella'
+description: 'A comprehensive list of all built-in workflow blocks in Odella'
 sidebarTitle: 'Overview'
 ---
 
+This page lists every built-in workflow block registered in `packages/workflow`. Each page path uses the block ID converted to kebab-case.
+
 ## AI
 
-Leverage the power of artificial intelligence to enhance your workflows with these AI-powered blocks.
-
 <CardGroup cols={2}>
-  <Card title="AI Filter" icon="filter" href="./ai/ai-filter">
-    Filters data using AI-powered criteria.
+  <Card title="Ask AI" href="/block-reference/ai/ai">
+    Makes a call to an LLM chat model.
   </Card>
-  <Card title="Analyze Table" icon="table" href="./ai/analyze-table">
-    Performs AI analysis on tabular data.
+  <Card title="AI Filter" href="/block-reference/ai/ai-filter">
+    Applys a AI call to each item in a list of values.
   </Card>
-  <Card title="Ask AI" icon="question" href="./ai/ask-ai">
-    Queries an AI model for information or answers.
+  <Card title="AI Scorer" href="/block-reference/ai/ai-scorer">
+    Scores each message in a chat-message[] array using an AI model. Each message is scored between 0 and 1 based on the provided scoring criteria.
   </Card>
-  <Card title="Create Chart" icon="chart-bar" href="./ai/create-chart">
-    Generates charts or visualizations using AI.
+  <Card title="Analyze Image" href="/block-reference/ai/analyze-image">
+    Analyzes the contents of an image. If the image is a chart, it will provide an analysis of any trends or insights.
   </Card>
-  <Card title="Decision" icon="scale-balanced" href="./ai/decision">
-    Makes AI-powered decisions based on input data.
+  <Card title="Analyze Table" href="/block-reference/ai/analyze-table">
+    This node allows you to analyze a table using AI. You can describe the analysis you would like to perform on the table and the AI will generate the code for you.
   </Card>
-  <Card title="Describe Image" icon="image" href="./ai/describe-image">
-    Generates descriptions of images using AI.
+  <Card title="Assemble Message" href="/block-reference/ai/assemble-message">
+    Assembles a single chat message from multiple parts. Parts can be text, images, audio, or files. Not every model supports all modalities, so ensure that the downstream model supports the parts you include.
   </Card>
-  <Card title="Extract Data" icon="database" href="./ai/extract-data">
-    Extracts structured data from unstructured text using AI.
+  <Card title="Categorizer" href="/block-reference/ai/categorizer">
+    Classifies messages into predefined categories using an AI model. Each category has a title and description that defines what types of messages belong to it. The LLM will evaluate the messages against each category's criteria and classify accordingly.
   </Card>
-  <Card title="Generate Questions" icon="circle-question" href="./ai/generate-questions">
-    Creates relevant questions based on given context using AI.
+  <Card title="Create Chart" href="/block-reference/ai/create-chart">
+    This node allows you to create a chart image using AI. You can describe the chart you would like to create using the input table and the AI will generate the code to create the graph for you.
   </Card>
-  <Card title="Research AI" icon="magnifying-glass" href="./ai/research-ai">
-    Conducts AI-powered research on a given topic.
+  <Card title="Extract Data" href="/block-reference/ai/extract-data">
+    Applies an LLM to extract data from the supplied context, based on the schema.
+  </Card>
+  <Card title="Generate Questions" href="/block-reference/ai/generate-questions">
+    Generates a number of questions given the context and supplied instructions.
+  </Card>
+  <Card title="Research AI" href="/block-reference/ai/research">
+    Researches sources that answer your query using our Research AI. It can search any of our public stores or your private document stores.
   </Card>
 </CardGroup>
 
-## Loaders
-
-Load and parse various types of data into your workflows with these loader blocks.
+## Input/Output
 
 <CardGroup cols={2}>
-  <Card title="Read Binary" icon="file-binary" href="./loaders/read-binary">
-    Reads binary data from a file.
+  <Card title="Input" href="/block-reference/io/graph-input">
+    Defines an input for the flow which can be passed in when the flow is called, or defines one of the input ports when the flow is a subflow.
   </Card>
-  <Card title="Read File" icon="file-arrow-down" href="./loaders/read-file">
-    Reads the contents of a specified file.
+  <Card title="Output" href="/block-reference/io/graph-output">
+    Each instance of this node represents an individual output of the flow. The value passed into this node becomes part of the overall output of the flow.
   </Card>
-  <Card title="Read Table" icon="table" href="./loaders/read-table">
-    Reads and parses tabular data from a file.
+  <Card title="User Input" href="/block-reference/io/user-input">
+    Prompts the user for input during the execution of the flow. The user's response becomes the output of this node.
   </Card>
-</CardGroup>
-
-## Draft
-
-Create and manipulate draft documents within your workflows using these draft-related blocks.
-
-<CardGroup cols={2}>
-  <Card title="Draft" icon="pencil" href="./draft/draft">
-    Creates draft document using text and images.
+  <Card title="Upload File" href="/block-reference/io/upload-file">
+    User input node for file uploads. Outputs the file as a file object or list of file objects for further processing.
   </Card>
-  <Card title="Populate Template" icon="file-lines" href="./draft/populate-template">
-    Fills a template with provided data.
-  </Card>
-  <Card title="Table to File" icon="file-excel" href="./draft/table-to-file">
-    Converts tabular data to a file format.
-  </Card>
-  <Card title="Text to File" icon="file-lines" href="./draft/text-to-file">
-    Converts text content to a file.
-  </Card>
-</CardGroup>
-
-
-## Logic
-
-Control the flow and execution of your workflows with these essential logic blocks.
-
-<CardGroup cols={2}>
-  <Card title="Abort Flow" icon="stop" href="./logic/abort-flow">
-    Immediately stops the execution of the entire flow.
-  </Card>
-  <Card title="Coalesce" icon="code-merge" href="./logic/coalesce">
-    Returns the first non-null value from a list of inputs.
-  </Card>
-  <Card title="Compare" icon="not-equal" href="./logic/compare">
-    Performs comparison operations between two input values.
-  </Card>
-  <Card title="Delay" icon="clock" href="./logic/delay">
-    Introduces a pause in the execution of the flow.
-  </Card>
-  <Card title="If/Else" icon="code-branch" href="./logic/if-else">
-    Chooses between two values based on a condition.
-  </Card>
-  <Card title="Loop Controller" icon="rotate" href="./logic/loop-controller">
-    Creates loops within your flow.
-  </Card>
-  <Card title="Match" icon="equals" href="./logic/match">
-    Matches a string input against regular expressions.
-  </Card>
-  <Card title="Passthrough" icon="right-left" href="./logic/passthrough">
-    Transfers the input value directly to the output.
-  </Card>
-  <Card title="Race Inputs" icon="flag-checkered" href="./logic/race-inputs">
-    Outputs the value of the first input to complete.
-  </Card>
-  <Card title="Raise Event" icon="bell" href="./logic/raise-event">
-    Triggers an event within the flow.
+  <Card title="Confirm" href="/block-reference/io/confirm">
+    Prompts the user for a confirmation to continue. Outputs the value if the user confirms.
   </Card>
 </CardGroup>
 
 ## Data
 
-Manage and manipulate various types of data within your workflows using these data-centric blocks.
+<CardGroup cols={2}>
+  <Card title="Array" href="/block-reference/data/array">
+    Creates an array from the input values. By default, flattens any arrays which are inputs into a single array. Can be configured to keep the arrays separate, or deeply flatten arrays. Useful for both creating and merging arrays. The number of inputs is dynamic based on the number of connections.
+  </Card>
+  <Card title="Bool" href="/block-reference/data/boolean">
+    Outputs a boolean constant, or converts an input value into a boolean.
+  </Card>
+  <Card title="Date" href="/block-reference/data/date">
+    A date picker node to select a date.
+  </Card>
+  <Card title="File" href="/block-reference/data/file">
+    Provides an static file to use.
+  </Card>
+  <Card title="Image" href="/block-reference/data/image">
+    Defines a static image for use with other nodes. Can convert a binary type into an image type.
+  </Card>
+  <Card title="Number" href="/block-reference/data/number">
+    Outputs a number constant, or converts an input value into a number. Can be configured to round the number to a certain number of decimal places.
+  </Card>
+  <Card title="Object" href="/block-reference/data/object">
+    Creates an object from input values and a JSON template, escaping the input values and inserting them into the template. Use double-quotes around the input values to escape them. String values are automatically escaped. Useful for creating objects from multiple inputs.
+  </Card>
+  <Card title="Random Number" href="/block-reference/data/random-number">
+    Outputs a random number between the configured min and max values. Can be configured to output only integers, and whether the max value is inclusive or exclusive.
+  </Card>
+  <Card title="Text" href="/block-reference/data/text">
+    Outputs a string of text. It can also interpolate values using {{tags}}. The inputs are dynamic based on the interpolation tags.
+  </Card>
+</CardGroup>
+
+## Loaders
 
 <CardGroup cols={2}>
-  <Card title="Array" icon="layer-group" href="./data/array">
-    Constructs or merges arrays from multiple inputs.
+  <Card title="Read Binary" href="/block-reference/loaders/read-binary">
+    Reads the contents of the specified file and outputs it as binary.
   </Card>
-  <Card title="Audio" icon="volume-high" href="./data/audio">
-    Defines an audio sample for use with other blocks.
+  <Card title="Read Images" href="/block-reference/loaders/read-images">
+    Reads the contents of the specified file and outputs each page as an image.
   </Card>
-  <Card title="Bool" icon="toggle-on" href="./data/bool">
-    Outputs a boolean constant or converts input to boolean.
+  <Card title="Read Table" href="/block-reference/loaders/read-table">
+    Reads and parses a CSV file into a table data type.
   </Card>
-  <Card title="Date" icon="calendar" href="./data/date">
-    Outputs a date value.
+  <Card title="Read Text" href="/block-reference/loaders/read-text">
+    Reads the contents of the specified file and outputs it as a string.
   </Card>
-  <Card title="File" icon="file" href="./data/file">
-    Handles file operations within the workflow.
+  <Card title="Transcribe Audio" href="/block-reference/loaders/transcribe-audio">
+    Transcribes speech from an audio file or audio data using an LLM. Accepts either audio data type or file data type as input.
   </Card>
-  <Card title="Image" icon="image" href="./data/image">
-    Defines a static image for use with other blocks.
+</CardGroup>
+
+## Logic
+
+<CardGroup cols={2}>
+  <Card title="Abort Flow" href="/block-reference/logic/abort">
+    Aborts the execution of the entire flow immediately. Can either "successfully" abort the flow (early-exit), or "error" abort the graph.
   </Card>
-  <Card title="Number" icon="hashtag" href="./data/number">
-    Outputs a constant number value or converts input to a number.
+  <Card title="Checklist" href="/block-reference/logic/checklist">
+    Evaluates messages against a list of conditions. All conditions must be satisfied for the messages to be routed to the success output. If any condition fails, the messages are routed to the failure output.
   </Card>
-  <Card title="Object" icon="cube" href="./data/object">
-    Creates an object from input values and a JSON template.
+  <Card title="Coalesce" href="/block-reference/logic/coalesce">
+    Takes in any number of inputs and outputs the first value that exists. Useful for consolidating branches after a Match node. This node can also "consume" the "Not Ran" value.
+  </Card>
+  <Card title="Compare" href="/block-reference/logic/compare">
+    Compares two values using the configured operator and outputs the result. If the data types of the values do not match, then the B value is converted to the type of the A value.
+  </Card>
+  <Card title="Delay" href="/block-reference/logic/delay">
+    Delays the execution and then passes the input value to the output without any modifications.
+  </Card>
+  <Card title="If/Else" href="/block-reference/logic/if-else">
+    Takes in three inputs: a condition, a true value, and a false value. If the condition is truthy, the true value is passed through the output port. If the condition is not truthy, the false value is passed through the output port. This node can "consume" a `Not Ran` to continue a graph from that point.
+  </Card>
+  <Card title="Match" href="/block-reference/logic/match">
+    Any number of regular expressions can be configured, each corresponding to an output of the node. The output port of the first matching regex will be ran, and all other output ports will not be ran.
+  </Card>
+  <Card title="Passthrough" href="/block-reference/logic/passthrough">
+    Simply passes the input value to the output without any modifications.
+  </Card>
+  <Card title="Race Inputs" href="/block-reference/logic/race-inputs">
+    Takes in multiple inputs and outputs the value of the first one to finish. The other inputs are cancelled.
+  </Card>
+  <Card title="Route" href="/block-reference/logic/route">
+    Routes messages to different outputs based on LLM evaluation of multiple conditions. Each option has a prompt that describes when messages should be routed to that output. The LLM will evaluate the messages against each option's criteria and route accordingly.
+  </Card>
+  <Card title="Switch" href="/block-reference/logic/switch">
+    Takes in a condition and a value. If the condition is truthy, the value is passed through the True port, and the False port is not ran. If the condition is falsy, the value is passed through the False port, and the True port is not ran.
   </Card>
 </CardGroup>
 
 ## Modifiers
 
-Transform and manipulate data within your workflows using these versatile modifier blocks.
-
 <CardGroup cols={2}>
-  <Card title="Chunk" icon="puzzle-piece" href="./modifiers/chunk">
-    Splits a string into an array of strings based on a token count.
+  <Card title="Chunk" href="/block-reference/modifiers/chunk">
+    Splits the input text into an array of chunks based on an approximate GPT token count per chunk. The "overlap" setting allows you to partially overlap the chunks for redundancy. Can also be used for string length truncation by only using the `First` or `Last` outputs of the node.
   </Card>
-  <Card title="Extract JSON" icon="code" href="./modifiers/extract-json">
-    Extracts JSON data from a string or object.
+  <Card title="Convert File" href="/block-reference/modifiers/convert-file">
+    Converts a file between PDF and DOCX formats.
   </Card>
-  <Card title="Extract Markdown Code Blocks" icon="code" href="./modifiers/extract-markdown-code-blocks">
-    Extracts code blocks from Markdown text.
+  <Card title="Convert Format" href="/block-reference/modifiers/convert-format">
+    Converts data to a text format. - **JSON** — converts the input to a JSON string - **YAML** — converts the input to a YAML string
   </Card>
-  <Card title="Extract Markdown Table Blocks" icon="table" href="./modifiers/extract-markdown-table-blocks">
-    Extracts table blocks from Markdown text.
+  <Card title="Destructure" href="/block-reference/modifiers/destructure">
+    Destructures the input value by extracting values at the specified paths. The paths use JSONPath notation to navigate through the value.
   </Card>
-  <Card title="Extract YAML" icon="file-code" href="./modifiers/extract-yaml">
-    Extracts YAML data from a string or object.
+  <Card title="Extract from Text" href="/block-reference/modifiers/extract-from-text">
+    Extracts structured data from text. Supports multiple formats: - **JSON** — finds and parses the first JSON object or array - **YAML** — finds and parses YAML by a root property name - **Code Blocks** — extracts fenced code blocks from markdown - **Tables** — extracts tables from markdown - **Pattern** — extracts text using a regular expression
   </Card>
-  <Card title="Filter" icon="filter" href="./modifiers/filter">
-    Filters elements of an array based on boolean values.
+  <Card title="Filter" href="/block-reference/modifiers/filter">
+    Takes in both an array of values, and an array of booleans of the same length, and filters the array where the corresponding boolean is true.
   </Card>
-  <Card title="Flatten" icon="layer-group" href="./modifiers/flatten">
-    Flattens nested arrays into a single-level array.
+  <Card title="Flatten" href="/block-reference/modifiers/flatten">
+    Takes in a nested array and flattens the array to a single level.
   </Card>
-  <Card title="Hash" icon="hashtag" href="./modifiers/hash">
-    Generates a hash value from input data.
+  <Card title="Get Value" href="/block-reference/modifiers/get-value">
+    Gets a value from an object using a path expression. Use JSONPath notation to navigate through the object, for example: - `$.name` — get the "name" field - `$.items[0]` — get the first item - `$.users[*].email` — get all user emails
   </Card>
-  <Card title="Index" icon="list-ol" href="./modifiers/index">
-    Retrieves an element from an array at a specified index.
+  <Card title="Hash" href="/block-reference/modifiers/hash">
+    Computes a hash of the input value using the configured hash function.
   </Card>
-  <Card title="Join" icon="link" href="./modifiers/join">
-    Concatenates an array of strings into a single string.
+  <Card title="Index" href="/block-reference/modifiers/index">
+    Takes in both an array of values, and an index value or an array of indicies, and selects the values at the given indicies.
   </Card>
-  <Card title="Pop" icon="arrow-up-from-bracket" href="./modifiers/pop">
-    Removes the first or last element from an array.
+  <Card title="Join" href="/block-reference/modifiers/join">
+    Takes an array of strings, and joins them using the configured delimiter. Defaults to a newline.
   </Card>
-  <Card title="Shuffle" icon="shuffle" href="./modifiers/shuffle">
-    Randomizes the order of elements in an array.
+  <Card title="Merge PDFs" href="/block-reference/modifiers/merge-pdf">
+    Merges multiple PDF files into a single PDF document. The files will be merged in the order they are provided. Supports up to 10 input ports, each accepting either a single file or an array of files.
   </Card>
-  <Card title="Slice" icon="scissors" href="./modifiers/slice">
-    Extracts a specific portion of an array.
+  <Card title="Pop" href="/block-reference/modifiers/pop">
+    Pops the last value off the input array and outputs the new array and the popped value. Can also be used to just extract the last value from an array.
+  </Card>
+  <Card title="Shuffle" href="/block-reference/modifiers/shuffle">
+    Shuffles the input array. Outputs the shuffled array.
+  </Card>
+  <Card title="Slice" href="/block-reference/modifiers/slice">
+    Slices an array from the start index for the count number of elements. Useful for extracting a portion of an array.
   </Card>
 </CardGroup>
 
-## IO
-
-Manage input and output operations in your workflows with these IO-focused blocks.
+## Draft
 
 <CardGroup cols={2}>
-  <Card title="Confirm" icon="circle-check" href="./io/confirm">
-    Prompts the user for confirmation during flow execution.
+  <Card title="AI-Fill PDF" href="/block-reference/draft/ai-fill-pdf">
+    Fills a PDF form using AI. Extracts form fields from a PDF and uses a vision-language model to populate them based on the provided context.
   </Card>
-  <Card title="Input" icon="arrow-right-to-bracket" href="./io/input">
-    Defines an input for a flow.
+  <Card title="Draft" href="/block-reference/draft/draft">
+    A versatile drafting node that has a selection of pre-configured drafting templates for common use cases.
   </Card>
-  <Card title="Output" icon="arrow-right-from-bracket" href="./io/output">
-    Defines the outputs of a flow.
+  <Card title="Populate Template" href="/block-reference/draft/populate-template">
+    Populates a template document using AI-extracted field values from the input messages. Fields that cannot be determined from the messages are left blank.
   </Card>
-  <Card title="Upload File" icon="file-arrow-up" href="./io/upload-file">
-    Allows file upload during flow execution.
+  <Card title="Table To File" href="/block-reference/draft/table-to-file">
+    Converts a table to a file based on the specified formats.
   </Card>
-  <Card title="User Input" icon="keyboard" href="./io/user-input">
-    Prompts the user for input during flow execution.
+  <Card title="Text To File" href="/block-reference/draft/text-to-file">
+    Converts text to files based on the specified formats.
   </Card>
 </CardGroup>
 
 ## Advanced
 
-Implement complex operations and extend your workflow capabilities with these advanced blocks.
-
 <CardGroup cols={2}>
-  <Card title="Code" icon="code" href="./advanced/code">
-    Securely executes arbitrary Python code during a flow's operation.
+  <Card title="Code" href="/block-reference/advanced/code">
+    Executes a piece of Python code. See the Documentation for more information on how to write code for the Code Node.
   </Card>
-  <Card title="Comment" icon="comment-dots" href="./advanced/comment">
-    Adds notes or comments to a flow.
+  <Card title="Comment" href="/block-reference/advanced/comment">
+    A comment node is a node that does nothing. It is useful for adding notes to a graph.
   </Card>
-  <Card title="HTTP Call" icon="globe" href="./advanced/http-call">
-    Makes an HTTP call to a specified URL.
+  <Card title="HTTP Call" href="/block-reference/advanced/http-call">
+    Makes an HTTP call to the specified URL with the given method, headers, and body.
   </Card>
-  <Card title="Subflow" icon="diagram-project" href="./advanced/subflow">
-    Executes another flow within the current flow.
+  <Card title="Raise Event" href="/block-reference/advanced/raise-event">
+    Raises an event that the host workflow or a 'Wait For Event' node can listen for.
   </Card>
-  <Card title="Wait For Event" icon="hourglass" href="./advanced/wait-for-event">
-    Pauses the execution until a specific event is signaled.
+  <Card title="Subflow" href="/block-reference/advanced/sub-graph">
+    Executes another flow. Inputs and outputs are defined by Flow Input and Flow Output nodes within the subflow.
+  </Card>
+  <Card title="Wait For Event" href="/block-reference/advanced/wait-for-event">
+    Waits for a specific event to be raised by a 'Raise Event' node or the host workflow. The event name can be configured.
   </Card>
 </CardGroup>
 
 ## Agents
 
-Enhance your workflows with AI agent capabilities using these agent-specific blocks.
-
 <CardGroup cols={2}>
-  <Card title="Auto System Prompt" icon="robot" href="./agents/auto-system-prompt">
-    Automatically generates a system prompt for AI agents.
+  <Card title="Agent" href="/block-reference/agents/agent">
+    Executes a task by intelligently selecting and using available tools. The agent will analyze the task, break it down into steps, and execute the appropriate tools to accomplish the goal.
+  </Card>
+  <Card title="Template Agent" href="/block-reference/agents/template-agent">
+    Intelligently populates templates by gathering missing information using tools or by asking users. Features flexible tool-based operations, batch template population, and intelligent context gathering.
   </Card>
 </CardGroup>
+
+## Documents
+
+<CardGroup cols={2}>
+  <Card title="Add File to Document Store" href="/block-reference/documents/add-file-to-document-store">
+    Adds a file to the selected document store.
+  </Card>
+  <Card title="Analyze Documents" href="/block-reference/documents/analyze-documents">
+    Analyzes documents in a document store using aggregations like count, sum, and average. Describe your analysis in plain English — for example, "count contracts by jurisdiction" or "total settlement amount by year".
+  </Card>
+  <Card title="Find Document" href="/block-reference/documents/find-document">
+    Finds a single document in a document store by matching metadata fields. Add match criteria to create input ports — wire values from upstream nodes to look up documents by case number, reference ID, client name, etc.
+  </Card>
+  <Card title="Search Documents" href="/block-reference/documents/search-documents">
+    Searches document stores to find relevant documents. Supports semantic search (vector similarity), structured filtering (metadata queries), or hybrid mode that combines both and re-ranks results. Can search across multiple stores simultaneously.
+  </Card>
+  <Card title="New Document Added" href="/block-reference/documents/trigger-document-store-new-record">
+    Triggers when a new document finishes processing in a document store. Outputs the document metadata including title, type, extracted metadata, and content URL.
+  </Card>
+</CardGroup>
+
+## Triggers
+
+<CardGroup cols={2}>
+  <Card title="Schedule" href="/block-reference/triggers/trigger-schedule">
+    Run workflow on a schedule using cron expressions. Configure the cron expression and timezone to schedule when the workflow should execute.
+  </Card>
+</CardGroup>
+

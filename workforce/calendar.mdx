@@ -1,0 +1,46 @@
+---
+title: "Calendar"
+description: "Schedule one-off or recurring work for an AI employee."
+---
+
+Use **Calendar** to schedule work for a worker. Scheduled tasks are useful for recurring reports, daily checks, weekly summaries, reminders, and any work that should happen at a specific time.
+
+## Creating a scheduled task
+
+You can create a task from a future calendar slot or with the create task action.
+
+A scheduled task includes:
+
+| Setting | What it does |
+| --- | --- |
+| **Name** | A short label for the scheduled task. |
+| **Task instructions** | The prompt the worker receives when the task runs. Explain the outcome you expect. |
+| **Schedule type** | Choose a one-time task or a recurring task. |
+| **Date and time** | When a one-time task should run. Past dates cannot be scheduled. |
+| **Recurring schedule** | A repeating cadence for recurring work. |
+| **Timezone** | The timezone used to interpret the scheduled time. |
+| **Enabled** | Keeps the task active. Disabled tasks are saved but do not run. |
+
+## Managing scheduled work
+
+You can:
+
+- Edit an existing task.
+- Drag a task to reschedule it.
+- Delete a task.
+- Disable a task without deleting it.
+- For recurring tasks, choose whether changes apply to the whole series or only one occurrence.
+
+<Tip>
+Write task instructions like a delegation note to a colleague. Include context, the expected output, where to find inputs, and where the result should go.
+</Tip>
+
+## Example task instructions
+
+```text
+Every Friday at 4pm, review this week's inbound support emails. Summarize the top recurring issues, list any unresolved customer escalations, and draft a short update for the operations team.
+```
+
+<Warning>
+Scheduled tasks run automatically when enabled. Make sure the worker has the right knowledge, tools, and approval policy before scheduling sensitive work.
+</Warning>

@@ -1,0 +1,53 @@
+---
+title: "Operations & Logistics"
+description: "Set working days, working hours, after-hours behaviour, timezone, language, and currency."
+---
+
+**Operations & Logistics** controls when and how a worker operates.
+
+## Working days
+
+The days the worker is scheduled to operate. The default is Monday through Friday.
+
+At least one day must be selected.
+
+## Working hours
+
+The worker's scheduled operating window. The default is 9:00 to 17:00.
+
+Rules:
+
+- End time must be after start time.
+- A working window cannot exceed 24 hours.
+
+## After-hours handling
+
+What happens when work arrives outside scheduled hours.
+
+| Value | What it means |
+| --- | --- |
+| **Queue** | Hold the work until the worker is back inside working hours. |
+| **Reject** | Do not accept after-hours work. |
+| **Auto-respond** | Send an automatic response outside working hours. |
+
+After-hours handling can affect operating cost depending on the selected policy.
+
+## Default Timezone
+
+Timezone used for schedules, working hours, reporting, and time-based interpretation.
+
+Choose the timezone where the worker's business process is primarily operated.
+
+## Primary Language
+
+Preferred language for worker interactions and generated content.
+
+Available options include English (US), English (UK), Spanish, French, and German.
+
+## Currency Display
+
+Currency used for display and reporting. Options include USD, EUR, GBP, and AUD.
+
+<Tip>
+Set timezone and working hours before creating calendar tasks so scheduled work runs at the expected local time.
+</Tip>

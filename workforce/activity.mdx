@@ -1,0 +1,42 @@
+---
+title: "Activity Log"
+description: "Review recent worker activity, task runs, workflows, conversations, and system events."
+---
+
+**Activity Log** is a live feed of what a worker has been doing. Use it to audit work, troubleshoot issues, and confirm that scheduled or event-driven tasks ran as expected.
+
+## Activity filters
+
+| Filter | Shows |
+| --- | --- |
+| **All** | Every recorded activity type. |
+| **Threads** | Conversations and message threads. |
+| **Workflows** | Workflow runs. |
+| **Heartbeats** | Runtime heartbeat events. |
+| **Tasks** | Scheduled tasks and event-triggered tasks. |
+| **Subagents** | Work delegated to internal helper agents. |
+
+## What to look for
+
+Use Activity to answer questions like:
+
+- Did the worker receive a message?
+- Did a scheduled task run?
+- Did an event action trigger?
+- Which workflow did the worker use?
+- Is the worker running normally?
+- Did the worker delegate work to a subagent?
+
+## Troubleshooting with Activity
+
+If a worker did not behave as expected:
+
+1. Filter to the relevant activity type.
+2. Check whether the event, task, or conversation was recorded.
+3. Confirm the worker was active at the time.
+4. Review connected skills, applications, and tool approval settings.
+5. Check Calendar or Actions if the work should have started automatically.
+
+<Tip>
+Activity is especially useful after changing schedules, actions, inboxes, or security settings. It gives you a quick way to confirm the worker is operating as intended.
+</Tip>

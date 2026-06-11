@@ -1,0 +1,40 @@
+---
+title: "Tools"
+description: "Give a worker controlled access to external systems and provider toolkits."
+---
+
+Tools let a worker interact with external systems. They are usually grouped into toolkits, such as a provider or service-specific collection of actions.
+
+Tools are powerful because they let a worker move beyond answering questions and actually do work in connected systems.
+
+## What tools can enable
+
+Depending on the connected application, tools can let a worker:
+
+- Read records or messages
+- Search external systems
+- Draft updates
+- Send messages
+- Create or edit records
+- Upload or download files
+- Trigger provider-specific actions
+
+## Toolkits
+
+A toolkit is a group of related tools. For example, a toolkit might contain several actions for one provider or one business system.
+
+In the skill tree, toolkits show which groups of tools the worker can use.
+
+## Required applications
+
+When a worker needs external tools, the required application appears in the sidebar's **Applications** section. Connect the application before expecting the worker to use those tools successfully.
+
+## Security and approvals
+
+Tool behaviour is governed by the worker's **Tool approval policy** in Settings.
+
+Policies can allow, ask, or block categories such as reads, writes, external sends, destructive actions, and credential-related tools. Saved tool rules can override the default policy for specific tools.
+
+<Warning>
+Be careful with tools that send external messages, edit production data, manage credentials, or delete records. Use approval-first or restricted policies for sensitive workers.
+</Warning>

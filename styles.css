@@ -1,0 +1,158 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Odella neutral scale, matched to /Programs/landing/src/styles/globals.css */
+  --color-neutral-50: oklch(0.988 0 0); /* #fbfbfb */
+  --color-neutral-100: oklch(0.963 0 0); /* #f2f2f2 */
+  --color-neutral-200: oklch(0.926 0 0); /* #e8e8e8 */
+  --color-neutral-300: oklch(0.882 0 0); /* #dddddd */
+  --color-neutral-400: oklch(0.81 0 0); /* #c8c8c8 */
+  --color-neutral-500: oklch(0.645 0 0); /* #9a9a9a */
+  --color-neutral-600: oklch(0.476 0 0); /* #656565 */
+  --color-neutral-700: oklch(0.449 0.004 107); /* #5e5e5b */
+  --color-neutral-800: oklch(0.311 0.003 285); /* #3d3d3f */
+  --color-neutral-900: oklch(0.195 0 0); /* #1d1d1d */
+  --color-neutral-950: oklch(0.157 0.003 285); /* #18181a */
+}
+
+:root {
+  --odella-surface: #ffffff;
+  --odella-surface-secondary: #f2f2f2;
+  --odella-surface-hover: rgb(242 242 242 / 75%);
+  --odella-text-primary: #1d1d1d;
+  --odella-text-secondary: #3d3d3f;
+  --odella-text-tertiary: #656565;
+  --odella-border: #dddddd;
+  --odella-button-bg: #3d3d3f; /* landing Button primary: neutral-800 */
+  --odella-button-hover: #1d1d1d; /* landing Button primary hover: neutral-900 */
+  --odella-radius: 7px;
+}
+
+.dark {
+  --odella-surface: #0a0a0a;
+  --odella-surface-secondary: #1d1d1d;
+  --odella-surface-hover: rgb(38 38 38 / 50%);
+  --odella-text-primary: #fafafa;
+  --odella-text-secondary: #d4d4d4;
+  --odella-text-tertiary: #a3a3a3;
+  --odella-border: rgb(255 255 255 / 10%);
+  --odella-button-bg: #3d3d3f;
+  --odella-button-hover: #1d1d1d;
+}
+
+/* Landing-compatible Mintlify chrome overrides. */
+:is(nav, aside) a {
+  border-radius: var(--odella-radius) !important;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease,
+    opacity 150ms ease !important;
+}
+
+/* Sidebar/nav inactive items: landing ghost button baseline. Exclude the primary CTA. */
+:is(nav, aside) a:not([href='https://app.odella.ai']):not([aria-current='page']):not([data-active='true']):not(.active),
+:is(nav, aside) a:not([href='https://app.odella.ai']):not([aria-current='page']):not([data-active='true']):not(.active) * {
+  color: var(--odella-text-tertiary) !important;
+}
+
+/* Sidebar/nav hover: same as landing Button ghost, not a heavy filled pill. */
+:is(nav, aside) a:hover {
+  background-color: var(--odella-surface-hover) !important;
+  box-shadow: none !important;
+}
+
+:is(nav, aside) a:hover,
+:is(nav, aside) a:hover * {
+  color: var(--odella-text-primary) !important;
+}
+
+/* Active sidebar/nav item: neutral surface only, no brand/purple accent. */
+:is(nav, aside) a[aria-current='page'],
+:is(nav, aside) a[data-active='true'],
+:is(nav, aside) a.active {
+  background-color: var(--odella-surface-secondary) !important;
+  box-shadow: none !important;
+}
+
+:is(nav, aside) a[aria-current='page'],
+:is(nav, aside) a[aria-current='page'] *,
+:is(nav, aside) a[data-active='true'],
+:is(nav, aside) a[data-active='true'] *,
+:is(nav, aside) a.active,
+:is(nav, aside) a.active * {
+  color: var(--odella-text-primary) !important;
+}
+
+/* Navbar CTA: mirror landing shadcn Button primary. */
+a[href='https://app.odella.ai'],
+nav a[href='https://app.odella.ai'],
+#topbar-cta-button > a[href='https://app.odella.ai'] {
+  border: 0.5px solid rgb(0 0 0 / 6%) !important;
+  border-radius: var(--odella-radius) !important;
+  background-color: var(--odella-button-bg) !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transition:
+    background-color 150ms ease,
+    transform 150ms ease !important;
+}
+
+a[href='https://app.odella.ai'],
+a[href='https://app.odella.ai'] *,
+nav a[href='https://app.odella.ai'],
+nav a[href='https://app.odella.ai'] *,
+#topbar-cta-button > a[href='https://app.odella.ai'],
+#topbar-cta-button > a[href='https://app.odella.ai'] * {
+  color: #ffffff !important;
+}
+
+a[href='https://app.odella.ai']:hover,
+nav a[href='https://app.odella.ai']:hover,
+#topbar-cta-button > a[href='https://app.odella.ai']:hover {
+  background-color: var(--odella-button-hover) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+a[href='https://app.odella.ai']:active {
+  transform: translateY(1px);
+}
+
+/* Right-side table of contents should not inherit sidebar pill styles. */
+#table-of-contents a {
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  color: var(--odella-text-tertiary) !important;
+  box-shadow: none !important;
+}
+
+#table-of-contents a * {
+  color: inherit !important;
+}
+
+#table-of-contents a:hover {
+  background-color: transparent !important;
+  color: var(--odella-text-primary) !important;
+  border-left-color: rgb(29 29 29 / 25%) !important;
+}
+
+.dark #table-of-contents a:hover {
+  border-left-color: rgb(250 250 250 / 24%) !important;
+}
+
+#table-of-contents a[aria-current='true'],
+#table-of-contents a[aria-current='page'],
+#table-of-contents a[data-active='true'],
+#table-of-contents a.active {
+  background-color: transparent !important;
+  color: var(--odella-text-primary) !important;
+  border-left-color: var(--odella-text-primary) !important;
+  font-weight: 500 !important;
+}

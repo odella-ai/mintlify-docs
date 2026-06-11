@@ -1,0 +1,84 @@
+---
+title: "Employee profile"
+description: "Understand the worker profile page, sidebar sections, runtime controls, and workspace areas."
+---
+
+The employee page is where you configure, supervise, and operate an AI worker.
+
+Open it from **Workforce** by selecting a worker card. The page is divided into three areas:
+
+1. **Header** — breadcrumbs and the worker runtime toggle.
+2. **Profile sidebar** — worker identity summary, contact controls, connected inboxes, required applications, and working-hours usage.
+3. **Main workspace** — the skill tree, calendar, activity log, identity, and settings areas.
+
+## Header controls
+
+### Runtime toggle
+
+The runtime toggle starts or stops the worker service.
+
+- **Running / active** means the worker can respond on connected channels and execute configured tasks.
+- **Stopped** means the worker is paused and should not process normal work.
+- If you cannot edit the worker, the toggle is read-only.
+
+<Warning>
+Stopping a worker can affect inbox monitoring, scheduled tasks, and event-driven actions. Use it when you intentionally want the worker offline.
+</Warning>
+
+## Profile card
+
+The profile card shows the worker's avatar, name, role, and purpose. Depending on permissions, it also provides edit, contact, chat/configuration, and management controls.
+
+Use this area to quickly identify which worker you are editing before changing skills, channels, or security settings.
+
+## Sidebar sections
+
+The profile sidebar has two sections: **Inboxes** and **Applications**.
+
+### Inboxes
+
+Inboxes are connected email feeds the worker can monitor.
+
+Supported inbox providers include:
+
+- **Gmail**
+- **Outlook**
+
+Each inbox row shows:
+
+- Provider and account identity
+- Current status
+- Access level
+- Whether the underlying provider integration is connected
+
+Use **Connect Inbox** to add an inbox. Opening an inbox lets you review details, adjust access, or remove the feed.
+
+<Tip>
+Connect an inbox when you want a worker to receive delegated email, track threads, and help with follow-ups.
+</Tip>
+
+### Applications
+
+Applications are external integrations required by the worker's configured capabilities. The Applications section lists required tools and shows whether each is connected.
+
+Each application row includes:
+
+- Application logo and name
+- A switch to connect or disconnect the integration
+- Disabled state if the integration is unavailable
+
+Applications are inferred from the worker's skills, workflows, triggers, and tools. If the worker does not depend on external systems, this section shows **No applications required**.
+
+## Main workspace
+
+The main panel contains the worker's core operating areas:
+
+| Area | Purpose |
+| --- | --- |
+| **Skill tree** | Inspect the worker's communication channels, workflows, templates, knowledge, tools, and skills. |
+| **Calendar** | Schedule one-off or recurring tasks for the worker. |
+| **Activity Log** | Review live worker activity such as threads, workflows, tasks, heartbeats, and subagents. |
+| **Identity** | Edit profile details, manager, personality, and general instructions. |
+| **Settings** | Configure model, memory, operating hours, security, billing, and termination settings. |
+
+Use the `tab` URL parameter to deep-link to a specific area. For example, Settings uses `?tab=settings`. The skill tree is the default view.

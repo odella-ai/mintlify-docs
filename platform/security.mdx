@@ -1,0 +1,82 @@
+---
+title: Security
+description: Understand the controls that help teams govern data, access, AI model usage, integrations, and review.
+icon: "shield-halved"
+---
+
+# Security
+
+Odella is built for teams that need AI Employees to work with business information safely. Security is not a separate layer from the product: it shapes how workers are onboarded, what they can access, which workflows they can run, and how outputs are reviewed.
+
+## Security model
+
+<CardGroup cols={2}>
+  <Card title="Workspace governance" icon="building-lock">
+    Keep work organized inside a controlled workspace with team-level settings, permissions, and review practices.
+  </Card>
+  <Card title="Worker-level boundaries" icon="user-shield">
+    Assign each worker only the tools, knowledge, templates, and workflows needed for its responsibilities.
+  </Card>
+  <Card title="Integration controls" icon="plug-circle-check">
+    Connect workplace tools with secure authentication and manage which systems Odella can access.
+  </Card>
+  <Card title="Human review" icon="clipboard-check">
+    Keep people in control with review steps for important work, especially before information is sent or relied on.
+  </Card>
+</CardGroup>
+
+## Configure security settings
+
+<Frame>
+  <img src="/assets/security_overview_light.gif" alt="Odella security settings" className="block dark:hidden" />
+  <img src="/assets/security_overview_dark.gif" alt="Odella security settings" className="hidden dark:block" />
+</Frame>
+
+Use security settings to decide how your team works with Odella.
+
+<AccordionGroup>
+  <Accordion title="Model provider controls">
+    Choose which AI model providers are available in your workspace. This lets your organization align model usage with internal policies, client requirements, and risk tolerance.
+  </Accordion>
+  <Accordion title="Data and knowledge access">
+    Control what documents, stores, integrations, and workflows each worker can use. Workers should only receive access that supports their role and responsibilities.
+  </Accordion>
+  <Accordion title="Integration permissions">
+    Review each connected tool and ensure access matches the work being performed. For example, a document drafting worker may need template and document access, while a finance worker may need accounting-related integrations.
+  </Accordion>
+  <Accordion title="Review and audit practices">
+    Build review checkpoints into workflows where human judgment is required. Use work history and workflow runs to understand what happened and improve the process over time.
+  </Accordion>
+</AccordionGroup>
+
+## Recommended security practices
+
+<Steps>
+  <Step title="Start with a narrow role">
+    Give each worker a focused responsibility instead of broad access to everything in your workspace.
+  </Step>
+  <Step title="Connect only what is needed">
+    Attach the minimum set of workflows, templates, documents, and integrations required for the worker's job.
+  </Step>
+  <Step title="Review early outputs">
+    Check early work carefully and update instructions before expanding responsibilities.
+  </Step>
+  <Step title="Keep humans in approval paths">
+    For sensitive or high-impact tasks, keep a human review step before the output is used externally or relied on internally.
+  </Step>
+</Steps>
+
+<Note>
+  Security improves when workers are treated like team members with defined roles: clear responsibilities, appropriate access, and regular review.
+</Note>
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Models" icon="brain" href="/platform/models">
+    Learn how Odella works with AI model providers and workspace-level model settings.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/platform/integrations">
+    Learn how to connect Odella to the tools your team already uses.
+  </Card>
+</CardGroup>

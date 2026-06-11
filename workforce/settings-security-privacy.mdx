@@ -1,0 +1,40 @@
+---
+title: "Security & Privacy"
+description: "Control who can contact a worker and how it may use connected tools."
+---
+
+**Security & Privacy** controls inbound access and tool approvals.
+
+## Inbound Access Policy
+
+Controls who can message the worker.
+
+| Policy | What it does |
+| --- | --- |
+| **Public** | Anyone can message the worker. New senders are automatically added to contacts. |
+| **Account Members** | Only users in your Odella organization can message the worker. External senders are blocked. |
+| **Access Code** | New senders must provide a unique pairing code once. Access remains after pairing. |
+
+## Tool approval policy
+
+Controls the default approval behaviour for connected tools.
+
+| Policy | Behaviour |
+| --- | --- |
+| **Recommended** | Allows read-only tools, asks before writes/sends/sensitive actions, and blocks credential tools. |
+| **Approval-first** | Asks before reads, writes, sends, or destructive actions. Credential tools remain blocked. |
+| **Restricted** | Allows reads but blocks writes, sends, and destructive actions unless explicitly allowed. |
+| **Unrestricted** | Allows reads and writes. Sends and destructive actions still ask. Credential tools remain blocked. |
+
+## Saved tool rules
+
+Saved rules override the default tool approval policy for specific tools.
+
+- **Always allow** lets the worker use that tool without asking.
+- **Always block** prevents the worker from using that tool.
+
+Tools you allow or block permanently during approvals may appear here automatically. You can also add rules manually from the tool rule picker.
+
+<Warning>
+Review tool rules carefully for tools that send messages, edit production systems, manage credentials, or delete data.
+</Warning>

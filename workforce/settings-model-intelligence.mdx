@@ -1,0 +1,44 @@
+---
+title: "Model & Intelligence"
+description: "Choose the model, reasoning level, and infrastructure size for a workforce employee."
+---
+
+**Model & Intelligence** controls the worker's core thinking and runtime capacity.
+
+## LLM Model
+
+The default language model used by the worker.
+
+Models vary by provider, speed, cost, and reasoning quality. The selector displays a cost indicator such as `$`, `$$`, `$$$`, or `$$$$`.
+
+Use lower-cost models for routine work and stronger models for complex analysis, drafting, or planning.
+
+## Reasoning Effort
+
+Controls how much reasoning the model should apply before responding or acting.
+
+| Value | Best for |
+| --- | --- |
+| **Off** | Fast, simple responses. |
+| **Low** | Straightforward work with light reasoning. |
+| **Medium** | Balanced default for most workers. |
+| **High** | Complex analysis, planning, or careful drafting. |
+
+Higher reasoning effort can increase token usage and processing time.
+
+## Infrastructure Size
+
+Controls the worker's instance size and concurrency budget.
+
+| Size | Best for |
+| --- | --- |
+| **Small Instance** | Personal workflows or a narrowly shared assistant. Typically 1–3 people and 1 live conversation. |
+| **Medium Instance** | A shared team assistant used throughout the workday. Typically 4–8 people and 2 live conversations. |
+| **Large Instance** | Broad team coverage or higher-volume shared use. Typically 10–20 people and 4 live conversations. |
+| **X-Large Instance** | Heavy enterprise use. 20+ people and 8 live conversations. Contact support for dedicated scaling. |
+
+Infrastructure size contributes to the effective hourly rate shown in Billing.
+
+<Tip>
+Start with the smallest instance that fits the expected usage, then increase size when the worker is shared more broadly or needs more concurrent conversations.
+</Tip>

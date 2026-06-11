@@ -1,52 +1,110 @@
 ---
 title: "Overview"
-description: "Discover how Odella's intelligent workflows transform your legal practice, automating complex tasks and enhancing your virtual assistants"
+description: "Discover how Odella workflows power AI employees and automate complex business processes"
 ---
 
- 
+## Harness the Power of Workflow Automation
 
-## Harness the Power of Legal Automation
+Workflows are the process engine behind Odella. They give your AI employees repeatable steps for research, document drafting, data extraction, approvals, integrations, and other operational tasks.
 
-Welcome to Odella's Workflow - where complex legal tasks become straightforward, and your virtual assistants become more capable. Let's explore the key elements that make our workflows transformative:
+<Frame>
+  <img
+    className="dark:hidden"
+    src="../assets/workflows_overview_light.gif"
+    alt="Workflow Overview (Light Mode)"
+  />
+  <img
+    className="hidden dark:block"
+    src="../assets/workflows_overview_dark.gif"
+    alt="Workflow Overview (Dark Mode)"
+  />
+</Frame>
 
 <CardGroup cols={2}>
-  <Card title="Smart Blocks" icon="wand-magic-sparkles">
-    Think of building blocks for legal automation. Our Smart Blocks are intelligent, pre-configured actions that you can combine to create powerful legal workflows.
+  <Card title="Automate Tasks" icon="robot">
+    Turn repeatable work into structured processes that run consistently every time.
+  </Card>
+  <Card title="Power AI Employees" icon="user-gear">
+    Give AI employees the workflows they need to execute tasks accurately from delegated requests.
   </Card>
   <Card title="Visual Workflow Canvas" icon="paintbrush">
-    Design intricate legal processes with ease. Our intuitive drag-and-drop interface lets you visualise and create complex workflows without coding.
+    Design processes with a visual builder that connects actions, logic, data, and AI blocks.
   </Card>
-  <Card title="AI-Powered Block Library" icon="book-sparkles">
-    Access a vast collection of AI-enhanced blocks, from document analysis to client communication. These blocks adapt over time, making your workflows increasingly efficient.
-  </Card>
-  <Card title="Legal Logic Flows" icon="diagram-project">
-    Connect your Smart Blocks to create intelligent pathways that mirror your firm's decision-making processes. Watch as your virtual assistants navigate complex legal scenarios efficiently.
+  <Card title="Live Debugging" icon="bug">
+    Monitor workflows as they run and inspect each step to refine performance and reliability.
   </Card>
 </CardGroup>
 
-<Callout type="tip" emoji="💡">
-  Pro Tip: Begin with our pre-built workflow templates for common legal tasks, then customise them to suit your firm's unique processes!
-</Callout>
+## How Workflows Fit Into Odella
 
-## The Technology Behind the Scenes
+Workflows are like digital roadmaps. They guide AI employees through tasks from start to finish, ensuring the right information is gathered, the right logic is applied, and the right output is produced.
+
+Each AI employee can use:
+
+- **Ready-made workflows** for common tasks
+- **Custom workflows** designed around your organization's process
+- **Templates** for document generation
+- **Documents and knowledge bases** for context and precedent
+- **Integrations** for connected tools and systems
+
+## Creating Workflows
+
+<Frame>
+  <img src="../assets/workflows_new_light.gif" alt="Create a Workflow (Light Mode)" className="block dark:hidden" />
+  <img src="../assets/workflows_new_dark.gif" alt="Create a Workflow (Dark Mode)" className="hidden dark:block" />
+</Frame>
 
 <Steps>
-  <Step title="AI Orchestration">
-    Our workflows seamlessly coordinate multiple AI models, selecting the best one for each task in real-time.
+  <Step title="Start a New Workflow">
+    Click **New Workflow** in the Workflows dashboard to begin creating a process.
   </Step>
-  <Step title="Continuous Improvement">
-    Workflows can be refined and optimised over time, incorporating insights from usage patterns to enhance efficiency and accuracy.
+  <Step title="Name and Describe the Workflow">
+    Provide a clear name and description so team members and AI employees understand when the workflow should be used.
   </Step>
-  <Step title="Collaborative Workflow Design">
-    Multiple team members can contribute to workflow development, with smart version control to manage changes effectively.
+  <Step title="Design the Process">
+    Add and arrange blocks in the workflow canvas to define each step of the task.
   </Step>
-  <Step title="Live Workflow Insights">
-    Monitor your workflows in action with our live debugging feature, gaining valuable insights into each step of the process.
+  <Step title="Configure and Connect Blocks">
+    Set block inputs, outputs, and connections so data flows correctly through the workflow.
+  </Step>
+  <Step title="Test and Refine">
+    Run the workflow, inspect outputs, debug issues, and adjust the process until it works reliably.
+  </Step>
+  <Step title="Save and Publish">
+    Save the workflow and make it available to the AI employees that should be able to use it.
   </Step>
 </Steps>
 
-<Callout type="warning" emoji="⚖️">
-  Remember: While our AI-powered workflows are highly capable, they're designed to enhance, not replace, your legal expertise. Always review the output to ensure it meets your professional standards.
-</Callout>
+## Connecting Workflows to AI Employees
 
-Ready to transform your legal practice? Explore our next sections to learn how to create your first impressive workflow!
+<Frame>
+  <img src="../assets/workforce_add_application_light.gif" alt="Connect Workflows to AI Employees (Light Mode)" className="block dark:hidden" />
+  <img src="../assets/workforce_edit_application_dark.gif" alt="Connect Workflows to AI Employees (Dark Mode)" className="hidden dark:block" />
+</Frame>
+
+Workflows are attached to AI employees through their application configuration. Once connected, employees can select and run appropriate workflows when they receive a delegated task.
+
+<Info>
+  Workflows function as business processes you've taught your AI employees. Clear workflow names and descriptions help employees choose the right process for each request.
+</Info>
+
+## Workflow Building Blocks
+
+<CardGroup cols={2}>
+  <Card title="Smart Blocks" icon="wand-magic-sparkles">
+    Use preconfigured actions for AI reasoning, data transformation, document work, integrations, and control flow.
+  </Card>
+  <Card title="Logic and Branching" icon="diagram-project">
+    Add conditionals, matching, loops, batching, and subflows to model complex processes.
+  </Card>
+  <Card title="AI Orchestration" icon="microchip-ai">
+    Coordinate multiple AI steps and models within a single workflow.
+  </Card>
+  <Card title="Operational Consistency" icon="shield-check">
+    Standardize how tasks are completed so output follows your organization's process and precedent.
+  </Card>
+</CardGroup>
+
+<Callout type="warning" emoji="⚖️">
+  Workflows are designed to enhance your team's expertise, not replace review. Always validate outputs for business-critical work.
+</Callout>

@@ -1,21 +1,21 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "Starter Kit",
-  "description": "Build your AI workforce with Odella - digital employees that execute tasks, automate workflows, and scale instantly.",
+  "name": "Odella Docs",
+  "description": "Build, hire, and manage AI employees that connect to your tools, automate workflows, and scale business operations without adding headcount.",
   "theme": "almond",
   "logo": {
-    "href": "https://odella.ai",
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png"
+    "href": "https://www.odella.ai",
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
   },
   "favicon": "/favicon.png",
   "thumbnails": {
     "appearance": "light"
   },
   "colors": {
-    "primary": "#7C5CFE",
-    "light": "#B09DFE",
-    "dark": "#5740B2"
+    "primary": "#3D3D3F",
+    "light": "#FFFFFF",
+    "dark": "#3D3D3F"
   },
   "appearance": {
     "default": "light"
@@ -39,21 +39,22 @@
         {
           "anchor": "Community",
           "icon": "discord",
-          "href": "https://discord.gg/URGcgVHWup"
+          "href": "https://discord.gg/qZVnmjCfdY"
         },
         {
           "anchor": "Blog",
           "icon": "newspaper",
-          "href": "https://www.odella.ai/news"
+          "href": "https://www.odella.ai/blog"
         }
       ]
     },
     "tabs": [
       {
-        "tab": "Docs",
+        "tab": "Get Started",
+        "icon": "/icons/nav/documentation.svg",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Start here",
             "pages": [
               "introduction",
               "get-started/quickstart",
@@ -61,30 +62,112 @@
             ]
           },
           {
-            "group": "Product Overview",
+            "group": "Workspace foundations",
             "pages": [
-              "product/workforce",
-              "product/templates",
-              "product/workflows",
-              "product/documents",
-              "product/security",
-              "product/models",
-              "product/integrations"
+              "platform/security",
+              "platform/models",
+              "platform/integrations"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Workforce",
+        "icon": "/icons/nav/workforce.svg",
+        "groups": [
+          {
+            "group": "Basics",
+            "pages": [
+              "workforce/overview",
+              "workforce/employee-page"
             ]
           },
           {
-            "group": "Templates",
+            "group": "Capabilities",
             "pages": [
-              "templates/01_overview",
+              "workforce/communication-channels",
+              "workforce/workflows",
+              "workforce/templates",
+              "workforce/knowledge",
+              "workforce/tools",
+              "workforce/skills"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "workforce/skill-tree",
+              "workforce/calendar",
+              "workforce/activity",
+              "workforce/identity"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "workforce/settings-model-intelligence",
+              "workforce/settings-memory-reminders",
+              "workforce/settings-operations-logistics",
+              "workforce/settings-security-privacy",
+              "workforce/settings-billing",
+              "workforce/settings-terminate"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Templates",
+        "icon": "/icons/nav/templates.svg",
+        "groups": [
+          {
+            "group": "Basics",
+            "pages": [
+              "templates/01_overview"
+            ]
+          },
+          {
+            "group": "Template Types",
+            "pages": [
               "templates/02_pdf-template",
-              "templates/03_docx-template",
+              "templates/03_docx-template"
+            ]
+          },
+          {
+            "group": "Using Templates",
+            "pages": [
               "templates/04_using-templates"
             ]
+          }
+        ]
+      },
+      {
+        "tab": "Documents",
+        "icon": "/icons/nav/documents.svg",
+        "groups": [
+          {
+            "group": "Basics",
+            "pages": [
+              "documents/overview",
+              "documents/create-and-configure",
+              "documents/manage-documents",
+              "documents/settings-and-integrations"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Workflows",
+        "icon": "/icons/nav/workflows.svg",
+        "groups": [
+          {
+            "group": "Basics",
+            "pages": [
+              "workflow/overview"
+            ]
           },
           {
-            "group": "Workflows",
+            "group": "Core Concepts",
             "pages": [
-              "workflow/overview",
               "workflow/working-with-flows",
               "workflow/interface",
               "workflow/blocks",
@@ -95,6 +178,17 @@
               "workflow/control-flow",
               "workflow/batching",
               "workflow/loops"
+            ]
+          },
+          {
+            "group": "Tutorial",
+            "pages": [
+              "workflow-tutorial/01-simple-flow",
+              "workflow-tutorial/02-dynamic-prompting",
+              "workflow-tutorial/03-matching-conditionals",
+              "workflow-tutorial/04-subflows",
+              "workflow-tutorial/05-batching",
+              "workflow-tutorial/06-loops"
             ]
           }
         ]
@@ -111,81 +205,97 @@
           {
             "group": "AI Blocks",
             "pages": [
+              "block-reference/ai/ai",
               "block-reference/ai/ai-filter",
+              "block-reference/ai/ai-scorer",
+              "block-reference/ai/analyze-image",
               "block-reference/ai/analyze-table",
-              "block-reference/ai/ask-ai",
+              "block-reference/ai/assemble-message",
+              "block-reference/ai/categorizer",
               "block-reference/ai/create-chart",
-              "block-reference/ai/decision",
-              "block-reference/ai/describe-image",
               "block-reference/ai/extract-data",
               "block-reference/ai/generate-questions",
-              "block-reference/ai/research-ai"
+              "block-reference/ai/research"
             ]
           },
           {
-            "group": "Draft Blocks",
+            "group": "Input/Output Blocks",
             "pages": [
-              "block-reference/draft/draft",
-              "block-reference/draft/populate-template",
-              "block-reference/draft/table-to-file",
-              "block-reference/draft/text-to-file"
-            ]
-          },
-          {
-            "group": "Loader Blocks",
-            "pages": [
-              "block-reference/loaders/read-binary",
-              "block-reference/loaders/read-text",
-              "block-reference/loaders/read-table"
-            ]
-          },
-          {
-            "group": "Logic Blocks",
-            "pages": [
-              "block-reference/logic/abort-flow",
-              "block-reference/logic/coalesce",
-              "block-reference/logic/compare",
-              "block-reference/logic/delay",
-              "block-reference/logic/if-else",
-              "block-reference/logic/loop-controller",
-              "block-reference/logic/match",
-              "block-reference/logic/passthrough",
-              "block-reference/logic/race-inputs"
+              "block-reference/io/graph-input",
+              "block-reference/io/graph-output",
+              "block-reference/io/user-input",
+              "block-reference/io/upload-file",
+              "block-reference/io/confirm"
             ]
           },
           {
             "group": "Data Blocks",
             "pages": [
               "block-reference/data/array",
-              "block-reference/data/audio",
-              "block-reference/data/bool",
+              "block-reference/data/boolean",
               "block-reference/data/date",
               "block-reference/data/file",
-              "block-reference/data/text",
               "block-reference/data/image",
               "block-reference/data/number",
-              "block-reference/data/object"
+              "block-reference/data/object",
+              "block-reference/data/random-number",
+              "block-reference/data/text"
+            ]
+          },
+          {
+            "group": "Loader Blocks",
+            "pages": [
+              "block-reference/loaders/read-binary",
+              "block-reference/loaders/read-images",
+              "block-reference/loaders/read-table",
+              "block-reference/loaders/read-text",
+              "block-reference/loaders/transcribe-audio"
+            ]
+          },
+          {
+            "group": "Logic Blocks",
+            "pages": [
+              "block-reference/logic/abort",
+              "block-reference/logic/checklist",
+              "block-reference/logic/coalesce",
+              "block-reference/logic/compare",
+              "block-reference/logic/delay",
+              "block-reference/logic/if-else",
+              "block-reference/logic/match",
+              "block-reference/logic/passthrough",
+              "block-reference/logic/race-inputs",
+              "block-reference/logic/route",
+              "block-reference/logic/switch"
             ]
           },
           {
             "group": "Modifier Blocks",
             "pages": [
               "block-reference/modifiers/chunk",
-              "block-reference/modifiers/extract-json",
-              "block-reference/modifiers/extract-markdown-code-blocks",
-              "block-reference/modifiers/extract-markdown-table-blocks",
-              "block-reference/modifiers/extract-object-path",
-              "block-reference/modifiers/extract-with-regex",
-              "block-reference/modifiers/extract-yaml",
+              "block-reference/modifiers/convert-file",
+              "block-reference/modifiers/convert-format",
+              "block-reference/modifiers/destructure",
+              "block-reference/modifiers/extract-from-text",
               "block-reference/modifiers/filter",
               "block-reference/modifiers/flatten",
+              "block-reference/modifiers/get-value",
               "block-reference/modifiers/hash",
               "block-reference/modifiers/index",
               "block-reference/modifiers/join",
+              "block-reference/modifiers/merge-pdf",
               "block-reference/modifiers/pop",
               "block-reference/modifiers/shuffle",
-              "block-reference/modifiers/slice",
-              "block-reference/modifiers/to-json"
+              "block-reference/modifiers/slice"
+            ]
+          },
+          {
+            "group": "Draft Blocks",
+            "pages": [
+              "block-reference/draft/ai-fill-pdf",
+              "block-reference/draft/draft",
+              "block-reference/draft/populate-template",
+              "block-reference/draft/table-to-file",
+              "block-reference/draft/text-to-file"
             ]
           },
           {
@@ -195,24 +305,31 @@
               "block-reference/advanced/comment",
               "block-reference/advanced/http-call",
               "block-reference/advanced/raise-event",
-              "block-reference/advanced/subflow",
+              "block-reference/advanced/sub-graph",
               "block-reference/advanced/wait-for-event"
-            ]
-          },
-          {
-            "group": "IO Blocks",
-            "pages": [
-              "block-reference/io/confirm",
-              "block-reference/io/input",
-              "block-reference/io/output",
-              "block-reference/io/upload-file",
-              "block-reference/io/user-input"
             ]
           },
           {
             "group": "Agent Blocks",
             "pages": [
-              "block-reference/agents/auto-system-prompt"
+              "block-reference/agents/agent",
+              "block-reference/agents/template-agent"
+            ]
+          },
+          {
+            "group": "Document Blocks",
+            "pages": [
+              "block-reference/documents/add-file-to-document-store",
+              "block-reference/documents/analyze-documents",
+              "block-reference/documents/find-document",
+              "block-reference/documents/search-documents",
+              "block-reference/documents/trigger-document-store-new-record"
+            ]
+          },
+          {
+            "group": "Trigger Blocks",
+            "pages": [
+              "block-reference/triggers/trigger-schedule"
             ]
           }
         ]
@@ -221,9 +338,9 @@
   },
   "footer": {
     "socials": {
-      "twitter": "https://twitter.com/odellaai",
-      "github": "https://www.github.com/helpmefindlaw",
-      "linkedin": "https://www.linkedin.com/company/odella-ai"
+      "x": "https://x.com/odellaai",
+      "linkedin": "https://www.linkedin.com/company/odella-ai",
+      "instagram": "https://www.instagram.com/odella.ai/"
     }
   },
   "contextual": {
@@ -242,6 +359,42 @@
       "redirect": false
     }
   },
-  "integrations": {
-  }
+  "integrations": {},
+  "fonts": {
+    "family": "Inter"
+  },
+  "icons": {
+    "library": "fontawesome"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs",
+    "codeblocks": "system"
+  },
+  "redirects": [
+    {
+      "source": "/product/security",
+      "destination": "/platform/security",
+      "permanent": true
+    },
+    {
+      "source": "/product/models",
+      "destination": "/platform/models",
+      "permanent": true
+    },
+    {
+      "source": "/product/integrations",
+      "destination": "/platform/integrations",
+      "permanent": true
+    },
+    {
+      "source": "/product/workforce",
+      "destination": "/workforce/overview",
+      "permanent": true
+    },
+    {
+      "source": "/product/documents",
+      "destination": "/documents/overview",
+      "permanent": true
+    }
+  ]
 }

@@ -62,7 +62,7 @@ The block body will either display:
 
 ### Example 2: Synchronize Flow Parts
 
-1. Create a [Chat Block](/block-reference/ai/chat) with a prompt "What is your name?" using a [Text Block](/block-reference/data/text).
+1. Create a [Chat Block](/block-reference/ai/ai) with a prompt "What is your name?" using a [Text Block](/block-reference/data/text).
 2. Add a Raise Event Block, set the Event Name to `chat`, and connect the Chat Block's `Response` output to the Raise Event Block's `Data` input.
 3. In another part of the flow, add a [Wait For Event Block](/block-reference/advanced/wait-for-event) with the Event Name set to `chat`.
 4. Run the flow. The Wait For Event Block will pause execution until the Chat Block completes.
@@ -85,13 +85,13 @@ The Raise Event Block will error if:
   </Accordion>
 
   <Accordion title="How is raising an event different from an External Call Block?">
-    The [External Call Block](/block-reference/advanced/external-call) waits for the external call to complete before continuing, while the Raise Event Block continues immediately after raising the event.
+    The [External Call Block](/block-reference/advanced/http-call) waits for the external call to complete before continuing, while the Raise Event Block continues immediately after raising the event.
   </Accordion>
 </AccordionGroup>
 
 ## See Also
 
 - [Wait For Event Block](/block-reference/advanced/wait-for-event)
-- [External Call Block](/block-reference/advanced/external-call)
-- [Chat Block](/block-reference/ai/chat)
+- [External Call Block](/block-reference/advanced/http-call)
+- [Chat Block](/block-reference/ai/ai)
 - [Text Block](/block-reference/data/text)

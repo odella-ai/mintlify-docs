@@ -1,0 +1,138 @@
+---
+title: "Settings and integrations"
+description: "Manage store settings, sync connections, schema changes, AI models, deletion, and workforce integration."
+---
+
+Document Store settings are where you maintain a vault after it has been created. Use settings to update the store's identity, refine metadata extraction, connect cloud folders, choose the AI model, and manage lifecycle actions.
+
+## Settings areas
+
+Each store has a settings page with the following areas:
+
+<CardGroup cols={2}>
+  <Card title="General" icon="file-text">
+    Update the store's name, subtitle, and description so people understand what belongs in the vault.
+  </Card>
+  <Card title="Metadata Schema" icon="table">
+    Define or update the columns AI extracts from each document.
+  </Card>
+  <Card title="Sync Sources" icon="link">
+    Connect Google Drive or OneDrive folders and manage automatic document imports.
+  </Card>
+  <Card title="AI Model" icon="sparkles">
+    Choose the model used for metadata extraction and reprocessing.
+  </Card>
+</CardGroup>
+
+## General settings
+
+General settings control how the store appears across Odella.
+
+| Field | What it does |
+| --- | --- |
+| **Name** | The store name shown in the document library, breadcrumbs, and resource pickers. |
+| **Subtitle** | Short supporting context where shown. |
+| **Description** | Explains the store's purpose and what documents should be stored there. |
+
+Good descriptions make stores easier to govern and easier for AI employees to select as relevant knowledge.
+
+## Metadata schema changes
+
+The metadata schema controls the store's extracted columns. You can update it after a store has been created, but schema changes have operational impact.
+
+When you save a changed schema, Odella re-runs AI metadata extraction on existing documents so the table reflects the new columns.
+
+<Warning>
+Schema changes can use AI processing credits and may take several minutes on large stores. Make changes deliberately, especially in production vaults.
+</Warning>
+
+Use schema changes when:
+
+- You forgot an important field
+- You no longer need a column
+- Your reporting requirements changed
+- The store's document type has evolved
+- You want better extraction descriptions for existing fields
+
+## Sync sources
+
+Sync sources keep a Document Store updated from cloud folders.
+
+Supported providers include:
+
+- **Google Drive**
+- **OneDrive**
+
+When adding a sync source, you choose a provider, select a folder, and configure connection details.
+
+| Setting | What it does |
+| --- | --- |
+| **Connection Name** | Human-readable label for the synced folder. |
+| **Description** | Optional explanation of what the folder contains. |
+| **Include subfolders** | Imports files from nested folders as well as the selected folder. |
+| **Sync existing files** | Imports current files immediately. New files continue to sync automatically. |
+
+After a connection is created, you can pause, resume, or delete it.
+
+<Tip>
+Use sync sources for folders that should remain current over time. Use manual upload for one-off batches or files that do not need ongoing sync.
+</Tip>
+
+## AI model settings
+
+The AI model is used to extract metadata into your configured columns.
+
+Choose a stronger model when documents are complex, inconsistent, scanned, or high-value. Choose a faster or lower-cost model for routine document sets where the fields are easy to identify.
+
+The model selector may show the currently resolved model and estimated cost per 1,000 pages.
+
+## Storage settings
+
+Storage and retention controls are planned for a future update. Some synced configurations may store extracted text without retaining the original file. If the original file is not available, the preview area will show that the file is not stored.
+
+## Delete Vault
+
+Deleting a vault permanently removes the store, documents, metadata, and embeddings.
+
+<Warning>
+Deleting a vault cannot be undone. Export metadata or download files before deleting a store if you need to preserve anything.
+</Warning>
+
+## Workforce integration
+
+Document Stores become **Knowledge** capabilities for AI employees.
+
+Add a store to a worker when the worker needs to search or reference those documents during:
+
+- Conversations
+- Scheduled work
+- Event-driven actions
+- Workflow runs
+- Drafting or review tasks
+
+A focused worker should only receive the stores relevant to its role. Connecting every store to every worker can make retrieval less precise and harder to govern.
+
+## Workflow integration
+
+Workflows can use Document Stores as source material for retrieval, review, extraction, drafting, and comparison.
+
+Common workflow patterns include:
+
+- Search a policy vault before answering a question
+- Compare a document against a precedent library
+- Extract fields from uploaded documents and route exceptions
+- Draft a summary using a controlled knowledge source
+- Generate questions from a document set
+
+## Document Stores vs Workspace
+
+| Use Document Stores for | Use Workspace for |
+| --- | --- |
+| Reusable knowledge | Temporary task files |
+| Governed source material | Drafts and working files |
+| Searchable document libraries | One-off uploads |
+| Worker knowledge capabilities | Files tied to a single worker's current work |
+
+<Tip>
+If a document should be reused, searched, and governed, put it in a Document Store. If it is temporary working material for one worker, put it in that worker's Workspace.
+</Tip>

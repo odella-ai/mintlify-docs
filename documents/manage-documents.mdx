@@ -1,0 +1,98 @@
+---
+title: "Manage documents"
+description: "Upload, search, preview, export, download, and delete documents in a Document Store."
+---
+
+## Work With Documents in a Vault
+
+Each Document Store opens to a document table. The table combines the original files, processing status, and AI-extracted metadata columns you configured for the store.
+
+This is where you upload new files, monitor processing, search across content, review extracted fields, preview documents, and export or download results.
+
+## Adding Documents
+
+You can add documents in three ways:
+
+<CardGroup cols={3}>
+  <Card title="Upload manually" icon="file-arrow-up">
+    Click **Add Documents** and choose files from your computer.
+  </Card>
+  <Card title="Drag and drop" icon="hand-pointer">
+    Drop supported files directly into the document table.
+  </Card>
+  <Card title="Sync folders" icon="cloud-arrow-down">
+    Import documents automatically from connected Google Drive or OneDrive folders.
+  </Card>
+</CardGroup>
+
+Supported upload types include common document, Office, spreadsheet, presentation, text, CSV, HTML, Markdown, RTF, and EPUB files. Manual uploads are limited to files up to **25MB**.
+
+When files are uploaded, they are queued and processed. The table shows processing states while metadata extraction runs.
+
+## Document Table
+
+The document table is the main working surface for a store.
+
+| Feature | What it does |
+| --- | --- |
+| **AI-extracted columns** | Shows metadata fields defined by the store schema. |
+| **Search** | Uses hybrid search across metadata and document content. |
+| **Filter** | Filters rows by available columns. |
+| **Sort** | Sorts rows by selected columns. |
+| **Refresh** | Reloads the latest document state. |
+| **Pagination** | Displays documents in pages, with row counts in the footer. |
+| **Row selection** | Selects one or more documents for bulk actions. |
+
+## Search and Retrieval
+
+Document search uses hybrid retrieval across document text and metadata. This means you can search for exact business fields, document names, and semantic concepts from the file content.
+
+Examples:
+
+- “leases expiring next quarter”
+- “Acme vendor invoices”
+- “documents mentioning termination for convenience”
+- “policies owned by security”
+- “meeting notes with budget action items”
+
+If no results match, clear the search to return to the full table.
+
+## Previewing Documents
+
+Click a document to open it in a document preview. The table remains available, and open previews appear as closable tabs.
+
+| File type | Behaviour |
+| --- | --- |
+| **PDF** | Opens in the built-in PDF viewer with download and print controls. |
+| **DOCX** | Opens in the built-in document viewer. |
+| **Other supported files** | Shows a download prompt if browser preview is unavailable. |
+| **Text-only synced files** | Shows that the original file is not stored if the sync strategy did not retain it. |
+
+Preview tabs are useful when you need to check the source document while comparing extracted metadata in the table.
+
+## Bulk Actions
+
+Select one or more rows to take action on documents.
+
+| Action | What it does |
+| --- | --- |
+| **Export** | Downloads selected metadata as a CSV. |
+| **Download** | Downloads selected original files in bulk. |
+| **Delete** | Removes selected documents from the store. |
+
+<Warning>
+Deleting documents removes them from the store. Export metadata or download files before deleting anything you need to preserve.
+</Warning>
+
+## Processing Status
+
+Uploaded and synced files are processed before their metadata is fully available. While processing, documents may show queued or in-progress states. Failed documents can be identified in the table and retried by re-uploading or re-syncing after resolving the source issue.
+
+## Best Practices
+
+- Upload related documents into focused stores instead of mixing unrelated material.
+- Check processing status after large uploads or sync imports.
+- Use search for semantic discovery and filters for structured review.
+- Export CSV metadata when you need reporting or spreadsheet analysis.
+- Preview source files when reviewing important AI-extracted fields.
+- Delete carefully; use bulk actions only after confirming the selected rows.

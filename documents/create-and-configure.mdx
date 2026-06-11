@@ -1,0 +1,133 @@
+---
+title: "Create and configure stores"
+description: "Create a Document Store, define AI-extracted metadata, choose an ingestion model, and connect sync sources."
+---
+
+Creating a Document Store turns a collection of files into a structured, searchable knowledge vault. The setup flow is designed to help you decide what the store is for, where documents come from, what AI should extract, and how the store should be processed.
+
+## When to create a new store
+
+Create a separate store when the documents share a clear business purpose, audience, or governance boundary.
+
+Good examples include:
+
+- A contract library
+- A policy and procedure vault
+- A matter or project document set
+- An invoice and purchase order store
+- An HR records store
+- A board papers or meeting minutes store
+
+Avoid creating one large catch-all vault for unrelated material. Smaller, focused stores are easier to search, connect to workers, and govern.
+
+## Step 1: General settings
+
+Start by giving the store a clear identity.
+
+| Field | What it does |
+| --- | --- |
+| **Name** | The store name shown in the library, breadcrumbs, and selection menus. |
+| **Description** | Explains what belongs in the store and how the store should be used. |
+
+Good descriptions help teammates and AI employees understand whether the store is relevant to a task.
+
+## Step 2: Sync sources
+
+You can connect cloud folders during setup or skip this step and upload files manually later.
+
+Supported sync sources include:
+
+- **Google Drive**
+- **OneDrive**
+
+When you connect a folder, configure:
+
+| Setting | What it does |
+| --- | --- |
+| **Connection Name** | Human-readable name for the synced folder. |
+| **Description** | Optional context about what the folder contains. |
+| **Include subfolders** | Imports files from nested folders as well as the selected folder. |
+| **Sync existing files** | Imports current files immediately. New files continue to sync automatically. |
+
+Use sync sources for folders that should stay current over time. Use manual upload for one-off batches or ad hoc files.
+
+## Step 3: Metadata columns
+
+Columns define the structured metadata AI should extract from every document. These columns appear in the document table and can be searched, filtered, sorted, reviewed, and exported.
+
+Use columns for business fields you actually care about, such as:
+
+- Contract value
+- Effective date
+- Renewal terms
+- Vendor
+- Policy owner
+- Deadline
+- Parties
+- Matter number
+- Key decisions
+- Action items
+
+### Built-in templates
+
+You can start from a document type template or build a custom schema.
+
+Templates include:
+
+- Invoices & Bills
+- Employment Contracts
+- Contracts & Agreements
+- Receipts & Expenses
+- Real Estate
+- HR Documents
+- Policies & Procedures
+- Medical Records
+- Legal & Court Filings
+- Meeting Notes
+- Project Documents
+- Tax Documents
+- Bank Statements
+- Purchase Orders
+- Training & Certs
+- Insurance
+- Custom
+
+### Column design tips
+
+- Keep columns focused on information you will use.
+- Prefer clear business names, such as **Renewal Terms** or **Approved By**.
+- Add useful descriptions so AI knows exactly what to extract.
+- Avoid duplicating system fields like file name, document ID, status, MIME type, or timestamps.
+- Start smaller if unsure. You can add detail later, but schema changes trigger reprocessing.
+
+<Warning>
+Changing a store's metadata schema later re-runs AI extraction on existing documents. This can use AI credits and may take several minutes for large stores.
+</Warning>
+
+## Step 4: AI model
+
+Choose the model used to extract metadata from documents.
+
+The model affects extraction quality, speed, and cost. Faster models generally cost less. Stronger models can improve extraction quality for complex or messy documents.
+
+The model selector shows the resolved model and estimated cost per 1,000 pages where available.
+
+## Step 5: Review and create
+
+Before creating the store, review:
+
+- Store name and description
+- Connected sync sources
+- Metadata columns
+- AI model selection
+
+Once created, the store opens to its document table, where you can upload files, review processing status, search content, and manage documents.
+
+## Best practices
+
+- Create stores around clear domains or business processes.
+- Use descriptions to tell people what belongs in the store.
+- Connect cloud folders only when the source should stay synced.
+- Design metadata columns around decisions, reporting, and retrieval.
+- Choose stronger extraction models for documents with complex structure or high accuracy requirements.
+- Reprocess schemas deliberately because it can consume credits.

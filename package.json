@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "mintlify dev --port 3334"
+    "dev": "mintlify dev --port 3334",
+    "validate": "mintlify validate",
+    "broken-links": "mintlify broken-links",
+    "format": "prettier --write \"**/*.{json,md,mdx,css,mjs,ts}\""
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
     "cheerio": "^1.0.0",
+    "mintlify": "^4.2.614",
+    "postcss": "^8.5.15",
+    "prettier": "^3.8.4",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "tailwindcss": "^4.3.0",
     "turndown": "^7.2.0"
   }
 }
