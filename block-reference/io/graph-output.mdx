@@ -1,7 +1,7 @@
 ---
 id: graph-output
-title: Flow Output Block
-description: Define outputs for your flow, enabling data to be returned from workflows
+title: Flow Output Block for Workflow Results
+description: Use the Flow Output block to return workflow results, expose subflow outputs, and pass typed data back from Odella flows.
 sidebarTitle: Output
 ---
 
@@ -12,7 +12,7 @@ sidebarTitle: Output
 
 ## Overview
 
-The Flow Output Block is a crucial component for defining the outputs of a flow. Each instance of this block represents an individual output, where the value passed into it becomes part of the overall flow output. When a flow is used as a subflow, each Flow Output Block transforms into an output port on the subflow block.
+Use the Flow Output block to define what a workflow returns when it finishes. Each Flow Output block creates one named output value, making it useful for returning generated text, extracted data, files, tables, confirmation results, or structured objects from a flow. When the flow is reused as a [Subflow](/block-reference/advanced/sub-graph), each Flow Output block becomes an output port on that subflow.
 
 ## Inputs
 
@@ -73,5 +73,7 @@ The Flow Output Block will generate an error if the data type of the input value
 ## See Also
 
 - [Input Block](/block-reference/io/graph-input)
+- [Confirm Block](/block-reference/io/confirm)
 - [Subflow Block](/block-reference/advanced/sub-graph)
+- [Extract Data Block](/block-reference/ai/extract-data)
 - [Data Types](/workflow/data-types)

@@ -1,13 +1,13 @@
 ---
 id: analyze-image
-title: Describe Image Block
-description: Leverage AI to analyze and describe images based on natural language prompts
+title: Describe Image Block for AI Image Analysis
+description: Use the Describe Image block to analyze images, charts, screenshots, and diagrams with natural language prompts in Odella workflows.
 sidebarTitle: Describe Image
 ---
 
 ## Overview
 
-The Describe Image Block uses Vision Language Model (VLM) capabilities to analyze and describe images. By providing an image and an optional natural language prompt, you can instruct the AI to focus on specific aspects or provide general descriptions of the image content.
+Use the Describe Image block when a workflow needs to analyze an image, chart, screenshot, diagram, or scanned visual and return a text description. Provide an image plus an optional natural language prompt to focus the analysis on specific details, then pass the output into blocks like [Ask AI](/block-reference/ai/ai), [Extract Data](/block-reference/ai/extract-data), or [Flow Output](/block-reference/io/graph-output).
 <Frame>
   <img src="/block-reference/assets/describe_image_light.png" alt="Describe Image Screenshot" className="block dark:hidden" />
   <img src="/block-reference/assets/describe_image_dark.png" alt="Describe Image Screenshot" className="hidden dark:block" />
@@ -67,6 +67,10 @@ The Describe Image Block uses Vision Language Model (VLM) capabilities to analyz
 4. Select your desired model in the Describe Image block settings.
 5. Run your flow. The block will output a detailed description of the chart, focusing on the trends and key data points.
 
+## Use Case: Screenshot Triage
+
+For support or operations workflows, connect an uploaded screenshot to the Describe Image block and ask it to summarize visible errors, form fields, or UI state. You can then route the description into [Extract Data](/block-reference/ai/extract-data) to capture structured fields, [AI Filter](/block-reference/ai/ai-filter) to prioritize issues, or [Confirm](/block-reference/io/confirm) to ask a human reviewer before continuing.
+
 ## Error Handling
 
 - If the input image is empty, invalid, or in an unsupported format, the block will return an error.
@@ -97,4 +101,6 @@ The Describe Image Block uses Vision Language Model (VLM) capabilities to analyz
 
 - [Create Chart Block](/block-reference/ai/create-chart)
 - [Ask AI Block](/block-reference/ai/ai)
+- [Extract Data Block](/block-reference/ai/extract-data)
 - [AI Filter Block](/block-reference/ai/ai-filter)
+- [Confirm Block](/block-reference/io/confirm)

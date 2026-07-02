@@ -1,7 +1,7 @@
 ---
 id: confirm
-title: Confirm Block
-description: Prompt the user for confirmation and control flow based on their response
+title: Confirm Block for Human Approval Steps
+description: Use the Confirm block to ask for human approval, wait for confirmation, and route workflow execution based on a yes or no response.
 sidebarTitle: Confirm
 ---
 
@@ -11,7 +11,8 @@ sidebarTitle: Confirm
 </Frame>
 
 ## Overview
-The Confirm Block is a user input block that prompts the user for confirmation. It returns either true or false based on the user's response, making it useful for controlling flow in your application based on user inputs.
+
+Use the Confirm block when a workflow needs a human approval step before it continues. The block prompts a user for confirmation and routes the value through either the positive or negative output, making it useful for approvals, review gates, delete confirmations, publishing checks, and other control-flow decisions. Pair it with [Flow Output](/block-reference/io/graph-output) to return the approval result or [If/Else](/block-reference/logic/if-else) to branch the workflow after confirmation.
 
 ## Inputs
 
@@ -89,5 +90,7 @@ The Confirm Block does not typically produce errors as it simply waits for user 
 ## See Also
 
 - [User Input Block](/block-reference/io/user-input)
+- [Flow Output Block](/block-reference/io/graph-output)
 - [Conditional Block](/block-reference/logic/if-else)
+- [Race Inputs Block](/block-reference/logic/race-inputs)
 - [Text Block](/block-reference/data/text)
