@@ -1,7 +1,7 @@
 ---
 id: extract-markdown-table-blocks
-title: Extract Markdown Table Blocks
-description: Extract table blocks from markdown-formatted text
+title: Extract Markdown Tables from Text
+description: Use the Extract Markdown Table Blocks block to find markdown tables in text and convert them into structured Table values for workflows.
 sidebarTitle: Extract Markdown Table Blocks
 ---
 
@@ -11,7 +11,8 @@ sidebarTitle: Extract Markdown Table Blocks
 </Frame>
 
 ## Overview
-The Extract Markdown Table Blocks block is designed to parse markdown-formatted text and extract all table blocks within it. This is particularly useful when working with documentation, README files, or any text that contains tables in markdown format.
+
+Use the Extract Markdown Table Blocks block when a workflow needs to pull tables out of markdown text, README files, AI-generated responses, or documentation. The block detects standard pipe-delimited markdown tables and returns them as structured Table values that you can pass into downstream blocks such as [Analyze Table](/block-reference/ai/analyze-table), [Table to File](/block-reference/draft/table-to-file), or [Flow Output](/block-reference/io/graph-output).
 
 ## Inputs
 
@@ -67,4 +68,7 @@ The Extract Markdown Table Blocks block is designed to parse markdown-formatted 
 
 - [Extract Markdown Code Blocks](/block-reference/modifiers/extract-markdown-code-blocks)
 - [Extract JSON Block](/block-reference/modifiers/extract-json)
+- [Analyze Table Block](/block-reference/ai/analyze-table)
+- [Table to File Block](/block-reference/draft/table-to-file)
+- [Flow Output Block](/block-reference/io/graph-output)
 - [Text Block](/block-reference/data/text)

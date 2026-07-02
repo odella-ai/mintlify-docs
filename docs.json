@@ -395,6 +395,16 @@
       "source": "/product/documents",
       "destination": "/documents/overview",
       "permanent": true
+    },
+    {
+      "source": "/block-reference/io/output",
+      "destination": "/block-reference/io/graph-output",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/ai/describe-image",
+      "destination": "/block-reference/ai/analyze-image",
+      "permanent": true
     }
   ]
 }
