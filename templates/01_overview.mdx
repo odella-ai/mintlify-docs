@@ -58,11 +58,66 @@ Upload your existing templates, and your AI workforce can populate one document 
   </Card>
 </CardGroup>
 
+## The Templates Page
+
+The Templates page is where all your firm's templates live. Reach it from the left sidebar; the header reads "Templates — Templates let you create new documents within seconds."
+
+{/* TODO: screenshot — Templates list page */}
+
+The page provides:
+
+- **Search templates** — find a template by name.
+- **Sort** — reorder the list.
+- **New Template** — opens the upload wizard (see below).
+
+Each template appears as a card showing its icon, name, type (PDF Document or Word Document), a short description, and the date it was added. A per-card menu (⋮) opens actions for that template. Both PDF and Word templates appear together in the same list — the type label on each card tells them apart.
+
+## Creating a Template
+
+Click **New Template** to open the Upload a template wizard. Templates are built from a document you upload — "Choose the document your team should start from each time. We support PDF and DOCX files."
+
+{/* TODO: screenshot — upload dialog (empty state) */}
+
+<Steps>
+  <Step title="Upload the File">
+    Click **Browse files** and select a PDF or DOCX document to use as the starting point. The panel notes templates are best for "contracts, letters, forms, and other repeatable business documents," and that once uploaded, Odella will "review the file, pull in the basics, and take you to the final setup step." Once a file is selected, it appears with its name, type, and size, with a confirmation check. Click **Continue**.
+
+    {/* TODO: screenshot — upload dialog (file selected) */}
+  </Step>
+  <Step title="Review Template Details">
+    Odella prefills the template **Name** and **Description** from the uploaded file. Update either before creating the template, then click **Create Template**.
+
+    {/* TODO: screenshot — review template details */}
+  </Step>
+</Steps>
+
+The new template opens in the template editor.
+
+## The Template Editor
+
+After creation (or by opening an existing template), you land in the editor. It has two tabs — **Document** and **Instructions** — and a toolbar with **Save**, **Download**, and **Publish Document**.
+
+{/* TODO: screenshot — editor Document tab */}
+
+**Document tab** — a live preview of the template at its real layout, with zoom controls. This is the source document your AI employees populate. For PDF templates this is the form with its detected fields; for Word templates it's the document with its templating syntax.
+
+{/* TODO: verify before publishing — is the Document tab editable or preview-only? Described here as preview; update if fields/syntax can be edited inline. Also confirm the per-card ⋮ menu contents (rename / delete / duplicate?). */}
+
+**Instructions tab** — "Explain how this template should be used. Supports markdown." A rich-text editor where you describe when and how the template should be applied. These instructions guide your AI employees in selecting and populating the template correctly, so it's worth being specific about which inputs map where and when this template (versus a similar one) should be chosen.
+
+{/* TODO: screenshot — editor Instructions tab */}
+
+**Publishing.** After adding instructions, click **Publish Document** to make the template available to your AI workforce. **Save** keeps a draft without publishing; **Download** exports the underlying document.
+
+<Callout type="tip" emoji="💡">
+  Write clear Instructions before publishing. Because your AI employees automatically select templates based on the task you delegate, good instructions are what let them pick the right template and map source data to the right fields.
+</Callout>
+
 ## Delegate Work, Get Documents
 
 Your AI employees handle the entire document generation process:
 
-1. **Receive the task** — You delegate work, such as “Generate the client onboarding package for Acme Corp using the attachments.”
+1. **Receive the task** — You delegate work, such as "Generate the client onboarding package for Acme Corp using the attachments."
 2. **Gather the data** — The AI employee extracts relevant information from emails, PDFs, transcripts, forms, databases, or other source materials.
 3. **Select templates** — They choose the appropriate template or document bundle from your firm's precedents.
 4. **Populate documents** — They fill fields, apply conditional logic, perform calculations, and generate professional output.
