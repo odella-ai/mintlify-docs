@@ -47,33 +47,64 @@ Each AI employee can use:
 - **Documents and knowledge bases** for context and precedent
 - **Integrations** for connected tools and systems
 
-## Creating Workflows
+## The Workflows Page
 
-<Frame>
-  <img src="../assets/workflows_new_light.gif" alt="Create a Workflow (Light Mode)" className="block dark:hidden" />
-  <img src="../assets/workflows_new_dark.gif" alt="Create a Workflow (Dark Mode)" className="hidden dark:block" />
-</Frame>
+The Workflows Overview page lists every workflow in your organization. The header reads "Workflows Overview — Streamline and monitor your processes and automate tasks."
+
+{/* TODO: screenshot — workflows overview / list page */}
+
+The page provides:
+
+- **Search workflows** — find a workflow by name.
+- **Sort** — reorder the list.
+- **New Workflow** — opens the Create Workflow wizard (see below).
+
+Each workflow appears as a card showing its icon, name, node count (e.g., "12 nodes"), and a short description. Cards that run on a schedule or event also show a **Trigger active** label, and connected integrations appear as small app icons along the bottom (e.g., Slack, calendar, BigQuery). A per-card menu (⋮) opens actions for that workflow. A workflow with no steps yet shows "0 nodes," and one without a description shows "No description available."
+
+## Creating a Workflow
+
+Click **New Workflow** to open the Create Workflow wizard.
 
 <Steps>
-  <Step title="Start a New Workflow">
-    Click **New Workflow** in the Workflows dashboard to begin creating a process.
+  <Step title="Choose How to Start">
+    "How would you like to start your workflow?" Select one of three options and click **Next**:
+
+    - **Start Blank** — create a new workflow from scratch with a clean canvas.
+    - **Clone Existing** — duplicate one of your current workflows and use it as a starting point.
+    - **From Marketplace** — start from a marketplace workflow template instead of building from scratch.
+
+    {/* TODO: screenshot — Create Workflow: choose start method */}
   </Step>
-  <Step title="Name and Describe the Workflow">
-    Provide a clear name and description so team members and AI employees understand when the workflow should be used.
+  <Step title="Start Blank">
+    Provide a **Name** and a short **Description** (keep it to 1–2 short sentences) so team members and AI employees understand when the workflow should be used. Click **Create Workflow**.
+
+    {/* TODO: screenshot — Create Workflow: add the details */}
   </Step>
-  <Step title="Design the Process">
-    Add and arrange blocks in the workflow canvas to define each step of the task.
+  <Step title="Clone Existing">
+    "Select an existing workflow to duplicate and continue editing." Pick from the **Existing Workflow** dropdown, then click **Start Building**.
+
+    {/* TODO: screenshot — Create Workflow: choose a workflow to clone */}
   </Step>
-  <Step title="Configure and Connect Blocks">
-    Set block inputs, outputs, and connections so data flows correctly through the workflow.
-  </Step>
-  <Step title="Test and Refine">
-    Run the workflow, inspect outputs, debug issues, and adjust the process until it works reliably.
-  </Step>
-  <Step title="Save and Publish">
-    Save the workflow and make it available to the AI employees that should be able to use it.
+  <Step title="From Marketplace">
+    Opens the Marketplace ("Discover Solutions for Every Task"), where you can search and browse AI employees, templates, and workflows. Select a workflow template to start from.
+
+    {/* TODO: screenshot — Marketplace */}
   </Step>
 </Steps>
+
+In every case you land in the workflow canvas, ready to build.
+
+## The Workflow Canvas
+
+The canvas is the visual builder where the process is assembled.
+
+{/* TODO: screenshot — workflow canvas (empty / assistant) */}
+
+- **The canvas** (right) is the working area where blocks are placed and connected. Flows are organized into tabs, starting with **Main Flow**.
+- **The Assistant panel** (left) helps you build by describing what you want — "How can I help? Tell me about your idea, and I'll help you build it." This is the conversational way to assemble or modify a flow.
+- **Canvas controls** along the top include a refresh/reset control, a panel-collapse toggle, and a settings gear for the workflow.
+
+From here, follow the remaining build steps — design the process by adding and arranging blocks, configure and connect each block's inputs and outputs, test and debug the run, then save and publish the workflow to the AI employees that should use it. See [Working with Flows](/workflow/working-with-flows), [Workflow Interface](/workflow/interface), and [Blocks](/workflow/blocks) for detail on each.
 
 ## Connecting Workflows to AI Employees
 

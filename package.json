@@ -21,8 +21,10 @@
   "pnpm": {
     "overrides": {
       "js-yaml": "^4.3.0",
+      "front-matter>js-yaml": "^3.14.1",
       "tar": "^7.5.19",
       "qs": "^6.15.3"
-    }
+    },
+    "onlyBuiltDependencies": ["keytar", "puppeteer", "sharp"]
   }
 }
