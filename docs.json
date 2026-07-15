@@ -65,8 +65,7 @@
             "group": "Workspace foundations",
             "pages": [
               "platform/security",
-              "platform/models",
-              "platform/integrations"
+              "platform/models"
             ]
           }
         ]
@@ -189,6 +188,42 @@
               "workflow-tutorial/04-subflows",
               "workflow-tutorial/05-batching",
               "workflow-tutorial/06-loops"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "icon": "plug",
+        "groups": [
+          {
+            "group": "Basics",
+            "pages": [
+              "integrations/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Marketplace",
+        "icon": "shop",
+        "groups": [
+          {
+            "group": "Basics",
+            "pages": [
+              "marketplace/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Chat",
+        "icon": "comments",
+        "groups": [
+          {
+            "group": "Basics",
+            "pages": [
+              "chat/overview"
             ]
           }
         ]
@@ -383,7 +418,12 @@
     },
     {
       "source": "/product/integrations",
-      "destination": "/platform/integrations",
+      "destination": "/integrations/overview",
+      "permanent": true
+    },
+    {
+      "source": "/platform/integrations",
+      "destination": "/integrations/overview",
       "permanent": true
     },
     {
