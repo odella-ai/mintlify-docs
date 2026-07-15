@@ -1,0 +1,82 @@
+---
+title: "Overview"
+description: "Connect Odella to the tools your team already uses so AI employees can access real data and take real action."
+---
+
+## Connect Odella to Your Tools
+
+Integrations connect Odella to the applications your team already relies on — finance and market data feeds, CRM systems, productivity suites, dev tools, marketing platforms, accounting software, compliance tools, and more. Once a plugin is connected, your AI employees can use it inside workflows and skills without your team changing where work happens.
+
+## The Integrations Page
+
+Reach the Integrations Overview from the grid icon in the left sidebar. The header reads "Connect integrations to enable Odella to access your favourite applications."
+
+<Frame>
+  <video autoplay muted loop playsInline preload="auto" controls width="100%" src="../assets/videos/Integration.mp4"></video>
+</Frame>
+
+{/* TODO: screenshot — Integrations Overview page (full list view) */}
+
+## Searching and Browsing Plugins
+
+A **Search plugins...** bar sits at the top of the page. Below it is a scrollable list of roughly 85 individual plugins, each row showing:
+
+- **Icon** — the connected application's logo.
+- **Name** — the application name.
+- **Description** — a one-line summary of what the plugin does.
+- **Toggle** — turns the plugin on or off for your workspace.
+
+## Integration Categories
+
+Plugins span a wide range of categories, including:
+
+| Category | Examples |
+| --- | --- |
+| Finance & market data | ABS Indicator API, EODHD, FRED, Financial Modeling Prep, Polygon.io, Alpha Vantage |
+| CRM & sales | Apollo, HubSpot, Salesforce, Attio, Affinity |
+| Productivity | Airtable, Notion, Google Workspace, Microsoft 365 |
+| Dev tools | GitHub, Jira, Linear, Confluence |
+| Marketing & social | Canva, Figma, Facebook, Instagram, LinkedIn, Buffer, Klaviyo, Mailchimp |
+| Accounting | Xero, QuickBooks |
+| Compliance | Oneleet, Vanta, Drata |
+| Legal practice management | Clio, Smokeball |
+
+{/* TODO: confirm this is the full/current category list before publishing — paste the complete plugin name+description list if useful for the page content */}
+
+## Connecting a Plugin
+
+Click a plugin's toggle to turn it on. Services that require authentication prompt you to connect your account (OAuth, an API key, or another supported method) before the toggle activates.
+
+<AccordionGroup>
+  <Accordion title="Start with the task, not the tool">
+    Decide what the worker needs to accomplish first, then connect only the plugins required for that responsibility.
+  </Accordion>
+  <Accordion title="Keep permissions narrow">
+    Limit access to the minimum scope required. A worker that drafts documents does not necessarily need access to every connected system in your workspace.
+  </Accordion>
+  <Accordion title="Add review for external actions">
+    If a plugin can send messages, update records, or trigger downstream work, consider adding a human review step before the action completes.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  If your team needs a plugin that isn't available yet, contact [support@odella.ai](mailto:support@odella.ai) with the tool name and the workflow you want to support.
+</Note>
+
+## Where Integrations Are Used
+
+Connected plugins become available to your AI employees in two places:
+
+- **Worker profiles** — add plugins to a worker's **Applications** tab so that specific employee can use them. See [The Worker Profile](/workforce/overview#the-worker-profile).
+- **Workflows** — reference connected plugins inside workflow blocks to move information between systems automatically. See [Workflow Overview](/workflow/overview).
+
+## Related Docs
+
+<CardGroup cols={2}>
+  <Card title="Security" icon="shield-halved" href="/platform/security">
+    Learn how integrations fit into workspace governance.
+  </Card>
+  <Card title="Workflows" icon="diagram-project" href="/workflow/overview">
+    Learn how integrations are used inside repeatable processes.
+  </Card>
+</CardGroup>

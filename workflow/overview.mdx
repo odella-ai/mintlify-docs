@@ -7,19 +7,6 @@ description: "Discover how Odella workflows power AI employees and automate comp
 
 Workflows are the process engine behind Odella. They give your AI employees repeatable steps for research, document drafting, data extraction, approvals, integrations, and other operational tasks.
 
-<Frame>
-  <img
-    className="dark:hidden"
-    src="../assets/workflows_overview_light.gif"
-    alt="Workflow Overview (Light Mode)"
-  />
-  <img
-    className="hidden dark:block"
-    src="../assets/workflows_overview_dark.gif"
-    alt="Workflow Overview (Dark Mode)"
-  />
-</Frame>
-
 <CardGroup cols={2}>
   <Card title="Automate Tasks" icon="robot">
     Turn repeatable work into structured processes that run consistently every time.
@@ -45,13 +32,15 @@ Each AI employee can use:
 - **Custom workflows** designed around your organization's process
 - **Templates** for document generation
 - **Documents and knowledge bases** for context and precedent
-- **Integrations** for connected tools and systems
+- **Integrations** for connected tools and systems — see [Integrations Overview](/integrations/overview)
 
 ## The Workflows Page
 
 The Workflows Overview page lists every workflow in your organization. The header reads "Workflows Overview — Streamline and monitor your processes and automate tasks."
 
-{/* TODO: screenshot — workflows overview / list page */}
+<Frame>
+  <video autoplay muted loop playsInline preload="auto" controls width="100%" src="../assets/videos/workflowoverview.mp4"></video>
+</Frame>
 
 The page provides:
 
@@ -65,6 +54,10 @@ Each workflow appears as a card showing its icon, name, node count (e.g., "12 no
 
 Click **New Workflow** to open the Create Workflow wizard.
 
+<Frame>
+  <video autoplay muted loop playsInline preload="auto" controls width="100%" src="../assets/videos/CreatingAWorkflow.mp4"></video>
+</Frame>
+
 <Steps>
   <Step title="Choose How to Start">
     "How would you like to start your workflow?" Select one of three options and click **Next**:
@@ -72,23 +65,19 @@ Click **New Workflow** to open the Create Workflow wizard.
     - **Start Blank** — create a new workflow from scratch with a clean canvas.
     - **Clone Existing** — duplicate one of your current workflows and use it as a starting point.
     - **From Marketplace** — start from a marketplace workflow template instead of building from scratch.
-
-    {/* TODO: screenshot — Create Workflow: choose start method */}
   </Step>
   <Step title="Start Blank">
     Provide a **Name** and a short **Description** (keep it to 1–2 short sentences) so team members and AI employees understand when the workflow should be used. Click **Create Workflow**.
-
-    {/* TODO: screenshot — Create Workflow: add the details */}
   </Step>
   <Step title="Clone Existing">
     "Select an existing workflow to duplicate and continue editing." Pick from the **Existing Workflow** dropdown, then click **Start Building**.
-
-    {/* TODO: screenshot — Create Workflow: choose a workflow to clone */}
   </Step>
   <Step title="From Marketplace">
-    Opens the Marketplace ("Discover Solutions for Every Task"), where you can search and browse AI employees, templates, and workflows. Select a workflow template to start from.
+    Opens the Marketplace ("Discover Solutions for Every Task"), where you can search and browse AI employees, templates, and workflows. Select a workflow template to start from. See [Marketplace Overview](/marketplace/overview) for a full walkthrough of the catalog.
 
-    {/* TODO: screenshot — Marketplace */}
+    <Frame>
+      <video autoplay muted loop playsInline preload="auto" controls width="100%" src="../assets/videos/Marketplace.mp4"></video>
+    </Frame>
   </Step>
 </Steps>
 
@@ -97,8 +86,6 @@ In every case you land in the workflow canvas, ready to build.
 ## The Workflow Canvas
 
 The canvas is the visual builder where the process is assembled.
-
-{/* TODO: screenshot — workflow canvas (empty / assistant) */}
 
 - **The canvas** (right) is the working area where blocks are placed and connected. Flows are organized into tabs, starting with **Main Flow**.
 - **The Assistant panel** (left) helps you build by describing what you want — "How can I help? Tell me about your idea, and I'll help you build it." This is the conversational way to assemble or modify a flow.
@@ -109,8 +96,7 @@ From here, follow the remaining build steps — design the process by adding and
 ## Connecting Workflows to AI Employees
 
 <Frame>
-  <img src="../assets/workforce_add_application_light.gif" alt="Connect Workflows to AI Employees (Light Mode)" className="block dark:hidden" />
-  <img src="../assets/workforce_edit_application_dark.gif" alt="Connect Workflows to AI Employees (Dark Mode)" className="hidden dark:block" />
+  <video autoplay muted loop playsInline preload="auto" controls width="100%" src="../assets/videos/addingworkflowtoagent.mp4"></video>
 </Frame>
 
 Workflows are attached to AI employees through their application configuration. Once connected, employees can select and run appropriate workflows when they receive a delegated task.
