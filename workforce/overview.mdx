@@ -4,42 +4,23 @@ description: "Build your AI workforce - digital employees that execute tasks, fo
 ---
 
 
-## The AI Workforce Factory
-
-Odella is an AI workforce factory. Design the role, define the task, connect your templates and systems — and deploy. Build digital employees that execute tasks, follow your firm's precedent, and scale instantly.
-
-These aren't virtual assistants. They're AI employees that work alongside your team, handling process work so your people can focus on expertise and strategic thinking.
-
-<CardGroup cols={2}>
-  <Card title="Scale Without Headcount" icon="chart-line">
-    Add capacity without adding overhead. Deploy AI employees in minutes, not months.
-  </Card>
-  <Card title="Work Where You Work" icon="envelope">
-    Delegate work over email, chat, Slack, or Teams. No system overhaul, no learning curve.
-  </Card>
-  <Card title="24/7 Operations" icon="clock">
-    AI employees don't burn out and don't miss deadlines. They work around the clock.
-  </Card>
-  <Card title="Follow Your Precedent" icon="book">
-    Train AI employees on your firm's tone, preferences, and process. They execute to your standards.
-  </Card>
-</CardGroup>
-
 ## The Workforce Overview Page
 
-The page header reads "Workforce Overview," with a subtitle about managing and monitoring your team of specialized AI employees. The top bar contains **Search employee**, **Sort**, and **Add Worker**.
+Search for someone by name, sort the list however you like, or click **Add Worker** when you're ready to bring someone new on board.
 
 <Frame>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/WorkforceAgent.mp4"></video>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="hidden dark:block" src="../assets/videos/WorkforceAgent-dark.mp4"></video>
 </Frame>
 
-Each AI employee appears as a card showing avatar, **Name**, **Role**, and a short description, along with status and controls:
+Every employee shows up here as a card — photo, name, role, a quick description, and a clock icon telling you where they stand:
 
-- **Status**, shown with a clock icon: **Stopped**, **Available now**, or **Outside working hours**. Status is driven by the working-hours widget on the worker's profile — see [The Worker Profile](#the-worker-profile) below.
-- **Controls** vary by status:
-  - **Stopped** → play (start), knowledge/library, settings (gear).
-  - **Running** (Available now / Outside working hours) → chat, pause, knowledge/library, settings.
+- **Stopped** means they haven't been started yet. Hit play to get them going, or open their knowledge library or settings first.
+- **Available now** or **Outside working hours** means they're live. From here you can jump straight into chat with them, pause them, or open their knowledge library or settings.
+
+That availability is set on each employee's own profile — see [The Worker Profile](#the-worker-profile) below if you want to change someone's working hours.
+
+{/* TODO: explain what happens when you pause a worker mid-task, and what "Outside working hours" means for queued work */}
 
 ## Adding a Worker
 
@@ -143,7 +124,6 @@ Clicking a worker on the Workforce Overview page opens their profile.
 - Avatar, Name, Role, description.
 - **Start Worker / Pause Worker** toggle (Start when stopped, Pause when running).
 - **Chat** button.
-- Three quick icons near the avatar: chat/message, contact/profile card, and a panel-collapse toggle.
 
 ### Left panel
 
@@ -157,7 +137,11 @@ Two tabs:
 Below the tabs:
 
 - **Working hours / usage widget** — scheduled vs. active hours for the week (e.g., "0 / 40h," "Resets in 7 days"). This is the source of the overview cards' status states.
-- **Cost Breakdown** — per-hour rate (e.g., "$0.55/h").
+
+  {/* TODO: explain how usage hours are counted against the 40h widget */}
+- **Cost Breakdown** — per-hour rate.
+
+  {/* TODO: explain how the per-hour rate is actually calculated */}
 
 ### Worker tabs
 
@@ -202,9 +186,3 @@ The profile has seven tabs: **Skills**, **Calendar**, **Actions**, **Workspace**
     See the [Settings](/workforce/settings-model-intelligence) pages for the areas already documented.
   </Accordion>
 </AccordionGroup>
-
-## Scale Your Operations Without Scaling Costs
-
-With Odella's AI workforce, you add capacity instantly without the overhead of hiring, training, or onboarding. Your team focuses on strategy, relationships, and outcomes — while AI employees handle the process work.
-
-Start building your AI workforce today and transform how your organization scales.
