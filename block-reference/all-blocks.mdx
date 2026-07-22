@@ -13,7 +13,7 @@ This page lists every built-in workflow block registered in `packages/workflow`.
     Makes a call to an LLM chat model.
   </Card>
   <Card title="AI Filter" href="/block-reference/ai/ai-filter">
-    Applys a AI call to each item in a list of values.
+    Applies an AI call to each item in a list of values.
   </Card>
   <Card title="AI Scorer" href="/block-reference/ai/ai-scorer">
     Scores each message in a chat-message[] array using an AI model. Each message is scored between 0 and 1 based on the provided scoring criteria.
@@ -22,7 +22,7 @@ This page lists every built-in workflow block registered in `packages/workflow`.
     Analyzes the contents of an image. If the image is a chart, it will provide an analysis of any trends or insights.
   </Card>
   <Card title="Analyze Table" href="/block-reference/ai/analyze-table">
-    This node allows you to analyze a table using AI. You can describe the analysis you would like to perform on the table and the AI will generate the code for you.
+    Analyzes a table using AI. Describe the analysis you want performed and the AI generates the code for you.
   </Card>
   <Card title="Assemble Message" href="/block-reference/ai/assemble-message">
     Assembles a single chat message from multiple parts. Parts can be text, images, audio, or files. Not every model supports all modalities, so ensure that the downstream model supports the parts you include.
@@ -31,7 +31,7 @@ This page lists every built-in workflow block registered in `packages/workflow`.
     Classifies messages into predefined categories using an AI model. Each category has a title and description that defines what types of messages belong to it. The LLM will evaluate the messages against each category's criteria and classify accordingly.
   </Card>
   <Card title="Create Chart" href="/block-reference/ai/create-chart">
-    This node allows you to create a chart image using AI. You can describe the chart you would like to create using the input table and the AI will generate the code to create the graph for you.
+    Creates a chart image using AI. Describe the chart you want using the input table and the AI generates the code to create the graph for you.
   </Card>
   <Card title="Extract Data" href="/block-reference/ai/extract-data">
     Applies an LLM to extract data from the supplied context, based on the schema.
@@ -74,10 +74,10 @@ This page lists every built-in workflow block registered in `packages/workflow`.
     Outputs a boolean constant, or converts an input value into a boolean.
   </Card>
   <Card title="Date" href="/block-reference/data/date">
-    A date picker node to select a date.
+    Provides a date picker to select a date.
   </Card>
   <Card title="File" href="/block-reference/data/file">
-    Provides an static file to use.
+    Provides a static file to use.
   </Card>
   <Card title="Image" href="/block-reference/data/image">
     Defines a static image for use with other nodes. Can convert a binary type into an image type.
@@ -92,7 +92,7 @@ This page lists every built-in workflow block registered in `packages/workflow`.
     Outputs a random number between the configured min and max values. Can be configured to output only integers, and whether the max value is inclusive or exclusive.
   </Card>
   <Card title="Text" href="/block-reference/data/text">
-    Outputs a string of text. It can also interpolate values using {{tags}}. The inputs are dynamic based on the interpolation tags.
+    Outputs a string of text. It can also interpolate values using `{{tags}}`. The inputs are dynamic based on the interpolation tags.
   </Card>
 </CardGroup>
 
@@ -138,7 +138,7 @@ This page lists every built-in workflow block registered in `packages/workflow`.
     Takes in three inputs: a condition, a true value, and a false value. If the condition is truthy, the true value is passed through the output port. If the condition is not truthy, the false value is passed through the output port. This node can "consume" a `Not Ran` to continue a graph from that point.
   </Card>
   <Card title="Match" href="/block-reference/logic/match">
-    Any number of regular expressions can be configured, each corresponding to an output of the node. The output port of the first matching regex will be ran, and all other output ports will not be ran.
+    Configures any number of regular expressions, each corresponding to an output of the node. The output port of the first matching regex runs; all other output ports do not.
   </Card>
   <Card title="Passthrough" href="/block-reference/logic/passthrough">
     Simply passes the input value to the output without any modifications.
@@ -211,7 +211,7 @@ This page lists every built-in workflow block registered in `packages/workflow`.
     Fills a PDF form using AI. Extracts form fields from a PDF and uses a vision-language model to populate them based on the provided context.
   </Card>
   <Card title="Draft" href="/block-reference/draft/draft">
-    A versatile drafting node that has a selection of pre-configured drafting templates for common use cases.
+    Drafts documents using a selection of pre-configured templates for common use cases.
   </Card>
   <Card title="Populate Template" href="/block-reference/draft/populate-template">
     Populates a template document using AI-extracted field values from the input messages. Fields that cannot be determined from the messages are left blank.
@@ -231,7 +231,7 @@ This page lists every built-in workflow block registered in `packages/workflow`.
     Executes a piece of Python code. See the Documentation for more information on how to write code for the Code Node.
   </Card>
   <Card title="Comment" href="/block-reference/advanced/comment">
-    A comment node is a node that does nothing. It is useful for adding notes to a graph.
+    Adds a note to the graph without affecting execution.
   </Card>
   <Card title="HTTP Call" href="/block-reference/advanced/http-call">
     Makes an HTTP call to the specified URL with the given method, headers, and body.
