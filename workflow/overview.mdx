@@ -1,129 +1,118 @@
 ---
-title: "Overview"
-description: "Discover how Odella workflows power AI employees and automate complex business processes"
+title: "Workflow overview"
+description: "Build, test, publish, and govern repeatable processes used by your team and AI Employees."
 ---
 
-## Harness the Power of Workflow Automation
+# Build repeatable business processes
 
-Workflows are the process engine behind Odella. They give your AI employees repeatable steps for research, document drafting, data extraction, approvals, integrations, and other operational tasks.
-
-<CardGroup cols={2}>
-  <Card title="Automate Tasks" icon="robot">
-    Turn repeatable work into structured processes that run consistently every time.
-  </Card>
-  <Card title="Power AI Employees" icon="user-gear">
-    Give AI employees the workflows they need to execute tasks accurately from delegated requests.
-  </Card>
-  <Card title="Visual Workflow Canvas" icon="paintbrush">
-    Design processes with a visual builder that connects actions, logic, data, and AI blocks.
-  </Card>
-  <Card title="Live Debugging" icon="bug">
-    Monitor workflows as they run and inspect each step to refine performance and reliability.
-  </Card>
-</CardGroup>
-
-## How Workflows Fit Into Odella
-
-Workflows are like digital roadmaps. They guide AI employees through tasks from start to finish, ensuring the right information is gathered, the right logic is applied, and the right output is produced.
-
-Each AI employee can use:
-
-- **Ready-made workflows** for common tasks
-- **Custom workflows** designed around your organization's process
-- **Templates** for document generation
-- **Documents and knowledge bases** for context and precedent
-- **Integrations** for connected tools and systems — see [Integrations Overview](/integrations/overview)
-
-## The Workflows Page
-
-The Workflows Overview page lists every workflow in your organization. The header reads "Workflows Overview — Streamline and monitor your processes and automate tasks."
+Workflows turn a business process into connected steps. They can collect input, transform data, apply logic, use AI, interact with connected applications, create documents, and return structured output.
 
 <Frame>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/workflowoverview.mp4"></video>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="hidden dark:block" src="../assets/videos/workflowoverview-dark.mp4"></video>
 </Frame>
 
-The page provides:
+## When to use a workflow
 
-- **Search workflows** — find a workflow by name.
-- **Sort** — reorder the list.
-- **New Workflow** — opens the Create Workflow wizard (see below).
+Use a workflow when work has a repeatable sequence, known inputs, and an expected outcome. Good candidates include:
 
-Each workflow appears as a card showing its icon, name, node count (e.g., "12 nodes"), and a short description. Cards that run on a schedule or event also show a **Trigger active** label, and connected integrations appear as small app icons along the bottom (e.g., Slack, calendar, BigQuery). A per-card menu (⋮) opens actions for that workflow. A workflow with no steps yet shows "0 nodes," and one without a description shows "No description available."
+- Intake and validation
+- Document review and drafting
+- Data extraction and classification
+- Recurring reports
+- Approval and routing processes
+- Updates across connected applications
 
-## Creating a Workflow
+Do not begin with a workflow when ownership, decision criteria, or the expected result are still unclear.
 
-Click **New Workflow** to open the Create Workflow wizard.
+## Workflow lifecycle
+
+<Steps>
+  <Step title="Define the outcome">
+    Identify the trigger, required inputs, expected output, process owner, and review criteria.
+  </Step>
+  <Step title="Build the process">
+    Add blocks for input, data handling, AI work, control flow, connected applications, and output.
+  </Step>
+  <Step title="Test representative cases">
+    Include normal inputs, missing data, invalid values, and conditions that follow different branches.
+  </Step>
+  <Step title="Review permissions and failure paths">
+    Confirm what the workflow can read or change, where approval is required, and how errors are handled.
+  </Step>
+  <Step title="Publish">
+    Publish only after the tested output meets the process owner's acceptance criteria.
+  </Step>
+  <Step title="Monitor and improve">
+    Review runs, investigate failures, and update the workflow when the business process changes.
+  </Step>
+</Steps>
+
+## Create a workflow
+
+Select **New Workflow**, then choose a starting method:
+
+| Method | Use it when |
+| --- | --- |
+| **Start Blank** | You are designing a new process. |
+| **Clone Existing** | A current workflow is a close match and should be adapted. |
+| **From Marketplace** | A published workflow provides a suitable starting point. |
 
 <Frame>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" src="../assets/videos/CreatingAWorkflow.mp4"></video>
 </Frame>
 
-<Steps>
-  <Step title="Choose How to Start">
-    "How would you like to start your workflow?" Select one of three options and click **Next**:
+Give the workflow a specific name and description. A good description states when the workflow should run and what result it produces.
 
-    - **Start Blank** — create a new workflow from scratch with a clean canvas.
-    - **Clone Existing** — duplicate one of your current workflows and use it as a starting point.
-    - **From Marketplace** — start from a marketplace workflow template instead of building from scratch.
-  </Step>
-  <Step title="Start Blank">
-    Provide a **Name** and a short **Description** (keep it to 1–2 short sentences) so team members and AI employees understand when the workflow should be used. Click **Create Workflow**.
-  </Step>
-  <Step title="Clone Existing">
-    "Select an existing workflow to duplicate and continue editing." Pick from the **Existing Workflow** dropdown, then click **Start Building**.
-  </Step>
-  <Step title="From Marketplace">
-    Opens the Marketplace ("Discover Solutions for Every Task"), where you can search and browse AI employees, templates, and workflows. Select a workflow template to start from. See [Marketplace Overview](/marketplace/overview) for a full walkthrough of the catalog.
+## Workflow canvas
 
-    <Frame>
-      <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/Marketplace.mp4"></video>
-      <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="hidden dark:block" src="../assets/videos/Marketplace-dark.mp4"></video>
-    </Frame>
-  </Step>
-</Steps>
+The canvas is the visual workspace for assembling a process.
 
-In every case you land in the workflow canvas, ready to build.
+- Add blocks from the block library.
+- Connect output ports to compatible input ports.
+- Edit each block's settings.
+- Group reusable logic into subflows.
+- Run the workflow and inspect each block's output.
+- Save draft changes and publish when ready.
 
-## The Workflow Canvas
+<CardGroup cols={2}>
+  <Card title="Interface" icon="desktop" href="/workflow/interface">
+    Learn the canvas, panels, controls, and workflow settings.
+  </Card>
+  <Card title="Blocks" icon="cubes" href="/workflow/blocks">
+    Add, connect, configure, and manage workflow blocks.
+  </Card>
+  <Card title="Control flow" icon="route" href="/workflow/control-flow">
+    Add branching, matching, waiting, and other execution logic.
+  </Card>
+  <Card title="Live debugging" icon="bug" href="/workflow/live-debugging">
+    Inspect a run and diagnose unexpected results.
+  </Card>
+</CardGroup>
 
-The canvas is the visual builder where the process is assembled.
-
-- **The canvas** (right) is the working area where blocks are placed and connected. Flows are organized into tabs, starting with **Main Flow**.
-- **The Assistant panel** (left) helps you build by describing what you want — "How can I help? Tell me about your idea, and I'll help you build it." This is the conversational way to assemble or modify a flow.
-- **Canvas controls** along the top include a refresh/reset control, a panel-collapse toggle, and a settings gear for the workflow.
-
-From here, follow the remaining build steps — design the process by adding and arranging blocks, configure and connect each block's inputs and outputs, test and debug the run, then save and publish the workflow to the AI employees that should use it. See [Working with Flows](/workflow/working-with-flows), [Workflow Interface](/workflow/interface), and [Blocks](/workflow/blocks) for detail on each.
-
-## Connecting Workflows to AI Employees
+## Connect workflows to workers
 
 <Frame>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" src="../assets/videos/addingworkflowtoagent.mp4"></video>
 </Frame>
 
-Workflows are attached to AI employees through their application configuration. Once connected, employees can select and run appropriate workflows when they receive a delegated task.
+Publish the workflow, then add it to the appropriate worker from the worker's capabilities. Clear names and descriptions help workers select the correct workflow for delegated work.
 
-<Info>
-  Workflows function as business processes you've taught your AI employees. Clear workflow names and descriptions help employees choose the right process for each request.
-</Info>
+See [Workforce workflows](/workforce/workflows) for assignment guidance.
 
-## Workflow Building Blocks
+## Production checklist
 
-<CardGroup cols={2}>
-  <Card title="Smart Blocks" icon="wand-magic-sparkles">
-    Use preconfigured actions for AI reasoning, data transformation, document work, integrations, and control flow.
-  </Card>
-  <Card title="Logic and Branching" icon="diagram-project">
-    Add conditionals, matching, loops, batching, and subflows to model complex processes.
-  </Card>
-  <Card title="AI Orchestration" icon="microchip-ai">
-    Coordinate multiple AI steps and models within a single workflow.
-  </Card>
-  <Card title="Operational Consistency" icon="shield-check">
-    Standardize how tasks are completed so output follows your organization's process and precedent.
-  </Card>
-</CardGroup>
+Before publishing a workflow used for business-critical work, verify:
 
-<Callout type="warning" emoji="⚖️">
-  Workflows are designed to enhance your team's expertise, not replace review. Always validate outputs for business-critical work.
-</Callout>
+- Inputs are validated.
+- Sensitive values are handled appropriately.
+- Connected applications use the minimum required permissions.
+- Write, send, and destructive steps have suitable approval controls.
+- Errors and partial failures have a defined outcome.
+- Outputs have an owner and review process.
+- Representative test cases pass.
+- The workflow name, description, and version history are understandable to another administrator.
+
+<Warning>
+  A successful test run does not remove the need for human review. Keep people in control wherever the process requires judgment, authorization, or accountability.
+</Warning>

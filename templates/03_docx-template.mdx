@@ -1,14 +1,14 @@
 ---
-title: "DOCX Templates for Word Document Automation"
-description: "Create DOCX templates from Word precedents using variables, conditionals, loops, and equations for automated document generation in Odella."
+title: "DOCX templates"
+description: "Configure Word templates with variables, conditions, loops, equations, and reusable document logic."
 ---
 
 ## Create Your First DOCX Template
 
-Use DOCX templates to turn existing Microsoft Word precedents into reusable document automation templates in Odella. Add variables, conditionals, loops, equations, and image fields so AI Employees can extract information from source materials and generate contracts, letters, correspondence, reports, and other Word documents in your firm's exact format.
+Use DOCX templates to turn approved Microsoft Word documents into reusable templates in Odella. Add variables, conditions, loops, equations, and image fields for contracts, letters, reports, correspondence, and other documents with dynamic content.
 
 <Callout type="info" emoji="📄">
-  DOCX templates work best for documents with dynamic content. Simply delegate the work to your AI employee with source materials, and they'll extract data and populate your templates using your firm's precedents and formatting.
+  DOCX templates work best for documents with dynamic content. Provide approved source material and review the populated document before final use.
 </Callout>
 
 ## Step-by-Step Template Creation
@@ -19,7 +19,7 @@ Use DOCX templates to turn existing Microsoft Word precedents into reusable docu
   </Step>
   
   <Step title="Name and Describe Your Template">
-    Give your template a clear, descriptive name and detailed description. This is crucial - your AI employees use this information to determine which template to use in different contexts. Be specific about the document's purpose, when it should be used, and any special requirements.
+    Give the template a specific name and description. State its purpose, when it applies, when it should not be used, and any review requirements.
   </Step>
   
   <Step title="Edit Document with Mustache Syntax">
@@ -27,7 +27,7 @@ Use DOCX templates to turn existing Microsoft Word precedents into reusable docu
   </Step>
   
   <Step title="Sync Template Fields">
-    After templating your document with Mustache syntax, click "Sync Document" to sync the template fields with the template system. Our AI automatically detects all template variables and generates intelligent instructions for how to fill each field, including data type detection and contextual filling guidance. The system analyzes variable names, surrounding context, and document structure to create appropriate filling instructions.
+    After adding Mustache syntax, select **Sync Document**. Odella detects template variables and proposes field types and filling instructions from the variable names and surrounding document context. Review every proposed instruction before publishing.
   </Step>
   
   <Step title="Review and Configure Field Instructions">
@@ -35,7 +35,7 @@ Use DOCX templates to turn existing Microsoft Word precedents into reusable docu
   </Step>
   
   <Step title="Save and Publish">
-    When you're finished configuring all fields and instructions, save and publish your template. The template is now available for use and can be attached directly to an AI employee or integrated into workflows for automated document generation.
+    When you're finished configuring all fields and instructions, save and publish your template. The template is now available for use and can be attached directly to an AI Employee or integrated into workflows for automated document generation.
   </Step>
 </Steps>
 
@@ -76,7 +76,7 @@ Control which content appears based on conditions.
 
 **Syntax:** `{{ ? condition }} content {{ / condition }}`
 
-Conditional sections that only display content when the condition evaluates to true. Perfect for showing different clauses based on client type, agreement terms, or other binary decisions.
+Conditional sections display content only when their condition evaluates to true. Use them for clauses or sections that depend on defined input values.
 
 **Example:** `{{ ? is_corporate }} This is a corporate agreement {{ / is_corporate }}`
 
@@ -182,7 +182,7 @@ Comment blocks that are ignored during template processing and won't appear in t
     Use loop syntax to handle dynamic lists of items like witnesses, terms, payment schedules, or any repeating data structures in your documents.
   </Card>
   <Card title="Default Values" icon="shield-check">
-    Set intelligent default values for common fields and define fallback content when optional data is not provided.
+    Set approved default values for common fields and define fallback content when optional data is not provided.
   </Card>
 </CardGroup>
 
@@ -208,17 +208,17 @@ Comment blocks that are ignored during template processing and won't appear in t
 
 ## Using Your DOCX Template
 
-Once published, your AI employees can use this template to generate documents automatically:
+Once published, your AI Employees can use this template to generate documents automatically:
 
 <CardGroup cols={2}>
   <Card title="Delegate via Email, Chat, or Slack" icon="envelope">
-    Simply send a message: "Draft the service agreement for Acme Corp using the attached proposal." Your AI employee extracts the data and generates the document.
+    Simply send a message: "Draft the service agreement for Acme Corp using the attached proposal." Your AI Employee extracts the data and generates the document.
   </Card>
   <Card title="Batch Document Generation" icon="copy">
-    Generate one document or multiple. "Create engagement letters for all 25 new clients in the attached spreadsheet" - completed in seconds.
+    Generate one document or a reviewed batch from validated source data.
   </Card>
   <Card title="AI Employee Integration" icon="robot">
-    Assign templates to specific AI employees based on their role. They automatically select the right template and populate all variables based on context and source materials.
+    Assign templates to specific AI Employees based on their role. They automatically select the right template and populate all variables based on context and source materials.
   </Card>
   <Card title="Workflow Integration" icon="diagram-project">
     Integrate templates into custom workflows using the "Populate Template" block. Templates can be triggered by specific events, data changes, or user actions.
@@ -233,7 +233,7 @@ Once published, your AI employees can use this template to generate documents au
 - Extracts relevant information from emails and proposal
 - Selects the appropriate Word template
 - Populates all variables, handles conditional logic, and performs calculations
-- Generates a professional document using your firm's exact formatting and language
+- Generates a document using the template's formatting and configured language
 - Delivers the completed document ready for your review
 
 <Callout type="info" emoji="📖">
@@ -243,7 +243,7 @@ Once published, your AI employees can use this template to generate documents au
 ## Template Examples
 
 <Callout type="tip" emoji="💡">
-  Below are real-world template patterns with detailed explanations to help you build sophisticated documents.
+  The following patterns demonstrate variables, conditions, loops, equations, and comments.
 </Callout>
 
 ### Variable Examples
@@ -408,7 +408,7 @@ Grand Total: ${{=ROUND(SUM([line_items.total]) * (1 + [tax_rate] / 100), 2)}}
 ```
 {{! Payment terms section - modify based on client credit rating }}
 Payment Terms: {{ payment_terms }}
-{{! TODO: Add late fee calculation formula }}
+{{! Late fee calculation is handled in the approved billing workflow }}
 ```
 
 Use comments to document business logic, remind about future updates, or explain complex template sections to other team members.
@@ -425,4 +425,4 @@ Use comments to document business logic, remind about future updates, or explain
 - [Text to File Block](/block-reference/draft/text-to-file)
 - [Flow Output Block](/block-reference/io/graph-output)
 
-Ready to create your first DOCX template? Transform your firm's precedents into intelligent, AI-powered document generation tools that your AI Employees can use to extract data from any source and generate professional documents with dynamic content in seconds!
+Use representative test data and review every conditional path before publishing a DOCX template for production work.

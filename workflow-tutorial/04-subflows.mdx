@@ -1,4 +1,58 @@
 ---
-title: Subflows
-description: Learn how to use subflows in Odella
+title: "Build a reusable subflow"
+description: "Move repeated workflow logic into a reusable subflow and call it from a parent flow."
 ---
+
+# Build a reusable subflow
+
+In this tutorial, you will move a repeated transformation into a subflow, define its interface, and use it from a parent flow.
+
+## Before you begin
+
+Create or choose a workflow with a small sequence you expect to reuse. A good example is normalizing a text value before other steps process it.
+
+## 1. Create the subflow
+
+<Steps>
+  <Step title="Add a subflow">
+    Create a new subflow and give it a name that describes its outcome, such as **Normalize request text**.
+  </Step>
+  <Step title="Define the input">
+    Add a Flow Input block and configure a text input named `request`.
+  </Step>
+  <Step title="Add the reusable logic">
+    Add the blocks that transform or validate the input. Keep the subflow focused on one responsibility.
+  </Step>
+  <Step title="Define the output">
+    Add a Flow Output block named `normalizedRequest` and connect the final value.
+  </Step>
+</Steps>
+
+## 2. Call it from the parent flow
+
+1. Return to the parent flow.
+2. Add a Subflow block.
+3. Select **Normalize request text**.
+4. Connect the parent value to `request`.
+5. Connect `normalizedRequest` to the next parent block.
+
+## 3. Test the interface
+
+Run the parent flow with:
+
+- A normal value
+- Empty or missing text
+- Unexpected whitespace or formatting
+- A value at the expected maximum size
+
+Open the subflow's run details to confirm that the input, internal steps, and output behave as expected.
+
+## Design guidance
+
+- Give inputs and outputs business-meaningful names.
+- Keep one clear responsibility per subflow.
+- Avoid hidden dependencies on parent-flow state.
+- Document expected input types and failure behavior.
+- Retest parent workflows after changing a shared subflow.
+
+See [Subflows](/workflow/subflows) for the complete concept reference.

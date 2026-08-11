@@ -1,127 +1,88 @@
 ---
-title: "PDF Template"
-description: "Create PDF templates from your firm's precedents with AI-powered form field detection for automated document generation"
+title: "PDF templates"
+description: "Configure fixed-layout PDF forms that AI Employees and workflows can populate from approved source information."
 ---
 
-## Create Your First PDF Template
+# Create a PDF template
 
-Transform your firm's PDF precedents into intelligent templates that your AI employees can populate automatically. Perfect for form-based documents where layout precision matters—government forms, applications, and standardized documents. Our AI detects form fields and generates intelligent filling instructions, then your AI employees extract data from evidence files, transcripts, or emails to populate them.
+PDF templates are best for forms and standardized documents where the page layout must remain fixed. Odella identifies fillable fields so you can review their purpose and define how each value should be populated.
 
-<Callout type="info" emoji="📋">
-  PDF templates work best with documents that have existing form fields. Simply delegate the work to your AI employee with source materials, and they'll extract data and populate the forms automatically.
-</Callout>
+## Before you begin
 
-## Step-by-Step Template Creation
+Use a current, approved PDF with existing form fields whenever possible. Confirm that:
+
+- The file opens correctly.
+- Field names are distinct and meaningful.
+- Required and optional fields are known.
+- Obsolete values and unresolved comments have been removed.
+- You have authority to use the document as a template.
+
+## Create the template
 
 <Steps>
-  <Step title="Upload Your PDF Template">
-    Start by uploading your PDF document to Odella. Navigate to the Templates section and click "Create New Template," then select "PDF Template" and upload your file. Ensure your PDF contains form fields for optimal AI detection.
+  <Step title="Upload the PDF">
+    Open **Templates**, select **New Template**, and upload the source PDF.
   </Step>
-  
-  <Step title="AI Form Field Detection">
-    Once uploaded, our AI automatically scans your PDF and detects all available form fields. The system identifies field types (text, checkboxes, dropdowns, signatures) and generates initial filling instructions for each field based on field names and context.
+  <Step title="Review template details">
+    Give the template a specific name and description. Explain the document's purpose, when it applies, and how it differs from similar forms.
   </Step>
-  
-  <Step title="Name and Describe Your Template">
-    Give your template a clear, descriptive name and detailed description. This is crucial - your AI employees use this information to determine which template to use in different contexts. Be specific about the document's purpose, when it should be used, and any special requirements.
+  <Step title="Review detected fields">
+    Confirm that each expected field is present and correctly identified. Fix ambiguous field names or instructions before testing.
   </Step>
-  
-  <Step title="Review and Configure Form Fields">
-    Enter the template drafting view where you can review all detected form fields and their auto-generated instructions. Each field displays its type, current instruction, and preview of how it will be filled.
+  <Step title="Add field instructions">
+    Define the source, format, default behavior, and missing-data behavior for each field.
   </Step>
-  
-  <Step title="Customize Field Instructions">
-    Fine-tune the instructions for each form field to match your specific needs. You can set default values, specify formatting requirements, adjust the drafting tone, or provide contextual guidance for the AI employee.
+  <Step title="Test with representative data">
+    Generate sample documents that cover normal, missing, long, and invalid values.
   </Step>
-  
-  <Step title="Review and Publish">
-    Review your template configuration to ensure all fields are properly configured and instructions are clear. Once satisfied, publish your template to make it available for use by your AI employees and in workflows.
+  <Step title="Publish">
+    Publish only after the populated PDF has been compared with the approved source and reviewed by the process owner.
   </Step>
 </Steps>
 
-## Advanced Field Configuration
+## Write field instructions
 
-<CardGroup cols={2}>
-  <Card title="Default Values" icon="pen-to-square">
-    Set standard default values for fields that typically contain the same information, such as company names, addresses, or standard legal language.
-  </Card>
-  <Card title="Formatting Instructions" icon="text-size">
-    Specify formatting requirements like date formats (MM/DD/YYYY), currency notation, or text case preferences (uppercase, lowercase, title case).
-  </Card>
-  <Card title="Conditional Logic" icon="code-branch">
-    Create smart instructions that adapt based on context, such as "Use formal tone for court documents, casual tone for internal communications."
-  </Card>
-  <Card title="Validation Rules" icon="shield-check">
-    Define validation criteria to ensure data accuracy, such as required field lengths, acceptable value ranges, or format validation.
-  </Card>
-</CardGroup>
+Good field instructions are specific and testable.
 
-## Instruction Examples
+| Field type | Example instruction |
+| --- | --- |
+| **Name** | “Use the full legal name from the approved customer record. Preserve punctuation and suffixes.” |
+| **Date** | “Use the agreement date in DD/MM/YYYY format. Do not substitute today's date when it is missing.” |
+| **Currency** | “Use the approved contract value in AUD with two decimal places.” |
+| **Checkbox** | “Select only when the source record explicitly confirms consent.” |
+| **Signature** | “Leave blank for signing. Do not insert a typed name as a signature.” |
 
-<Callout type="tip" emoji="💡">
-  **Example Instructions for Common Fields:**
-  
-  - **Client Name Field:** "Insert the full legal name of the client as it appears in official documents. Use title case formatting."
-  - **Date Field:** "Use MM/DD/YYYY format. If no specific date is provided, use today's date."
-  - **Legal Description:** "Provide a comprehensive but concise description using formal legal language. Limit to 200 words maximum."
-  - **Signature Field:** "Insert '[CLIENT SIGNATURE]' placeholder for manual signing or use digital signature if available in workflow."
-</Callout>
+Avoid instructions such as “fill appropriately.” State where the value comes from and what to do when the source is unclear.
 
-## Best Practices
+## Defaults and validation
 
-<Steps>
-  <Step title="Descriptive Naming">
-    Use clear, specific names like "Court Filing Motion Template" rather than generic names like "Legal Form 1." Include the document type and purpose.
-  </Step>
-  
-  <Step title="Comprehensive Descriptions">
-    Write detailed descriptions explaining when to use the template, required information, and any special considerations. This helps AI employees select the correct template.
-  </Step>
-  
-  <Step title="Field Organization">
-    Group related fields logically and provide context about how they relate to each other. This improves the AI's understanding of the document structure.
-  </Step>
-  
-  <Step title="Regular Updates">
-    Periodically review and update your templates based on usage patterns and feedback to maintain accuracy and relevance.
-  </Step>
-</Steps>
+Use defaults only for values approved to remain consistent across documents. Do not use defaults for facts that must come from the current matter, customer, transaction, or request.
 
-## Using Your PDF Template
+Validation can include:
 
-Once published, your AI employees can use this template to generate documents automatically:
+- Required-value checks
+- Date and identifier formats
+- Allowed value lists
+- Number and length limits
+- Cross-field consistency checks
 
-<CardGroup cols={2}>
-  <Card title="Delegate via Email, Chat, or Slack" icon="envelope">
-    Simply send a message: "Complete the visa application form using the attached documents." Your AI employee extracts the data and populates the template.
-  </Card>
-  <Card title="Batch Document Generation" icon="copy">
-    Generate one form or an entire bundle. "Process all 50 client intake forms from the attached spreadsheet" - done in seconds.
-  </Card>
-  <Card title="AI Employee Integration" icon="robot">
-    Assign templates to specific AI employees based on their role. They automatically select the right template for each task.
-  </Card>
-  <Card title="Workflow Integration" icon="diagram-project">
-    Integrate templates into custom workflows using the "Populate Template" block for automated document generation at any process stage.
-  </Card>
-</CardGroup>
+## Test the output
 
-## Example Delegation
+Include tests for:
 
-**You:** "Generate the court filing form using the case details in the attached transcript"
+- Every required field
+- Missing optional fields
+- Long names and addresses
+- Special characters
+- Multi-line text
+- Each checkbox and dropdown state
+- Values near field-length limits
+- Page rendering and print output
 
-**AI Employee:** 
-- Extracts relevant data from the transcript
-- Selects the appropriate PDF template
-- Populates all form fields according to your instructions
-- Delivers the completed form ready for review
+## Assign and use the template
 
-<Callout type="info" emoji="📖">
-  For detailed instructions on how to use your published templates with AI employees and workflows, see our [Using Templates](/templates/04_using-templates) guide.
-</Callout>
+After publishing, assign the PDF template to the appropriate workers or select it in a [Populate Template block](/block-reference/draft/populate-template). See [Use templates](/templates/04_using-templates) for delegation and review guidance.
 
-<Callout type="warning" emoji="⚖️">
-  Strong governance plans should include reviewing AI-generated documents, especially for business-critical functions. Verify that all form fields are properly configured and that the instructions are clear and accurate for optimal AI performance.
-</Callout>
-
-Ready to create your first PDF template? Transform your firm's forms into intelligent, AI-powered document generation tools that your AI employees can use to extract data from any source and generate professional documents in seconds!
+<Warning>
+  Review generated PDFs before filing, signing, sending, or relying on them. A populated form can still contain incorrect source data or an inappropriate template choice.
+</Warning>

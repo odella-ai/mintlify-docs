@@ -1,55 +1,72 @@
 ---
-title: Matching & Conditionals
+title: "Route work with conditions"
+description: "Evaluate workflow input and send it through the correct branch using matching and conditional blocks."
 ---
 
-<Steps>
-  1. In the sidebar, locate the "Flows" tab with a list of numbered folders containing flows.
-  2. Find the folder named "3. Matching and Conditionals".
-  3. Open the "Matching and Conditionals" flow.
-</Steps>
+# Route work with conditions
 
-You should see the following flow:
+This tutorial builds a simple intake router. Requests with a recognized priority follow the correct branch; unknown values are sent for review.
 
-<Frame>
-  <img src="./assets/03-overview.png" alt="Overview of Matching and Conditionals Flow" />
-</Frame>
+## What you will build
 
-We can use this example NDA generated from the previous tutorial!
+The workflow accepts a text value named `priority` and produces one of three outcomes:
 
-<Note>
-  This is an example Non-Disclosure Agreement (NDA) that we'll be working with in this tutorial.
-</Note>
+- `urgent` → immediate-review branch
+- `standard` → normal-processing branch
+- anything else → manual-triage branch
 
-<CodeBlock language="markdown">
-Non-Disclosure Agreement
+## 1. Add the input
 
-This Non-Disclosure Agreement (the "Agreement") is entered into between [Disclosing Party], located at 111 St, and Receiver, Inc, located at 222 St, collectively referred to as the "Parties".
+Add a Flow Input block with a text field named `priority`.
 
-Purpose The Parties desire to explore a potential business relationship (the "Purpose") and, in connection with this Purpose, may need to disclose certain confidential information to each other.
+## 2. Normalize the value
 
-Definition of Confidential Information Confidential Information refers to any information, data, or materials, in any form, whether oral, written, or electronic, that is disclosed by one Party (the "Disclosing Party") to the other Party (the "Receiving Party") and is marked as "confidential" or reasonably understood to be confidential based on its nature.
+If values can arrive with inconsistent capitalization or whitespace, normalize them before matching. You can use a Code block or another transformation appropriate to your workflow.
 
-Obligations of the Receiving Party The Receiving Party agrees to: a. Maintain the confidentiality of the Disclosing Party's Confidential Information with the same degree of care it uses to protect its own confidential information, but not less than a reasonable standard of care. b. Use the Confidential Information solely for the Purpose and not for any other purpose without the prior written consent of the Disclosing Party. c. Not disclose the Confidential Information to any third party without the prior written consent of the Disclosing Party, except as required by law or as necessary for the Purpose, provided that the Receiving Party ensures that any recipients are bound by confidentiality obligations at least as restrictive as those set forth in this Agreement. d. Promptly notify the Disclosing Party of any unauthorized disclosure or use of the Confidential Information and assist in any actions to prevent or stop such unauthorized disclosure or use.
+## 3. Add matching logic
 
-Term and Termination This Agreement shall be effective as of the date of signing and shall continue until Jan 2025. Either Party may terminate this Agreement upon written notice to the other Party. The obligations of confidentiality shall survive the termination of this Agreement.
+Add a Match block and connect `priority` to its test input. Define patterns for the supported values:
 
-Remedies The Parties acknowledge that any unauthorized use or disclosure of the Confidential Information may cause irreparable harm to the Disclosing Party, for which monetary damages may not be an adequate remedy. In such cases, the Disclosing Party shall be entitled to seek injunctive relief or any other appropriate equitable remedies.
+| Pattern | Branch |
+| --- | --- |
+| `^urgent$` | Immediate review |
+| `^standard$` | Normal processing |
 
-Governing Law and Jurisdiction This Agreement shall be governed by and construed in accordance with the laws of New England. Any disputes arising out of or in connection with this Agreement shall be subject to the exclusive jurisdiction of the courts of New England.
+Use anchored patterns so values such as `not-urgent` do not match accidentally.
 
-Entire Agreement This Agreement constitutes the entire understanding between the Parties concerning the subject matter hereof and supersedes all prior agreements, understandings, and communications, whether oral or written, between the Parties relating to the Confidential Information.
+## 4. Handle the fallback
 
-IN WITNESS WHEREOF, the Parties have executed this Non-Disclosure Agreement as of the date first written above.
+Connect the unmatched output to a manual-triage branch. A production workflow should define what happens when input is missing, unsupported, or ambiguous rather than silently discarding it.
 
-Discloser, Inc
+## 5. Add branch outputs
 
-Name: Mr. Discloser
+Add a Text block to each branch:
 
-Title: CEO
+- Immediate review: `Route to the priority review queue.`
+- Normal processing: `Continue through the standard process.`
+- Manual triage: `Request a valid priority or send for human review.`
 
-Receiver, Inc
+Connect the branches to a Flow Output block.
 
-Name: Mr. Receiver
+## 6. Test every path
 
-Title: CEO
-</CodeBlock>
+Run the workflow with:
+
+- `urgent`
+- `standard`
+- `URGENT`
+- an empty value
+- an unsupported value
+- a value that contains the expected word but should not match
+
+Confirm that each input follows exactly one intended path.
+
+## Matching or a boolean condition?
+
+Use a Match block when routing text against patterns. Use If/Else or Switch when a previous step already produces a boolean value.
+
+See [Match](/block-reference/logic/match), [If/Else](/block-reference/logic/if-else), and [Switch](/block-reference/logic/switch) for complete field references.
+
+<Warning>
+  Do not use generated text as the sole basis for high-impact decisions. Add deterministic validation and human approval where the process requires judgment or authorization.
+</Warning>

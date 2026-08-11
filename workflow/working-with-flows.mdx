@@ -1,148 +1,104 @@
 ---
-title: 'Working with Flows'
-description: 'Master the art of creating, managing, and executing AI-powered workflows in Odella'
+title: "Manage workflows"
+description: "Create, run, test, publish, and remove workflows while keeping their interfaces and ownership clear."
 ---
 
- 
+# Manage workflows
 
-<Callout type="info">
-  Flows are the cornerstone of Odella, representing sophisticated business processes and AI-powered workflows that revolutionise legal task automation.
-</Callout>
+A workflow is a directed graph of connected blocks. Each block waits for its required inputs, performs one operation, and passes output to downstream blocks. Independent branches can run concurrently.
 
-A Odella project is a collection of multiple flows. Each flow serves as a visual representation of a legal task or process, constructed using interconnected blocks that collaborate to achieve specific outcomes.
-
-## Understanding Flows
-
-Flows in Odella are designed to streamline and accelerate your legal work. They function as a chain of intelligent building blocks, with each block performing a specialised task. Information cascades through these blocks from left to right, enabling you to craft smart, AI-powered workflows without any coding expertise.
-
-Here's a simplified model of how a flow operates:
-
-1. It initiates with "starter" blocks that require no input to begin.
-2. As each block completes its task, it transmits its results to the subsequent connected blocks.
-3. A block remains dormant until it receives all necessary information to commence its operation.
-4. This process continues, with some blocks operating concurrently when possible, until the entire flow reaches completion.
-
-This architecture allows for the creation of sophisticated AI workflows, where the output of one AI task becomes the catalyst for the next, facilitating intelligent decision-making and automatic task completion.
-
-## Creating a New Workflow
+## Create a workflow
 
 <Frame>
-  <img src="../assets/workflows_new_light.gif" alt="Workflow Creation Process (Light Mode)" className="block dark:hidden" />
-  <img src="../assets/workflows_new_dark.gif" alt="Workflow Creation Process (Dark Mode)" className="hidden dark:block" />
+  <img src="../assets/workflows_new_light.gif" alt="Create a workflow in light mode" className="block dark:hidden" />
+  <img src="../assets/workflows_new_dark.gif" alt="Create a workflow in dark mode" className="hidden dark:block" />
 </Frame>
 
 <Steps>
-  <Step title="Initiate Workflow Creation">
-    Click the "Create new workflow" button in the top right corner of the Workflows Overview page.
+  <Step title="Select New Workflow">
+    Open Workflows and select **New Workflow**.
   </Step>
-  <Step title="Choose Workflow Type">
-    In the new window, select from one of three options:
-    - "Start from a blank Workflow" to create a new workflow from scratch
-    - "Clone an existing Workflow" to create a copy of a workflow you've already made
-    - "Clone a Public Template" to begin with one of our pre-built base templates
+  <Step title="Choose a starting point">
+    Start blank, clone an existing workflow, or use a Marketplace workflow.
   </Step>
-  <Step title="Configure Workflow Details">
-    Provide essential information such as name and description for your workflow.
+  <Step title="Name the workflow">
+    Use an outcome-focused name and describe when the workflow should run and what it returns.
   </Step>
-  <Step title="Access Workflow Editor">
-    Click "Next" to proceed to the workflow editor.
-  </Step>
-  <Step title="Begin Building">
-    Click "Start building" to commence creating your new workflow.
+  <Step title="Build on the canvas">
+    Add blocks, connect compatible ports, and configure each step.
   </Step>
 </Steps>
 
-Your newly created workflow will now appear in the "My workflows" list on the Workflows Overview page, ready for you to start constructing your AI-powered process.
+## Define inputs and outputs
 
-## Removing a Flow
+A reusable workflow should have an explicit interface.
+
+<CardGroup cols={2}>
+  <Card title="Flow Input" icon="arrow-right-to-bracket" href="/block-reference/io/graph-input">
+    Define each value required to start the workflow, including its name, type, and default where appropriate.
+  </Card>
+  <Card title="Flow Output" icon="arrow-right-from-bracket" href="/block-reference/io/graph-output">
+    Define the values returned to the caller when the workflow completes.
+  </Card>
+</CardGroup>
+
+Use business-meaningful names and validate required values before expensive or irreversible steps run.
+
+## Run and inspect a workflow
+
+<Frame>
+  <img src="../assets/workflows_run_light.gif" alt="Run a workflow in light mode" className="block dark:hidden" />
+  <img src="../assets/workflows_run_dark.gif" alt="Run a workflow in dark mode" className="hidden dark:block" />
+</Frame>
+
+Select **Run**, provide any required input, and follow execution on the canvas. Inspect block outputs to identify where actual behavior first differs from the expected result.
+
+Test at least:
+
+- A normal case
+- Missing required input
+- Invalid input
+- Boundary values
+- Every conditional branch
+- A connected-application failure
+- A partial batch failure, when applicable
+
+See [Live debugging](/workflow/live-debugging) for run inspection.
+
+## Save and publish
+
+Saving preserves draft changes. Publishing makes the tested version available for production use and worker assignment.
+
+Before publishing:
+
+1. Confirm the workflow owner and intended callers.
+2. Review inputs, outputs, permissions, and approvals.
+3. Test representative and failure cases.
+4. Confirm that the name and description match actual behavior.
+5. Document important assumptions with Comment blocks.
+
+## Update a published workflow
+
+Treat changes to inputs, outputs, connected applications, and shared subflows as compatibility changes. Identify dependent workers and workflows, test them against the update, and communicate material behavior changes to process owners.
+
+## Delete a workflow
+
+<Frame>
+  <img src="../assets/workflows_delete_light.gif" alt="Delete a workflow in light mode" className="block dark:hidden" />
+  <img src="../assets/workflows_delete_dark.gif" alt="Delete a workflow in dark mode" className="hidden dark:block" />
+</Frame>
 
 <Warning>
-  Deleting a flow is an irreversible action. Please exercise caution and ensure you want to proceed before deletion.
+  Deleting a workflow is permanent. Before deletion, remove or replace references from workers, actions, schedules, and other workflows.
 </Warning>
 
-<Frame>
-  <img src="../assets/workflows_delete_light.gif" alt="Workflow Deletion Process (Light Mode)" className="block dark:hidden" />
-  <img src="../assets/workflows_delete_dark.gif" alt="Workflow Deletion Process (Dark Mode)" className="hidden dark:block" />
-</Frame>
+Open the workflow settings, select **Delete Workflow**, and complete the confirmation step.
 
-1. Navigate to the card representing the workflow you wish to delete.
-2. Click on the workflow to open its details.
-3. On the workflow screen, locate and click the settings icon (typically a cog or gear symbol).
-4. In the settings menu, find and select the 'Delete Workflow' option.
-5. Confirm the deletion, acknowledging that this action will permanently remove the workflow and all associated data.
+## Maintenance practices
 
-## Starting a Flow
-
-<Frame>
-  <img src="../assets/workflows_run_light.gif" alt="Workflow Running Process (Light Mode)" className="block dark:hidden" />
-  <img src="../assets/workflows_run_dark.gif" alt="Workflow Running Process (Dark Mode)" className="hidden dark:block" />
-</Frame>
-
-<Card title="Executing Your Workflow" icon="play">
-  To run the currently selected flow, click the **Run** button located in the top right corner of the workflow page. You can observe the flow's execution in real-time, monitoring how data traverses through your AI chain.
-</Card>
-
-## Flow Inputs and Outputs
-
-Flows in Odella are designed as a graph-like structure, where inputs and outputs are determined by specific blocks within the workflow. This approach enhances flexibility and reusability across various scenarios.
-
-### Flow Structure
-
-<Card title="Graph-like Design" icon="diagram-project">
-  Flows are composed of interconnected blocks, forming a directed graph where data flows from inputs to outputs through various processing steps.
-</Card>
-
-### Inputs
-
-<CardGroup cols={2}>
-  <Card title="Input Blocks" icon="arrow-right-to-bracket">
-    [Input Blocks](/block-reference/io/graph-input) serve as entry points for data in your flow. They define the parameters your workflow requires to run.
-  </Card>
-  <Card title="Multiple Inputs" icon="layer-group">
-    Flows can have multiple input blocks, allowing for complex data ingestion scenarios.
-  </Card>
-</CardGroup>
-
-### Outputs
-
-<CardGroup cols={2}>
-  <Card title="Output Blocks" icon="arrow-right-from-bracket">
-    [Output Blocks](/block-reference/io/graph-output) define the results your flow returns upon completion. They act as exit points for processed data.
-  </Card>
-  <Card title="Multiple Outputs" icon="share-nodes">
-    Flows can have multiple output blocks, enabling diverse result structures.
-  </Card>
-</CardGroup>
-
-### Data Flow
-
-Data traverses through the workflow, being transformed and processed by various blocks before reaching the output. The graph-like structure allows for:
-
-- Parallel processing
-- Conditional branching
-- Data aggregation and splitting
-
-This flexible architecture enables the creation of complex, powerful workflows tailored to specific legal tasks and processes.
-
-<Tip>
-  When designing flows, consider the critical information your workflow needs (inputs) and the valuable insights or actions it should generate (outputs).
-</Tip>
-
-## Best Practices for Designing Flows
-
-<CardGroup cols={2}>
-  <Card title="Start Simple" icon="seedling">
-    Begin with a basic workflow and incrementally introduce complexity as needed.
-  </Card>
-  <Card title="Use Descriptive Names" icon="tag">
-    Assign clear, meaningful names to your flows and blocks that reflect their purpose.
-  </Card>
-  <Card title="Document Your Flow" icon="book">
-    Utilise comments or documentation blocks to elucidate the purpose and logic of your workflow.
-  </Card>
-  <Card title="Test Thoroughly" icon="vial">
-    Leverage the live debugging feature to ensure your flow behaves as expected with various inputs.
-  </Card>
-</CardGroup>
-
-By mastering flows in Odella, you'll be equipped to create powerful, AI-driven workflows that automate complex legal tasks and significantly enhance your firm's efficiency.
+- Keep one clear business outcome per workflow.
+- Use subflows for logic that is genuinely reused.
+- Avoid granting broader application access than the process requires.
+- Keep human approval before high-impact external actions.
+- Review failed runs and stale workflows regularly.
+- Retest when application schemas or business rules change.

@@ -1,73 +1,73 @@
 ---
-title: "Plugins"
-description: "Learn about extending Odella's functionality with plugins and connecting your existing applications to workflows"
+title: "Connected applications in workflows"
+description: "Use connected workplace applications in workflows with controlled access, testing, and approval."
 ---
 
-<Callout type="info">
-  Plugins in Odella allow you to extend functionality and connect your existing applications to your workflows, enabling you and your employees to access your tools seamlessly.
-</Callout>
+# Use connected applications in workflows
 
-## Understanding Plugins
+Connected applications add provider-specific blocks and actions to the workflow builder. Use them to read business data, create or update records, send approved messages, and connect Odella processes with other systems.
 
-Plugins serve two primary purposes in Odella:
+A connected application has two separate concerns:
 
-1. They add new blocks that you can use in your flows, extending the platform's capabilities.
-2. They connect your existing applications to your workflows, allowing you to integrate your tools directly into your legal processes.
+1. **Workspace connection** — authenticates Odella to the application.
+2. **Workflow use** — adds and configures an application block in a specific process.
 
-<Card title="Integration Power" icon="plug">
-  By connecting your applications through plugins, you can create more powerful and efficient workflows that leverage your existing tools and data.
-</Card>
+## Before adding an application block
 
-## Enabling Plugins
+Confirm that:
 
-Plugins are configured on a per-project basis. To enable a plugin:
+- The application is connected to the correct organizational account.
+- Granted permissions match the intended process.
+- The workflow owner is authorized to use the data and action.
+- Approval is required before sensitive writes, sends, or destructive actions.
 
-<Steps>
-  1. Navigate to the **Plugins** tab at the top of the screen
-  2. Browse the list of available plugins
-  3. Click the **Add** button next to the plugin you want to install
-</Steps>
+See [Integrations](/integrations/overview) for workspace connection guidance.
 
-
-## Currently Available Plugins
-
-The Plugins tab allows you to integrate external services and extend the functionality of your workflows. Currently available plugins include:
-
-- **G-Mail**: Draft, send, and search for e-mails in your workflows using G-Mail.
-- **Hubspot**: Search your Hubspot CRM for contacts and companies.
-- **Google Drive**: Access files in your Google Drive for use in our template builder and within your workflows.
-
-Connecting plugins enhances your workflow capabilities by allowing seamless integration with external tools and services you already use.
-
-<Tip>
-  Remember to save your settings after connecting an application to ensure the integration is active.
-</Tip>
-
-## Using Connected Applications in Workflows
-
-To use a connected application in a workflow:
+## Add an application block
 
 <Steps>
-  1. Open the workflow where you want to use the application
-  2. Drag the application's block from the sidebar into your workflow
-  3. Configure the block with the necessary inputs and outputs
+  <Step title="Open the block library">
+    On the workflow canvas, open the Add menu and find the connected application.
+  </Step>
+  <Step title="Choose an operation">
+    Select the specific read or action block required by the process.
+  </Step>
+  <Step title="Configure inputs">
+    Connect validated values from earlier blocks. Do not place credentials directly in workflow text or code.
+  </Step>
+  <Step title="Handle the response">
+    Connect success output to the next step and define what should happen when the application returns an error or incomplete data.
+  </Step>
+  <Step title="Test safely">
+    Begin with a sandbox, test record, draft action, or read-only operation where the provider supports it.
+  </Step>
 </Steps>
+
+## Read and write operations
+
+| Operation | Review guidance |
+| --- | --- |
+| **Read** | Limit queries to the records and fields the workflow needs. |
+| **Create** | Validate required values and prevent accidental duplicates. |
+| **Update** | Confirm the target record and preserve fields the workflow does not own. |
+| **Send** | Review recipient, channel, content, and approval requirements. |
+| **Delete** | Require explicit authorization and define recovery or escalation steps. |
+
+## Connection changes
+
+If an account is disconnected, expires, or loses permission, dependent workflows can fail. Document the connection owner and test affected workflows after reconnecting or changing credentials.
+
+## Production checklist
+
+- Correct application account connected
+- Minimum required permission granted
+- Test data removed or clearly separated
+- Input validation configured
+- Duplicate prevention considered
+- Error and retry behavior understood
+- Human approval present where required
+- Logs do not expose secrets or sensitive values
 
 <Warning>
-  Connected applications must be installed into each workflow where you want to use them. This ensures that only authorized workflows have access to specific tools.
+  A successful connection does not make every operation appropriate. Apply your organization's authorization, data-handling, and review requirements to each workflow step.
 </Warning>
-
-## Managing Plugins
-
-### Removing Plugins
-
-To remove a plugin:
-
-<Steps>
-  1. Navigate to the **Project** tab in the left sidebar
-  2. Find the plugin in the plugins list
-  3. Click the `...` menu next to the plugin
-  4. Select **Remove**
-</Steps>
-
-By leveraging plugins effectively, you can create powerful, integrated workflows that streamline your legal processes and improve productivity across your organization.

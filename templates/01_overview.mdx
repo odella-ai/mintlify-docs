@@ -1,139 +1,101 @@
 ---
-title: "Overview"
-description: "Advanced document processing that helps your AI employees create professional documents from your firm's precedents"
+title: "Template overview"
+description: "Create governed PDF and DOCX templates that AI Employees can use to produce consistent documents."
 ---
 
-## Transform Your Precedents Into AI-Powered Documents
+# Create consistent documents from approved templates
 
-Upload your existing templates, and your AI workforce can populate one document or an entire bundle from data in evidence files, transcripts, email correspondence, forms, or other source material. Delegate the work to your AI employee and they handle template selection, data extraction, and document population.
+Templates turn repeatable PDFs and Word documents into reusable drafting resources. Workers and workflows can use them to create documents from structured data, source files, messages, and connected applications.
+
+## When to use a template
+
+Use a template when the output must follow an established structure, layout, or precedent.
 
 <CardGroup cols={2}>
-  <Card title="Your Firm's Precedents" icon="file-lines">
-    Upload your existing PDF and Word documents. Transform your firm's templates into intelligent, automated document generation tools.
+  <Card title="PDF templates" icon="file-pdf" href="/templates/02_pdf-template">
+    Use fixed layouts for forms, applications, and standardized documents.
   </Card>
-  <Card title="Advanced Templating Rules" icon="code">
-    Support for variables, conditionals, loops, equations, and field-level instructions for complex document logic.
-  </Card>
-  <Card title="Data From Any Source" icon="database">
-    Extract and populate data from evidence files, transcripts, emails, forms, databases, and structured or unstructured sources.
-  </Card>
-  <Card title="Batch Document Generation" icon="copy">
-    Generate one document or an entire bundle in a single delegation.
+  <Card title="DOCX templates" icon="file-word" href="/templates/03_docx-template">
+    Use flexible Word documents with variables, conditions, loops, and reusable clauses.
   </Card>
 </CardGroup>
 
-<Callout type="tip" emoji="💡">
-  Your AI employees can automatically select the right template based on the task you delegate. Just describe what you need, and they handle template selection and data extraction.
-</Callout>
-
-## How It Works
+## Template lifecycle
 
 <Steps>
-  <Step title="Upload Your Firm's Precedents">
-    Upload your existing PDF or Word documents. These become the foundation for your AI employees' document generation capabilities.
+  <Step title="Choose an approved source document">
+    Begin with the version your team is authorized to use. Remove obsolete content and unresolved comments before upload.
   </Step>
-  <Step title="Configure Template Rules">
-    PDF templates use AI-powered form field detection. Word templates support Mustache-like syntax with variables, conditionals, loops, and equations.
+  <Step title="Create the template">
+    Upload a supported PDF or DOCX file, then review the generated name and description.
   </Step>
-  <Step title="Delegate to AI Employees">
-    Ask your AI employee to generate documents via email, chat, Slack, or Teams. They extract data from source materials and populate the right templates.
+  <Step title="Configure fields and instructions">
+    Define how source values map into the document and explain when the template should be selected.
   </Step>
-  <Step title="Review and Finalize">
-    Your AI employee delivers completed documents ready for review. Make any necessary adjustments before finalization.
+  <Step title="Test representative data">
+    Include missing optional values, long text, special characters, and each conditional path.
+  </Step>
+  <Step title="Publish">
+    Publish only after the output has been reviewed against the source document.
+  </Step>
+  <Step title="Assign and govern">
+    Add the template only to workers and workflows that need it. Review it again whenever the underlying precedent changes.
   </Step>
 </Steps>
 
-## Template Types
+## Create a template
 
-<CardGroup cols={2}>
-  <Card title="PDF Templates" icon="file-pdf">
-    **Best for:** Government forms, applications, and standardized documents
-
-    **Use when:** You need exact formatting, fixed layouts, and precise field placement.
-  </Card>
-  <Card title="Word Templates" icon="file-word">
-    **Best for:** Contracts, letters, correspondence, and complex documents
-
-    **Use when:** You need flexible layouts and content that changes based on source data.
-  </Card>
-</CardGroup>
-
-## The Templates Page
-
-The Templates page is where all your firm's templates live. Reach it from the left sidebar; the header reads "Templates — Templates let you create new documents within seconds."
-
-{/* TODO: screenshot — Templates list page */}
-
-The page provides:
-
-- **Search templates** — find a template by name.
-- **Sort** — reorder the list.
-- **New Template** — opens the upload wizard (see below).
-
-Each template appears as a card showing its icon, name, type (PDF Document or Word Document), a short description, and the date it was added. A per-card menu (⋮) opens actions for that template. Both PDF and Word templates appear together in the same list — the type label on each card tells them apart.
-
-## Creating a Template
-
-Click **New Template** to open the Upload a template wizard. Templates are built from a document you upload — "Choose the document your team should start from each time. We support PDF and DOCX files."
+Open **Templates** and select **New Template**.
 
 <Frame>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/AddTemplate.mp4"></video>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="hidden dark:block" src="../assets/videos/AddTemplate-dark.mp4"></video>
 </Frame>
 
-<Steps>
-  <Step title="Upload the File">
-    Click **Browse files** and select a PDF or DOCX document to use as the starting point. The panel notes templates are best for "contracts, letters, forms, and other repeatable business documents," and that once uploaded, Odella will "review the file, pull in the basics, and take you to the final setup step." Once a file is selected, it appears with its name, type, and size, with a confirmation check. Click **Continue**.
-  </Step>
-  <Step title="Review Template Details">
-    Odella prefills the template **Name** and **Description** from the uploaded file. Update either before creating the template, then click **Create Template**.
-  </Step>
-</Steps>
+1. Upload a PDF or DOCX source document.
+2. Review the proposed name and description.
+3. Create the template and open its editor.
+4. Add clear usage instructions.
+5. Test the generated document before publishing.
 
-The new template opens in the template editor.
+## Write useful template instructions
 
-## The Template Editor
+Instructions help a worker decide when and how to use the template. Include:
 
-After creation (or by opening an existing template), you land in the editor. It has two tabs — **Document** and **Instructions** — and a toolbar with **Save**, **Download**, and **Publish Document**.
+- The document's purpose
+- When to use it and when not to use it
+- Required source information
+- Field-mapping and formatting rules
+- Optional sections and conditional behavior
+- Escalation requirements for missing or conflicting data
+- The person responsible for reviewing the result
 
-{/* TODO: screenshot — editor Document tab */}
+<Tip>
+  Distinguish similar templates explicitly. For example, explain which jurisdiction, customer type, transaction, or process each template applies to.
+</Tip>
 
-**Document tab** — a live preview of the template at its real layout, with zoom controls. This is the source document your AI employees populate. For PDF templates this is the form with its detected fields; for Word templates it's the document with its templating syntax.
+## Draft and published states
 
-{/* TODO: verify before publishing — is the Document tab editable or preview-only? Described here as preview; update if fields/syntax can be edited inline. Also confirm the per-card ⋮ menu contents (rename / delete / duplicate?). */}
+Use **Save** while configuring and testing. Publish the template when it is ready to be used by assigned workers and workflows. A saved draft should not be treated as production-ready.
 
-**Instructions tab** — "Explain how this template should be used. Supports markdown." A rich-text editor where you describe when and how the template should be applied. These instructions guide your AI employees in selecting and populating the template correctly, so it's worth being specific about which inputs map where and when this template (versus a similar one) should be chosen.
+## Use templates with workers
 
-{/* TODO: screenshot — editor Instructions tab */}
+A worker can select an assigned template when the delegated task and template instructions match. It gathers source information, populates the document, and returns the result for review.
 
-**Publishing.** After adding instructions, click **Publish Document** to make the template available to your AI workforce. **Save** keeps a draft without publishing; **Download** exports the underlying document.
+See [Using templates](/templates/04_using-templates) for delegation and review guidance.
 
-<Callout type="tip" emoji="💡">
-  Write clear Instructions before publishing. Because your AI employees automatically select templates based on the task you delegate, good instructions are what let them pick the right template and map source data to the right fields.
-</Callout>
+## Governance checklist
 
-## Delegate Work, Get Documents
+Before publishing, confirm:
 
-Your AI employees handle the entire document generation process:
+- The source document is current and approved.
+- Every required field has a defined source.
+- Optional and missing values are handled safely.
+- Dates, numbers, names, and currencies use the required format.
+- Conditional sections have been tested.
+- Generated output preserves the required layout.
+- A human reviewer is identified for business-critical documents.
 
-1. **Receive the task** — You delegate work, such as "Generate the client onboarding package for Acme Corp using the attachments."
-2. **Gather the data** — The AI employee extracts relevant information from emails, PDFs, transcripts, forms, databases, or other source materials.
-3. **Select templates** — They choose the appropriate template or document bundle from your firm's precedents.
-4. **Populate documents** — They fill fields, apply conditional logic, perform calculations, and generate professional output.
-5. **Deliver results** — You receive completed documents ready for review.
-
-<CardGroup cols={3}>
-  <Card title="Instant Execution" icon="bolt">
-    Documents generated in seconds, not hours. Your AI employees work 24/7.
-  </Card>
-  <Card title="Follow Your Standards" icon="shield-check">
-    Use your firm's formatting, language, and precedents consistently.
-  </Card>
-  <Card title="Scale Document Work" icon="chart-line">
-    Generate one document or hundreds. Processing capacity scales with your needs.
-  </Card>
-</CardGroup>
-
-<Callout type="warning" emoji="⚖️">
-  Strong governance plans should include reviewing AI-generated documents, especially for business-critical functions. Templates ensure consistency, but human review maintains quality and accuracy.
-</Callout>
+<Warning>
+  Templates improve consistency but do not validate the legal, financial, regulatory, or operational suitability of generated content. Apply the review required by your organization.
+</Warning>
