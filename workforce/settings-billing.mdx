@@ -1,46 +1,87 @@
 ---
 title: "Billing"
-description: "Understand the saved quote, draft pricing impact, and scheduled labour estimate for a worker."
+description: "Understand hourly pricing, scheduled estimates, after-hours billing, usage charges, and quote fields for an AI Employee."
 ---
 
-**Billing** compares the worker's saved quote with your current draft settings.
+**Billing** compares the worker's saved quote with pricing based on the current draft settings.
 
-Use this page to understand how model, infrastructure, and operating schedule changes may affect the worker's contracted cost.
+## Current and proposed columns
 
-## What Billing shows
+- **Current** is the saved quote used as the pricing reference.
+- **Proposed** appears when a draft changes a pricing-sensitive field.
+- Select **Save Changes** to refresh the quote for future work.
 
-Billing can show:
+Saving a quote does not change charges that have already been finalized.
 
-- Hourly price
-- Estimated monthly contracted cost
-- Machine size
-- Default model
-- Working days and hours
-- Scheduled hours per week and month
-- Timezone
-- After-hours policy
-- Service state
-- Price override
-- Rate version
-- Publication key
-- Quote refresh date
+## Billing field reference
 
-## Current vs. proposed
-
-When your draft settings affect billing, the Billing view compares the current saved quote with the proposed configuration.
-
-Save the settings to refresh the billing quote snapshot used for future scheduled labour settlement.
+| Field                            | What it means                                                                                                   |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Hourly price**                 | Effective hourly rate for the saved combination of language model, infrastructure size, and any price override. |
+| **Monthly contracted cost**      | Planning estimate: hourly price × scheduled hours per month.                                                    |
+| **Machine size**                 | Infrastructure tier included in the quote.                                                                      |
+| **Default model**                | Language model included in the quote.                                                                           |
+| **Working days / Working hours** | Schedule used to classify scheduled and after-hours work.                                                       |
+| **Scheduled hours / week**       | Total weekly hours across selected days.                                                                        |
+| **Scheduled hours / month**      | Weekly scheduled hours × 4.33.                                                                                  |
+| **Timezone**                     | Local clock used to apply the schedule.                                                                         |
+| **After-hours**                  | Queue, reject, or bill work received outside the schedule.                                                      |
+| **Service state**                | Whether the worker is active or stopped. This is changed with the pause/resume control, not in the Billing tab. |
+| **Price override**               | A custom hourly pricing adjustment, if one applies.                                                             |
+| **Rate version**                 | Identifier for the pricing terms attached to the quote.                                                         |
+| **Publication**                  | Identifier for the pricing release used by the quote.                                                           |
+| **Current quote refreshed**      | Date and time the current quote was saved.                                                                       |
 
 ## Monthly estimate
 
-Monthly cost is estimated from scheduled hours only.
+The displayed monthly estimate includes scheduled working hours only:
+
+`hourly price × scheduled hours per week × 4.33`
+
+For example, a Monday–Friday 9 AM–5 PM schedule is 40 hours per week and 173.2 estimated hours per month.
 
 The estimate excludes:
 
-- After-hours labour
-- Separate usage-based charges
-- Other charges outside the scheduled baseline
+- After-hours working time
+- Image and video generation
+- Additional model usage charges under the worker's plan
+- Other usage-based charges
+
+It is therefore a baseline, not a maximum bill.
+
+## After-hours billing
+
+After-hours charges apply only when **After Hours Billing** is selected and the worker accepts work outside its working window. Queueing or rejecting a request does not start an after-hours work charge.
+
+The active quote contains three after-hours terms:
+
+| Term                | Current standard | Meaning                                         |
+| ------------------- | ---------------- | ----------------------------------------------- |
+| **Rate multiplier** | 1.5×             | Applied to the worker's effective hourly price. |
+| **Billing block**   | 30 minutes       | Unit used to measure after-hours working time.  |
+| **Rounding**        | Started block    | Any started block is billed as a full block.    |
+
+The calculation is:
+
+`after-hours charge = hourly price × rate multiplier × billed block hours`
+
+Example with a $4.00 hourly price:
+
+- One started 30-minute block: `$4.00 × 1.5 × 0.5 = $3.00`
+- Three started 30-minute blocks: `$4.00 × 1.5 × 1.5 = $9.00`
+
+The worker's saved quote is authoritative if its terms differ from the current standard. Changing timezone, working days, or working hours changes which requests fall outside the schedule after the new quote is saved.
+
+## Model and media usage
+
+Additional model usage charges may apply under the worker's plan. Image and video generation are also usage-based and separate from scheduled working time.
 
 <Note>
-Billing is a planning and quote comparison view. It helps you understand the contract baseline before additional usage or after-hours work is added.
+  Use the monthly estimate to plan the scheduled baseline, then account for
+  expected after-hours coverage and media-heavy or model-intensive work
+  separately.
 </Note>
+
+## Legacy quote notice
+
+An older quote may not contain every modern display field. In that case, Billing can infer schedule, model, or machine details from the worker's current configuration while preserving the saved hourly rate and pricing version.
