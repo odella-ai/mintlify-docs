@@ -1,0 +1,184 @@
+---
+title: "Custom integrations"
+description: "Connect an account-owned remote MCP server, review its tools, configure authentication, and assign it safely to AI Employees."
+---
+
+Custom integrations let an organization connect a remote **Model Context Protocol (MCP)** server that is not already available in Odella's integration catalog. Odella discovers the server's tools and makes the approved integration available for assignment to workers.
+
+<Warning>
+  A custom MCP server is an external service selected by your organization. Only connect a server whose operator, security practices, data handling, and tools your organization has reviewed and approved.
+</Warning>
+
+## Requirements
+
+| Requirement | Details |
+| --- | --- |
+| **Administrator access** | Only account administrators can test, create, refresh, enable, disable, or delete custom integrations. |
+| **Transport** | The server must provide a streamable HTTP MCP endpoint. |
+| **URL** | Production endpoints must be publicly reachable and use HTTPS on the standard HTTPS port. The URL cannot contain embedded credentials, query parameters, or fragments. Private, local, and internal network destinations are not supported. |
+| **Tool catalog** | The server must return a valid MCP tool catalog within Odella's safety limits. |
+| **Authentication** | Supported options are no authentication, an API key, or compatible OAuth 2.1 authorization. |
+
+A typical endpoint looks like:
+
+```text
+https://mcp.example.com/mcp
+```
+
+Do not put an API key in the URL. Enter it in the authentication field instead.
+
+## Add a custom integration
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Integrations** and select **Custom Integration**. The button is available only to account administrators.
+  </Step>
+  <Step title="Name the integration">
+    Enter a name that identifies the service and its purpose. This name appears when administrators and workers browse connected tools.
+  </Step>
+  <Step title="Enter the MCP server URL">
+    Provide the full HTTPS streamable HTTP endpoint. Do not enter a website home page unless it is also the MCP endpoint.
+  </Step>
+  <Step title="Test the connection">
+    Select **Test**. Odella checks the endpoint, detects the supported authentication method, and validates the tool catalog before the integration can be created.
+  </Step>
+  <Step title="Complete authentication">
+    If the server uses an API key, enter the key and retest. If Odella detects OAuth 2.1, continue to the provider's authorization flow.
+  </Step>
+  <Step title="Review discovered tools">
+    Confirm that every exposed tool is expected and appropriate for your organization. Do not continue if the server exposes unexpected write, send, administrative, or destructive capabilities.
+  </Step>
+  <Step title="Create the integration">
+    Select **Create integration**. A validated test can be used for up to 10 minutes and only by the administrator and account that started it. If it expires or the configuration changes, test the server again.
+  </Step>
+</Steps>
+
+## Authentication options
+
+<Tabs>
+  <Tab title="No authentication">
+    Use this only for an approved endpoint that intentionally accepts requests without credentials. Public reachability does not mean a server is safe or appropriate to connect.
+  </Tab>
+  <Tab title="API key">
+    Odella supports these header formats:
+
+    - `Authorization: Bearer <key>`
+    - `X-API-Key: <key>`
+
+    Enter the key in Odella. Never include it in the endpoint URL, integration name, logo URL, or worker instructions. If you change the key or header format during setup, retest before creating the integration.
+  </Tab>
+  <Tab title="OAuth 2.1">
+    When compatible OAuth 2.1 metadata is detected, Odella creates the integration in an authorization state and opens the provider's consent flow. Review the provider, requested access, and selected account before authorizing.
+  </Tab>
+</Tabs>
+
+## Optional logo
+
+Odella attempts to discover a suitable logo from the endpoint. If none is available, you can provide a direct HTTPS URL to a PNG, JPEG, GIF, or WebP image.
+
+The logo is presentation metadata only. It does not establish the identity or trustworthiness of the server.
+
+## Assign the integration to a worker
+
+Creating a custom integration does **not** grant every worker access.
+
+1. Open the intended worker.
+2. Open **Tools** in the skill tree.
+3. Find the custom integration and assign it.
+4. Review the worker's [Tool approval policy](/workforce/settings-security-privacy#tool-approval-policy).
+5. Test each required tool with non-sensitive data before production use.
+
+Custom integration access is account-scoped and worker assignment is enforced separately. A worker without an explicit assignment cannot use that custom integration.
+
+## Security behavior
+
+Odella applies a conservative trust model to custom MCP tools:
+
+- The remote server and its returned content are treated as untrusted external input.
+- A successful connection test validates protocol compatibility and catalog safety; it does not certify the server or its operator.
+- Custom tools are handled conservatively for approval purposes, including tools that the server describes as read-only.
+- Worker-level allow and block rules still apply.
+- API keys and OAuth credentials are stored as protected integration credentials and used by the platform rather than disclosed to the worker.
+- Requests are subject to platform safety, availability, and resource controls.
+- Setup, refresh, enablement, and deletion activity is recorded for operational and security review.
+
+<Note>
+  Information sent to a custom tool is disclosed to the external MCP server. The server operator's terms, privacy notice, retention, hosting locations, and subprocessors may apply to that information.
+</Note>
+
+## Current limits
+
+| Limit | Maximum |
+| --- | --- |
+| Custom integrations per account | 20 |
+| Discovered tools per custom integration | 100 |
+
+Catalogs, requests, and concurrent operations are also subject to platform safety and availability controls. Contact Odella if your approved use case requires a different supported configuration.
+
+## Manage a custom integration
+
+Select the settings button beside a custom integration to open its management view.
+
+| Action | What it does |
+| --- | --- |
+| **Inspect Tool catalog** | Shows the tools currently available in Odella, including their names and descriptions. |
+| **Refresh** | Retests the authenticated server and updates the catalog when tools have changed. |
+| **Authorize / Reconnect** | Completes OAuth authorization or reconnects an expired connection. |
+| **Disable** | Prevents use without deleting the integration configuration. |
+| **Enable** | Makes a valid, connected integration available again. |
+| **Delete integration** | Disconnects the integration and removes it from workers using it. This cannot be undone. |
+
+A failed catalog refresh does not replace the last successfully validated catalog. The integration may be marked unavailable or require reconnection until an administrator resolves the failure.
+
+## Connection states
+
+| State | Meaning | Administrator action |
+| --- | --- | --- |
+| **Ready** | Connected and available for assignment and use. | No action required. |
+| **Authorizing** | OAuth authorization has not been completed. | Select **Authorize**. |
+| **Reconnect required** | Authorization is missing, expired, or no longer valid. | Select **Reconnect** and complete consent. |
+| **Disabled** | An administrator has turned the integration off. | Enable it when approved for use. |
+| **Unavailable** | The endpoint, authentication, or catalog could not be validated. | Check the server and refresh or reconnect. |
+| **Blocked** | Odella's safety controls prevent the integration from being enabled. | Review the endpoint and contact support if needed. |
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Use a public HTTPS URL">
+    Confirm that the endpoint is publicly reachable, begins with `https://`, uses the standard HTTPS port, and does not contain a username, password, query string, or fragment. Localhost, private-address, internal-network, and metadata-service destinations are rejected.
+  </Accordion>
+  <Accordion title="Connection test timed out">
+    Confirm that the remote service is available and responds promptly to MCP initialization and tool discovery. Then retest.
+  </Accordion>
+  <Accordion title="API key required">
+    Enter the key, choose **Authorization: Bearer** or **X-API-Key**, and retest. Confirm the server expects the selected header format.
+  </Accordion>
+  <Accordion title="OAuth authorization is incomplete">
+    Open the integration settings and select **Authorize** or **Reconnect**. Complete the provider consent flow using the intended account.
+  </Accordion>
+  <Accordion title="No tools were found">
+    Confirm that the URL is the MCP endpoint and that the server supports MCP tool discovery. Odella cannot create a non-OAuth integration with an empty tool catalog.
+  </Accordion>
+  <Accordion title="Invalid or unsupported tool catalog">
+    Review the remote server's tool names and schemas. The server must return a valid catalog within platform safety limits.
+  </Accordion>
+  <Accordion title="Tools changed on the server">
+    Open the integration settings and select **Refresh**. Review the updated tool list and retest the worker's approval rules.
+  </Accordion>
+</AccordionGroup>
+
+## Review checklist
+
+Before approving production use, record:
+
+- The service owner and business purpose
+- The MCP server operator and endpoint
+- Authentication method and credential owner
+- Data categories that may be sent to the server
+- Hosting region, retention, subprocessors, and deletion terms
+- Expected tools and permitted operations
+- Workers allowed to use the integration
+- Tool approval and human review requirements
+- Revocation and incident-response contacts
+
+For questions about an Odella control, contact [support@odella.ai](mailto:support@odella.ai). Questions about the external server should be directed to its operator.

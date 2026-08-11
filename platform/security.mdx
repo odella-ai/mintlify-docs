@@ -1,82 +1,195 @@
 ---
-title: Security
-description: Understand the controls that help teams govern data, access, AI model usage, integrations, and review.
+title: "Security and data protection"
+description: "Understand Odella's layered security model, customer responsibilities, assurance resources, and legal data-protection terms."
 icon: "shield-halved"
 ---
 
-# Security
+Odella uses a layered security model for identity, customer separation, worker execution, connected applications, model access, and human approval. Product controls and customer configuration work together: Odella operates the platform controls, while each customer decides who may access its account and what each worker is permitted to use.
 
-Odella is built for teams that need AI Employees to work with business information safely. Security is not a separate layer from the product: it shapes how workers are onboarded, what they can access, which workflows they can run, and how outputs are reviewed.
+<Note>
+  This page is a non-contractual product overview. The [Terms of Use](https://www.odella.ai/legal/terms), [Privacy Policy](https://www.odella.ai/legal/privacy), [Data Processing Addendum](https://www.odella.ai/legal/dpa), and applicable order form or written agreement govern where they apply.
+</Note>
 
 ## Security model
 
 <CardGroup cols={2}>
-  <Card title="Workspace governance" icon="building-lock">
-    Keep work organized inside a controlled workspace with team-level settings, permissions, and review practices.
+  <Card title="Identity and access" icon="key">
+    Authenticated users operate within an organization account. Administrative and resource permissions determine what each user can configure or access.
   </Card>
-  <Card title="Worker-level boundaries" icon="user-shield">
-    Assign each worker only the tools, knowledge, templates, and workflows needed for its responsibilities.
+  <Card title="Customer and worker boundaries" icon="building-lock">
+    Customer context and worker assignments are used to limit access to workflows, knowledge, templates, applications, and tools.
   </Card>
-  <Card title="Integration controls" icon="plug-circle-check">
-    Connect workplace tools with secure authentication and manage which systems Odella can access.
+  <Card title="Controlled execution" icon="box">
+    AI Employees perform work in isolated execution environments with bounded resources and scoped platform access.
   </Card>
-  <Card title="Human review" icon="clipboard-check">
-    Keep people in control with review steps for important work, especially before information is sent or relied on.
+  <Card title="Capability enforcement" icon="shield-check">
+    Tools and integrations are made available through controlled platform capabilities rather than unrestricted access to external systems.
+  </Card>
+  <Card title="Protected credentials" icon="lock">
+    Integration and model-provider credentials are managed by platform services and are not intentionally exposed to worker workspaces.
+  </Card>
+  <Card title="Human oversight" icon="user-check">
+    Approval policies and workflow review steps keep people in control of sensitive, external, and high-impact actions.
   </Card>
 </CardGroup>
 
-## Configure security settings
+## Identity and least privilege
+
+Access decisions can involve several layers:
+
+1. The authenticated organization and user
+2. The selected AI Employee
+3. Resources assigned to that worker
+4. The current conversation, workflow, or task
+5. Tool-specific allow, block, and approval rules
+6. The connected account's own permissions
+
+A valid user session or active worker does not grant access to every organization resource. Assign workers only the capabilities required for their responsibilities and remove access when it is no longer needed.
 
 <Frame>
   <img src="/assets/security_overview_light.gif" alt="Odella security settings" className="block dark:hidden" />
   <img src="/assets/security_overview_dark.gif" alt="Odella security settings" className="hidden dark:block" />
 </Frame>
 
-Use security settings to decide how your team works with Odella.
+See [Security & Privacy settings](/workforce/settings-security-privacy) for inbound access, outbound messaging, tool approval policies, and saved exceptions.
 
-<AccordionGroup>
-  <Accordion title="Model provider controls">
-    Choose which AI model providers are available in your workspace. This lets your organization align model usage with internal policies, client requirements, and risk tolerance.
-  </Accordion>
-  <Accordion title="Data and knowledge access">
-    Control what documents, stores, integrations, and workflows each worker can use. Workers should only receive access that supports their role and responsibilities.
-  </Accordion>
-  <Accordion title="Integration permissions">
-    Review each connected tool and ensure access matches the work being performed. For example, a document drafting worker may need template and document access, while a finance worker may need accounting-related integrations.
-  </Accordion>
-  <Accordion title="Review and audit practices">
-    Build review checkpoints into workflows where human judgment is required. Use work history and workflow runs to understand what happened and improve the process over time.
-  </Accordion>
-</AccordionGroup>
+## Data protection
 
-## Recommended security practices
+The technical and organizational measures described in the DPA include, as applicable:
+
+- Role-based and least-privilege access
+- Unique identities and multi-factor authentication for privileged and critical production access
+- Access logging and periodic access review
+- Encryption in transit using TLS 1.2 or higher
+- Encryption at rest using AES-256 or equivalent provider-managed encryption
+- Managed secret storage and access restrictions
+- Logical customer-separation controls
+- Development and production separation
+- Change review, testing, deployment records, and recovery practices
+- Vulnerability, dependency, and cloud-security monitoring
+- Security logging, incident response, backup, and recovery procedures
+- Vendor and Subprocessor review
+- Documented deletion and disposal procedures
+
+The complete and current contractual description is in [Annex II of the DPA](https://www.odella.ai/legal/dpa).
+
+## AI Employee execution
+
+Worker execution is separated from the public application tier. Persistent customer work and replaceable execution capacity are treated separately, and tool availability is resolved from the worker's authorized resources and policies.
+
+Important customer controls include:
+
+- Worker role and manager
+- Assigned skills, workflows, templates, and knowledge
+- Connected inboxes and applications
+- Working hours and service state
+- Inbound and outbound messaging policies
+- Tool approval policy and saved tool rules
+- Human approval steps inside workflows
+
+See [AI Employee settings](/workforce/settings-overview) for the complete configuration reference.
+
+## Integrations and credentials
+
+Odella supports OAuth and other appropriate authentication methods for customer-authorized applications. Connection and authorization are completed through controlled application flows, and protected credentials are associated with the relevant account or user scope.
+
+Workers normally use connected applications through authorized tools. They do not need reusable application credentials in their workspace.
+
+A connected application remains subject to:
+
+- The provider's permissions and terms
+- Organization and user scope
+- Worker assignment
+- Tool approval rules
+- Outbound-recipient policy
+- Workflow approval steps
+
+Custom integrations connect customer-selected remote MCP servers and carry additional third-party risk. See [Custom integrations](/integrations/custom-integrations) for endpoint requirements, authentication, assignment, and the conservative tool trust model.
+
+## Model access
+
+Model requests pass through a controlled Odella service boundary. Worker environments are not provisioned with direct model-provider credentials. Available models and worker model selections remain subject to workspace and worker configuration.
+
+See [Models](/platform/models) and [Model & Intelligence settings](/workforce/settings-model-intelligence).
+
+## Data residency and international processing
+
+Data residency, international transfers, support access, customer-selected services, and Subprocessor locations are governed by the applicable contractual terms and account configuration.
+
+Do not assume that choosing a region prevents every transfer. Customer-selected model providers and integrations may process data in locations governed by their own terms and configuration.
+
+Review:
+
+- [Privacy Policy](https://www.odella.ai/legal/privacy) for current privacy, residency, retention, and individual-rights information
+- [Data Processing Addendum](https://www.odella.ai/legal/dpa) for processing roles, security terms, international-transfer mechanisms, breach obligations, and deletion terms
+- [Subprocessors](https://www.odella.ai/legal/subprocessors) for how the current list and change-notice process are managed
+- [Trust Center](https://www.odella.ai/legal/trust) for current assurance and Subprocessor information
+
+## Monitoring, audit, and resilience
+
+Odella records relevant operational and security events to support monitoring, troubleshooting, access review, and incident response. Platform controls include protected logging, monitored services, bounded retries, recovery mechanisms, and separation of durable customer state from replaceable worker execution.
+
+The product's [Activity Log](/workforce/activity) gives authorized users a worker-level view of conversations, tasks, workflows, and service events. It is not a replacement for the broader assurance material available through the Trust Center.
+
+## Shared responsibility
+
+| Odella responsibilities | Customer responsibilities |
+| --- | --- |
+| Operate and secure the platform controls described in applicable agreements | Manage organization users and administrator access |
+| Protect platform-managed credentials and service boundaries | Assign appropriate capabilities to each worker |
+| Maintain platform monitoring, incident response, backup, and recovery practices | Connect only approved applications and external services |
+| Apply customer and worker context to platform authorization | Review provider scopes, terms, retention, and data handling |
+| Provide applicable privacy and data-processing terms | Establish a lawful basis and required notices for submitted personal data |
+| Support available deletion, export, and access-control functions | Configure approvals and review outputs before consequential use |
+| Maintain vendor and Subprocessor governance | Remove users, workers, credentials, and connections no longer required |
+
+## Recommended customer controls
 
 <Steps>
-  <Step title="Start with a narrow role">
-    Give each worker a focused responsibility instead of broad access to everything in your workspace.
+  <Step title="Assign accountable owners">
+    Identify an organization administrator, security contact, integration owner, and manager for each production worker.
   </Step>
-  <Step title="Connect only what is needed">
-    Attach the minimum set of workflows, templates, documents, and integrations required for the worker's job.
+  <Step title="Start with minimum access">
+    Assign only the workflows, knowledge, templates, applications, and tools required for the role.
   </Step>
-  <Step title="Review early outputs">
-    Check early work carefully and update instructions before expanding responsibilities.
+  <Step title="Review external services">
+    Evaluate each integration and custom MCP server before connecting it, including the provider's terms, permissions, hosting, retention, and subprocessors.
   </Step>
-  <Step title="Keep humans in approval paths">
-    For sensitive or high-impact tasks, keep a human review step before the output is used externally or relied on internally.
+  <Step title="Require approval where needed">
+    Keep people in the approval path before external sends, sensitive writes, destructive operations, or decisions requiring authorization.
+  </Step>
+  <Step title="Test representative work">
+    Verify normal, failure, and escalation paths with non-sensitive data before production use.
+  </Step>
+  <Step title="Review access and activity">
+    Periodically review administrators, worker assignments, integration connections, saved approval rules, and worker Activity.
+  </Step>
+  <Step title="Revoke promptly">
+    Disable workers, disconnect integrations, rotate credentials, and remove user access when responsibilities change.
   </Step>
 </Steps>
 
-<Note>
-  Security improves when workers are treated like team members with defined roles: clear responsibilities, appropriate access, and regular review.
-</Note>
-
-## Related docs
+## Assurance and legal resources
 
 <CardGroup cols={2}>
-  <Card title="Models" icon="brain" href="/platform/models">
-    Learn how Odella works with AI model providers and workspace-level model settings.
+  <Card title="Trust Center" icon="badge-check" href="https://www.odella.ai/legal/trust">
+    Review current security and compliance assurance information and the authoritative Subprocessor register.
   </Card>
-  <Card title="Integrations" icon="plug" href="/integrations/overview">
-    Learn how to connect Odella to the tools your team already uses.
+  <Card title="Data Processing Addendum" icon="file-contract" href="https://www.odella.ai/legal/dpa">
+    Review processing roles, technical and organizational measures, breach terms, transfers, deletion, and audit rights.
+  </Card>
+  <Card title="Privacy Policy" icon="user-lock" href="https://www.odella.ai/legal/privacy">
+    Review how Odella collects, uses, protects, retains, and transfers personal information.
+  </Card>
+  <Card title="Subprocessors" icon="network-wired" href="https://www.odella.ai/legal/subprocessors">
+    Review the Subprocessor-list process, change notices, and contact information.
+  </Card>
+  <Card title="Terms of Use" icon="scale-balanced" href="https://www.odella.ai/legal/terms">
+    Review the terms governing use, customer responsibilities, security, data protection, and third-party services.
+  </Card>
+  <Card title="Security review support" icon="clipboard-question" href="mailto:support@odella.ai">
+    Contact Odella for product questions or to coordinate an enterprise security review.
   </Card>
 </CardGroup>
+
+For privacy and Data Subject requests, contact [dsar@odella.ai](mailto:dsar@odella.ai). For legal and DPA questions, contact [legal@odella.ai](mailto:legal@odella.ai).

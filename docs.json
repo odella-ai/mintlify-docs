@@ -203,6 +203,7 @@
             "group": "Extend Odella",
             "pages": [
               "integrations/overview",
+              "integrations/custom-integrations",
               "marketplace/overview"
             ]
           }
