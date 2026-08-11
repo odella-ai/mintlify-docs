@@ -1,31 +1,40 @@
 ---
 title: "Memory & Reminders"
-description: "Control long-term memory, overnight review, and follow-up tracking for a worker."
+description: "Control shared context, overnight review, long-term memory, and follow-up tracking for an AI Employee."
 ---
 
-**Memory & Reminders** controls how a worker remembers useful context and tracks future commitments.
+**Memory & Reminders** controls what a worker can read from shared memory, what it may add, and how it preserves useful context.
+
+## Shared context
+
+| Field                    | What it means                                                                                                                                                                                               |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Read shared context**  | Lets the worker use account context and the authenticated user's preferences across conversations and workers. Disable it when the role should rely only on its direct conversation and assigned knowledge. |
+| **Write shared context** | Lets the worker update user-specific memory. Promotion into account-wide memory remains governed. Disable it for read-only or tightly controlled roles.                                                     |
+
+Reading and writing are independent. For example, a worker can read established preferences without being allowed to add new ones.
 
 ## Enable dreaming
 
-When enabled, the worker reviews recent activity overnight and saves useful context to long-term memory.
-
-Dreaming helps preserve details such as:
+When enabled, the worker reviews recent activity overnight and saves useful context to long-term memory. This can preserve:
 
 - User preferences
 - Decisions made in conversations
-- Useful context from recent work
+- Useful details from recent work
 - Patterns the worker should remember later
+
+The review happens in cycles: **Light** reviews short-term memory, **Deep** turns important details into long-term memories, and **REM** connects them with related context.
 
 ## Dream diary
 
-Controls the kind of diary entry created after overnight review.
+This field appears when dreaming is enabled.
 
-| Mode | What it does |
-| --- | --- |
-| **Simple notes** | Adds a short, structured entry. |
-| **Detailed notes** | Creates richer notes using a more detailed review process. |
+| Mode               | What it does                                                  |
+| ------------------ | ------------------------------------------------------------- |
+| **Simple notes**   | Creates a short, structured diary entry. This is the default. |
+| **Detailed notes** | Uses a more detailed review process to create a richer entry. |
 
-Dreaming is designed to organize information over time, not replace governed knowledge bases.
+Dreaming organizes information over time; it does not replace an approved knowledge base for policies, procedures, or source documents.
 
 ## Remember follow-ups
 
@@ -35,8 +44,14 @@ When enabled, the worker tracks commitments such as:
 - “Reply if they do not respond”
 - “Send the summary next week”
 
-This helps the worker resurface pending work at the right time instead of losing it in conversation history.
+This helps the worker resurface pending work instead of losing it in conversation history. Turn it off when the role must not create or retain future commitments from conversation.
 
-<Tip>
-Enable follow-up memory for workers that manage conversations, inboxes, customer requests, or recurring stakeholder updates.
-</Tip>
+## Defaults
+
+Read shared context, write shared context, dreaming, and follow-up memory are enabled by default. Dream diary defaults to **Simple notes**.
+
+<Warning>
+  Memory settings do not override access controls. Only give a worker access to
+  the conversations, applications, and knowledge needed for its
+  responsibilities.
+</Warning>

@@ -1,40 +1,63 @@
 ---
 title: "Security & Privacy"
-description: "Control who can contact a worker and how it may use connected tools."
+description: "Control inbound access, outbound recipients, and connected-tool approvals for an AI Employee."
 ---
 
-**Security & Privacy** controls inbound access and tool approvals.
+**Security & Privacy** separates three decisions: who may contact the worker, who the worker may contact, and what connected tools it may use.
 
 ## Inbound Access Policy
 
-Controls who can message the worker.
+| Policy              | What it does                                                                                                                            |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Public**          | Anyone can message the worker. New senders are automatically added to contacts.                                                         |
+| **Account Members** | Only users in your Odella organization can message the worker. External senders are blocked. This is the default.                       |
+| **Access Code**     | New senders must provide a unique pairing code once. Access remains after pairing. Selecting this option opens the access-code manager. |
 
-| Policy | What it does |
-| --- | --- |
-| **Public** | Anyone can message the worker. New senders are automatically added to contacts. |
-| **Account Members** | Only users in your Odella organization can message the worker. External senders are blocked. |
-| **Access Code** | New senders must provide a unique pairing code once. Access remains after pairing. |
+Inbound access does not grant outbound permission and does not override tool approvals.
+
+## Outbound Messaging Policy
+
+| Policy             | What it does                                                                                                                                 |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Recommended**    | Allows replies in current conversations and messages to trusted directory contacts. Asks before contacting someone new. This is the default. |
+| **Ask every time** | Requires approval for every outbound message, including known contacts.                                                                      |
+| **Directory only** | Allows current conversations and trusted directory contacts, but blocks new recipients.                                                      |
+| **Allow anyone**   | Allows outbound messages to any recipient without approval.                                                                                  |
+| **Disabled**       | Blocks all outbound messaging from the worker.                                                                                               |
+
+## Saved recipient rules
+
+Recipient rules are explicit exceptions saved by channel and recipient address.
+
+- An **allow** rule pre-approves that recipient, which is useful for a scheduled report sent to a fixed email address.
+- A **block** rule prevents the worker from contacting that recipient.
+- A recipient cannot be both allowed and blocked. Remove the block before adding an allow rule.
+- Rules can be added in advance or saved when a team member approves a send.
+
+Saved recipient rules work with the selected outbound policy; they do not change who may contact the worker.
 
 ## Tool approval policy
 
-Controls the default approval behaviour for connected tools.
+| Policy             | Read actions | Write actions | External sends | Destructive actions | Credential actions |
+| ------------------ | ------------ | ------------- | -------------- | ------------------- | ------------------ |
+| **Recommended**    | Allow        | Ask           | Ask            | Ask                 | Block              |
+| **Approval-first** | Ask          | Ask           | Ask            | Ask                 | Block              |
+| **Restricted**     | Allow        | Block         | Block          | Block               | Block              |
+| **Unrestricted**   | Allow        | Allow         | Ask            | Ask                 | Block              |
 
-| Policy | Behaviour |
-| --- | --- |
-| **Recommended** | Allows read-only tools, asks before writes/sends/sensitive actions, and blocks credential tools. |
-| **Approval-first** | Asks before reads, writes, sends, or destructive actions. Credential tools remain blocked. |
-| **Restricted** | Allows reads but blocks writes, sends, and destructive actions unless explicitly allowed. |
-| **Unrestricted** | Allows reads and writes. Sends and destructive actions still ask. Credential tools remain blocked. |
+**Recommended** is the default. “Unrestricted” applies to ordinary reads and writes; sends and destructive actions still require approval, and credential actions remain blocked.
 
 ## Saved tool rules
 
-Saved rules override the default tool approval policy for specific tools.
+Saved rules override the default tool policy for a specific connected tool:
 
-- **Always allow** lets the worker use that tool without asking.
+- **Always allow** lets the worker use that tool without asking where the action is eligible to be allowed.
 - **Always block** prevents the worker from using that tool.
-
-Tools you allow or block permanently during approvals may appear here automatically. You can also add rules manually from the tool rule picker.
+- A choice saved during an approval can appear here automatically.
+- Removing a saved rule returns the tool to the selected default policy.
 
 <Warning>
-Review tool rules carefully for tools that send messages, edit production systems, manage credentials, or delete data.
+  Review allow rules carefully for tools that send messages, edit production
+  systems, manage sensitive data, or delete records. Use the narrowest policy
+  that still lets the worker complete its responsibilities.
 </Warning>

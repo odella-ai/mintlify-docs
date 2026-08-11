@@ -1,44 +1,50 @@
 ---
 title: "Model & Intelligence"
-description: "Choose the model, reasoning level, and infrastructure size for a workforce employee."
+description: "Choose language, image, and video models, reasoning effort, and infrastructure size for an AI Employee."
 ---
 
-**Model & Intelligence** controls the worker's core thinking and runtime capacity.
+**Model & Intelligence** controls the worker's thinking, media generation, and processing capacity.
 
-## LLM Model
+## Field reference
 
-The default language model used by the worker.
+| Field                   | What it controls                                                                                                                 | Billing insight                                                                                  |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **LLM Model**           | The default language model used for conversations, analysis, planning, and tool-assisted work.                                   | Model choice contributes to the hourly quote. Additional usage charges may apply under the worker's plan. |
+| **Reasoning Effort**    | How much reasoning the selected model should apply before responding or acting.                                                  | Higher levels can increase token usage and processing time.                                      |
+| **Image Generation**    | The default model used when the worker creates images. A task may override it when needed.                                       | Image generation is usage-based and separate from the scheduled hourly rate.                     |
+| **Video Generation**    | The default model family used when the worker creates video. A task may select the compatible route for its duration and inputs. | Video generation is usage-based and separate from the scheduled hourly rate.                     |
+| **Infrastructure Size** | Processing capacity, queue capacity, and supported concurrent conversations.                                                     | Infrastructure size contributes to the hourly quote.                                             |
 
-Models vary by provider, speed, cost, and reasoning quality. The selector displays a cost indicator such as `$`, `$$`, `$$$`, or `$$$$`.
+The `$` to `$$$$` badges compare relative model cost. They are guidance rather than a fixed per-request price.
 
-Use lower-cost models for routine work and stronger models for complex analysis, drafting, or planning.
+## Reasoning effort
 
-## Reasoning Effort
+| Value      | Best for                                         |
+| ---------- | ------------------------------------------------ |
+| **Off**    | Fast, simple responses.                          |
+| **Low**    | Straightforward work with light reasoning.       |
+| **Medium** | A balanced default for most workers.             |
+| **High**   | Complex analysis, planning, or careful drafting. |
 
-Controls how much reasoning the model should apply before responding or acting.
+A higher setting does not guarantee a better result. Start at **Medium**, then increase it only when the role consistently requires deeper analysis.
 
-| Value | Best for |
-| --- | --- |
-| **Off** | Fast, simple responses. |
-| **Low** | Straightforward work with light reasoning. |
-| **Medium** | Balanced default for most workers. |
-| **High** | Complex analysis, planning, or careful drafting. |
+## Infrastructure size
 
-Higher reasoning effort can increase token usage and processing time.
-
-## Infrastructure Size
-
-Controls the worker's instance size and concurrency budget.
-
-| Size | Best for |
-| --- | --- |
-| **Small Instance** | Personal workflows or a narrowly shared assistant. Typically 1–3 people and 1 live conversation. |
-| **Medium Instance** | A shared team assistant used throughout the workday. Typically 4–8 people and 2 live conversations. |
-| **Large Instance** | Broad team coverage or higher-volume shared use. Typically 10–20 people and 4 live conversations. |
+| Size                 | Best for                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| **Small Instance**   | Personal workflows or a narrowly shared worker. Typically 1–3 people and 1 live conversation.     |
+| **Medium Instance**  | A shared team worker used throughout the day. Typically 4–8 people and 2 live conversations.      |
+| **Large Instance**   | Broad team coverage or higher-volume shared use. Typically 10–20 people and 4 live conversations. |
 | **X-Large Instance** | Heavy enterprise use. 20+ people and 8 live conversations. Contact support for dedicated scaling. |
 
-Infrastructure size contributes to the effective hourly rate shown in Billing.
-
 <Tip>
-Start with the smallest instance that fits the expected usage, then increase size when the worker is shared more broadly or needs more concurrent conversations.
+  Start with the smallest instance that fits expected use. Increase it when more
+  people share the worker, work begins queueing, or more live conversations are
+  required.
 </Tip>
+
+## Defaults and saved models
+
+New workers default to GPT-5.6 Terra, Medium reasoning, GPT Image 2, Seedance 2.0, and a Small Instance unless onboarding sets another configuration.
+
+If a previously selected language model is no longer offered, it remains visible as **Deprecated** so you can review the saved configuration and move to a supported model.

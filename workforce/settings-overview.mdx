@@ -1,0 +1,75 @@
+---
+title: "AI Employee settings"
+description: "A complete guide to every setting used to manage an AI Employee's models, memory, schedule, security, and billing."
+---
+
+Use **Settings** on an AI Employee's page to control how the worker thinks, when they work, what they remember, who they can contact, and how connected tools are approved.
+
+Changes remain drafts until you select **Save Changes**. Saving a pricing-sensitive change also refreshes the worker's billing quote.
+
+## Settings at a glance
+
+| Area                                                               | Fields                                                                               | What they control                                                       |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| [Model & Intelligence](/workforce/settings-model-intelligence)     | LLM model, reasoning effort, image model, video model, infrastructure size           | Quality, speed, media generation, capacity, and price.                  |
+| [Memory & Reminders](/workforce/settings-memory-reminders)         | Read shared context, write shared context, dreaming, dream diary, follow-up memory   | What the worker can remember and update.                                |
+| [Operations & Logistics](/workforce/settings-operations-logistics) | Working days, start and end time, after-hours behavior, timezone, language, currency | Availability, scheduling, localization, and after-hours billing.        |
+| [Security & Privacy](/workforce/settings-security-privacy)         | Inbound access, outbound messaging, recipient rules, tool policy, tool rules         | Who can communicate with the worker and what actions it may take.       |
+| [Billing](/workforce/settings-billing)                             | Current and proposed quote, hourly price, monthly estimate, quote metadata           | The pricing effect of the selected model, infrastructure, and schedule. |
+| [Terminate](/workforce/settings-terminate)                         | Terminate employee                                                                   | Permanent removal and cleanup.                                          |
+
+## Defaults for a new worker
+
+Unless onboarding supplies different values, a new worker starts with:
+
+| Field                         | Default                                         |
+| ----------------------------- | ----------------------------------------------- |
+| LLM model                     | GPT-5.6 Terra                                   |
+| Reasoning effort              | Medium                                          |
+| Image generation              | GPT Image 2                                     |
+| Video generation              | Seedance 2.0                                    |
+| Infrastructure size           | Small                                           |
+| Working days                  | Monday–Friday                                   |
+| Working hours                 | 9 AM–5 PM                                       |
+| After-hours behavior          | After Hours Billing                             |
+| Timezone                      | UTC                                             |
+| Primary language              | English (US), unless inherited from the account |
+| Currency display              | USD, unless inherited from the account          |
+| Inbound access                | Account Members                                 |
+| Outbound messaging            | Recommended                                     |
+| Tool approval                 | Recommended                                     |
+| Read and write shared context | Enabled                                         |
+| Dreaming                      | Enabled with Simple notes                       |
+| Remember follow-ups           | Enabled                                         |
+
+<Note>
+  Available models and defaults can change as Odella adds or retires supported
+  models. A saved retired model may appear as **Deprecated** until you select a
+  current option.
+</Note>
+
+## Settings that affect billing
+
+The following user-editable fields can change the quote or usage charges:
+
+- **LLM model** and **infrastructure size** determine the quoted hourly rate.
+- **Working days and hours** determine scheduled hours and the monthly estimate.
+- **After Hours Billing** permits work outside the schedule at the after-hours rate.
+- **Image and video generation** are usage-based and are separate from the scheduled hourly rate.
+- Additional model usage charges may apply under the worker's plan.
+
+Timezone, language, currency display, memory, and security settings do not normally change the hourly quote directly, but timezone determines whether work falls inside or outside working hours.
+
+## Saved quote and system-managed fields
+
+Billing also displays fields that cannot be edited directly in the Settings form:
+
+| Field                  | Meaning                                                                                      |
+| ---------------------- | -------------------------------------------------------------------------------------------- |
+| **Service state**      | Whether the worker is active or stopped. Use the worker's pause/resume control to change it. |
+| **Price override**     | A custom pricing adjustment, when one applies to the worker.                                 |
+| **Rate version**       | Identifier for the pricing terms attached to the saved quote.                                |
+| **Publication**        | Identifier for the pricing release used by the quote.                                        |
+| **Quote refresh date** | When the current quote was saved.                                                             |
+
+These fields help identify the pricing terms currently applied to the worker. Saving a pricing-sensitive setting refreshes the quote for future work; it does not change charges that have already been finalized.

@@ -104,6 +104,7 @@
           {
             "group": "Settings",
             "pages": [
+              "workforce/settings-overview",
               "workforce/settings-model-intelligence",
               "workforce/settings-memory-reminders",
               "workforce/settings-operations-logistics",

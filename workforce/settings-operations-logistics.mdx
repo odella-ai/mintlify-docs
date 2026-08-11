@@ -1,53 +1,54 @@
 ---
 title: "Operations & Logistics"
-description: "Set working days, working hours, after-hours behaviour, timezone, language, and currency."
+description: "Set working days, working hours, after-hours behavior, timezone, language, and currency for an AI Employee."
 ---
 
-**Operations & Logistics** controls when and how a worker operates.
+**Operations & Logistics** controls when a worker is available and how time and regional values are interpreted.
 
-## Working days
+## Availability and schedule
 
-The days the worker is scheduled to operate. The default is Monday through Friday.
+Quick presets provide common schedules. Turn on **Customize** to adjust the hours and eligible days.
 
-At least one day must be selected.
+| Field                     | What it means                                                       | Default             |
+| ------------------------- | ------------------------------------------------------------------- | ------------------- |
+| **Working Hours**         | The local start and end of each selected working day.               | 9 AM–5 PM           |
+| **Eligible Working Days** | Days on which the working window applies. At least one is required. | Monday–Friday       |
+| **After-Hours Behavior**  | What happens when a request arrives outside the saved window.       | After Hours Billing |
 
-## Working hours
+The saved end time must be later than the start time, and a working window cannot exceed 24 hours.
 
-The worker's scheduled operating window. The default is 9:00 to 17:00.
+## After-hours behavior
 
-Rules:
+| Value                      | Request behavior                                                  | Billing behavior                                                                                                                                                          |
+| -------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Queue for next session** | Holds incoming work until the next eligible working window opens. | The request does not start paid after-hours work.                                                                                                                         |
+| **Reject requests**        | Declines requests received outside working hours.                 | The rejected request does not start paid after-hours work.                                                                                                                |
+| **After Hours Billing**    | Allows the worker to handle the request immediately.              | Working time is charged under the after-hours terms in the active quote. The current standard rate is 1.5× the worker's hourly price, billed in started 30-minute blocks. |
 
-- End time must be after start time.
-- A working window cannot exceed 24 hours.
+For example, with a $2.00 hourly price, one started 30-minute after-hours block is:
 
-## After-hours handling
+`$2.00 × 1.5 × 0.5 hours = $1.50`
 
-What happens when work arrives outside scheduled hours.
+Two hours of billable after-hours work at that price would be `$6.00`. Started-block rounding means any part of a block counts as the full block.
 
-| Value | What it means |
-| --- | --- |
-| **Queue** | Hold the work until the worker is back inside working hours. |
-| **Reject** | Do not accept after-hours work. |
-| **Auto-respond** | Send an automatic response outside working hours. |
+<Warning>
+  The monthly estimate in Billing excludes after-hours work. Selecting **After
+  Hours Billing** can therefore make the settled total higher than the displayed
+  scheduled monthly estimate.
+</Warning>
 
-After-hours handling can affect operating cost depending on the selected policy.
+## Regional and localization fields
 
-## Default Timezone
+| Field                | What it means                                                                                                                   | Billing or scheduling effect                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Default Timezone** | The IANA timezone used by the worker.                                                                                           | Determines the local boundary for working hours, calendar tasks, reports, and whether a request is after hours. |
+| **Primary Language** | Preferred language for interactions and generated content. Options are English (US), English (UK), Spanish, French, and German. | Does not normally change the hourly quote.                                                                      |
+| **Currency Display** | Currency used for display and reporting. Options are USD, EUR, GBP, and AUD.                                                    | Changes display context; the saved quote remains the source of truth for the billed currency and rate.          |
 
-Timezone used for schedules, working hours, reporting, and time-based interpretation.
-
-Choose the timezone where the worker's business process is primarily operated.
-
-## Primary Language
-
-Preferred language for worker interactions and generated content.
-
-Available options include English (US), English (UK), Spanish, French, and German.
-
-## Currency Display
-
-Currency used for display and reporting. Options include USD, EUR, GBP, and AUD.
+Timezone defaults to UTC. Language and currency can inherit the account configuration; otherwise they default to English (US) and USD.
 
 <Tip>
-Set timezone and working hours before creating calendar tasks so scheduled work runs at the expected local time.
+  Set the timezone and working hours before creating calendar tasks. A wrong
+  timezone can run scheduled work at the wrong local time or classify a request
+  as after hours.
 </Tip>
