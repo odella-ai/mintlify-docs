@@ -1,180 +1,119 @@
 ---
-title: "Using Templates"
-description: "Learn how your AI employees use templates to automatically generate documents from your firm's precedents"
+title: "Use templates"
+description: "Assign published templates to AI Employees or workflows, delegate document work, and review generated output."
 ---
 
-## Delegate Work, Get Documents
+# Use published templates
 
-Once you've published your templates, your AI employees can use them to generate documents automatically. Simply delegate the work via email, chat, or Slack, and your AI employees will extract data from any source, populate your templates, and deliver professional documents ready for review.
+Published templates can be assigned to AI Employees or selected directly in workflows. The worker uses the template's description and instructions to determine whether it fits the task and how source information should be mapped.
 
-<Callout type="info" emoji="🤖">
-  Your AI employees automatically select the right template, extract data from source materials, and generate documents based on your firm's precedents—all from a simple delegation.
-</Callout>
+## Before you delegate work
 
-## How AI Employees Use Templates
+Confirm that:
 
-Your AI employees handle the entire document generation process autonomously:
+- The template is published.
+- Its description clearly distinguishes it from similar templates.
+- Required fields and source information are documented.
+- The worker has access to the template and permitted source material.
+- A reviewer is responsible for the generated document.
+
+## Assign a template to a worker
+
+<Steps>
+  <Step title="Open the worker">
+    From Workforce, select the worker that will use the template.
+  </Step>
+  <Step title="Open Templates in the skill tree">
+    Review available and already assigned templates.
+  </Step>
+  <Step title="Assign the template">
+    Add only templates relevant to the worker's role. Too many similar choices can make selection less reliable.
+  </Step>
+  <Step title="Test a representative request">
+    Provide realistic source material and confirm that the worker chooses and populates the intended template.
+  </Step>
+</Steps>
+
+## Delegate document work
+
+A useful delegation includes four parts:
+
+| Include | Example |
+| --- | --- |
+| **Requested document** | “Prepare the client intake form.” |
+| **Source material** | “Use the attached questionnaire and identification file.” |
+| **Special instructions** | “Leave the approval field blank and use DD/MM/YYYY dates.” |
+| **Review or delivery requirement** | “Return a draft to the operations manager for review; do not send it externally.” |
+
+The worker can then gather permitted source information, select an assigned template, populate the document, and return the result.
+
+<Warning>
+  Do not assume missing information. Require the worker to ask a question, apply an approved default, or mark the field for review.
+</Warning>
+
+## Use a template in a workflow
+
+Use the [Populate Template block](/block-reference/draft/populate-template) when the template is part of a repeatable process.
+
+<Steps>
+  <Step title="Add the block">
+    Add **Populate Template** at the point where the document should be created.
+  </Step>
+  <Step title="Select a published template">
+    Choose the exact template instead of relying on dynamic selection.
+  </Step>
+  <Step title="Connect source values">
+    Map validated data from earlier steps, uploaded files, or approved connected applications.
+  </Step>
+  <Step title="Handle the output">
+    Send the generated file to a review step, save it to an approved location, or pass it to the next workflow block.
+  </Step>
+  <Step title="Test failure paths">
+    Verify behavior when a required value is missing, a file cannot be read, or generation fails.
+  </Step>
+</Steps>
+
+## Supported source material
+
+Depending on the worker's assigned capabilities and permissions, source information can come from:
+
+- Uploaded documents and images
+- Forms, spreadsheets, and CSV files
+- Connected inboxes and message threads
+- Document Stores
+- Earlier workflow steps
+- Approved connected business applications
+
+Access remains controlled by the worker's assignments and security policies.
+
+## Review generated documents
+
+Before approving or distributing a document, check:
+
+- The correct template and version were used.
+- Names, dates, amounts, identifiers, and addresses match the source.
+- Required fields are complete.
+- Optional and conditional sections appear correctly.
+- Formatting and page layout are intact.
+- No unsupported facts were added.
+- The output satisfies the process owner's review criteria.
+
+## Improve unreliable output
+
+If results are inconsistent:
+
+1. Make the template description more specific.
+2. Clarify field instructions and formatting requirements.
+3. Reduce overlap with similar assigned templates.
+4. Improve the delegation and source material.
+5. Add validation before template population.
+6. Retest each conditional path.
 
 <CardGroup cols={2}>
-  <Card title="Extract Data Automatically" icon="magnifying-glass">
-    Pull information from evidence files, transcripts, emails, forms, databases, and any other source material you provide.
+  <Card title="PDF templates" icon="file-pdf" href="/templates/02_pdf-template">
+    Configure fixed-layout forms and field instructions.
   </Card>
-  <Card title="Select the Right Template" icon="file-lines">
-    Automatically choose the appropriate template from your firm's precedents based on the task you delegate.
-  </Card>
-  <Card title="Populate Documents" icon="pen-to-square">
-    Fill in all fields, handle conditional logic, perform calculations, and apply your firm's formatting standards.
-  </Card>
-  <Card title="Deliver Results" icon="check-circle">
-    Return completed documents in seconds, ready for your review and finalization.
+  <Card title="DOCX templates" icon="file-word" href="/templates/03_docx-template">
+    Configure variables, conditions, loops, and equations in Word documents.
   </Card>
 </CardGroup>
-
-## Two Ways to Use Templates
-
-### 1. Delegate to AI Employees
-
-The simplest way to use templates is to delegate document generation tasks directly to your AI employees:
-
-<Steps>
-  <Step title="Assign Templates to AI Employees">
-    In your AI employee's profile, assign relevant templates. Each AI employee can have access to multiple templates for different document types.
-  </Step>
-  
-  <Step title="Delegate the Work">
-    Send a message via email, chat, or Slack: "Generate the client intake form using the attached information" or "Draft the service agreement for Acme Corp from our email thread."
-  </Step>
-  
-  <Step title="AI Employee Processes Request">
-    Your AI employee extracts data from the source materials, selects the appropriate template, and populates the document using your firm's precedents.
-  </Step>
-  
-  <Step title="Review and Finalize">
-    Receive the completed document in seconds. Review the output and make any necessary adjustments before finalization.
-  </Step>
-</Steps>
-
-### 2. Workflow Integration
-
-Integrate templates into custom workflows for automated document generation:
-
-<Steps>
-  <Step title="Add Populate Template Block">
-    In your workflow builder, add a "Populate Template" block where document generation is needed. Select your published template from the dropdown.
-  </Step>
-  
-  <Step title="Connect Data Sources">
-    Link the template block to data from previous workflow steps, uploaded files, form inputs, or connected applications.
-  </Step>
-  
-  <Step title="Configure Output Actions">
-    Define what happens with the generated document - save to a location, email to recipients, or pass to the next workflow step.
-  </Step>
-</Steps>
-
-## Real-World Examples
-
-### Example 1: Court Filing Form
-
-**You:** "Complete the court filing form using the case details in the attached transcript"
-
-**AI Employee:**
-1. Reads the transcript and extracts relevant case information
-2. Selects the court filing PDF template
-3. Populates all form fields with extracted data
-4. Delivers the completed form in seconds
-
-### Example 2: Client Engagement Letter
-
-**You:** "Draft engagement letter for Acme Corp using details from our email thread and the attached proposal"
-
-**AI Employee:**
-1. Analyzes email thread and proposal document
-2. Extracts client details, scope of work, and fee structure
-3. Selects the engagement letter Word template
-4. Populates variables, handles conditional clauses, performs calculations
-5. Delivers a professional document using your firm's exact formatting
-
-### Example 3: Batch Document Generation
-
-**You:** "Generate intake forms for all 25 new clients in the attached spreadsheet"
-
-**AI Employee:**
-1. Reads data from the spreadsheet
-2. Iterates through each client record
-3. Generates 25 completed intake forms
-4. Delivers all documents organized and ready for review
-
-<Callout type="tip" emoji="💡">
-  Your AI employees can handle one document or hundreds at once. Just provide the source data and describe what you need.
-</Callout>
-
-## Data Sources Your AI Employees Can Use
-
-Your AI employees can extract data from multiple sources to populate templates:
-
-<CardGroup cols={2}>
-  <Card title="Evidence Files" icon="file-pdf">
-    PDFs, images, scanned documents, and other evidence materials with relevant information.
-  </Card>
-  <Card title="Transcripts" icon="file-text">
-    Meeting transcripts, deposition transcripts, voice notes, and recorded conversations.
-  </Card>
-  <Card title="Email Correspondence" icon="envelope">
-    Email threads, attachments, and correspondence with clients or team members.
-  </Card>
-  <Card title="Forms & Spreadsheets" icon="table">
-    Data from intake forms, spreadsheets, CSV files, and structured data sources.
-  </Card>
-  <Card title="Connected Databases" icon="database">
-    Information from your CRM, case management system, or other connected applications.
-  </Card>
-  <Card title="Previous Documents" icon="folder">
-    Reference data from previously generated documents or your document repository.
-  </Card>
-</CardGroup>
-
-## Best Practices
-
-<Steps>
-  <Step title="Clear Template Instructions">
-    Use descriptive field names and clear instructions in your templates so AI employees understand exactly what information to extract and how to format it.
-  </Step>
-  
-  <Step title="Provide Complete Source Materials">
-    When delegating work, include all relevant source materials. The more context you provide, the better the results.
-  </Step>
-  
-  <Step title="Review AI-Generated Documents">
-    Strong governance plans should include reviewing AI-generated documents, especially for business-critical functions. Templates ensure consistency, but human review maintains quality.
-  </Step>
-  
-  <Step title="Iterate on Template Configuration">
-    Review generated documents and refine your template field instructions based on the results to continuously improve accuracy.
-  </Step>
-</Steps>
-
-## Tips for Effective Delegation
-
-<Callout type="tip" emoji="💡">
-  **Delegation Best Practices:**
-  
-  - **Be specific:** "Generate the court filing form" is clearer than "I need a document"
-  - **Attach source materials:** Include all relevant files, emails, or data sources
-  - **Provide context:** Mention the client name, case type, or any special considerations
-  - **Request bundles:** Ask for multiple related documents at once: "Generate the complete onboarding package"
-</Callout>
-
-## What Happens If Information Is Missing?
-
-If your AI employee can't find all the required information from source materials, they will:
-
-1. **Ask clarifying questions:** Request the specific missing information with context
-2. **Use defaults where appropriate:** Apply default values you've configured in the template
-3. **Flag incomplete sections:** Clearly mark any fields that couldn't be populated for your review
-
-<Callout type="warning" emoji="⚠️">
-  Always review AI-generated documents before finalization, especially when dealing with business-critical or legally sensitive materials. Your AI employees work fast and accurately, but human judgment remains essential.
-</Callout>
-
-Ready to put your templates to work? Your AI employees can now extract data from any source and generate professional documents based on your firm's precedents in seconds!

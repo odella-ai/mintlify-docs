@@ -1,82 +1,90 @@
 ---
-title: "Overview"
-description: "Connect Odella to the tools your team already uses so AI employees can access real data and take real action."
+title: "Integrations"
+description: "Connect workplace applications to Odella and control how AI Employees use them."
 ---
 
-## Connect Odella to Your Tools
+# Connect workplace applications
 
-Integrations connect Odella to the applications your team already relies on — finance and market data feeds, CRM systems, productivity suites, dev tools, marketing platforms, accounting software, compliance tools, and more. Once a plugin is connected, your AI employees can use it inside workflows and skills without your team changing where work happens.
-
-## The Integrations Page
-
-Reach the Integrations Overview from the grid icon in the left sidebar. The header reads "Connect integrations to enable Odella to access your favourite applications."
+Integrations connect Odella to the systems your team already uses. Once an application is connected, it can be assigned to specific workers or used in workflows, subject to the permissions and approval policies you configure.
 
 <Frame>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" src="../assets/videos/Integration.mp4"></video>
 </Frame>
 
-{/* TODO: screenshot — Integrations Overview page (full list view) */}
+## Browse integrations
 
-## Searching and Browsing Plugins
+Open **Integrations** from the Odella navigation. Search by application name or browse the available catalog. Each integration shows its name, purpose, and connection status.
 
-A **Search plugins...** bar sits at the top of the page. Below it is a scrollable list of roughly 85 individual plugins, each row showing:
+Available applications vary by workspace and can include:
 
-- **Icon** — the connected application's logo.
-- **Name** — the application name.
-- **Description** — a one-line summary of what the plugin does.
-- **Toggle** — turns the plugin on or off for your workspace.
+- Communication and productivity tools
+- CRM and customer systems
+- Document and file storage
+- Finance and accounting systems
+- Engineering and project-management tools
+- Data, research, compliance, and business applications
 
-## Integration Categories
+## Connect an application
 
-Plugins span a wide range of categories, including:
+<Steps>
+  <Step title="Choose the application">
+    Find the application in Integrations and start the connection flow.
+  </Step>
+  <Step title="Authenticate">
+    Complete the supported sign-in method, such as OAuth or an API key. Review the requested permissions before approving access.
+  </Step>
+  <Step title="Confirm the connection">
+    Verify that the integration shows as connected and that the intended account or workspace was selected.
+  </Step>
+  <Step title="Assign access">
+    Add the integration only to the workers or workflows that require it.
+  </Step>
+  <Step title="Test safely">
+    Run a read-only or low-risk test before enabling actions that send messages, change records, or delete data.
+  </Step>
+</Steps>
 
-| Category | Examples |
-| --- | --- |
-| Finance & market data | ABS Indicator API, EODHD, FRED, Financial Modeling Prep, Polygon.io, Alpha Vantage |
-| CRM & sales | Apollo, HubSpot, Salesforce, Attio, Affinity |
-| Productivity | Airtable, Notion, Google Workspace, Microsoft 365 |
-| Dev tools | GitHub, Jira, Linear, Confluence |
-| Marketing & social | Canva, Figma, Facebook, Instagram, LinkedIn, Buffer, Klaviyo, Mailchimp |
-| Accounting | Xero, QuickBooks |
-| Compliance | Oneleet, Vanta, Drata |
-| Legal practice management | Clio, Smokeball |
-
-{/* TODO: confirm this is the full/current category list before publishing — paste the complete plugin name+description list if useful for the page content */}
-
-## Connecting a Plugin
-
-Click a plugin's toggle to turn it on. Services that require authentication prompt you to connect your account (OAuth, an API key, or another supported method) before the toggle activates.
-
-<AccordionGroup>
-  <Accordion title="Start with the task, not the tool">
-    Decide what the worker needs to accomplish first, then connect only the plugins required for that responsibility.
-  </Accordion>
-  <Accordion title="Keep permissions narrow">
-    Limit access to the minimum scope required. A worker that drafts documents does not necessarily need access to every connected system in your workspace.
-  </Accordion>
-  <Accordion title="Add review for external actions">
-    If a plugin can send messages, update records, or trigger downstream work, consider adding a human review step before the action completes.
-  </Accordion>
-</AccordionGroup>
-
-<Note>
-  If your team needs a plugin that isn't available yet, contact [support@odella.ai](mailto:support@odella.ai) with the tool name and the workflow you want to support.
-</Note>
-
-## Where Integrations Are Used
-
-Connected plugins become available to your AI employees in two places:
-
-- **Worker profiles** — add plugins to a worker's **Applications** tab so that specific employee can use them. See [The Worker Profile](/workforce/overview#the-worker-profile).
-- **Workflows** — reference connected plugins inside workflow blocks to move information between systems automatically. See [Workflow Overview](/workflow/overview).
-
-## Related Docs
+## Where integrations are used
 
 <CardGroup cols={2}>
-  <Card title="Security" icon="shield-halved" href="/platform/security">
-    Learn how integrations fit into workspace governance.
+  <Card title="AI Employees" icon="users" href="/workforce/tools">
+    Assign applications and their tools to workers based on role and responsibility.
   </Card>
-  <Card title="Workflows" icon="diagram-project" href="/workflow/overview">
-    Learn how integrations are used inside repeatable processes.
+  <Card title="Workflows" icon="diagram-project" href="/workflow/plugins">
+    Use connected applications as steps in repeatable business processes.
+  </Card>
+</CardGroup>
+
+A workspace connection does not automatically give every worker access. Worker assignments, application permissions, outbound messaging rules, and tool approval policies remain separate controls.
+
+## Governance checklist
+
+Before using an integration in production, confirm:
+
+- The correct organizational account is connected.
+- Granted permissions are limited to what the process requires.
+- Only appropriate workers can access the integration.
+- Write, send, and destructive actions have suitable approval rules.
+- A responsible owner knows how to revoke the connection.
+- The workflow has been tested with representative data.
+
+<Warning>
+  Treat connected applications as access to real business systems. Use the narrowest permissions that still allow the worker to complete its responsibilities.
+</Warning>
+
+## Disconnect or change an account
+
+Open the integration's connection settings to disable or reconnect it. Before disconnecting, identify workers, actions, and workflows that depend on the application. Those processes may stop working until a valid connection is restored.
+
+If an expected integration is unavailable, contact [support@odella.ai](mailto:support@odella.ai) with the application name and intended use case.
+
+## Related documentation
+
+<CardGroup cols={2}>
+  <Card title="Security & Privacy" icon="shield-check" href="/workforce/settings-security-privacy">
+    Configure worker-level messaging and tool approval policies.
+  </Card>
+  <Card title="Platform security" icon="shield-halved" href="/platform/security">
+    Review workspace governance and recommended security practices.
   </Card>
 </CardGroup>

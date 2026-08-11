@@ -1,49 +1,51 @@
 ---
-title: "Overview"
-description: "Build your AI workforce - digital employees that execute tasks, follow precedent, and scale instantly"
+title: "Workforce overview"
+description: "Create, onboard, and manage AI Employees with defined roles, capabilities, working hours, and oversight."
 ---
 
+# Build and manage your AI workforce
 
-## The AI Workforce Factory
-
-Odella is an AI workforce factory. Design the role, define the task, connect your templates and systems — and deploy. Build digital employees that execute tasks, follow your firm's precedent, and scale instantly.
-
-These aren't virtual assistants. They're AI employees that work alongside your team, handling process work so your people can focus on expertise and strategic thinking.
-
-<CardGroup cols={2}>
-  <Card title="Scale Without Headcount" icon="chart-line">
-    Add capacity without adding overhead. Deploy AI employees in minutes, not months.
-  </Card>
-  <Card title="Work Where You Work" icon="envelope">
-    Delegate work over email, chat, Slack, or Teams. No system overhaul, no learning curve.
-  </Card>
-  <Card title="24/7 Operations" icon="clock">
-    AI employees don't burn out and don't miss deadlines. They work around the clock.
-  </Card>
-  <Card title="Follow Your Precedent" icon="book">
-    Train AI employees on your firm's tone, preferences, and process. They execute to your standards.
-  </Card>
-</CardGroup>
-
-## The Workforce Overview Page
-
-The page header reads "Workforce Overview," with a subtitle about managing and monitoring your team of specialized AI employees. The top bar contains **Search employee**, **Sort**, and **Add Worker**.
+**Workforce** is where your team creates, hires, and manages AI Employees. Each worker has a defined role, assigned capabilities, working hours, security policies, and work history.
 
 <Frame>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/WorkforceAgent.mp4"></video>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="hidden dark:block" src="../assets/videos/WorkforceAgent-dark.mp4"></video>
 </Frame>
 
-Each AI employee appears as a card showing avatar, **Name**, **Role**, and a short description, along with status and controls:
+## Workforce overview
 
-- **Status**, shown with a clock icon: **Stopped**, **Available now**, or **Outside working hours**. Status is driven by the working-hours widget on the worker's profile — see [The Worker Profile](#the-worker-profile) below.
-- **Controls** vary by status:
-  - **Stopped** → play (start), knowledge/library, settings (gear).
-  - **Running** (Available now / Outside working hours) → chat, pause, knowledge/library, settings.
+The Workforce page lists every worker in your organization. Use it to:
 
-## Adding a Worker
+- Search and sort workers
+- Review each worker's role and availability
+- Start or pause work
+- Open a worker's profile or settings
+- Add a worker from scratch or hire one from the Marketplace
 
-Click **Add Worker** on the Workforce Overview page.
+Worker cards show one of three availability states:
+
+| Status | Meaning |
+| --- | --- |
+| **Stopped** | The worker is paused and does not accept normal work. |
+| **Available now** | The worker is active and currently inside its working hours. |
+| **Outside working hours** | The worker is active but outside its configured schedule. Its after-hours policy determines what happens to new requests. |
+
+See [Operations & Logistics](/workforce/settings-operations-logistics) for working hours and after-hours behavior.
+
+## Add a worker
+
+Select **Add Worker**, then choose one of two paths.
+
+<CardGroup cols={2}>
+  <Card title="Create a worker" icon="user-plus">
+    Define a role for your organization and onboard the worker with the responsibilities, context, and capabilities it needs.
+  </Card>
+  <Card title="Hire from Marketplace" icon="store" href="/marketplace/overview">
+    Start with a ready-to-hire worker and adapt its configuration to your team.
+  </Card>
+</CardGroup>
+
+### Create with guided setup
 
 <Frame>
   <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/Addingworker.mp4"></video>
@@ -51,160 +53,81 @@ Click **Add Worker** on the Workforce Overview page.
 </Frame>
 
 <Steps>
-  <Step title="Choose How to Add a Worker">
-    Two cards:
-
-    - **Hire from Marketplace** — browse and hire pre-configured workers; ideal for common roles and quick starts.
-    - **Create New Worker** — build a custom AI employee from scratch; best for specialized roles and unique requirements.
-
-    Select one and click **Next**.
+  <Step title="Describe the role">
+    Enter a clear job description or upload supporting material. Include the expected outcomes, recurring responsibilities, and situations that require human review.
   </Step>
-  <Step title="Choose a Setup Method (Create New Worker path)">
-    "How would you like to set up your worker?" Two cards:
-
-    - **Let AI Help Me** — describe the role and Kara sets up the skills, tools, and workflows for you.
-    - **I'll Do It Myself** — manually configure the worker step by step.
-
-    Select one and click **Next**.
+  <Step title="Review the proposed setup">
+    Guided setup can recommend skills, tools, and workflows. Review every recommendation before granting access.
   </Step>
-  <Step title="Let AI Help Me — Add the Details">
-    "Describe the role or attach a job description and we'll handle the rest."
-
-    - Describe the worker's role in the free-text box, or use one of the starter templates (Payroll Administrator, Recruiting Coordinator, Expense Auditor, Invoice Processor, Document Controller).
-    - Optionally attach a job description (PDF, DOC, DOCX, CSV, TXT, or Markdown).
-    - Click **Create Worker**.
+  <Step title="Complete onboarding">
+    Confirm the worker's identity, capabilities, working hours, and security policies.
   </Step>
-  <Step title="I'll Do It Myself — Manual Configuration">
-    - **Profile Image** — choose an avatar.
-    - **Background Color** — choose an avatar background color.
-    - Add the details (keep the **Purpose** to 1–2 short sentences):
-      - **Name** (e.g., "Kevin")
-      - **Role** (e.g., "Report Analyst")
-      - **Purpose** (e.g., "Analyzes performance data and produces clear reports for the team…")
-    - Click **Create Worker**.
-  </Step>
-  <Step title="Hire from Marketplace">
-    Clicking **Hire from Marketplace → Next** opens the Marketplace ("Discover Solutions for Every Task"):
-
-    - Search bar for AI employees, templates, or workflows.
-    - Content organized by category (e.g., Sales, Marketing, Customer Success), each with a template count.
-    - Browse or search, select the AI employee you want, and click **Hire**.
-
-    Marketplace also covers templates and workflows, not only pre-built employees. See [Marketplace Overview](/marketplace/overview) for a full walkthrough of the catalog.
-
-    <Frame>
-      <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/Hireagent.mp4"></video>
-      <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="hidden dark:block" src="../assets/videos/Hireagent-dark.mp4"></video>
-    </Frame>
+  <Step title="Test a low-risk task">
+    Delegate a representative task, review the result, and refine the worker's instructions before expanding its responsibilities.
   </Step>
 </Steps>
 
-<Info>
-  **Kara** is Odella's AI setup assistant, referenced in the "Let AI Help Me" flow and elsewhere in the product (e.g., "Choose what Kara can do…", "Allow Kara to send alerts…").
-</Info>
+### Create manually
 
-The new employee appears on the **Workforce Overview** page. Click on the employee to configure their skills, connect workflows, and manage settings.
+Manual setup asks for:
 
-<Tip>
-  **Best Practices for Effective AI Employees:**
-  - Design clear, specific roles that match real workflow needs
-  - Connect relevant knowledge so they can access your firm's expertise
-  - Start with simple tasks and expand capabilities over time
-  - Use descriptive names that reflect their function in your organization
-</Tip>
+| Field | Guidance |
+| --- | --- |
+| **Profile image and color** | Choose a visual identity that makes the worker easy to recognize. |
+| **Name** | Use a clear, distinct display name. |
+| **Role** | Use a short job title that describes the worker's function. |
+| **Purpose** | Explain the outcome the worker is responsible for in one or two sentences. |
 
-## Delegating Work to Your AI Employees
+After creation, open [Identity](/workforce/identity) to set personality, voice, manager, and durable instructions.
 
-Interact with your AI employees the same way you work with your team - no new systems to learn, no complicated interfaces. These connections are configured on the worker's profile, in two places:
+## Onboard the worker
+
+A reliable worker needs more than a name and model. Review these areas before assigning production work:
 
 <CardGroup cols={2}>
-  <Card title="Email" icon="envelope">
-    Connect an inbox from the **Inboxes** tab via **Connect Inbox**, so the employee can monitor email, keep context, and handle follow-ups.
+  <Card title="Identity" icon="id-card" href="/workforce/identity">
+    Define role, purpose, manager, voice, personality, and general instructions.
   </Card>
-  <Card title="Chat" icon="comments">
-    Talk to the employee directly using the **Chat** button on their profile.
+  <Card title="Capabilities" icon="diagram-project" href="/workforce/skill-tree">
+    Assign only the skills, tools, workflows, templates, and knowledge required for the role.
   </Card>
-  <Card title="Slack, Telegram, WhatsApp & More" icon="slack">
-    Add channels from the **Add Communication Channels** skill panel — see [The Worker Profile](#the-worker-profile) below.
+  <Card title="Schedule" icon="clock" href="/workforce/settings-operations-logistics">
+    Set working days, working hours, timezone, and after-hours behavior.
   </Card>
-  <Card title="Microsoft Teams" icon="microsoft">
-    Configure alongside your other communication channels from the **Add Communication Channels** skill panel.
+  <Card title="Security" icon="shield-check" href="/workforce/settings-security-privacy">
+    Control inbound access, outbound messaging, tool approvals, and saved exceptions.
   </Card>
 </CardGroup>
 
-## The Worker Profile
+## Worker profile
 
-Clicking a worker on the Workforce Overview page opens their profile.
+Select a worker to open its profile. The profile brings the worker's capabilities, work, and governance controls together.
 
-{/* TODO: screenshot — worker profile (e.g., Workforce → Atlas) */}
+| Area | Purpose |
+| --- | --- |
+| [Skills](/workforce/skill-tree) | View and assign capabilities. |
+| [Calendar](/workforce/calendar) | Schedule one-time or recurring work. |
+| [Actions](/workforce/actions) | Start work from events in connected applications. |
+| [Workspace](/workforce/workspace) | Manage private working files and folders. |
+| [Activity](/workforce/activity) | Review work history and operational events. |
+| [Identity](/workforce/identity) | Manage profile and durable instructions. |
+| [Settings](/workforce/settings-overview) | Configure models, memory, schedule, security, billing, and termination. |
 
-### Header
+The profile sidebar also provides access to connected inboxes, applications, availability, and current pricing information. See [Worker profile page](/workforce/employee-page) for a detailed layout reference.
 
-- Avatar, Name, Role, description.
-- **Start Worker / Pause Worker** toggle (Start when stopped, Pause when running).
-- **Chat** button.
-- Three quick icons near the avatar: chat/message, contact/profile card, and a panel-collapse toggle.
+## Delegate and review work
 
-### Left panel
+Workers can receive work through supported channels such as connected inboxes, workplace messaging applications, scheduled tasks, event-driven actions, and direct conversations in Odella.
 
-Two tabs:
+<Warning>
+  Start with narrow permissions and a clear human review process. Expand access only after the worker produces reliable results on representative work.
+</Warning>
 
-- **Inboxes** — connect an inbox so the employee can monitor email, keep context, and handle follow-ups, via **Connect Inbox**. Empty state: "No inboxes connected."
-- **Applications** (formerly "Applications to setup") — connect plugins to this worker. See [Integrations Overview](/integrations/overview).
+## Recommended operating practice
 
-  {/* TODO: needs detail — capture this sub-tab's contents before publishing */}
-
-Below the tabs:
-
-- **Working hours / usage widget** — scheduled vs. active hours for the week (e.g., "0 / 40h," "Resets in 7 days"). This is the source of the overview cards' status states.
-- **Cost Breakdown** — per-hour rate (e.g., "$0.55/h").
-
-### Worker tabs
-
-The profile has seven tabs: **Skills**, **Calendar**, **Actions**, **Workspace**, **Activity**, **Identity**, **Settings**.
-
-<AccordionGroup>
-  <Accordion title="Skills (default)">
-    "Expand [worker]'s Skills" — select a category to add a sub-skill. Categories: [Tools](/workforce/tools), [Workflows](/workforce/workflows), [Templates](/workforce/templates), [Knowledge](/workforce/knowledge), [Skills](/workforce/skills), and [Communication Channels](/workforce/communication-channels). Each opens a right-side panel with an **Explore / Added** toggle and a search box:
-
-    - **Skills Catalog** — master catalog of all skills (125 shown), with "Created by you" plus left-hand category filters (Accounting, Compliance, Data, Design, Education, Engineering, Finance, General, Knowledge, Legal, …), each with a count. Select via checkbox.
-    - **Add Tools** — "Choose what Kara can do by selecting tools." External integrations (ABS Indicator API, Airtable, Alpaca Account, …), each showing a tool count (e.g., "+16 tools") and a **Connect** button where auth is needed.
-    - **Add Workflows** — "Add automated workflows to this employee." Pre-built workflows (e.g., Apollo Lookalike Finder, Automated Onboarding Trigger), each with name, description, and select.
-    - **Add Templates** — "Add response templates for this employee." Document/response templates (e.g., QLD legal forms — powers of attorney, will intake checklist).
-    - **Add Knowledge** — "Add knowledge bases and documents." Connected knowledge bases (Contract Store, Employee Documents, Olivia_Drive, Personal Profile).
-    - **Add Communication Channels** — "Connect to your team's favorite messaging and email platforms." Slack, Telegram, WhatsApp, etc., each with a **Configure** button; some marked Free. {/* TODO: confirm exact category label on the skill tree */}
-
-    {/* TODO: confirm "Knowledge" vs "Knowledge Bases" as the canonical term before standardizing across all workforce pages */}
-
-    See [Skill Tree](/workforce/skill-tree) for more detail.
-  </Accordion>
-  <Accordion title="Calendar">
-    An "Upcoming Tasks" pane plus a week/month calendar with timezone, Today / Week / Month controls, and an add-task button. Shows the worker's scheduled tasks. See [Calendar](/workforce/calendar).
-  </Accordion>
-  <Accordion title="Actions">
-    Event-driven automations. Empty state: "No actions configured — Create an action to automate what happens when events occur across your connected tools," via **Create New Action**. Distinct from Workflows: Actions are event triggers across connected tools.
-  </Accordion>
-  <Accordion title="Workspace">
-    File store for the worker. "Upload files to Workspace or drag and drop them here." Accepts common docs, text/data files, and standard images; up to 20 files, 25MB each.
-  </Accordion>
-  <Accordion title="Activity">
-    Live event log/console (e.g., "activity - atlasperfection370," Live indicator) with filters: All, Threads, Workflows, Heartbeats, Tasks, Subagents. Shows runtime events. See [Activity](/workforce/activity).
-  </Accordion>
-  <Accordion title="Identity">
-    - **Agent Profiles** — avatar, Name, Role, Purpose, Personality (dropdown, e.g., Default), Voice (e.g., Roger — "Laid-back, casual, resonant," with preview), Manager.
-    - **General Instructions** — rich-text editor for operational guidelines, tone of voice, escalation policies, and more.
-
-    This is where post-creation editing of name/role/purpose/avatar lives, plus personality, voice, manager, and instructions. See [Identity](/workforce/identity).
-  </Accordion>
-  <Accordion title="Settings">
-    {/* TODO: needs detail — not captured; document separately before publishing */}
-
-    See the [Settings](/workforce/settings-model-intelligence) pages for the areas already documented.
-  </Accordion>
-</AccordionGroup>
-
-## Scale Your Operations Without Scaling Costs
-
-With Odella's AI workforce, you add capacity instantly without the overhead of hiring, training, or onboarding. Your team focuses on strategy, relationships, and outcomes — while AI employees handle the process work.
-
-Start building your AI workforce today and transform how your organization scales.
+1. Assign one clearly owned responsibility.
+2. Connect the minimum required knowledge and applications.
+3. Define approval and escalation rules.
+4. Test with representative, low-risk work.
+5. Review Activity and outputs regularly.
+6. Expand responsibilities deliberately.

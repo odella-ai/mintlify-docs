@@ -1,11 +1,11 @@
 ---
 title: "Blocks"
-description: "Master adding, moving, connecting, and editing blocks in Odella workflows"
+description: "Add, connect, configure, group, and remove blocks on the Odella workflow canvas."
 ---
 
  
 
-Blocks are the essential elements of Odella workflows. Whether you're building simple sequences or intricate logic, blocks help bring your workflows to life. Here's everything you need to know to add, arrange, and customise them.
+Blocks are the individual steps in a workflow. Each block accepts defined inputs, performs one operation, and returns outputs for downstream steps.
 
 ## Adding a Block
 
@@ -29,7 +29,7 @@ For details on all available blocks, check out the [Block Reference](/block-refe
 
 ## Moving Blocks
 
-Repositioning blocks is quick and easy:
+To reposition blocks:
 
 - **Drag & Drop**: Click and hold the title bar of a block, then drag it to your desired position.
 - **Multi-Select**: Hold **Shift** and click on multiple blocks to move them as a group.
@@ -48,7 +48,7 @@ Right-click on a block and select **Delete** to remove it from the flow.
 </Frame>
 
 <Callout type="warning">
-  Deleting a block is permanent, and there's no undo option. Double-check before you delete!
+  Deleting a block cannot be undone. Confirm that downstream connections are no longer required before removing it.
 </Callout>
 
 ## Connecting Blocks
@@ -73,7 +73,7 @@ For more details on port data types, refer to the [Block Reference](/block-refer
 
 ## Disconnecting Blocks
 
-Need to adjust a connection? 
+To adjust a connection:
 
 - **Move Connection**: Click and drag on a connected port to change the connection to a different port.
 - **Delete Connection**: Drag the connection line to an empty space to remove it.
@@ -92,12 +92,12 @@ Subflows allow you to group blocks for cleaner, more manageable workflows.
     Hold **Shift** and click on each block you want to include in the subflow.
   </Step>
   <Step title="Create Subflow">
-    Right-click one of the selected blocks and choose **Create Subflow**. This action moves the selected blocks into a new (_unsaved!_) flow, complete with input and output blocks that link back to the main flow.
+    Right-click one of the selected blocks and choose **Create Subflow**. This action moves the selected blocks into a new, unsaved flow, complete with input and output blocks that link back to the main flow.
   </Step>
 </Steps>
 
 <Tip>
-  Name and describe your subflow in the flow info section to keep it organised. Don't forget to save with **CMD+S** or **CTRL+S**.
+  Name and describe your subflow in the flow info section to keep it organized. Don't forget to save with **CMD+S** or **CTRL+S**.
 </Tip>
 
 <Note>
@@ -111,7 +111,7 @@ Subflows allow you to group blocks for cleaner, more manageable workflows.
   <img src="/assets/block_edit_dark.gif" alt="Editing a block (Dark Mode)" className="hidden dark:block" />
 </Frame>
 
-To customise a block, click the gear icon in the top-right corner. This opens the **Block Editor**.
+To customize a block, click the gear icon in the top-right corner. This opens the **Block Editor**.
 
 <CardGroup cols={2}>
   <Card title="Edit Block Details">

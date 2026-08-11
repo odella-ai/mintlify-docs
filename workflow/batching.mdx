@@ -1,112 +1,90 @@
 ---
 title: "Batching"
-description: "Learn how to process multiple documents or tasks at once in Odella workflows"
+description: "Process independent workflow items concurrently and handle their collected results safely."
 ---
 
-<Callout type="info">
-  Batching lets you handle multiple documents or tasks at the same time, similar to having multiple assistants working in parallel.
-</Callout>
+# Process independent items concurrently
 
-## What is Batching?
+Batching runs the same block once for each item in a collection. Use it when items are independent and can be processed concurrently.
 
 <Frame>
-  <img src="../assets/workflows_batch_light.gif" alt="Workflow Batching (Light Mode)" className="block dark:hidden" />
-  <img src="../assets/workflows_batch_dark.gif" alt="Workflow Batching (Dark Mode)" className="hidden dark:block" />
+  <img src="../assets/workflows_batch_light.gif" alt="Workflow batching in light mode" className="block dark:hidden" />
+  <img src="../assets/workflows_batch_dark.gif" alt="Workflow batching in dark mode" className="hidden dark:block" />
 </Frame>
 
-Think of batching like having multiple assistants working on similar tasks simultaneously. For example, instead of reviewing 10 contracts one after another, batching allows you to have 10 reviews happening at the same time. This makes your workflow much faster.
+## When to use batching
 
-To use batching in Odella, you simply:
+Good candidates include:
+
+- Extracting the same fields from multiple documents
+- Classifying a list of requests
+- Applying one validation to every record
+- Creating a draft result for each independent item
+
+Use a loop instead when items must run in sequence, share mutable state, or depend on the previous result.
+
+## Enable batching
 
 <Steps>
-  1. Select any block in your workflow that you want to run multiple times
-  2. Look for the "Batch" option in the block's settings
-  3. Turn it on to enable parallel processing
+  <Step title="Provide a collection">
+    Connect an array or table containing the items to process.
+  </Step>
+  <Step title="Select the processing block">
+    Open the block's settings and enable batching where supported.
+  </Step>
+  <Step title="Configure the item input">
+    Confirm which value from the collection is passed to each block execution.
+  </Step>
+  <Step title="Handle collected output">
+    A batched block returns a collection of results. Connect it only to downstream blocks that can handle that type.
+  </Step>
+  <Step title="Test a small batch">
+    Verify ordering, result shape, and failure behavior before increasing volume.
+  </Step>
 </Steps>
-
-## How Batching Makes Your Work Easier
-
-Here's what happens when you use batching:
-
-<Card title="Parallel Processing" icon="clone">
-  Instead of processing documents one at a time, Odella works on multiple documents simultaneously - like having a team of paralegals instead of just one.
-</Card>
-
-<Card title="Automatic Organization" icon="arrows-left-right">
-  Odella keeps track of all the documents being processed and organizes the results for you automatically.
-</Card>
-
-## When Should You Use Batching?
-
-Batching is particularly useful in the following scenarios:
-
-<CardGroup cols={2}>
-  <Card title="High Volume Processing" icon="layer-group">
-    When you have multiple items (documents, questions, cases) that need the same type of processing
-  </Card>
-  <Card title="Repetitive Tasks" icon="rotate">
-    For tasks that are repetitive and follow a standard process without needing custom handling
-  </Card>
-  <Card title="Consistency Requirements" icon="equals">
-    When you need uniform output across multiple items, like standardized document formatting or response structures
-  </Card>
-  <Card title="Speed Priority" icon="bolt">
-    In time-sensitive situations where processing items individually would create unacceptable delays
-  </Card>
-  <Card title="Scalable Workflows" icon="arrow-up-right-dots">
-    For processes that may need to scale up, such as handling multiple jurisdictions or growing document volumes
-  </Card>
-  <Card title="Resource Optimization" icon="chart-line">
-    When you want to maximize efficiency by parallel processing instead of sequential handling
-  </Card>
-</CardGroup>
-
-## Creating Workflows with Batching
 
 <Frame>
-  <img src="../assets/batch_example_light.gif" alt="Workflow Batching (Light Mode)" className="block dark:hidden" />
-  <img src="../assets/batch_example_dark.gif" alt="Workflow Batching (Dark Mode)" className="hidden dark:block" />
+  <img src="../assets/batch_example_light.gif" alt="Example batched workflow in light mode" className="block dark:hidden" />
+  <img src="../assets/batch_example_dark.gif" alt="Example batched workflow in dark mode" className="hidden dark:block" />
 </Frame>
 
-When designing workflows that use batching, keep these tips in mind:
+## Result handling
 
-<CardGroup cols={2}>
-  <Card title="Input Structure" icon="arrow-right-to-bracket">
-    Ensure your input block provides an array or list of items to be processed. Each item will be processed in parallel when it reaches a batched block.
-  </Card>
-  <Card title="Output Handling" icon="arrow-right-from-bracket">
-    Remember that batched blocks will output arrays of results. Structure your subsequent blocks to handle multiple results appropriately.
-  </Card>
-</CardGroup>
+Decide how the workflow should behave when one item fails:
 
-<Steps>
-  1. Start with an Input Block that accepts multiple items
-  2. Connect to blocks where parallel processing makes sense
-  3. Enable batching on those blocks through their settings
-  4. Add blocks to handle the batched outputs
-  5. Test with a small batch first to ensure correct processing
-</Steps>
+- Stop the full run
+- Return successful and failed items separately
+- Retry eligible failures
+- Send failures for human review
 
-<Tip>
-  Use the "If" block after batched operations to process results conditionally. For example, you might want to handle successful and failed items differently.
-</Tip>
+Do not treat a partially successful batch as fully complete unless the downstream process explicitly supports that outcome.
 
-## Real-World Example
+## Capacity and external systems
 
-Here's a practical example of how batching works:
+Concurrent work can increase load on models and connected applications. Consider:
 
-<Steps>
-  1. You have 20 contracts that need review
-  2. Set up a workflow with batching enabled
-  3. Upload all 20 contracts at once
-  4. Odella processes all contracts simultaneously
-  5. Receive organized results for all contracts
-</Steps>
+- Provider rate limits
+- API quotas
+- File and payload size
+- Duplicate writes
+- Ordering requirements
+- Downstream concurrency limits
+- Usage-based charges
 
-What would have taken hours to process sequentially can now be completed in a fraction of the time!
+Start with a small representative batch and increase volume only after observing reliable behavior.
 
-<Warning>
-  While batching is powerful, remember that you can't batch a batch (no nesting). If you need more complex processing, consider using a Subflow Block with batching enabled.
-</Warning>
+## Limitations
 
-Think of batching as your virtual team of assistants, working together to complete your legal tasks more efficiently. It's one of the easiest ways to multiply your productivity in Odella.
+Nested batching is not supported. If a process needs multiple layers of collection handling, simplify the data shape, use a subflow, or process one layer sequentially.
+
+## Batching checklist
+
+- Items are independent.
+- Input is an array or compatible collection.
+- Downstream blocks expect a collection.
+- Partial failures have a defined outcome.
+- External rate limits are understood.
+- Duplicate external actions are prevented.
+- Representative volume has been tested.
+
+See [Batching tutorial](/workflow-tutorial/05-batching) for a guided example.

@@ -1,4 +1,54 @@
 ---
-title: Loops
-description: Learn how to use loops in Odella
+title: "Process a list with a loop"
+description: "Iterate over a collection, process each item, and stop a workflow loop safely."
 ---
+
+# Process a list with a loop
+
+In this tutorial, you will process each item in a list and return the collected results.
+
+## 1. Prepare the input
+
+Create an Array block with several representative values, such as document names or request IDs. Connect it to the loop input.
+
+## 2. Add the loop
+
+<Steps>
+  <Step title="Create the loop body">
+    Add the block or subflow that should run once for each item.
+  </Step>
+  <Step title="Use the current item">
+    Connect the loop's current-item output to the processing step.
+  </Step>
+  <Step title="Collect the result">
+    Connect the processed value to the loop's result collection.
+  </Step>
+  <Step title="Set a safe limit">
+    Configure a maximum iteration count that matches the largest expected input. This prevents an unexpected condition from running indefinitely.
+  </Step>
+</Steps>
+
+## 3. Test the loop
+
+Run the workflow with:
+
+- An empty list
+- One item
+- Several valid items
+- An invalid item in the middle of the list
+- A list larger than the configured iteration limit
+
+Confirm whether an item failure should stop the whole workflow or be recorded and allow remaining items to continue.
+
+## Loops or batching?
+
+| Use | Best when |
+| --- | --- |
+| **Loop** | Items must run in sequence, later steps depend on earlier results, or the process needs an explicit stop condition. |
+| **Batching** | Items are independent and can run concurrently. |
+
+See [Loops](/workflow/loops) and [Batching](/workflow/batching) for detailed guidance.
+
+<Warning>
+  Always set a clear completion condition and maximum iteration count. Test failure behavior before publishing the workflow.
+</Warning>

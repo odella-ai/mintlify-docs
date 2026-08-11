@@ -1,73 +1,77 @@
 ---
-title: Dynamic Prompting
+title: "Build a dynamic prompt"
+description: "Combine workflow values into a prompt and collect user input before generating a structured result."
 ---
 
-<Note>
-  In this section, we'll explore how to create dynamic prompts and use various block types in Odella.
-</Note>
+# Build a dynamic prompt
 
-## Getting Started
+This tutorial shows how to build a prompt from earlier workflow values instead of writing one fixed prompt for every run.
 
-1. In the sidebar, locate the "Flows" tab.
-2. Find the folder named "2. Dynamic Prompting".
-3. Open the "Dynamic Prompting" flow.
+## What you will build
 
-You should see a flow that looks like this:
+The workflow will:
 
-<Frame>
-  <img src="./assets/02-interpolation-overview.png" alt="Dynamic Prompting Flow" />
-</Frame>
+1. Define task instructions.
+2. Collect a document type from the user.
+3. Insert that value into a prompt.
+4. Ask an AI model to produce a structured outline.
+5. Return the result.
 
-## Running the Flow
+## 1. Define the instructions
 
-<Steps>
-  1. Click the "Run" button to start the flow.
-  2. You'll see two Chat Blocks running at the same time.
-  3. A user input prompt will appear, asking you to choose a contract type.
-  4. Enter one of the listed contract types and submit.
-  5. The final Chat Block will generate a template for your chosen contract type.
-</Steps>
+Add a Text block containing the stable instructions:
 
-## Understanding the Flow
+```text
+Create a concise outline for the requested document type.
+Include the purpose, required information, major sections, and review points.
+Do not invent facts that were not provided.
+```
 
-Let's break down this flow into simpler parts:
+Keep durable requirements in this block so they are easy to review and update.
 
-### 1. Setup
+## 2. Collect a value
 
-<Frame>
-  <img src="./assets/02-interpolation-setup.png" alt="Setup Blocks" />
-</Frame>
+Add a User Input block and ask:
 
-We start with three blocks:
-- A Text Block for the system prompt
-- Two Prompt Blocks to guide the AI's responses
+```text
+Which document type should the outline cover?
+```
 
-### 2. Combining Outputs
+Name the output `documentType`.
 
-After the initial chats, we use a Text Block to combine their outputs into one message.
+## 3. Assemble the dynamic prompt
 
-### 3. User Input
+Add another Text block with interpolation:
 
-<Frame>
-  <img src="./assets/02-interpolation-user-input-toggle.png" alt="User Input Toggle" />
-</Frame>
+```text
+Document type: {{documentType}}
 
-We use a User Input Block to ask the user which contract type they want. The question is created dynamically based on the previous outputs.
+{{instructions}}
+```
 
-### 4. Final Response
+Connect the first Text block to `instructions` and the User Input output to `documentType`.
 
-<Frame>
-  <img src="./assets/02-interpolation-final-response.png" alt="Final Response" />
-</Frame>
+## 4. Generate the result
 
-The flow ends with a final Chat Block that generates the contract template based on the user's choice.
+Add an Ask AI block and connect the assembled text to its prompt input. Choose an approved model and connect the response to a Flow Output block named `outline`.
 
-## Key Concept: Dynamic Prompting
+## 5. Test the workflow
 
-Dynamic prompting allows us to create flexible, context-aware interactions. In this flow, we use it to:
+Run the workflow with:
 
-1. Combine AI-generated introductions and contract lists
-2. Create a personalized user input prompt
-3. Generate a specific contract template based on user input
+- A common document type
+- A vague value
+- An empty value
+- A value containing punctuation or long text
 
-By using dynamic prompts, we can create more interactive and responsive workflows in Odella.
+Confirm that the generated prompt contains the expected values and that missing input is handled before the AI step runs.
+
+## Design guidance
+
+- Keep instructions separate from variable values.
+- Use descriptive interpolation names.
+- Validate required input before generation.
+- Avoid placing secrets or credentials in prompts.
+- Return structured output when later steps need to process the result.
+
+See [Text Block](/block-reference/data/text), [User Input](/block-reference/io/user-input), and [Ask AI](/block-reference/ai/ai) for field-level references.

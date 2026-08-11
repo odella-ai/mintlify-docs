@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Odella Docs",
-  "description": "Build, hire, and manage AI employees that connect to your tools, automate workflows, and scale business operations without adding headcount.",
+  "description": "Learn how to onboard AI Employees, connect workplace tools, build workflows, manage knowledge, and govern work in Odella.",
   "theme": "almond",
   "logo": {
     "href": "https://www.odella.ai",
@@ -60,13 +60,6 @@
               "get-started/quickstart",
               "get-started/faq"
             ]
-          },
-          {
-            "group": "Workspace foundations",
-            "pages": [
-              "platform/security",
-              "platform/models"
-            ]
           }
         ]
       },
@@ -78,12 +71,14 @@
             "group": "Basics",
             "pages": [
               "workforce/overview",
-              "workforce/employee-page"
+              "workforce/employee-page",
+              "workforce/identity"
             ]
           },
           {
             "group": "Capabilities",
             "pages": [
+              "workforce/skill-tree",
               "workforce/communication-channels",
               "workforce/workflows",
               "workforce/templates",
@@ -93,12 +88,12 @@
             ]
           },
           {
-            "group": "Features",
+            "group": "Work management",
             "pages": [
-              "workforce/skill-tree",
               "workforce/calendar",
-              "workforce/activity",
-              "workforce/identity"
+              "workforce/actions",
+              "workforce/workspace",
+              "workforce/activity"
             ]
           },
           {
@@ -194,37 +189,21 @@
         ]
       },
       {
-        "tab": "Integrations",
-        "icon": "plug",
+        "tab": "Platform",
+        "icon": "building",
         "groups": [
           {
-            "group": "Basics",
+            "group": "Governance",
             "pages": [
-              "integrations/overview"
+              "platform/security",
+              "platform/models"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Marketplace",
-        "icon": "shop",
-        "groups": [
+          },
           {
-            "group": "Basics",
+            "group": "Extend Odella",
             "pages": [
+              "integrations/overview",
               "marketplace/overview"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Chat",
-        "icon": "comments",
-        "groups": [
-          {
-            "group": "Basics",
-            "pages": [
-              "chat/overview"
             ]
           }
         ]
@@ -382,9 +361,7 @@
   "contextual": {
     "options": [
       "copy",
-      "view",
-      "chatgpt",
-      "claude"
+      "view"
     ]
   },
   "seo": {
@@ -433,6 +410,16 @@
       "permanent": true
     },
     {
+      "source": "/chat",
+      "destination": "/workforce/communication-channels",
+      "permanent": true
+    },
+    {
+      "source": "/chat/overview",
+      "destination": "/workforce/communication-channels",
+      "permanent": true
+    },
+    {
       "source": "/product/documents",
       "destination": "/documents/overview",
       "permanent": true
@@ -445,6 +432,61 @@
     {
       "source": "/block-reference/ai/describe-image",
       "destination": "/block-reference/ai/analyze-image",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/agents/auto-system-prompt",
+      "destination": "/block-reference/agents/agent",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/ai/decision",
+      "destination": "/block-reference/logic/route",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/data/audio",
+      "destination": "/workflow/data-types",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/logic/loop-controller",
+      "destination": "/workflow/loops",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/modifiers/extract-json",
+      "destination": "/block-reference/modifiers/extract-from-text",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/modifiers/extract-markdown-code-blocks",
+      "destination": "/block-reference/modifiers/extract-from-text",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/modifiers/extract-markdown-table-blocks",
+      "destination": "/block-reference/modifiers/extract-from-text",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/modifiers/extract-object-path",
+      "destination": "/block-reference/modifiers/get-value",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/modifiers/extract-with-regex",
+      "destination": "/block-reference/modifiers/extract-from-text",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/modifiers/extract-yaml",
+      "destination": "/block-reference/modifiers/extract-from-text",
+      "permanent": true
+    },
+    {
+      "source": "/block-reference/modifiers/to-json",
+      "destination": "/block-reference/modifiers/convert-format",
       "permanent": true
     }
   ]
