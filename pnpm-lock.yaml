@@ -10,13 +10,18 @@ overrides:
   fast-uri: ^3.1.6
   ip-address: ^10.3.1
   js-yaml: ^4.3.1
-  js-yaml@^3: 3.15.1
+  js-yaml@^3: 3.15.2
   socket.io-parser: ^4.2.7
   brace-expansion: ^1.1.18
   sharp: ^0.35.0
-  adm-zip: ^0.6.0
+  adm-zip: ^0.6.1
   postcss: ^8.5.23
   qs: ^6.16.0
+
+patchedDependencies:
+  extract-zip@2.0.1:
+    hash: b1f64950a0e56b645d99ddf3a9c9d1d70c8b47844efe3f62780fcdbe2948c1cf
+    path: patches/extract-zip@2.0.1.patch
 
 importers:
 
@@ -956,8 +961,8 @@ packages:
     resolution: {integrity: sha512-4B/qKCfeE/ODUaAUpSwfzazo5x29WD4r3vXiWsB7I2mSDAihwEqKO+g8GELZUQSSAo5e1XTYh3ZVfLyxBc12nA==}
     engines: {node: '>= 10.0.0'}
 
-  adm-zip@0.6.0:
-    resolution: {integrity: sha512-XleryMhbuksdKtofnWZ9Sk+4CUTbms4Mb/EU32SZwToAyZ5RgVos/ki8n+yr0LWHOGKuakbXTuuYNHLQjhddgg==}
+  adm-zip@0.6.1:
+    resolution: {integrity: sha512-Xwrja8nx9e5o2N1my4DsKCeKpdrnACyr1wtbPxBDgGzKzKyE9kRtBFA8mWldI+RVlD7CBZNWY/wQ2+ydwOR6kQ==}
     engines: {node: '>=14.0'}
 
   agent-base@6.0.2:
@@ -2370,8 +2375,8 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-yaml@3.15.1:
-    resolution: {integrity: sha512-S99WuO3HlhO3XN41EtYUNl9zzXjoJx7QvmipxsJVxtCBT0YHEFy+iOJhjSvrmV12nYhWpZaM8lPHkJm0yUMbag==}
+  js-yaml@3.15.2:
+    resolution: {integrity: sha512-6EuL879VkRA+1Cz578mKMiKvjPNEuk6+r1JaFzoSWejZmtf7xWbIyw1e3KkxlkzTIt9Taw6JBhEppG7utc1P+w==}
     hasBin: true
 
   js-yaml@4.3.2:
@@ -4549,7 +4554,7 @@ snapshots:
       '@mintlify/prebuild': 1.0.1279(@base-ui/react@1.7.0(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3))(@types/node@26.4.1)(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3)(typescript@6.0.3)
       '@mintlify/previewing': 4.0.1351(@base-ui/react@1.7.0(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3))(@types/node@26.4.1)(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(typescript@6.0.3)
       '@mintlify/validation': 0.1.844(@base-ui/react@1.7.0(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3))(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3)(typescript@6.0.3)
-      adm-zip: 0.6.0
+      adm-zip: 0.6.1
       chalk: 5.2.0
       color: 4.2.3
       detect-port: 1.5.1
@@ -4768,7 +4773,7 @@ snapshots:
       '@mintlify/common': 1.0.1125(@base-ui/react@1.7.0(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3))(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3)(typescript@6.0.3)
       '@mintlify/prebuild': 1.0.1279(@base-ui/react@1.7.0(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3))(@types/node@26.4.1)(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3)(typescript@6.0.3)
       '@mintlify/validation': 0.1.844(@base-ui/react@1.7.0(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3))(@types/react@19.2.17)(react-dom@18.3.1(react@19.2.3))(react@19.2.3)(typescript@6.0.3)
-      adm-zip: 0.6.0
+      adm-zip: 0.6.1
       better-opn: 3.0.2
       chalk: 5.2.0
       chokidar: 3.5.3
@@ -4942,7 +4947,7 @@ snapshots:
   '@puppeteer/browsers@2.7.1':
     dependencies:
       debug: 4.4.3
-      extract-zip: 2.0.1
+      extract-zip: 2.0.1(patch_hash=b1f64950a0e56b645d99ddf3a9c9d1d70c8b47844efe3f62780fcdbe2948c1cf)
       progress: 2.0.3
       proxy-agent: 6.5.0
       semver: 7.8.5
@@ -5330,7 +5335,7 @@ snapshots:
 
   address@1.2.2: {}
 
-  adm-zip@0.6.0: {}
+  adm-zip@0.6.1: {}
 
   agent-base@6.0.2:
     dependencies:
@@ -6258,7 +6263,7 @@ snapshots:
 
   extend@3.0.2: {}
 
-  extract-zip@2.0.1:
+  extract-zip@2.0.1(patch_hash=b1f64950a0e56b645d99ddf3a9c9d1d70c8b47844efe3f62780fcdbe2948c1cf):
     dependencies:
       debug: 4.4.3
       get-stream: 5.2.0
@@ -6382,7 +6387,7 @@ snapshots:
 
   front-matter@4.0.2:
     dependencies:
-      js-yaml: 3.15.1
+      js-yaml: 3.15.2
 
   fs-constants@1.0.0:
     optional: true
@@ -7056,7 +7061,7 @@ snapshots:
 
   js-tokens@4.0.0: {}
 
-  js-yaml@3.15.1:
+  js-yaml@3.15.2:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
