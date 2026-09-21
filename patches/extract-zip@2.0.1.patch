@@ -1,0 +1,88 @@
+diff --git a/index.js b/index.js
+index 23384ea16bb848616886f356d8d69f94325535bf..d88ee8cd0a50a29f6e3813d1e0d6f4881fc33d9d 100644
+--- a/index.js
++++ b/index.js
+@@ -10,6 +10,16 @@ const yauzl = require('yauzl')
+ const openZip = promisify(yauzl.open)
+ const pipeline = promisify(stream.pipeline)
+ 
++// Returns true if `targetPath` is `dir` itself or lives somewhere underneath it.
++// Both arguments are expected to be absolute paths.
++function isInsideDirectory (dir, targetPath) {
++  const relative = path.relative(dir, targetPath)
++  if (relative === '') return true
++  // A leading `..` segment escapes `dir`; an absolute result means a different
++  // Windows drive, which is out of bounds as well.
++  return !relative.split(path.sep).includes('..') && !path.isAbsolute(relative)
++}
++
+ class Extractor {
+   constructor (zipPath, opts) {
+     this.zipPath = zipPath
+@@ -56,9 +66,8 @@ class Extractor {
+           await fs.mkdir(destDir, { recursive: true })
+ 
+           const canonicalDestDir = await fs.realpath(destDir)
+-          const relativeDestDir = path.relative(this.opts.dir, canonicalDestDir)
+ 
+-          if (relativeDestDir.split(path.sep).includes('..')) {
++          if (!isInsideDirectory(this.opts.dir, canonicalDestDir)) {
+             throw new Error(`Out of bound path "${canonicalDestDir}" found while processing file ${entry.fileName}`)
+           }
+ 
+@@ -87,6 +96,13 @@ class Extractor {
+ 
+     const dest = path.join(this.opts.dir, entry.fileName)
+ 
++    // Backstop: yauzl already rejects absolute and `..` entry names while
++    // decoding them, so this is only reachable if that ever stops being true.
++    /* istanbul ignore if */
++    if (!isInsideDirectory(this.opts.dir, dest)) {
++      throw new Error(`Out of bound path "${dest}" found while processing file ${entry.fileName}`)
++    }
++
+     // convert external file attr int into a fs stat mode int
+     const mode = (entry.externalFileAttributes >> 16) & 0xFFFF
+     // check if it's a symlink or dir (using stat mode constants)
+@@ -126,13 +142,41 @@ class Extractor {
+ 
+     if (symlink) {
+       const link = await getStream(readStream)
++      // A symlink entry may not point outside of the extraction directory:
++      // following one would let the archive read from, write to, or overwrite
++      // arbitrary locations on the filesystem.
++      const linkTarget = path.resolve(path.dirname(dest), link)
++      if (path.isAbsolute(link) || !isInsideDirectory(this.opts.dir, linkTarget)) {
++        throw new Error(`Out of bound symlink target "${link}" found while processing file ${entry.fileName}`)
++      }
++
+       debug('creating symlink', link, dest)
++      await this.removeSymlinkAtDestination(dest)
+       await fs.symlink(link, dest)
+     } else {
++      // If the destination is an existing symlink, writing to it would follow
++      // the link instead of replacing it, so remove it first.
++      await this.removeSymlinkAtDestination(dest)
+       await pipeline(readStream, createWriteStream(dest, { mode: procMode }))
+     }
+   }
+ 
++  async removeSymlinkAtDestination (dest) {
++    let stats
++    try {
++      stats = await fs.lstat(dest)
++    } catch (err) {
++      /* istanbul ignore if */
++      if (err.code !== 'ENOENT') throw err
++      return
++    }
++
++    if (stats.isSymbolicLink()) {
++      debug('removing existing symlink', dest)
++      await fs.unlink(dest)
++    }
++  }
++
+   getExtractedMode (entryMode, isDir) {
+     let mode = entryMode
+     // Set defaults, if necessary
