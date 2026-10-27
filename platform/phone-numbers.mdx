@@ -1,0 +1,61 @@
+---
+title: "Phone numbers"
+description: "Find, verify, reserve, and assign numbers for your AI Employees' phone and messaging channels."
+---
+
+# Manage workforce phone numbers
+
+Open **Account → Phone numbers** to manage reserved numbers. Number availability, compliance requirements, and supported capabilities vary by country and number type.
+
+A reserved number is not automatically a published communication channel. Assignment, provider registration, and channel publication are separate steps.
+
+## Get a number
+
+<Steps>
+  <Step title="Start the number flow">
+    Select the get-number action. Choose the country and number type, then
+    search the available inventory.
+  </Step>
+  <Step title="Review capabilities and requirements">
+    Confirm that the number supports the SMS and/or voice capabilities you need.
+    Review the displayed pricing and verification requirements before ordering.
+  </Step>
+  <Step title="Complete verification">
+    Where required, follow the verification wizard for that country and number
+    type. Supply accurate business, address, identity, and supporting-document
+    information. Complete any additional identity check presented by the flow.
+  </Step>
+  <Step title="Track activation">
+    Return to the list to review pending applications or orders. Submission is
+    not approval, and a selected number is not active until setup completes.
+  </Step>
+</Steps>
+
+Do not include personal verification documents in a worker's general instructions or knowledge store. Submit them only through the designated verification flow.
+
+## Resolve a pending or rejected application
+
+Read the current application status and any document-specific rejection reason. Use the offered edit/resubmit action to correct the existing submission where available. Do not repeatedly order new numbers to work around an unresolved verification requirement.
+
+If an order or verification remains pending, check its current status before retrying payment or starting another request. Contact support with the application or order reference, not sensitive identity documents.
+
+## Assign the number to a worker
+
+Assign an active number to the intended AI Employee, then select that number in its channel editor. The Phone setup checks that it is actively assigned to that worker and supports the enabled options.
+
+- **Phone** can use SMS and voice separately; at least one must be enabled.
+- **Signal** requires its own registration and activation.
+- **WhatsApp** requires its registration/display-name approval flow.
+
+Using the same assigned number does not mean these channels share a single activation state. See [Phone and messaging channels](/workforce/channels/phone-and-messaging).
+
+## Release a number
+
+Before using a release action, review the displayed impact on channels using the number. Move or disable affected communication paths intentionally and confirm the consequences before proceeding. Releasing a number is not the same as pausing an individual channel.
+
+## Troubleshooting
+
+- **Number missing in a channel:** Check the active account, assignment, and activation status.
+- **Publishing blocked:** Verify assignment and that selected SMS/voice options are supported.
+- **WhatsApp or Signal not receiving messages:** Check that channel's registration state, publication, and inbound policy—not only the number order.
+- **Paid channel unavailable:** Review [credits, spend limits](/platform/billing-and-credits), and [account limits](/platform/usage-and-limits).

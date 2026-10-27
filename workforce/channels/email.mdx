@@ -1,0 +1,39 @@
+---
+title: "Email channel"
+description: "Give an AI Employee a dedicated email address and test incoming messages, replies, and attachments."
+---
+
+# Give your worker an email address
+
+The Email channel provides a dedicated address for a worker to send and receive messages. It is different from connecting an existing Gmail or Outlook account as a toolkit or source of monitored mail.
+
+## Set up
+
+1. Open the worker's communication channels and add **Email**.
+2. Complete the fields shown in the editor and review the dedicated address.
+3. Review **Channel Access** and the worker's inbound policy.
+4. Complete the channel's creation/publication flow.
+5. From an allowed account, send a low-risk message to the displayed address and confirm the reply.
+
+Use the address displayed by the app rather than assuming an address from the worker's name.
+
+## Test a useful request
+
+> Please summarize the attached supplier update in five bullet points. Flag any missing information. Reply only to this conversation; do not contact the supplier.
+
+Check that the worker receives the attachment and replies from the intended address. Reply to the same email thread to keep the conversation together. Supported email handling includes attachments and rich text; source quality and file limits can still affect processing.
+
+## Outbound email and review
+
+Receiving a message does not grant unrestricted permission to send new email. New recipients and sensitive actions remain subject to the worker's [outbound policy](/workforce/settings-security-privacy) and [approvals](/workforce/approvals).
+
+Before approving a send, inspect the recipient list, Cc/Bcc, subject, message, and attachments. Do not save a broad exception just to complete a one-off test.
+
+## Troubleshooting
+
+- **No response:** Check the address, channel publication, worker availability, inbound policy, and Activity.
+- **Sender blocked:** Confirm whether the sender is an account member, paired contact, or otherwise allowed by the selected policy.
+- **Outbound email waiting:** Open the current approval request; replying with “approved” does not replace the approval control.
+- **Attachment unreadable:** Confirm the file uploaded correctly and provide a supported, readable source rather than assuming its contents were processed.
+
+For monitoring an existing business mailbox or using its tools, see [Integrations](/integrations/overview) and [Actions](/workforce/actions).

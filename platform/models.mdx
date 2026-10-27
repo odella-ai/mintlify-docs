@@ -1,84 +1,56 @@
 ---
-title: Models
-description: Understand how model settings support AI Employees, workflows, and workspace governance.
+title: "Models and privacy"
+description: "Compare available models and pricing, choose worker models, and configure text-provider retention controls."
 icon: "brain"
 ---
 
-# Models
+# Choose models for the work
 
-Odella can connect to leading AI model providers so workers can use the right capability for the work they are assigned. Most teams do not need to manage model details day to day, but workspace-level model settings help administrators align Odella with security, quality, and compliance requirements.
+Models are one part of how an AI Employee performs its role. Responsibilities, approved source material, tools, instructions, and human review matter just as much as model selection.
 
-<Note>
-  In customer-facing work, think of models as one part of how an AI Employee performs its role. The worker's responsibilities, knowledge, tools, and review process are just as important.
-</Note>
+## Compare available models
 
-## How models fit into Odella
+Open **Account → Models** to review the available models, capabilities, and pricing.
 
-<Frame>
-  <img
-    className="dark:hidden"
-    src="../assets/security_overview_light.gif"
-    alt="Odella model settings"
-  />
-  <img
-    className="hidden dark:block"
-    src="../assets/security_overview_dark.gif"
-    alt="Odella model settings"
-  />
-</Frame>
+- Text models show token costs.
+- Image, video, and audio models show their applicable billing units.
+- Availability and supported choices can change as models are added or retired.
 
-<CardGroup cols={2}>
-  <Card title="Workspace control" icon="sliders">
-    Choose which model providers are available to your organization.
-  </Card>
-  <Card title="Task fit" icon="list-check">
-    Use appropriate model capabilities for drafting, extraction, reasoning, summarisation, and review tasks.
-  </Card>
-  <Card title="Governance" icon="shield-check">
-    Align model usage with internal security, privacy, and client requirements.
-  </Card>
-  <Card title="Future flexibility" icon="refresh-cw">
-    Keep your workflows and workers adaptable as model capabilities improve over time.
-  </Card>
-</CardGroup>
+The Models page is a comparison reference. To change an individual worker's language model, reasoning effort, image/video defaults, or capacity, open its **Settings → Model & Intelligence**. Review any proposed quote change before saving.
 
-## Recommended approach
+See [Worker model settings](/workforce/settings-model-intelligence) and [Billing and credits](/platform/billing-and-credits).
 
-<Steps>
-  <Step title="Set workspace defaults">
-    Decide which model providers are approved for your organization.
-  </Step>
-  <Step title="Match models to responsibilities">
-    Consider the type of work a worker performs: reading, drafting, extracting, analyzing, or reviewing.
-  </Step>
-  <Step title="Test with real examples">
-    Run representative tasks and review output quality before assigning the worker broader responsibilities.
-  </Step>
-  <Step title="Review periodically">
-    Revisit model settings as your team's requirements, risk profile, and available model capabilities change.
-  </Step>
-</Steps>
+## Zero data retention for text
 
-## What to focus on first
+In an organization account, open **Account → Organization → Settings → Model privacy**. With the appropriate account-settings permission, use **Zero data retention** to restrict AI Employee text traffic to providers that do not retain prompts or outputs.
 
-For most teams, the most important model decisions are practical:
+When enabled:
 
-- Which providers are allowed in the workspace?
-- Which workers handle sensitive information?
-- Which workflows need higher accuracy or stronger review?
-- Which outputs require human approval before use?
+- Supported text traffic uses eligible providers.
+- Unsupported text models fall back to the platform default.
+- Image and video generation are unchanged.
 
-<Tip>
-  Do not start by optimizing every model choice. Start by defining the worker's role, responsibility, knowledge, and review process. Then adjust model settings where the work requires it.
-</Tip>
+<Warning>
+  This is a text-provider retention control, not a promise that Odella stores no
+  conversation history or that every connected service retains no data. It does
+  not configure image/video retention, document-store disposal, or third-party
+  integration policies.
+</Warning>
 
-## Related docs
+If the control is read-only, ask a person with account-settings update permission to review it. After changing it, test representative work and check any change in model behavior.
 
-<CardGroup cols={2}>
-  <Card title="Security" icon="shield-halved" href="/platform/security">
-    Review governance and access controls for your workspace.
-  </Card>
-  <Card title="Workflow data types" icon="code" href="/workflow/data-types">
-    Learn how information moves through workflows.
-  </Card>
-</CardGroup>
+## Match models to responsibilities
+
+1. Identify the type of work: drafting, extraction, research, analysis, or media creation.
+2. Review the sensitivity of the information and your organization's provider/privacy requirements.
+3. Choose an available model and reasoning setting appropriate for the task.
+4. Test normal, missing-data, and difficult cases against approved review criteria.
+5. Compare quality and actual usage before expanding responsibilities.
+
+A more expensive model or higher reasoning setting does not guarantee correct results. Keep a review step for consequential outputs.
+
+## Retired models and defaults
+
+A saved retired model can appear as **Deprecated** until you select a current option. Onboarding can also supply a different configuration from platform defaults. Check the worker's saved settings and quote rather than assuming every worker uses the latest default.
+
+For access and wider data-handling guidance, see [Roles and permissions](/platform/roles-and-permissions) and [Platform security](/platform/security).

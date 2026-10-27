@@ -1,0 +1,55 @@
+---
+title: "Usage and limits"
+description: "Review credit consumption, account capacity, tier changes, and restrictions affecting your AI workforce."
+---
+
+# Understand spend and capacity
+
+Use **Account → Usage** to investigate consumption and **Account → Limits** to understand the capabilities and resource capacity available to your account.
+
+These are separate from [Billing and credits](/platform/billing-and-credits), which manages funding and spend policy.
+
+## Review usage
+
+1. Open **Account → Usage** in the intended account.
+2. Review the daily credit-spend chart for the current billing period.
+3. Inspect usage categories and ledger events to identify the source of consumption.
+4. Compare relevant entries with worker [Activity](/workforce/activity) and [Tasks](/workforce/tasks).
+
+A worker's quote explains its pricing terms; a usage entry records consumption. An estimated monthly quote does not include every possible usage-based charge.
+
+## Review account limits
+
+Open **Account → Limits** to see:
+
+- Your current tier.
+- Capacity for account resources, such as workers, document stores, and channels.
+- Which capabilities are included or restricted.
+- Requirements for an upgrade or downgrade.
+
+Use the values displayed for your account rather than assuming all accounts have the same allowances. Resource limits can prevent creation even when the account has credits.
+
+## Change tier
+
+Review the proposed tier's capabilities and capacity before confirming. If a downgrade would exceed the target tier's capacity, follow the displayed requirements for resolving excess resources. Read the confirmation carefully: available downgrade controls can take effect immediately.
+
+Before removing a resource to meet a limit, check its assignments and dependencies. Deleting a worker or store is not equivalent to temporarily pausing it.
+
+<Warning>
+  A tier change is not a purchase of unlimited usage, and adding credits is not
+  a tier upgrade. Check funding, spend controls, and capability eligibility
+  separately.
+</Warning>
+
+## Troubleshoot a blocked operation
+
+| Restriction                  | Typical next step                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------------- |
+| **Credit balance**           | Fund the correct account or resolve a failed payment.                                 |
+| **Hard monthly spend limit** | Review the limit with an authorized billing manager.                                  |
+| **Resource capacity**        | Adjust resources or select a suitable tier.                                           |
+| **Capability unavailable**   | Check the tier and current availability of the requested feature.                     |
+| **Worker unavailable**       | Check its active state, schedule, and permissions.                                    |
+| **Permission denied**        | Review account role and resource access; a tier upgrade does not grant authorization. |
+
+After fixing the cause, inspect the original task or request before retrying to avoid repeating actions that already succeeded.

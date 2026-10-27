@@ -8,8 +8,28 @@ description: "Create, onboard, and manage AI Employees with defined roles, capab
 **Workforce** is where your team creates, hires, and manages AI Employees. Each worker has a defined role, assigned capabilities, working hours, security policies, and work history.
 
 <Frame>
-  <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/WorkforceAgent.mp4"></video>
-  <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="hidden dark:block" src="../assets/videos/WorkforceAgent-dark.mp4"></video>
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    controls
+    width="100%"
+    className="dark:hidden"
+    src="../assets/videos/WorkforceAgent.mp4"
+  ></video>
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    controls
+    width="100%"
+    className="hidden dark:block"
+    src="../assets/videos/WorkforceAgent-dark.mp4"
+  ></video>
 </Frame>
 
 ## Workforce overview
@@ -24,10 +44,10 @@ The Workforce page lists every worker in your organization. Use it to:
 
 Worker cards show one of three availability states:
 
-| Status | Meaning |
-| --- | --- |
-| **Stopped** | The worker is paused and does not accept normal work. |
-| **Available now** | The worker is active and currently inside its working hours. |
+| Status                    | Meaning                                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Stopped**               | The worker is paused and does not accept normal work.                                                                     |
+| **Available now**         | The worker is active and currently inside its working hours.                                                              |
 | **Outside working hours** | The worker is active but outside its configured schedule. Its after-hours policy determines what happens to new requests. |
 
 See [Operations & Logistics](/workforce/settings-operations-logistics) for working hours and after-hours behavior.
@@ -38,7 +58,8 @@ Select **Add Worker**, then choose one of two paths.
 
 <CardGroup cols={2}>
   <Card title="Create a worker" icon="user-plus">
-    Define a role for your organization and onboard the worker with the responsibilities, context, and capabilities it needs.
+    Define a role for your organization and onboard the worker with the
+    responsibilities, context, and capabilities it needs.
   </Card>
   <Card title="Hire from Marketplace" icon="store" href="/marketplace/overview">
     Start with a ready-to-hire worker and adapt its configuration to your team.
@@ -48,22 +69,47 @@ Select **Add Worker**, then choose one of two paths.
 ### Create with guided setup
 
 <Frame>
-  <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="dark:hidden" src="../assets/videos/Addingworker.mp4"></video>
-  <video autoPlay muted loop playsInline preload="auto" controls width="100%" className="hidden dark:block" src="../assets/videos/Addingworker-dark.mp4"></video>
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    controls
+    width="100%"
+    className="dark:hidden"
+    src="../assets/videos/Addingworker.mp4"
+  ></video>
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    controls
+    width="100%"
+    className="hidden dark:block"
+    src="../assets/videos/Addingworker-dark.mp4"
+  ></video>
 </Frame>
 
 <Steps>
   <Step title="Describe the role">
-    Enter a clear job description or upload supporting material. Include the expected outcomes, recurring responsibilities, and situations that require human review.
+    Enter a clear job description or upload supporting material. Include the
+    expected outcomes, recurring responsibilities, and situations that require
+    human review.
   </Step>
   <Step title="Review the proposed setup">
-    Guided setup can recommend skills, tools, and workflows. Review every recommendation before granting access.
+    Guided setup can recommend skills, tools, and workflows. Review every
+    recommendation before granting access.
   </Step>
   <Step title="Complete onboarding">
-    Confirm the worker's identity, capabilities, working hours, and security policies.
+    Confirm the worker's identity, capabilities, working hours, and security
+    policies.
   </Step>
   <Step title="Test a low-risk task">
-    Delegate a representative task, review the result, and refine the worker's instructions before expanding its responsibilities.
+    Delegate a representative task, review the result, and refine the worker's
+    instructions before expanding its responsibilities.
   </Step>
 </Steps>
 
@@ -71,14 +117,14 @@ Select **Add Worker**, then choose one of two paths.
 
 Manual setup asks for:
 
-| Field | Guidance |
-| --- | --- |
-| **Profile image and color** | Choose a visual identity that makes the worker easy to recognize. |
-| **Name** | Use a clear, distinct display name. |
-| **Role** | Use a short job title that describes the worker's function. |
-| **Purpose** | Explain the outcome the worker is responsible for in one or two sentences. |
+| Field                       | Guidance                                                                   |
+| --------------------------- | -------------------------------------------------------------------------- |
+| **Profile image and color** | Choose a visual identity that makes the worker easy to recognize.          |
+| **Name**                    | Use a clear, distinct display name.                                        |
+| **Role**                    | Use a short job title that describes the worker's function.                |
+| **Purpose**                 | Explain the outcome the worker is responsible for in one or two sentences. |
 
-After creation, open [Identity](/workforce/identity) to set personality, voice, manager, and durable instructions.
+After creation, open [Identity and General Instructions](/workforce/identity) in Settings to set personality, voice, and durable guidance. In an organization account, use [Governance](/workforce/governance) to assign an accountable manager and review access.
 
 ## Onboard the worker
 
@@ -86,16 +132,30 @@ A reliable worker needs more than a name and model. Review these areas before as
 
 <CardGroup cols={2}>
   <Card title="Identity" icon="id-card" href="/workforce/identity">
-    Define role, purpose, manager, voice, personality, and general instructions.
+    Define role, purpose, voice, personality, and general instructions.
   </Card>
-  <Card title="Capabilities" icon="diagram-project" href="/workforce/skill-tree">
-    Assign only the skills, tools, workflows, templates, and knowledge required for the role.
+  <Card
+    title="Capabilities"
+    icon="diagram-project"
+    href="/workforce/skill-tree"
+  >
+    Assign only the skills, tools, workflows, templates, and knowledge required
+    for the role.
   </Card>
-  <Card title="Schedule" icon="clock" href="/workforce/settings-operations-logistics">
+  <Card
+    title="Schedule"
+    icon="clock"
+    href="/workforce/settings-operations-logistics"
+  >
     Set working days, working hours, timezone, and after-hours behavior.
   </Card>
-  <Card title="Security" icon="shield-check" href="/workforce/settings-security-privacy">
-    Control inbound access, outbound messaging, tool approvals, and saved exceptions.
+  <Card
+    title="Security"
+    icon="shield-check"
+    href="/workforce/settings-security-privacy"
+  >
+    Control inbound access, outbound messaging, tool approvals, and saved
+    exceptions.
   </Card>
 </CardGroup>
 
@@ -103,24 +163,25 @@ A reliable worker needs more than a name and model. Review these areas before as
 
 Select a worker to open its profile. The profile brings the worker's capabilities, work, and governance controls together.
 
-| Area | Purpose |
-| --- | --- |
-| [Skills](/workforce/skill-tree) | View and assign capabilities. |
-| [Calendar](/workforce/calendar) | Schedule one-time or recurring work. |
-| [Actions](/workforce/actions) | Start work from events in connected applications. |
-| [Workspace](/workforce/workspace) | Manage private working files and folders. |
-| [Activity](/workforce/activity) | Review work history and operational events. |
-| [Identity](/workforce/identity) | Manage profile and durable instructions. |
-| [Settings](/workforce/settings-overview) | Configure models, memory, schedule, security, billing, and termination. |
+| Area                                     | Purpose                                                                                                     |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [Skills](/workforce/skill-tree)          | View and assign capabilities.                                                                               |
+| [Calendar](/workforce/calendar)          | Schedule one-time or recurring work.                                                                        |
+| [Actions](/workforce/actions)            | Manage event- and time-based automations.                                                                   |
+| [Workspace](/workforce/workspace)        | Manage private working files and folders.                                                                   |
+| [Activity](/workforce/activity)          | Review work history and operational events.                                                                 |
+| [Identity](/workforce/identity)          | Manage profile and durable instructions.                                                                    |
+| [Settings](/workforce/settings-overview) | Configure identity, instructions, models, memory, schedule, security, governance, billing, and termination. |
 
 The profile sidebar also provides access to connected inboxes, applications, availability, and current pricing information. See [Worker profile page](/workforce/employee-page) for a detailed layout reference.
 
 ## Delegate and review work
 
-Workers can receive work through supported channels such as connected inboxes, workplace messaging applications, scheduled tasks, event-driven actions, and direct conversations in Odella.
+Use [Tasks](/workforce/tasks) to assign a clear outcome and follow progress. Workers can also receive work through [communication channels](/workforce/communication-channels), scheduled work, event-driven Actions, and direct conversations in Odella. Use [Approvals](/workforce/approvals) when a consequential action needs authorization; inspect actual deliverables before relying on them.
 
 <Warning>
-  Start with narrow permissions and a clear human review process. Expand access only after the worker produces reliable results on representative work.
+  Start with narrow permissions and a clear human review process. Expand access
+  only after the worker produces reliable results on representative work.
 </Warning>
 
 ## Recommended operating practice

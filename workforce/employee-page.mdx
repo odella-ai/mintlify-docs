@@ -9,7 +9,7 @@ Open it from **Workforce** by selecting a worker card. The page is divided into 
 
 1. **Header** — breadcrumbs and the worker availability control.
 2. **Profile sidebar** — worker identity summary, contact controls, connected inboxes, required applications, and working-hours usage.
-3. **Main workspace** — the skill tree, calendar, activity log, identity, and settings areas.
+3. **Main workspace** — the skill tree, calendar, Actions, working files, activity, and settings areas.
 
 ## Header controls
 
@@ -17,12 +17,13 @@ Open it from **Workforce** by selecting a worker card. The page is divided into 
 
 The availability control starts or pauses the worker.
 
-- **Running / active** means the worker can respond on connected channels and execute configured tasks.
+- **Running / active** makes the worker available for work, subject to working hours, access, account eligibility, and approval policies.
 - **Stopped** means the worker is paused and should not process normal work.
 - If you cannot edit the worker, the toggle is read-only.
 
 <Warning>
-Stopping a worker can affect inbox monitoring, scheduled tasks, and event-driven actions. Use it when you intentionally want the worker offline.
+  Stopping a worker can affect inbox monitoring, scheduled tasks, and
+  event-driven actions. Use it when you intentionally want the worker offline.
 </Warning>
 
 ## Profile card
@@ -54,7 +55,8 @@ Each inbox row shows:
 Use **Connect Inbox** to add an inbox. Opening an inbox lets you review details, adjust access, or remove the feed.
 
 <Tip>
-Connect an inbox when you want a worker to receive delegated email, track threads, and help with follow-ups.
+  Connect an inbox when you want a worker to receive delegated email, track
+  threads, and help with follow-ups.
 </Tip>
 
 ### Applications
@@ -73,14 +75,15 @@ Applications are inferred from the worker's skills, workflows, triggers, and too
 
 The main panel contains the worker's core operating areas:
 
-| Area | Purpose |
-| --- | --- |
-| **Skill tree** | Inspect the worker's communication channels, workflows, templates, knowledge, tools, and skills. |
-| **Calendar** | Schedule one-off or recurring tasks for the worker. |
-| **Actions** | Start work from configured events in connected applications. |
-| **Workspace** | Manage the worker's private working files and folders. |
-| **Activity Log** | Review worker activity such as threads, workflows, tasks, service checks, and delegated work. |
-| **Identity** | Edit profile details, manager, personality, and general instructions. |
-| **Settings** | Configure models, memory, working hours, security, billing, and termination settings. |
+| Area             | Purpose                                                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Skill tree**   | Inspect the worker's communication channels, workflows, templates, knowledge, tools, and skills.                                           |
+| **Calendar**     | Schedule one-off or recurring tasks for the worker.                                                                                        |
+| **Actions**      | Review event- and time-based automation definitions and resulting work.                                                                    |
+| **Workspace**    | Manage the worker's private working files and folders.                                                                                     |
+| **Activity Log** | Review worker activity such as threads, workflows, tasks, service checks, and delegated work.                                              |
+| **Settings**     | Edit Identity and General Instructions; configure models, memory, working hours, Security & Privacy, Governance, billing, and termination. |
 
-Use the `tab` URL parameter to deep-link to a specific area. For example, Settings uses `?tab=settings`. The skill tree is the default view.
+Use the `tab` URL parameter to deep-link to a specific area. For example, Settings uses `?tab=settings`; organization governance uses `?tab=settings&panel=governance`. The skill tree is the default view.
+
+Use [Tasks](/workforce/tasks) for individual pieces of work and [Approvals](/workforce/approvals) for decisions that need human authorization. The accountable manager and editing rules are described in [Governance](/workforce/governance).

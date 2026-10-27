@@ -14,7 +14,9 @@ https://mcp.odella.ai/mcp
 ```
 
 <Note>
-  This connects an external client **to Odella**. To connect an external MCP server for your AI Employees to use, see [Custom integrations](/integrations/custom-integrations).
+  This connects an external client **to Odella**. To connect an external MCP
+  server for your AI Employees to use, see [Custom
+  integrations](/integrations/custom-integrations).
 </Note>
 
 ## Create a personal access token
@@ -24,14 +26,24 @@ https://mcp.odella.ai/mcp
     In Odella, go to **Account → Developer**, then select **Create token**.
   </Step>
   <Step title="Choose access and expiry">
-    Give the token a recognizable name. Choose **30 days**, **90 days**, or **1 year**, and select only the scopes your client needs. **Read Odella data** is included by default.
+    Give the token a recognizable name. Choose **30 days**, **90 days**, or **1
+    year**, and select only the scopes your client needs. **Read Odella data**
+    is included by default.
   </Step>
   <Step title="Copy the token">
-    Copy it before closing the confirmation. Odella shows the token only once. Store it securely; create a replacement if you lose it.
+    Copy it before closing the confirmation. Odella shows the token only once.
+    Store it securely; create a replacement if you lose it.
   </Step>
 </Steps>
 
 A token is tied to your user and account. It cannot grant more access than you currently have in Odella. Your current permissions and account policies still apply to every request, even when a token includes a write scope.
+
+<Frame caption="Creating a least-privilege token, shown with Storybook example data. No real credential is displayed.">
+  <img
+    src="/images/guides/developer-token.png"
+    alt="Personal access token form showing token name, expiry, and available scopes"
+  />
+</Frame>
 
 ## Connect a client
 
@@ -54,6 +66,7 @@ export ODELLA_API_TOKEN="<YOUR_PERSONAL_ACCESS_TOKEN>"
     <Warning>
       The shell expands the token in this command. Treat the resulting local configuration as a secret and do not commit it to version control.
     </Warning>
+
   </Tab>
   <Tab title="Codex">
     Add the remote server:
@@ -71,6 +84,7 @@ export ODELLA_API_TOKEN="<YOUR_PERSONAL_ACCESS_TOKEN>"
     ```
 
     Run `/mcp` inside Codex to verify the connection.
+
   </Tab>
   <Tab title="Cursor">
     Set `ODELLA_API_TOKEN` in the environment where Cursor starts, then add this to `.cursor/mcp.json`:
@@ -87,6 +101,7 @@ export ODELLA_API_TOKEN="<YOUR_PERSONAL_ACCESS_TOKEN>"
       }
     }
     ```
+
   </Tab>
   <Tab title="OpenCode">
     Add this remote server to `opencode.json`:
@@ -106,6 +121,7 @@ export ODELLA_API_TOKEN="<YOUR_PERSONAL_ACCESS_TOKEN>"
       }
     }
     ```
+
   </Tab>
 </Tabs>
 
@@ -113,17 +129,17 @@ For other clients, choose a remote Streamable HTTP server and send `Authorizatio
 
 ## Choose token scopes
 
-| Scope | Purpose |
-| --- | --- |
-| `odella:read` | Read Odella context, AI Employees, workflows, templates, Document Stores, and tasks. |
-| `odella:organization:teams:write` | Create and rename teams. |
-| `odella:employees:write` | Create and configure AI Employees. |
-| `odella:employees:access:write` | Restrict who can use or edit AI Employees. |
-| `odella:workflows:write` | Create, edit, publish, and run workflows. |
-| `odella:knowledge:write` | Manage templates, Document Stores, and documents. |
-| `odella:skills:write` | Create and edit private skills. |
-| `odella:tasks:write` | Assign work and manage task lifecycle. |
-| `odella:integrations:write` | Configure the toolkits AI Employees can use. |
+| Scope                             | Purpose                                                                              |
+| --------------------------------- | ------------------------------------------------------------------------------------ |
+| `odella:read`                     | Read Odella context, AI Employees, workflows, templates, Document Stores, and tasks. |
+| `odella:organization:teams:write` | Create and rename teams.                                                             |
+| `odella:employees:write`          | Create and configure AI Employees.                                                   |
+| `odella:employees:access:write`   | Restrict who can use or edit AI Employees.                                           |
+| `odella:workflows:write`          | Create, edit, publish, and run workflows.                                            |
+| `odella:knowledge:write`          | Manage templates, Document Stores, and documents.                                    |
+| `odella:skills:write`             | Create and edit private skills.                                                      |
+| `odella:tasks:write`              | Assign work and manage task lifecycle.                                               |
+| `odella:integrations:write`       | Configure the toolkits AI Employees can use.                                         |
 
 Some operations require more than one scope. The tools available to your client depend on the token's scopes; having a scope does not override your permissions on a particular resource.
 
@@ -137,12 +153,18 @@ Start with a read-only token and ask your client to:
 
 The client can use `odella_get_context`, `employees_list`, and `templates_list` for these checks. Review results before granting write access or asking the client to publish, delete, or change business data.
 
+## Configure workers and assign work
+
+See [MCP work recipes](/integrations/mcp-recipes) for revision-safe instruction updates, targeted resource assignments, task creation, private file uploads, template preparation, private-skill publication, and disabled Action staging. The guide includes required scope combinations and safe recovery from uncertain mutations.
+
 ## Revoke or replace a token
 
 Return to **Account → Developer** to review your tokens and revoke any you no longer need. Revocation takes effect on the next request. To rotate a token, create a replacement, update your client's secret, verify the connection, then revoke the old token.
 
 <Warning>
-  Treat personal access tokens like passwords. Never include them in prompts, screenshots, shared configuration, or source control. Revoke an exposed token immediately.
+  Treat personal access tokens like passwords. Never include them in prompts,
+  screenshots, shared configuration, or source control. Revoke an exposed token
+  immediately.
 </Warning>
 
 ## Troubleshooting

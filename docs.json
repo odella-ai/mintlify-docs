@@ -79,17 +79,32 @@
             "group": "Capabilities",
             "pages": [
               "workforce/skill-tree",
-              "workforce/communication-channels",
               "workforce/workflows",
               "workforce/templates",
               "workforce/knowledge",
               "workforce/tools",
-              "workforce/skills"
+              "workforce/skills",
+              "workforce/create-a-skill"
+            ]
+          },
+          {
+            "group": "Communication",
+            "pages": [
+              "workforce/communication-channels",
+              "workforce/channels/email",
+              "workforce/channels/slack",
+              "workforce/channels/teams",
+              "workforce/channels/phone-and-messaging",
+              "workforce/channels/telegram-and-discord",
+              "workforce/channels/meetings",
+              "workforce/talk"
             ]
           },
           {
             "group": "Work management",
             "pages": [
+              "workforce/tasks",
+              "workforce/approvals",
               "workforce/calendar",
               "workforce/actions",
               "workforce/workspace",
@@ -104,6 +119,7 @@
               "workforce/settings-memory-reminders",
               "workforce/settings-operations-logistics",
               "workforce/settings-security-privacy",
+              "workforce/governance",
               "workforce/settings-billing",
               "workforce/settings-terminate"
             ]
@@ -116,23 +132,15 @@
         "groups": [
           {
             "group": "Basics",
-            "pages": [
-              "templates/01_overview"
-            ]
+            "pages": ["templates/01_overview"]
           },
           {
             "group": "Template Types",
-            "pages": [
-              "templates/02_pdf-template",
-              "templates/03_docx-template"
-            ]
+            "pages": ["templates/02_pdf-template", "templates/03_docx-template"]
           },
           {
             "group": "Using Templates",
-            "pages": [
-              "templates/04_using-templates",
-              "templates/05_e-signing"
-            ]
+            "pages": ["templates/04_using-templates", "templates/05_e-signing"]
           }
         ]
       },
@@ -146,7 +154,8 @@
               "documents/overview",
               "documents/create-and-configure",
               "documents/manage-documents",
-              "documents/settings-and-integrations"
+              "documents/settings-and-integrations",
+              "documents/signing-records"
             ]
           }
         ]
@@ -157,9 +166,7 @@
         "groups": [
           {
             "group": "Basics",
-            "pages": [
-              "workflow/overview"
-            ]
+            "pages": ["workflow/overview"]
           },
           {
             "group": "Core Concepts",
@@ -195,9 +202,18 @@
         "groups": [
           {
             "group": "Governance",
+            "pages": ["platform/security", "platform/models"]
+          },
+          {
+            "group": "Administration",
             "pages": [
-              "platform/security",
-              "platform/models"
+              "platform/organization",
+              "platform/roles-and-permissions",
+              "platform/brand-guidelines",
+              "platform/billing-and-credits",
+              "platform/usage-and-limits",
+              "platform/phone-numbers",
+              "platform/profile-and-account"
             ]
           },
           {
@@ -206,6 +222,7 @@
               "integrations/overview",
               "integrations/custom-integrations",
               "integrations/mcp-server",
+              "integrations/mcp-recipes",
               "marketplace/overview"
             ]
           }
@@ -216,9 +233,7 @@
         "groups": [
           {
             "group": "Block Documentation",
-            "pages": [
-              "block-reference/all-blocks"
-            ]
+            "pages": ["block-reference/all-blocks"]
           },
           {
             "group": "AI Blocks",
@@ -346,9 +361,7 @@
           },
           {
             "group": "Trigger Blocks",
-            "pages": [
-              "block-reference/triggers/trigger-schedule"
-            ]
+            "pages": ["block-reference/triggers/trigger-schedule"]
           }
         ]
       }
@@ -362,10 +375,7 @@
     }
   },
   "contextual": {
-    "options": [
-      "copy",
-      "view"
-    ]
+    "options": ["copy", "view"]
   },
   "seo": {
     "indexing": "all"

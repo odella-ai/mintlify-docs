@@ -1,0 +1,63 @@
+---
+title: "Roles and permissions"
+description: "Understand organization capabilities, team roles, resource access, and worker editing permissions."
+---
+
+# Give people the access their work requires
+
+Odella separates account-level capabilities from access to individual resources. Being able to view a worker does not necessarily mean you can change their instructions, manage billing, or inspect another person's conversation.
+
+## The access layers
+
+| Layer                         | Question it answers                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------ |
+| **Organization membership**   | Does this person belong to the active organization?                                  |
+| **Roles and capabilities**    | Which kinds of operations may they perform?                                          |
+| **Team membership**           | Which organizational groups do they belong to?                                       |
+| **Resource access**           | Can they access this particular worker, store, or shared resource?                   |
+| **Worker governance**         | Who manages this worker, who can edit which areas, and how are conversations shared? |
+| **Channel and tool policies** | Who can contact the worker, and which actions need approval?                         |
+
+A role, team, or saved approval rule is not a shortcut around the other applicable controls.
+
+## Review or create a role
+
+1. Open **Account → Organization → Roles**.
+2. Review the role's scope and capabilities. Organization and team roles serve different audiences.
+3. If permitted, create or edit a role with only the capabilities required for the job.
+4. Assign it through the appropriate member or team controls.
+5. Check the intended resource with a representative member's access before relying on the setup.
+
+Use recognizable business names and a description of the role's responsibility. Review the impact on current assignments before changing or deleting an existing role.
+
+## Share a resource
+
+For a Document Store in an organization account, open **Settings → Access**. For an AI Employee, open **Settings → Governance**. Review the primary audience and any additional access rules offered by that resource.
+
+For example, a Customer operations team can be the audience for a worker, while only selected editors can change its instructions. The worker can still require approval before sending a customer email.
+
+<Warning>
+  Giving someone access to a signing store can expose previously completed
+  signing records too. Check the full record audience, not just future requests.
+</Warning>
+
+## Access is not editing
+
+Worker governance can restrict editing to the manager and selected people or team-role combinations, with different permitted settings areas. An editing assignment does not itself grant access to the worker. See [Worker governance](/workforce/governance).
+
+Similarly, a manager assignment is an accountable governance role, not merely a profile label. It does not automatically authorize every unrelated account operation or third-party application.
+
+## Diagnose a permission problem
+
+Check in this order:
+
+1. Correct signed-in user and active organization.
+2. Current membership and relevant role assignment.
+3. Team membership if the resource uses a team audience.
+4. Access to the specific resource.
+5. Permission for the specific operation or settings area.
+6. Applicable channel, tool, account, or provider restrictions.
+
+A personal access token cannot exceed these permissions. Its scopes are an additional limit, not a replacement for authorization. See [MCP server](/integrations/mcp-server).
+
+Review access when people join, change responsibilities, or leave. Start with narrow grants and document who owns each shared resource.

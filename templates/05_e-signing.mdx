@@ -13,45 +13,63 @@ Start with an approved [PDF template](/templates/02_pdf-template) and open its e
 
 <Steps>
   <Step title="Add or select a field in Variables">
-    Review the field's name, description, type, and placement on the PDF. A blank signature field is not automatically an e-signing field: select **Use for e-signing** to enable it.
+    Review the field's name, description, type, and placement on the PDF. A
+    blank signature field is not automatically an e-signing field: select **Use
+    for e-signing** to enable it.
   </Step>
   <Step title="Choose the field's purpose and owner">
-    For compatible fields, use **Field purpose** to choose a signing value such as initials, signer name, or date signed. For ordinary answers, use **Filled in by** to choose **Your AI employee** or **The assigned person**.
+    For compatible fields, use **Field purpose** to choose a signing value such
+    as initials, signer name, or date signed. For ordinary answers, use **Filled
+    in by** to choose **Your AI employee** or **The assigned person**.
   </Step>
   <Step title="Assign the signing party">
-    Choose the **Signer** or **Assigned party** for each signing field. Use clear roles, such as Customer or Company representative. Every signing field must have a party before publishing.
+    Choose the **Signer** or **Assigned party** for each signing field. Use
+    clear roles, such as Customer or Company representative. Every signing field
+    must have a party before publishing.
   </Step>
   <Step title="Choose where signed copies go">
-    In **E-signing**, select a signing store under **Where signed copies go**, or select **Create a signing store** if you have permission. Review who can access the store before publishing.
+    In **E-signing**, select a signing store under **Where signed copies go**,
+    or select **Create a signing store** if you have permission. Review who can
+    access the store before publishing.
   </Step>
   <Step title="Select a signing policy">
-    Choose the available **Signing policy** appropriate for your process. Review the displayed signature meaning and record class. A policy is required before publishing.
+    Choose the available **Signing policy** appropriate for your process. Review
+    the displayed signature meaning and record class. A policy is required
+    before publishing.
   </Step>
   <Step title="Test and publish">
-    Check field placement, required answers, party assignments, the destination store, and policy. You can save an incomplete draft, but resolve missing settings before publishing.
+    Check field placement, required answers, party assignments, the destination
+    store, and policy. You can save an incomplete draft, but resolve missing
+    settings before publishing.
   </Step>
 </Steps>
 
 <Warning>
-  You cannot change the signing store after publishing. Signed copies and their audit trails cannot be edited or deleted. Check the destination and its access settings carefully.
+  You cannot change the signing store after publishing. Signed copies and their
+  audit trails cannot be edited or deleted. Check the destination and its access
+  settings carefully.
 </Warning>
 
 ## Understand signing fields
 
-| Field purpose | How it is completed |
-| --- | --- |
-| **Signature** | Only the assigned signer provides their signature. |
-| **Initials** | The signer confirms their initials; they are added when signing is completed. |
-| **Signer full name** | The signer confirms their full name. |
-| **Signer first name / Signer surname** | The signer explicitly confirms each value; it is not inferred from the full name. |
-| **Signer email** | Taken from the assigned recipient's email when they finish signing; not an editable answer. |
-| **Date signed** | Recorded automatically when the person finishes signing, using the request's timezone and date format. |
-| **Answer filled in by the assigned person** | The recipient supplies the answer during signing. This is not itself a signature. |
+| Field purpose                               | How it is completed                                                                                    |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Signature**                               | Only the assigned signer provides their signature.                                                     |
+| **Initials**                                | The signer confirms their initials; they are added when signing is completed.                          |
+| **Signer full name**                        | The signer confirms their full name.                                                                   |
+| **Signer first name / Signer surname**      | The signer explicitly confirms each value; it is not inferred from the full name.                      |
+| **Signer email**                            | Taken from the assigned recipient's email when they finish signing; not an editable answer.            |
+| **Date signed**                             | Recorded automatically when the person finishes signing, using the request's timezone and date format. |
+| **Answer filled in by the assigned person** | The recipient supplies the answer during signing. This is not itself a signature.                      |
 
 Only purposes compatible with the selected field type are offered. Keep ordinary business values assigned to the AI Employee and reserve signing fields for the appropriate person.
 
 <Note>
-  A DOCX placeholder named “signature” is still an ordinary placeholder, not a signing field. The positional field setup above applies to PDF templates. DOCX-based signing requires a populated document converted to a final PDF and a checked signing layout; do not treat Word placeholders or preview positions as signature placements.
+  A DOCX placeholder named “signature” is still an ordinary placeholder, not a
+  signing field. The positional field setup above applies to PDF templates.
+  DOCX-based signing requires a populated document converted to a final PDF and
+  a checked signing layout; do not treat Word placeholders or preview positions
+  as signature placements.
 </Note>
 
 ## Ask an AI Employee to prepare a request
@@ -78,10 +96,11 @@ Open the signing review presented with the worker's approval request. Check:
 - Which fields each person must complete.
 - The signing policy and destination for completed records.
 
-Sending requires a one-time human tool approval for the reviewed request. If the document, recipients, or fields change, review the updated draft rather than relying on the earlier approval.
+Sending requires a [one-time human approval](/workforce/approvals) for the reviewed request. If the document, recipients, or fields change, review the updated draft rather than relying on the earlier approval.
 
 <Warning>
-  Your AI Employee can prepare and send an approved request, but cannot provide a person's signature on their behalf.
+  Your AI Employee can prepare and send an approved request, but cannot provide
+  a person's signature on their behalf.
 </Warning>
 
 ## What recipients do
@@ -92,11 +111,38 @@ Treat invitation links as private. If a recipient cannot proceed, check that the
 
 ## Track requests and completed copies
 
-Open **Signing requests** to review prepared requests, outstanding signatures, and completed records. Request details show recipients and their progress, including whether they have opened, signed, or declined.
+Open **Documents → Signing requests** to review prepared requests, outstanding signatures, and completed records. Request details show recipients and their progress, including whether they have opened, signed, or declined.
 
 Once everyone has signed, the signed copy and its audit trail are filed in the template's signing store. Access to those records follows the store's permissions.
 
 Changes to a template's signing policy do not change invitations already sent: those requests keep the policy they were sent with.
+
+## Saved signatures and recipient recovery
+
+Recipients can manage their personal saved signature under [Account → Profile](/platform/profile-and-account#manage-your-signature). A saved signature does not sign automatically or authorize a worker to sign for them. Removing it does not alter completed documents.
+
+| Recipient state                        | What to do                                                                                         |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **Signed in with a different account** | Use the account with the invited email address, then reopen the current invitation.                |
+| **Your part is complete**              | Other recipients still need to finish; the whole request is not complete yet.                      |
+| **Preparing your copy**                | The final copy is being sealed. Wait for the final download state.                                 |
+| **Signing complete**                   | Download and retain the available completed copy.                                                  |
+| **Request declined**                   | Contact the sender to discuss whether a new request is appropriate.                                |
+| **Link expired or no longer works**    | Open the latest invitation or ask the sender for a new invitation. Do not use someone else's link. |
+
+## Protected records and archiving
+
+Completed records belong in a dedicated signing store, not an ordinary editable knowledge store. They include the signed PDF, completion certificate, audit trail, and evidence.
+
+Archiving the store stops new requests from using it but does not prevent already-sent requests from completing. Records remain available to authorized users. Restoring the store allows new requests again. Changing access affects past records too; archiving is not deletion or automatic disposal.
+
+See [Signing-record stores](/documents/settings-and-integrations#signing-record-stores) for restrictions and access guidance.
+
+## Send-time billing and uncertain results
+
+Sending requires active billing, sufficient credit, and compliance with spend limits after human approval and validation. The signing-send charge is per envelope, not per signer. Completing or archiving the request does not create another signing-send charge.
+
+A timeout can occur after payment but before sending is confirmed. Check the current state and retry the **same request** where appropriate; do not create replacement drafts blindly or assume a refund. See [Billing and credits](/platform/billing-and-credits#e-signing).
 
 ## Resolve setup problems
 
