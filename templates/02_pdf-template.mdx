@@ -50,9 +50,15 @@ Good field instructions are specific and testable.
 | **Date** | “Use the agreement date in DD/MM/YYYY format. Do not substitute today's date when it is missing.” |
 | **Currency** | “Use the approved contract value in AUD with two decimal places.” |
 | **Checkbox** | “Select only when the source record explicitly confirms consent.” |
-| **Signature** | “Leave blank for signing. Do not insert a typed name as a signature.” |
+| **Signature** | Configure as an e-signing field and assign a signer. Do not ask the AI Employee to supply a signature. |
 
 Avoid instructions such as “fill appropriately.” State where the value comes from and what to do when the source is unclear.
+
+## Add e-signing fields
+
+In **Variables**, select a signature field and choose **Use for e-signing**, or configure another compatible field's **Field purpose**. Assign a signing party to each signing field. For ordinary answers, **Filled in by** determines whether the AI Employee or the assigned person supplies the value.
+
+Before publishing, choose **Where signed copies go** and a **Signing policy** in **E-signing**. See [E-signing](/templates/05_e-signing) for the complete setup, human approval, and recipient process.
 
 ## Defaults and validation
 

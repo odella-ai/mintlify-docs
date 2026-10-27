@@ -1,0 +1,153 @@
+---
+title: "Odella MCP server"
+description: "Connect Claude Code, Codex, Cursor, or OpenCode to Odella using a personal access token."
+---
+
+# Connect your tools to Odella
+
+The Odella MCP server lets compatible assistants and developer tools work with your Odella account. Read workforce information, prepare workflows and templates, or assign tasks without leaving your preferred tool.
+
+MCP (Model Context Protocol) is a standard for connecting these tools to services. Odella provides a remote **Streamable HTTP** endpoint:
+
+```text
+https://mcp.odella.ai/mcp
+```
+
+<Note>
+  This connects an external client **to Odella**. To connect an external MCP server for your AI Employees to use, see [Custom integrations](/integrations/custom-integrations).
+</Note>
+
+## Create a personal access token
+
+<Steps>
+  <Step title="Open Developer settings">
+    In Odella, go to **Account → Developer**, then select **Create token**.
+  </Step>
+  <Step title="Choose access and expiry">
+    Give the token a recognizable name. Choose **30 days**, **90 days**, or **1 year**, and select only the scopes your client needs. **Read Odella data** is included by default.
+  </Step>
+  <Step title="Copy the token">
+    Copy it before closing the confirmation. Odella shows the token only once. Store it securely; create a replacement if you lose it.
+  </Step>
+</Steps>
+
+A token is tied to your user and account. It cannot grant more access than you currently have in Odella. Your current permissions and account policies still apply to every request, even when a token includes a write scope.
+
+## Connect a client
+
+For the examples below, set your token in the environment where your client starts:
+
+```bash
+export ODELLA_API_TOKEN="<YOUR_PERSONAL_ACCESS_TOKEN>"
+```
+
+<Tabs>
+  <Tab title="Claude Code">
+    Add Odella to your project:
+
+    ```bash
+    claude mcp add --scope project --transport http odella "https://mcp.odella.ai/mcp" --header "Authorization: Bearer $ODELLA_API_TOKEN"
+    ```
+
+    Run `claude /mcp` to check the connection.
+
+    <Warning>
+      The shell expands the token in this command. Treat the resulting local configuration as a secret and do not commit it to version control.
+    </Warning>
+  </Tab>
+  <Tab title="Codex">
+    Add the remote server:
+
+    ```bash
+    codex mcp add odella --url "https://mcp.odella.ai/mcp"
+    ```
+
+    In `~/.codex/config.toml`, add the environment-variable setting to the Odella entry:
+
+    ```toml
+    [mcp_servers.odella]
+    url = "https://mcp.odella.ai/mcp"
+    bearer_token_env_var = "ODELLA_API_TOKEN"
+    ```
+
+    Run `/mcp` inside Codex to verify the connection.
+  </Tab>
+  <Tab title="Cursor">
+    Set `ODELLA_API_TOKEN` in the environment where Cursor starts, then add this to `.cursor/mcp.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "odella": {
+          "url": "https://mcp.odella.ai/mcp",
+          "headers": {
+            "Authorization": "Bearer ${env:ODELLA_API_TOKEN}"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="OpenCode">
+    Add this remote server to `opencode.json`:
+
+    ```json
+    {
+      "$schema": "https://opencode.ai/config.json",
+      "mcp": {
+        "odella": {
+          "type": "remote",
+          "url": "https://mcp.odella.ai/mcp",
+          "enabled": true,
+          "headers": {
+            "Authorization": "Bearer {env:ODELLA_API_TOKEN}"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+For other clients, choose a remote Streamable HTTP server and send `Authorization: Bearer <YOUR_PERSONAL_ACCESS_TOKEN>` with requests. Merge these examples into existing configurations rather than replacing other servers.
+
+## Choose token scopes
+
+| Scope | Purpose |
+| --- | --- |
+| `odella:read` | Read Odella context, AI Employees, workflows, templates, Document Stores, and tasks. |
+| `odella:organization:teams:write` | Create and rename teams. |
+| `odella:employees:write` | Create and configure AI Employees. |
+| `odella:employees:access:write` | Restrict who can use or edit AI Employees. |
+| `odella:workflows:write` | Create, edit, publish, and run workflows. |
+| `odella:knowledge:write` | Manage templates, Document Stores, and documents. |
+| `odella:skills:write` | Create and edit private skills. |
+| `odella:tasks:write` | Assign work and manage task lifecycle. |
+| `odella:integrations:write` | Configure the toolkits AI Employees can use. |
+
+Some operations require more than one scope. The tools available to your client depend on the token's scopes; having a scope does not override your permissions on a particular resource.
+
+## Test the connection
+
+Start with a read-only token and ask your client to:
+
+- “Show my Odella account context.”
+- “List the AI Employees I can access.”
+- “Show the published templates available in Odella.”
+
+The client can use `odella_get_context`, `employees_list`, and `templates_list` for these checks. Review results before granting write access or asking the client to publish, delete, or change business data.
+
+## Revoke or replace a token
+
+Return to **Account → Developer** to review your tokens and revoke any you no longer need. Revocation takes effect on the next request. To rotate a token, create a replacement, update your client's secret, verify the connection, then revoke the old token.
+
+<Warning>
+  Treat personal access tokens like passwords. Never include them in prompts, screenshots, shared configuration, or source control. Revoke an exposed token immediately.
+</Warning>
+
+## Troubleshooting
+
+- **Authentication fails:** Check that the token is complete, has not expired or been revoked, and is sent as a Bearer token. Confirm that your client can read its environment variable.
+- **A tool is missing:** Check the token's scopes. Create a replacement with the required scopes if necessary, then refresh the client's tool list.
+- **An operation is denied:** Confirm your current account membership, resource access, and account policies. A broader token cannot bypass these controls.
+- **The server is unavailable:** Confirm the URL is `https://mcp.odella.ai/mcp`, not the dashboard URL. If the problem persists, contact [support@odella.ai](mailto:support@odella.ai) without including your token.
