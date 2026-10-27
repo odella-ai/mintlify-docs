@@ -130,7 +130,8 @@
           {
             "group": "Using Templates",
             "pages": [
-              "templates/04_using-templates"
+              "templates/04_using-templates",
+              "templates/05_e-signing"
             ]
           }
         ]
@@ -204,6 +205,7 @@
             "pages": [
               "integrations/overview",
               "integrations/custom-integrations",
+              "integrations/mcp-server",
               "marketplace/overview"
             ]
           }
