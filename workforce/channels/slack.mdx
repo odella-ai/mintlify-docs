@@ -1,0 +1,58 @@
+---
+title: "Slack channel"
+description: "Configure the Slack app for an AI Employee, authorize the intended workspace, and test messaging."
+---
+
+# Connect a worker to Slack
+
+You need permission to create/install Slack apps in the intended workspace and permission to configure the worker's channel in Odella.
+
+Open the AI Employee's channels, add **Slack**, and keep its setup guide open. Use the manifest generated for this exact worker and channel.
+
+## Create the Slack app
+
+If the editor offers an assisted app-creation flow, follow its instructions and review what it requests. For manual setup:
+
+1. Open [Slack Apps](https://api.slack.com/apps/new) and select **Create New App**.
+2. Choose **From an app manifest**.
+3. Select the intended Slack workspace.
+4. Choose the **JSON** tab and paste the manifest from the Odella setup guide.
+5. Review the requested configuration and permissions, then create the app.
+
+Do not substitute a manifest copied from another account or environment. The generated values bind this app to its intended Odella channel.
+
+## Add credentials and authorize
+
+In Slack **Basic Information**, copy these values into the corresponding Odella fields:
+
+- **App ID**
+- **Client ID**
+- **Client Secret**
+- **Signing Secret**
+
+Select **Create** in Odella when the fields are complete. Approve the app for the intended Slack workspace when prompted, and complete the return to Odella. Finish any remaining activation controls shown by the editor.
+
+<Warning>
+  These credentials are secrets. Never put them in a chat prompt, screenshot,
+  public manifest, or source-control repository. Rotate exposed credentials in
+  Slack and update the channel.
+</Warning>
+
+## Test safely
+
+1. Confirm the worker and channel are available.
+2. Open the installed Slack app and send a direct, low-risk request from an allowed member.
+3. Confirm the response and related worker Activity.
+4. Before wider use, review inbound access and approval rules for sends and connected tools.
+
+Start with direct messaging before relying on broader channel conversations. Slack workspace permissions and Odella's access policy both apply.
+
+## Troubleshooting
+
+- **Install denied:** Ask a Slack workspace administrator to review app approval.
+- **Authorization fails:** Confirm Client ID/Secret, intended workspace, and the current generated manifest.
+- **Messages do not arrive:** Check channel activation and Slack configuration against the setup guide; review worker Activity.
+- **Inbound member rejected:** Check account-member matching and the worker's inbound policy.
+- **External send asks for approval:** This can be expected. Review the proposed action rather than weakening policy to make the test pass.
+
+A Slack toolkit connection is separate from this communication channel. See [Tools](/workforce/tools) for assigning application actions.

@@ -1,138 +1,108 @@
 ---
 title: "Settings and integrations"
-description: "Manage store settings, sync connections, schema changes, AI models, deletion, and workforce integration."
+description: "Manage Document Store columns, extraction, sync sources, access, storage information, and protected signing records."
 ---
 
-Document Store settings are where you maintain a vault after it has been created. Use settings to update the store's identity, refine metadata extraction, connect cloud folders, choose the AI model, and manage lifecycle actions.
+Open a Document Store's **Settings** to maintain its configuration. The available tabs depend on the store type and your permissions.
 
 ## Settings areas
 
-Each store has a settings page with the following areas:
+| Tab              | Purpose                                                                             |
+| ---------------- | ----------------------------------------------------------------------------------- |
+| **General**      | Name, subtitle, and description; signing-store lifecycle controls where applicable. |
+| **Columns**      | Metadata fields extracted from documents in a standard store.                       |
+| **AI Model**     | Model used for metadata extraction.                                                 |
+| **Sync Sources** | Connected Google Drive or OneDrive folders.                                         |
+| **Access**       | Resource sharing in an organization account.                                        |
+| **Storage**      | Explains the store's purpose and record restrictions.                               |
+| **Delete**       | Permanent deletion for eligible standard stores.                                    |
 
-<CardGroup cols={2}>
-  <Card title="General" icon="file-text">
-    Update the store's name, subtitle, and description so people understand what belongs in the vault.
-  </Card>
-  <Card title="Metadata Schema" icon="table">
-    Define or update the columns AI extracts from each document.
-  </Card>
-  <Card title="Sync Sources" icon="link">
-    Connect Google Drive or OneDrive folders and manage automatic document imports.
-  </Card>
-  <Card title="AI Model" icon="sparkles">
-    Choose the model used for metadata extraction and reprocessing.
-  </Card>
-</CardGroup>
+Signing-record stores expose **General**, **Access**, and **Storage**, not the normal ingestion, extraction, or deletion tabs.
 
 ## General settings
 
-General settings control how the store appears across Odella.
+Use a specific name, subtitle, and description so people and AI Employees understand what belongs in the store. Editing a description does not replace reviewing the files themselves.
 
-| Field | What it does |
-| --- | --- |
-| **Name** | The store name shown in the document library, breadcrumbs, and resource pickers. |
-| **Subtitle** | Short supporting context where shown. |
-| **Description** | Explains the store's purpose and what documents should be stored there. |
+## Change metadata columns
 
-Good descriptions make stores easier to govern and easier for AI Employees to select as relevant knowledge.
+In **Columns**, update the fields and their extraction descriptions. When saving changed columns, choose how existing documents should be handled:
 
-## Metadata schema changes
+| Choice                      | Effect                                                                                   |
+| --------------------------- | ---------------------------------------------------------------------------------------- |
+| **New files only**          | Apply the columns to documents uploaded after saving. Existing files remain as they are. |
+| **Fill existing files too** | Re-run extraction on existing documents for added or changed columns. Billed per page.   |
+| **Rename labels only**      | Change column names without reprocessing documents.                                      |
 
-The metadata schema controls the store's extracted columns. You can update it after a store has been created, but schema changes have operational impact.
-
-When you save a changed schema, Odella re-runs AI metadata extraction on existing documents so the table reflects the new columns.
+For example, add **Renewal owner** with **New files only** if you only need it for future uploads. Choose **Fill existing files too** if your existing contract library also needs that information, and review the processing estimate before confirming.
 
 <Warning>
-Schema changes can use AI processing credits and may take several minutes on large stores. Make changes deliberately, especially in production vaults.
+  Reprocessing can consume credits and take time on large stores. Renaming a
+  label is not the same as asking AI to extract a different business value.
 </Warning>
-
-Use schema changes when:
-
-- You forgot an important field
-- You no longer need a column
-- Your reporting requirements changed
-- The store's document type has evolved
-- You want better extraction descriptions for existing fields
 
 ## Sync sources
 
-Sync sources keep a Document Store updated from cloud folders.
+Connect a **Google Drive** or **OneDrive** folder for ongoing imports. Configure:
 
-Supported providers include:
+- **Connection Name** and **Description** to identify the source.
+- **Include subfolders** if nested folders belong in this store.
+- **Sync existing files** to import files already in the selected folder.
 
-- **Google Drive**
-- **OneDrive**
+After creating a connection, you can pause, resume, or delete it. Check the correct provider account and folder before enabling a source. A connection does not grant every worker access to its contents.
 
-When adding a sync source, you choose a provider, select a folder, and configure connection details.
+If imports stop, check the provider connection, folder permissions, and document processing status before reconnecting or retrying. Use manual upload for one-off files instead of an ongoing folder connection.
 
-| Setting | What it does |
-| --- | --- |
-| **Connection Name** | Human-readable label for the synced folder. |
-| **Description** | Optional explanation of what the folder contains. |
-| **Include subfolders** | Imports files from nested folders as well as the selected folder. |
-| **Sync existing files** | Imports current files immediately. New files continue to sync automatically. |
+## AI model
 
-After a connection is created, you can pause, resume, or delete it.
+Choose a model appropriate for the complexity and sensitivity of your documents. The selector may show the resolved model and estimated cost per 1,000 pages. Review extracted values against source documents before relying on them.
 
-<Tip>
-Use sync sources for folders that should remain current over time. Use manual upload for one-off batches or files that do not need ongoing sync.
-</Tip>
+## Access
 
-## AI model settings
+In an organization account, use **Access** to review and change who can use the store. You need the appropriate resource-management permission to change sharing. Worker assignment and your organization's access rules remain separate controls.
 
-The AI model is used to extract metadata into your configured columns.
+For signing stores, access changes affect **past records as well as future records**. Review the audience before sharing sensitive executed documents. See [Roles and permissions](/platform/roles-and-permissions).
 
-Choose a stronger model when documents are complex, inconsistent, scanned, or high-value. Choose a faster or lower-cost model for routine document sets where the fields are easy to identify.
+## Storage and store types
 
-The model selector may show the currently resolved model and estimated cost per 1,000 pages.
+**Storage** explains what the store holds and which operations are permitted. It does not configure automatic retention or deletion.
 
-## Storage settings
+| Standard Document Store                                                                                         | Signing-record store                                                                                                |
+| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Documents and extracted metadata for search and retrieval.                                                      | Signed PDFs, completion certificates, audit trails, and signing evidence.                                           |
+| Upload, sync, metadata editing, reprocessing, and deletion are subject to permissions and document protections. | No manual uploads, sync imports, AI indexing, editing, replacement, reprocessing, or deletion of protected records. |
+| Ordinary document lifecycle.                                                                                    | Archive/restore lifecycle for accepting new signing requests.                                                       |
 
-Storage and retention controls are planned for a future update. Some synced configurations may store extracted text without retaining the original file. If the original file is not available, the preview area will show that the file is not stored.
+Some synced files may contain extracted text without a retained original. Their preview indicates when the original is not stored.
 
-## Delete Vault
+## Signing-record stores
 
-Deleting a vault permanently removes the store, documents, metadata, and embeddings.
+<Frame caption="Signing-record storage information, shown with Storybook example data.">
+  <img
+    src="/images/guides/signing-store.png"
+    alt="Signing-store restrictions, archiving behavior, and access information"
+  />
+</Frame>
+
+Create or select a signing store while configuring [E-signing](/templates/05_e-signing). The store type is fixed when created.
+
+- **Archive** stops new signing requests from using the store.
+- Requests already sent can still be completed, and existing records remain available.
+- **Restore** allows new requests again.
+- Archiving is not deletion, and the Storage page does not set a disposal date.
+
+Record disposal, where required, needs a separate approved process. Do not use ordinary Document Store deletion instructions for signing records.
+
+## Delete a standard store
+
+Use **Delete** only for an eligible standard store. Review its documents, connected workers, workflows, and sync sources first. Export metadata and download files you must preserve.
 
 <Warning>
-Deleting a vault cannot be undone. Export metadata or download files before deleting a store if you need to preserve anything.
+  Deleting a standard store permanently removes its documents, metadata, and
+  search data. Protected signing stores do not offer this operation.
 </Warning>
 
-## Workforce integration
+## Use stores with your workforce
 
-Document Stores become **Knowledge** capabilities for AI Employees.
+Assign a store as [Knowledge](/workforce/knowledge) only to workers that need it. Workflows can search and analyze stores as part of approved processes.
 
-Add a store to a worker when the worker needs to search or reference those documents during:
-
-- Conversations
-- Scheduled work
-- Event-driven actions
-- Workflow runs
-- Drafting or review tasks
-
-A focused worker should only receive the stores relevant to its role. Connecting every store to every worker can make retrieval less precise and harder to govern.
-
-## Workflow integration
-
-Workflows can use Document Stores as source material for retrieval, review, extraction, drafting, and comparison.
-
-Common workflow patterns include:
-
-- Search a policy vault before answering a question
-- Compare a document against a precedent library
-- Extract fields from uploaded documents and route exceptions
-- Draft a summary using a controlled knowledge source
-- Generate questions from a document set
-
-## Document Stores vs Workspace
-
-| Use Document Stores for | Use Workspace for |
-| --- | --- |
-| Reusable knowledge | Temporary task files |
-| Governed source material | Drafts and working files |
-| Searchable document libraries | One-off uploads |
-| Worker knowledge capabilities | Files tied to a single worker's current work |
-
-<Tip>
-If a document should be reused, searched, and governed, put it in a Document Store. If it is temporary working material for one worker, put it in that worker's Workspace.
-</Tip>
+Use [Workspace](/workforce/workspace) for task files and drafts; use a standard Document Store for reusable source material; use a signing store for protected completed signing records.

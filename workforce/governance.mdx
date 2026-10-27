@@ -1,0 +1,67 @@
+---
+title: "Governance"
+description: "Assign an accountable manager, restrict access and editing, and control conversation sharing for an AI Employee."
+---
+
+# Decide who manages and uses a worker
+
+In an organization account, open the AI Employee's **Settings → Governance**. Governance controls are separate from the worker's channel access and tool approval policy.
+
+You need the appropriate management permissions to change these settings. Some controls may remain read-only even when you can edit other worker settings.
+
+<Frame caption="Restricted editing in the Governance panel, shown with Storybook example data.">
+  <img
+    src="/images/guides/employee-governance.png"
+    alt="Worker Governance settings for accountable manager, primary access, conversation sharing, and selected editors"
+  />
+</Frame>
+
+## Assign an accountable manager
+
+Choose the account member responsible for the worker. The manager owns approvals, configuration, and autonomous work, and retains access and full worker administration. Organization administrators also retain access.
+
+This is an authorization responsibility, not just descriptive profile metadata. It does not grant unrelated billing permissions or access to every connected provider account.
+
+Reassign the manager deliberately during handovers. If the current assignment is unavailable or requires reassignment, resolve that state before relying on unattended work.
+
+## Choose primary access
+
+Under **Access**, select the audience and role requirements offered by the panel. For example, limit a customer-service worker to a particular team and qualifying role.
+
+Review the resulting audience before saving. A person outside it does not gain worker access just because you later add them as an editor.
+
+## Control conversation sharing
+
+**Share conversations across members** determines whether this worker can draw on one member's conversations while working with another.
+
+- **Off:** Each member's conversations with the worker stay private from other members' worker context.
+- **On:** The worker can read members' conversations with it while helping others. It does not post into another member's conversation.
+
+Enable this only when cross-member context is appropriate for the team's work and privacy requirements. Review organization-level privacy controls too; this setting is not permission to share information through every channel.
+
+## Restrict editing
+
+Use **Who can edit** to choose the offered editing policy, including manager and selected editors where needed. Selected editors can be people or team-role combinations.
+
+Editing can be limited by area:
+
+| Area                             | Examples                                              |
+| -------------------------------- | ----------------------------------------------------- |
+| **Profile & identity**           | Name, role, purpose, personality, voice.              |
+| **Working instructions**         | Durable work and communication guidance.              |
+| **Skills, tools & intelligence** | Models, memory, skills, tools, and supporting files.  |
+| **Schedule & availability**      | Working hours, timezone, language, regional settings. |
+| **Who can contact the Employee** | Connected inboxes and inbound access.                 |
+| **Sending & approvals**          | Outbound messaging, tool approvals, recipient rules.  |
+| **Automations & recurring work** | Scheduled and event-based actions.                    |
+
+<Note>
+  Editing permission does not grant access. Check both the audience and editing
+  rules when a colleague cannot change a worker's settings.
+</Note>
+
+## Save and test
+
+Select **Save Changes**, then verify the intended people can access the worker and only edit the areas they need. Confirm the manager and conversation-sharing choice after saving.
+
+For a complete setup, also review [Organization roles](/platform/roles-and-permissions), [Security & Privacy](/workforce/settings-security-privacy), and [Approvals](/workforce/approvals).

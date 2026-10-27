@@ -1,43 +1,88 @@
 ---
 title: "Actions"
-description: "Run worker automations when external events happen."
+description: "Configure event-driven and scheduled work, test safely, and inspect the tasks each Action starts."
 ---
 
-**Actions** let a worker respond to events from connected services. Instead of waiting for a person to ask or a calendar time to arrive, an action starts when a configured trigger occurs.
+# Run work from events and schedules
 
-<Note>
-Actions are feature-gated. If your workspace does not have Actions enabled, this section will not appear in the app.
-</Note>
+Actions tell an AI Employee what to do when a connected service reports an event or a configured time arrives. The worker's Actions view brings together the available automation definitions; [Calendar](/workforce/calendar) provides a time-based view of scheduled work.
 
-## What an action contains
+An Action defines **when and why** work starts. A [task](/workforce/tasks) records a particular piece of work that runs as a result. A [workflow](/workforce/workflows) defines repeatable steps the work may use.
 
-| Setting | What it does |
-| --- | --- |
-| **Service** | The connected provider that sends the event. |
-| **Trigger** | The event that starts the action, such as a new message, file, item, or record. |
-| **Trigger configuration** | Required provider-specific fields. These change depending on the selected trigger. |
-| **Filters and conditions** | Rules that decide whether the worker should act on the event. |
-| **Target work** | The workflow or task the worker runs when the event matches. |
-| **Enabled** | Turns the action on or off without deleting it. |
+## Before you begin
 
-## Using action cards
+- Make sure you can manage the worker's automations and recurring work.
+- Connect the provider and grant only the tools and knowledge the work needs.
+- Check the worker's active state, working hours, and timezone.
+- Review outbound and tool approval policies before enabling unattended work.
 
-Each action appears as a card. From the card, you can:
+Use the controls available in your account. If an Action or provider option is unavailable, check access, connection state, and current account availability.
 
-- Review the action summary.
-- See configured conditions.
-- Open details.
-- Enable or disable the action.
+## Create an event Action
 
-## When to use Actions
+<Steps>
+  <Step title="Open Actions">
+    Open the worker's **Actions** area and start a new Action.
+  </Step>
+  <Step title="Choose the service and trigger">
+    Select the connected provider and the event to watch. Complete its
+    provider-specific fields, such as the relevant folder, mailbox, or record
+    scope.
+  </Step>
+  <Step title="Filter the events">
+    Add conditions so only relevant events start work. Use a narrow test case
+    before broadening the criteria.
+  </Step>
+  <Step title="Write the work instructions">
+    Describe the expected outcome, approved inputs, output destination, and
+    escalation requirements. Choose one-shot or recurring behavior where
+    offered.
+  </Step>
+  <Step title="Save and enable intentionally">
+    Review the configuration and enabled state. A saved or staged Action is not
+    necessarily active. Confirm the provider connection and worker availability
+    before expecting automatic work.
+  </Step>
+  <Step title="Test and inspect the run">
+    Produce a safe matching event, or use the available run/test control where
+    appropriate. Open the resulting task and Activity to confirm the event was
+    handled as intended.
+  </Step>
+</Steps>
 
-Use actions for work like:
+## Example: review a new supplier file
 
-- Processing new inbound emails that match certain criteria
-- Starting a workflow when a record changes in an external system
-- Reviewing new files as they arrive
-- Creating follow-up work from operational events
+1. Connect the approved storage provider and select the supplier-upload folder.
+2. Choose its new-file event and filter to the intended file types or scope.
+3. Instruct the worker to summarize the file, identify missing purchasing details, and return a draft review.
+4. Require human approval before external messages or changes.
+5. Enable the Action and add one harmless test file.
+6. Confirm the task used the correct file and returned a review, not an unsolicited supplier message.
+
+## One-shot, recurring, and scheduled work
+
+- **One-shot** work is intended for a single occurrence; inspect the resulting state before expecting it to repeat.
+- **Recurring** work continues according to its event or schedule configuration while enabled and eligible.
+- **Time Actions** can be managed from Calendar. Review the Action's actual timezone; a worker's location or your browser clock is not enough to establish the intended schedule.
+- **Run now**, where offered, starts work outside the normal trigger timing. Check for a pending or previous run before using it again.
+
+Turning an Action off prevents future automatic starts under that definition. It does not undo external changes or prove that an already-started task was cancelled.
+
+## Monitor and troubleshoot
+
+Open an Action's details/history and the associated Tasks to see what happened.
+
+| Symptom                                | Check                                                                                                  |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **No run appears**                     | Enabled state, connected provider, trigger scope, filters, schedule/timezone, and worker availability. |
+| **Provider is disconnected**           | Reauthorize the correct account before expecting new events.                                           |
+| **Action is rate-limited or disabled** | Read the reported reason and resolve it before re-enabling.                                            |
+| **Task is waiting**                    | Answer its question or resolve its current approval.                                                   |
+| **Run failed or was interrupted**      | Inspect completed side effects before retrying the same work.                                          |
+| **Worker is off**                      | Restore availability only when intended; do not assume missed events will all replay.                  |
 
 <Warning>
-Actions can trigger work automatically. Before enabling actions that send messages, edit records, or perform destructive operations, review the worker's Security & Privacy settings.
+  Test delivery and recovery with your actual provider. Do not assume every
+  event is delivered exactly once or that every missed event is automatically
+  replayed. Use explicit review for sends, writes, and destructive actions.
 </Warning>

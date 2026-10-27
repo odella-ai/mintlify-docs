@@ -1,0 +1,127 @@
+---
+title: "MCP work recipes"
+description: "Use the Odella MCP server to configure workers, assign work, upload source files, and publish private skills safely."
+---
+
+# Work with Odella from your MCP client
+
+First [connect your client](/integrations/mcp-server) and create a token with only the scopes needed for the task. These recipes describe the public user-authorized server, not internal worker connections.
+
+Your live Odella permissions still apply. Tool availability depends on the token, and some read operations in write-tool families also require the family's write scope.
+
+## Scope checklist
+
+Every token includes `odella:read`. Add:
+
+| Recipe                                                    | Additional scopes                                                             |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Change worker instructions or resource assignments        | `odella:employees:write`                                                      |
+| Assign toolkits                                           | `odella:employees:write` and `odella:integrations:write`                      |
+| Add or remove workflow assignments                        | `odella:employees:write` and `odella:workflows:write`                         |
+| Create/cancel a task                                      | `odella:tasks:write`                                                          |
+| Upload files for a task                                   | `odella:knowledge:write` or `odella:skills:write`, in addition to task access |
+| Create or update templates and render published templates | `odella:knowledge:write`                                                      |
+| Create and explicitly publish a private skill             | `odella:skills:write`                                                         |
+| Assign the resulting skill to a worker                    | `odella:employees:write`                                                      |
+| Create, update, or delete worker Actions                  | `odella:employees:write` and `odella:tasks:write`                             |
+
+Use the client's current tool schemas for exact parameters and constraints. Do not assume a scope grants resource access or provider credentials.
+
+## 1. Inspect before changing a worker
+
+Ask the client to:
+
+> Read my Odella context and list the workers I can access. Show the selected worker's configuration and instructions before proposing any changes.
+
+Use `odella_get_context`, `employees_list`, `employees_get_configuration`, and `employees_get_instructions`. Keep the stable employee ID returned by Odella; do not derive it from a display name.
+
+For instruction changes:
+
+1. Read the current notes and revision.
+2. Review the proposed replacement with the user.
+3. Call `employees_update_instructions` with `notes` and the exact `expectedRevision` returned by the read.
+4. Re-read to confirm the saved result.
+
+If the revision changed, read again and reconcile the difference. Do not silently overwrite another person's edits.
+
+## 2. Assign resources without replacing unrelated work
+
+Prefer `employees_add_resource_assignments` or `employees_remove_resource_assignments` for targeted changes. Read available resources and the current configuration first.
+
+- Use the correct category and resource identifiers.
+- Private-skill assignments use canonical slugs.
+- Toolkit assignment does not complete OAuth or grant credentials.
+- Resource assignment does not grant the user or worker otherwise-missing access.
+- Assignment does not automatically start the worker.
+
+`employees_set_resource_assignments` replaces an entire category and requires the exact prior IDs. Use it only when replacement is deliberate; do not use it as a shortcut for adding one resource.
+
+## 3. Create a task and follow the result
+
+After reading the selected worker's ID, a `tasks_create` call can use:
+
+```json
+{
+  "employeeId": "<EMPLOYEE_ID>",
+  "title": "Review supplier proposals",
+  "goal": "Compare the approved supplier proposals and cite the source for every material finding.",
+  "instructions": "Return a draft only. Do not contact suppliers or approve spending.",
+  "expectedOutcome": "A comparison table and a short list of missing information."
+}
+```
+
+Keep the returned task ID. Read it with `tasks_get`; use `tasks_list` to inspect work before creating another task after an uncertain response. Task creation is not idempotent, so blindly repeating it can create duplicate work.
+
+`tasks_list` supports an employee filter, `includeCompleted`, and a `limit` from 1–100. List operations do not all share the same pagination parameters; follow each tool's schema.
+
+Use `tasks_cancel` for eligible active/queued work when appropriate. Cancellation is not a rollback of completed external actions. See [Tasks](/workforce/tasks) for states and review.
+
+## 4. Upload a file, then use its file ID
+
+1. Ask `files_get_upload_url` for an upload reservation using the file details required by its schema.
+2. Transfer the actual bytes to the returned signed PUT URL outside MCP, using the required headers.
+3. Call `files_get_upload_status` with the returned file ID.
+4. Pass the verified upload reference to the destination operation, such as template creation, skill creation, or task attachments, according to that tool's schema.
+
+**Uploaded** means bytes exist; it does not mean all destination validation has passed. Template import verifies bytes before accepting them. Uploading a file does not itself create a template or skill.
+
+<Warning>
+  Signed upload/download URLs are temporary private credentials. Do not log
+  them, put them in shared prompts, or treat an upload URL as a task attachment.
+  Use the returned file ID for destination operations.
+</Warning>
+
+## 5. Prepare and publish a template
+
+Use `templates_create` with the uploaded file ID, not a base64 document. Read `templates_get_draft` to inspect the persisted draft and revision.
+
+For DOCX, `templates_detect_fields` proposes placeholder labels; detection does not itself save or publish them. Review and save the intended metadata/labels using the current revision-aware schemas, then explicitly publish with `templates_publish` when ready.
+
+PDF field positioning remains an editor review checkpoint. `templates_render` renders authorized published PDF/DOCX templates with supported typed values; it does not send an e-signing invitation. Review the output and protect any temporary artifact URL.
+
+## 6. Publish an account-private skill
+
+1. Upload the `SKILL.md` or supported ZIP source package.
+2. Call `skills_create` with the file ID and required metadata.
+3. Read `skills_get_submission` with the returned merge-request ID.
+4. Inspect its status and scanner findings.
+5. After explicit user review, call `skills_publish` with the fresh publication revision required by its schema.
+6. Read back the result before assigning the skill separately.
+
+Publication rechecks the exact source; blocked or incomplete scans remain unpublished. Updating an existing skill uses `skills_get` for its revision, then `skills_update`, submission review, and explicit publication. Publishing does not assign the skill, upgrade existing worker version pins, or start a worker.
+
+The MCP submission/publication flow is distinct from the workshop UI's review-and-merge controls. See [Private skills](/workforce/create-a-skill) for writing and testing guidance.
+
+## 7. Stage an Action disabled
+
+Read `employees_actions_list` before changing automations. Use `employees_actions_create` with `action.enabled` explicitly set to `false` to stage work for review. Omitting that choice can preserve enabled creation behavior.
+
+Review the trigger/schedule, timezone, work instructions, delivery destination, and permissions before enabling it with `employees_actions_update`. The worker's on/off state remains separate, and provider OAuth consent must be completed through the supported UI flow.
+
+## Recover from an error
+
+- **Missing tool:** Check the scope combination and refresh the client's tool list.
+- **Conflict/stale revision:** Re-read, compare changes, and submit against the fresh revision.
+- **Permission denied:** Review the live account role and resource access; broader token scopes alone cannot fix it.
+- **Timeout or unknown outcome:** Inspect the resource/task before repeating the mutation.
+- **Provider authorization required:** Complete the provider flow in Odella; never paste credentials into a prompt as a workaround.

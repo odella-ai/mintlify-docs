@@ -218,12 +218,20 @@ Once published, your AI Employees can use this template to generate documents au
     Generate one document or a reviewed batch from validated source data.
   </Card>
   <Card title="AI Employee Integration" icon="robot">
-    Assign templates to specific AI Employees based on their role. They automatically select the right template and populate all variables based on context and source materials.
+    Assign templates to specific AI Employees based on their role. Clear descriptions and instructions help the worker choose the intended template and map available source values. Review the selection and generated output.
   </Card>
   <Card title="Workflow Integration" icon="diagram-project">
     Integrate templates into custom workflows using the "Populate Template" block. Templates can be triggered by specific events, data changes, or user actions.
   </Card>
 </CardGroup>
+
+## Documents that need signatures
+
+A DOCX variable named `signature` is an ordinary placeholder, not a recipient-owned signing field. Do not ask a worker to insert someone's signature as a template value.
+
+For DOCX-based signing, the populated document must be converted to its final PDF and its signing layout checked before the request is prepared. Word preview positions are not signing placements. Review the final document, recipients, signing policy, and destination, then approve the exact send request once.
+
+See [E-signing](/templates/05_e-signing) for the distinction between PDF field configuration and DOCX-to-final-PDF preparation. Generating a Word document alone does not send invitations.
 
 ## Example Delegation
 

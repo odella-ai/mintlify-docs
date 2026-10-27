@@ -1,39 +1,91 @@
 ---
 title: "Communication channels"
-sidebarTitle: "Channels"
-description: "Give people and systems a way to delegate work to an AI Employee."
+sidebarTitle: "Channels overview"
+description: "Choose, configure, publish, and test the ways people can contact an AI Employee."
 ---
 
-Communication channels are the places where a worker can receive requests and collaborate with people.
+# Give people a way to reach your worker
 
-Channels turn a worker from a configured profile into something your team can actually talk to or route work into.
+A communication channel gives an AI Employee a contact point, such as an email address, workplace chat app, or phone number. A connected toolkit instead lets the worker perform actions in another application. The two can require different setup and permissions.
 
-## What channels do
+## Choose a channel
 
-A channel defines how messages reach the worker. Depending on your workspace configuration, channels can include web chat, email-style inboxes, Slack, Microsoft Teams, or other connected app surfaces.
+| Channel                | Setup and purpose                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| **Web chat**           | Talk to the worker in Odella. Browser voice, where available, uses [Talk](/workforce/talk). |
+| **Email**              | Give the worker a dedicated address for incoming messages and replies.                      |
+| **Slack**              | Configure a Slack app and approve it in the intended workspace.                             |
+| **Microsoft Teams**    | Register a Microsoft app, configure an Azure Bot, and install the Teams package.            |
+| **Phone**              | Use an assigned active number for SMS, voice, or both.                                      |
+| **WhatsApp / Signal**  | Use the assigned number and complete each provider's registration.                          |
+| **Telegram / Discord** | Configure and activate a provider bot.                                                      |
+| **Google Meet**        | Configure meeting defaults where offered; this is separate from chat and phone setup.       |
 
-Use channels when you want to:
+Use the channel types available in your account. A provider integration in the catalog is not proof that a communication channel of the same name is active.
 
-- Let users delegate work directly to the worker
-- Route inbound messages to a worker
-- Give the worker a persistent contact point
-- Connect the worker to the systems your team already uses
+## Create and publish
 
-## How channels appear in the skill tree
+<Steps>
+  <Step title="Open the worker's channels">
+    Open the AI Employee and its communication-channel capability. Add the
+    channel type your team needs. You must have permission to manage the
+    worker's channels.
+  </Step>
+  <Step title="Follow the provider-specific setup">
+    Complete the configuration and setup guide in the editor. Use its generated
+    manifest, endpoint, package, or assigned number; do not copy another
+    worker's configuration.
+  </Step>
+  <Step title="Review access and outbound policy">
+    Choose who may contact the worker and how outbound actions should be
+    handled. Creating a channel does not remove approval requirements.
+  </Step>
+  <Step title="Activate and test">
+    Complete authorization or publication as required. Send a low-risk direct
+    message from an allowed account and confirm the reply reaches the correct
+    conversation.
+  </Step>
+</Steps>
 
-In the skill tree, channels show the worker's available communication paths. Published channels are shown as connected capabilities, so you can quickly see how the worker can be reached.
+## Setup guides
 
-A worker can have multiple channel instances, but the skill tree groups them by channel type so the view stays readable.
+<CardGroup cols={2}>
+  <Card title="Email" icon="envelope" href="/workforce/channels/email">
+    Dedicated addresses, replies, attachments, and access checks.
+  </Card>
+  <Card title="Slack" icon="comments" href="/workforce/channels/slack">
+    App manifest, credentials, workspace approval, and testing.
+  </Card>
+  <Card title="Microsoft Teams" icon="users" href="/workforce/channels/teams">
+    Microsoft registration, bot endpoint, package, and member matching.
+  </Card>
+  <Card
+    title="Phone, WhatsApp, and Signal"
+    icon="phone"
+    href="/workforce/channels/phone-and-messaging"
+  >
+    Assigned numbers, provider registration, and publishing.
+  </Card>
+  <Card
+    title="Telegram and Discord"
+    icon="comment"
+    href="/workforce/channels/telegram-and-discord"
+  >
+    Bot setup and safe credential handling.
+  </Card>
+  <Card title="Meetings" icon="video" href="/workforce/channels/meetings">
+    Meeting defaults, prerequisites, and limitations.
+  </Card>
+</CardGroup>
 
-## Related settings
+## Access is separate from publication
 
-Channels often depend on:
+The worker's [Security & Privacy](/workforce/settings-security-privacy) settings control inbound access, outbound messaging, and tool approvals. [Governance](/workforce/governance) controls who can use or edit the worker inside your organization.
 
-- **Inboxes** in the sidebar for monitored email feeds
-- **Applications** for required integrations
-- **Inbound Access Policy** in Settings for who can contact the worker
-- **Tool approval policy** if channel work can trigger external actions
+A published channel can still refuse a sender under its access policy. A worker that can receive a message may still need approval before contacting someone else.
 
-<Tip>
-Connect only the channels that match the worker's job. A focused worker is easier to govern and easier for users to understand.
-</Tip>
+## Change or disconnect a channel
+
+Review scheduled work, Actions, and expected inbound messages before changing credentials or removing a channel. Test the updated path after reconnecting. Pausing the worker or deleting a channel does not undo messages already sent.
+
+If no reply arrives, check publication/registration, the intended provider workspace or number, worker availability, inbound policy, billing eligibility, and related [Activity](/workforce/activity).
