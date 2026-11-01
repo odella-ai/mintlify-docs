@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "mintlify dev --port 3334",
     "validate": "mintlify validate",
+    "test:security": "node --test tests/oneleet-security-floor.test.mjs tests/cli-dependency-compatibility.test.mjs tests/parser-archive-security.test.mjs tests/body-parser-security.test.mjs",
     "broken-links": "mintlify broken-links",
     "format": "prettier --write \"**/*.{json,md,mdx,css,mjs,ts}\""
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.1",
     "cheerio": "^1.2.0",
-    "mintlify": "^4.2.866",
+    "mintlify": "^4.2.1184",
     "postcss": "^8.5.27",
     "prettier": "^3.9.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
@@ -23,12 +24,20 @@
       "undici": "^7.30.1",
       "axios": "^1.20.0",
       "fast-uri": "^3.1.9",
-      "ip-address": "^10.7.1",
+      "ip-address": "^10.7.4",
       "js-yaml": "^4.3.1",
       "js-yaml@^3": "3.15.2",
       "socket.io-parser": "^4.2.7",
       "brace-expansion": "^1.1.21",
       "hono": "^4.13.11",
+      "@hono/node-server": "^2.1.3",
+      "body-parser@>=2.0.0 <2.4.0": "^2.4.0",
+      "body-parser@^1": "^1.20.9",
+      "smol-toml": "^1.9.0",
+      "fflate@^0.7": "^0.7.5",
+      "fflate@^0.8": "^0.8.3",
+      "image-size": "^2.0.4",
+      "re2js": "^2.8.7",
       "follow-redirects": "^1.16.2",
       "basic-ftp": "^6.2.1",
       "http-cache-semantics": "^4.3.0",
@@ -40,7 +49,9 @@
       "sharp": "^0.35.5",
       "adm-zip": "^0.6.1",
       "postcss": "^8.5.23",
-      "qs": "^6.16.1"
+      "qs": "^6.16.1",
+      "zod@>=4.0.0 <4.6.6": "^4.6.6",
+      "esbuild": "^0.28.2"
     },
     "onlyBuiltDependencies": [
       "keytar",
