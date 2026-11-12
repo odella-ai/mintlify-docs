@@ -5,7 +5,7 @@ const root = new URL('../', import.meta.url);
 const read = path => readFileSync(new URL(path, root), 'utf8');
 const manifest = JSON.parse(read('package.json'));
 const records = read('pnpm-lock.yaml').split('\npackages:\n')[1].split('\nsnapshots:\n')[0];
-const floors = [["fast-uri", 3, "3.1.9", "fast-uri"], ["undici", 7, "7.30.1", "undici"], ["qs", 6, "6.16.1", "qs"], ["ip-address", 10, "10.7.4", "ip-address"], ["zod", 4, "4.6.6", "zod@>=4.0.0 <4.6.6"], ["esbuild", 0, "0.28.2", "esbuild"], ["body-parser", 1, "1.20.9", "body-parser@^1"], ["smol-toml", 1, "1.9.0", "smol-toml"], ["image-size", 2, "2.0.4", "image-size"], ["re2js", 2, "2.8.7", "re2js"]];
+const floors = [["fast-xml-parser", 5, "5.12.0", "fast-xml-parser"], ["fast-uri", 3, "3.1.9", "fast-uri"], ["undici", 7, "7.30.1", "undici"], ["qs", 6, "6.16.1", "qs"], ["ip-address", 10, "10.7.4", "ip-address"], ["zod", 4, "4.6.6", "zod@>=4.0.0 <4.6.6"], ["esbuild", 0, "0.28.2", "esbuild"], ["body-parser", 1, "1.20.9", "body-parser@^1"], ["smol-toml", 1, "1.9.0", "smol-toml"], ["image-size", 2, "2.0.4", "image-size"], ["re2js", 2, "2.8.7", "re2js"]];
 const compare = (a, b) => { const x=a.split('.').map(Number), y=b.split('.').map(Number); return x[0]-y[0] || x[1]-y[1] || x[2]-y[2]; };
 for (const [name, major, floor, key] of floors) {
   test(`${name} ${major} locks and future installs retain ${floor} security floor`, () => {
