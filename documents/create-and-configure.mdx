@@ -5,6 +5,13 @@ description: "Create a Document Store, define AI-extracted metadata, choose an i
 
 Creating a Document Store turns a collection of files into a structured, searchable knowledge vault. The setup flow is designed to help you decide what the store is for, where documents come from, what AI should extract, and how the store should be processed.
 
+<Note>
+  This guide describes standard Document Stores for knowledge and extraction.
+  Create protected signing-record stores through [E-signing
+  setup](/templates/05_e-signing); they do not accept ordinary uploads or sync
+  imports.
+</Note>
+
 ## When to create a new store
 
 Create a separate store when the documents share a clear business purpose, audience, or governance boundary.
@@ -24,10 +31,10 @@ Avoid creating one large catch-all vault for unrelated material. Smaller, focuse
 
 Start by giving the store a clear identity.
 
-| Field | What it does |
-| --- | --- |
-| **Name** | The store name shown in the library, breadcrumbs, and selection menus. |
-| **Description** | Explains what belongs in the store and how the store should be used. |
+| Field           | What it does                                                           |
+| --------------- | ---------------------------------------------------------------------- |
+| **Name**        | The store name shown in the library, breadcrumbs, and selection menus. |
+| **Description** | Explains what belongs in the store and how the store should be used.   |
 
 Good descriptions help teammates and AI Employees understand whether the store is relevant to a task.
 
@@ -42,11 +49,11 @@ Supported sync sources include:
 
 When you connect a folder, configure:
 
-| Setting | What it does |
-| --- | --- |
-| **Connection Name** | Human-readable name for the synced folder. |
-| **Description** | Optional context about what the folder contains. |
-| **Include subfolders** | Imports files from nested folders as well as the selected folder. |
+| Setting                 | What it does                                                                 |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| **Connection Name**     | Human-readable name for the synced folder.                                   |
+| **Description**         | Optional context about what the folder contains.                             |
+| **Include subfolders**  | Imports files from nested folders as well as the selected folder.            |
 | **Sync existing files** | Imports current files immediately. New files continue to sync automatically. |
 
 Use sync sources for folders that should stay current over time. Use manual upload for one-off batches or ad hoc files.
@@ -98,11 +105,14 @@ Templates include:
 - Prefer clear business names, such as **Renewal Terms** or **Approved By**.
 - Add useful descriptions so AI knows exactly what to extract.
 - Avoid duplicating system fields like file name, document ID, status, MIME type, or timestamps.
-- Start smaller if unsure. You can add detail later, but schema changes trigger reprocessing.
+- Start smaller if unsure. You can add columns later and choose whether to process existing files.
 
-<Warning>
-Changing a store's metadata schema later re-runs AI extraction on existing documents. This can use AI credits and may take several minutes for large stores.
-</Warning>
+<Note>
+  When changing columns later, choose **New files only**, **Fill existing files
+  too**, or **Rename labels only**. Only the reprocessing option re-runs
+  extraction on existing documents and is billed per page. See [Store
+  settings](/documents/settings-and-integrations#change-metadata-columns).
+</Note>
 
 ## Step 4: AI model
 

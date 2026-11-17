@@ -83,7 +83,8 @@
               "workforce/templates",
               "workforce/knowledge",
               "workforce/tools",
-              "workforce/skills"
+              "workforce/skills",
+              "workforce/create-a-skill"
             ]
           },
           {
@@ -99,12 +100,15 @@
               "workforce/channels/telegram",
               "workforce/channels/discord",
               "workforce/channels/signal",
-              "workforce/channels/google-meet"
+              "workforce/channels/google-meet",
+              "workforce/talk"
             ]
           },
           {
             "group": "Work management",
             "pages": [
+              "workforce/tasks",
+              "workforce/approvals",
               "workforce/calendar",
               "workforce/actions",
               "workforce/workspace",
@@ -119,6 +123,7 @@
               "workforce/settings-memory-reminders",
               "workforce/settings-operations-logistics",
               "workforce/settings-security-privacy",
+              "workforce/governance",
               "workforce/settings-billing",
               "workforce/settings-terminate"
             ]
@@ -145,7 +150,8 @@
           {
             "group": "Using Templates",
             "pages": [
-              "templates/04_using-templates"
+              "templates/04_using-templates",
+              "templates/05_e-signing"
             ]
           }
         ]
@@ -160,7 +166,8 @@
               "documents/overview",
               "documents/create-and-configure",
               "documents/manage-documents",
-              "documents/settings-and-integrations"
+              "documents/settings-and-integrations",
+              "documents/signing-records"
             ]
           }
         ]
@@ -215,10 +222,24 @@
             ]
           },
           {
+            "group": "Administration",
+            "pages": [
+              "platform/organization",
+              "platform/roles-and-permissions",
+              "platform/brand-guidelines",
+              "platform/billing-and-credits",
+              "platform/usage-and-limits",
+              "platform/phone-numbers",
+              "platform/profile-and-account"
+            ]
+          },
+          {
             "group": "Extend Odella",
             "pages": [
               "integrations/overview",
               "integrations/custom-integrations",
+              "integrations/mcp-server",
+              "integrations/mcp-recipes",
               "marketplace/overview"
             ]
           }

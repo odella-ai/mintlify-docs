@@ -1,0 +1,102 @@
+---
+title: "Create a private skill"
+description: "Write or import SKILL.md, review checks and proposed changes, and make a private skill available to your AI Employees."
+---
+
+# Turn a procedure into a reusable skill
+
+A private skill packages working instructions for your account. Use one for a repeatable method, quality checklist, or specialist procedure—not as a substitute for giving the worker access to the required tools or source documents.
+
+<Note>
+  The skills workshop is available only where enabled for your account.
+  Authoring, reviewing, and assigning skills also require the appropriate
+  permissions.
+</Note>
+
+## Create or import
+
+<Steps>
+  <Step title="Open Skills">
+    Open the workforce **Skills** area and select **Create skill**.
+  </Step>
+  <Step title="Set the metadata">
+    Enter a name, description, and category. Choose an available slug of 3–64
+    lowercase letters, numbers, and hyphens, such as `supplier-proposal-review`.
+  </Step>
+  <Step title="Write SKILL.md">
+    Explain when to use the skill, what information it needs, how to work, and
+    when to ask a person. You can also drop a single file named **SKILL.md**
+    into the creation dialog; name and description can be populated from its
+    metadata.
+  </Step>
+  <Step title="Submit for review">
+    Create the private skill. This opens a merge request for review; a newly
+    submitted draft is not yet an approved skill ready for use.
+  </Step>
+</Steps>
+
+## Example skill
+
+```markdown
+---
+name: supplier-proposal-review
+description: Compare supplier proposals against approved purchasing criteria.
+---
+
+# Supplier proposal review
+
+## When to use
+
+Use when asked to compare written supplier proposals for the same purchase.
+
+## Required inputs
+
+- Supplier proposals
+- Approved purchasing criteria and budget
+
+## Procedure
+
+1. Confirm that the proposals address the same scope.
+2. Compare price, exclusions, delivery, renewal, and termination terms.
+3. Cite the document and section for each material finding.
+4. Mark missing or conflicting information for human review.
+5. Return a comparison table and draft recommendation.
+
+## Boundaries
+
+Do not contact suppliers, accept terms, or approve spending.
+Ask the requester if purchasing criteria or budget are missing.
+```
+
+Do not put credentials, customer secrets, or unnecessary personal data in a skill. Reference approved knowledge and tools instead.
+
+## Review proposed changes
+
+Open **Merge requests** and select the proposal. Compare **Changes** with **Proposed files**, then open the review panel.
+
+1. Inspect the security scan and quality evaluation states.
+2. Read the attached evidence rather than relying only on a passing label.
+3. Review every instruction and any supporting files for unintended sends, unsafe execution, data exposure, or overly broad responsibilities.
+4. Use **Request changes**, **Reject**, or **Approve changes** as appropriate.
+5. After approval, use **Merge request** where offered to apply the approved revision.
+
+Approval and merging are separate steps. Check the resulting skill and version before assigning it.
+
+### Quarantined proposals
+
+A quarantine needs a reasoned review. **Return to review**, when offered to an authorized reviewer, returns the proposal to the review process; it does not itself approve or publish the skill. Resolve the underlying concern and follow the normal review steps. Do not bypass a warning simply to make the skill usable.
+
+## Assign and test
+
+Add the approved skill from the worker's capability picker. Test a representative request and at least one case with missing information. Confirm the worker follows the boundaries, has the required tools and knowledge, and returns the expected result.
+
+When changing an existing skill, review the proposed revision and retest affected workers. Account-private visibility is not publication to the public marketplace.
+
+## Troubleshooting
+
+- **Slug unavailable:** Choose a distinct slug and wait for validation.
+- **Import rejected:** Drop exactly one file named `SKILL.md`.
+- **Skill not usable yet:** Check review, approval, and merge status—not just whether the draft was saved.
+- **Worker ignores the method:** Make the description's usage conditions specific and check that the approved skill is actually assigned.
+
+See [Skills](/workforce/skills) for how skills differ from workflows, templates, and knowledge.

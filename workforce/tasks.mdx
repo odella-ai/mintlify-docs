@@ -1,0 +1,93 @@
+---
+title: "Tasks"
+description: "Assign work, understand task states, respond to questions, and review results from your AI workforce."
+---
+
+# Assign and track work
+
+Open **Tasks** to follow work across the AI Employees you can access. Tasks may start from a direct request, a schedule, an external event, a workflow, or delegated work.
+
+A task being accepted or queued does not mean it has finished. Follow its status and inspect the result.
+
+## Create a task
+
+<Steps>
+  <Step title="Select New task">
+    Open Tasks and select **New task**. When creating work from an individual
+    worker's page, the worker may already be selected.
+  </Step>
+  <Step title="Choose the worker and goal">
+    Select an AI Employee with the knowledge, tools, and permissions the work
+    requires. State the outcome, approved sources, constraints, and review
+    requirements.
+  </Step>
+  <Step title="Add source material">
+    Attach relevant files where offered. Wait for uploads to complete and
+    resolve any failed attachments before submitting.
+  </Step>
+  <Step title="Create and follow progress">
+    Submit the task, then open its details to review progress, questions,
+    approvals, and returned files.
+  </Step>
+</Steps>
+
+For example:
+
+> Review the attached supplier proposals. Compare scope, price, and renewal terms in a table. Cite the source for each comparison and return a draft recommendation. Do not contact suppliers or accept any proposal.
+
+## Understand the board
+
+| Lane          | Meaning                                        | What to do                                                    |
+| ------------- | ---------------------------------------------- | ------------------------------------------------------------- |
+| **Queued**    | Ready for a worker.                            | Check availability and required access if it does not start.  |
+| **Running**   | Work is in progress.                           | Review progress; add guidance if needed.                      |
+| **Waiting**   | Waiting for input, approval, or a future time. | Open details to see what it needs; do not assume it failed.   |
+| **Attention** | Blocked or paused.                             | Resolve the stated blocker before resuming.                   |
+| **Closed**    | Failed, cancelled, or lost work.               | Inspect the reason and any completed actions before retrying. |
+| **Completed** | The task finished successfully.                | Review the answer and actual deliverables.                    |
+
+Some empty lanes may be hidden. Task details provide the specific status and reason, not just the board grouping.
+
+## Answer a question or provide guidance
+
+<Frame caption="A task waiting for input, shown with Storybook example data.">
+  <img
+    src="/images/guides/task-details.png"
+    alt="Task details asking for an approved renewal discount, with an Answer and resume field"
+  />
+</Frame>
+
+Open the task and read the question before responding. Supply the requested facts or complete the displayed questionnaire. Use **Answer and resume** where offered to continue waiting work. For running work, guidance adds direction rather than creating a separate task.
+
+If the task needs a decision about an external action, use its [approval controls](/workforce/approvals). A text message saying “approved” is not a substitute for the required approval action.
+
+## Retry, cancel, or remove work
+
+Controls depend on status and your permissions. Before retrying:
+
+1. Read the failure or interruption reason.
+2. Check for outputs or external actions that already succeeded.
+3. Fix missing access, provider connections, unavailable files, or unclear instructions.
+4. Retry the existing task where appropriate and monitor the new attempt.
+
+<Warning>
+  A failed task does not prove that no external changes occurred. Check the
+  destination system before repeating sends or record changes. Removing a task
+  from the board is not a rollback of completed work.
+</Warning>
+
+Cancel work you no longer want using the available task controls. Do not assume cancellation reverses actions already performed.
+
+## Find and review results
+
+Open completed task details to inspect the worker's answer and returned files. Preview supported files or download them. A summary that mentions a document is not itself a downloadable attachment.
+
+Check sources, names, numbers, and required review criteria before using the result. Use [Activity](/workforce/activity) for related work history, [Calendar](/workforce/calendar) for schedules, and [Actions](/workforce/actions) for event-driven work.
+
+## Troubleshooting
+
+- **No worker is available:** Check access, service state, working hours, and account [limits](/platform/usage-and-limits).
+- **Waiting for approval:** Open the current request and resolve it through the approval controls.
+- **Blocked by an integration:** Reconnect or grant the required tool access before resuming.
+- **No file appears:** Read the task's actual result. Ask for the required deliverable if the worker only returned an answer.
+- **Controls are read-only:** Ask the worker's manager or resource owner to review your permissions.

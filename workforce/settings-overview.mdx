@@ -1,6 +1,6 @@
 ---
 title: "AI Employee settings"
-description: "A complete guide to every setting used to manage an AI Employee's models, memory, schedule, security, and billing."
+description: "Find settings for an AI Employee's identity, instructions, models, memory, schedule, governance, security, and billing."
 ---
 
 Use **Settings** on an AI Employee's page to control how the worker thinks, when they work, what they remember, who they can contact, and how connected tools are approved.
@@ -11,6 +11,8 @@ Changes remain drafts until you select **Save Changes**. Saving a pricing-sensit
 
 | Area                                                               | Fields                                                                               | What they control                                                       |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| [Identity and General Instructions](/workforce/identity)           | Profile, personality, voice, durable working guidance                                | Who the worker is and how they should work.                             |
+| [Governance](/workforce/governance)                                | Accountable manager, access, selected editors, conversation sharing                  | Who manages, uses, and edits the worker in an organization.             |
 | [Model & Intelligence](/workforce/settings-model-intelligence)     | LLM model, reasoning effort, image model, video model, infrastructure size           | Quality, speed, media generation, capacity, and price.                  |
 | [Memory & Reminders](/workforce/settings-memory-reminders)         | Read shared context, write shared context, dreaming, dream diary, follow-up memory   | What the worker can remember and update.                                |
 | [Operations & Logistics](/workforce/settings-operations-logistics) | Working days, start and end time, after-hours behavior, timezone, language, currency | Availability, scheduling, localization, and after-hours billing.        |
@@ -24,10 +26,10 @@ Unless onboarding supplies different values, a new worker starts with:
 
 | Field                         | Default                                         |
 | ----------------------------- | ----------------------------------------------- |
-| LLM model                     | GPT-5.6 Terra                                   |
+| LLM model                     | GPT-6.1 Sol                                     |
 | Reasoning effort              | Medium                                          |
 | Image generation              | GPT Image 2                                     |
-| Video generation              | Seedance 2.0                                    |
+| Video generation              | Wan 3.0                                         |
 | Infrastructure size           | Small                                           |
 | Working days                  | Monday–Friday                                   |
 | Working hours                 | 9 AM–5 PM                                       |
@@ -70,6 +72,6 @@ Billing also displays fields that cannot be edited directly in the Settings form
 | **Price override**     | A custom pricing adjustment, when one applies to the worker.                                 |
 | **Rate version**       | Identifier for the pricing terms attached to the saved quote.                                |
 | **Publication**        | Identifier for the pricing release used by the quote.                                        |
-| **Quote refresh date** | When the current quote was saved.                                                             |
+| **Quote refresh date** | When the current quote was saved.                                                            |
 
 These fields help identify the pricing terms currently applied to the worker. Saving a pricing-sensitive setting refreshes the quote for future work; it does not change charges that have already been finalized.

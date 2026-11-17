@@ -1,0 +1,74 @@
+---
+title: "Organization and teams"
+description: "Manage organization members, invitations, teams, and shared account settings."
+---
+
+# Organize your team
+
+Open **Account → Organization** in the intended organization account. This area contains **Members**, **Invitations**, **Teams**, **Roles**, **Brand**, and **Settings**. What you can change depends on your permissions.
+
+Check the active account before inviting people or changing shared settings. A personal account and an organization account are separate workspaces.
+
+## Invite members
+
+1. Open **Members** or **Invitations** and start an invitation.
+2. Enter the intended person's email and review the offered access settings.
+3. Send the invitation, then track its status under **Invitations**.
+4. After acceptance, check the member's team membership, role assignments, and access to the resources they need.
+
+An invitation is not evidence that the person has accepted or can access every worker and document store. Review pending invitations and withdraw obsolete invitations using the available controls.
+
+## Create and manage teams
+
+Use teams to group people with a shared responsibility, such as Customer operations or Finance.
+
+<Frame caption="Organization teams with synthetic Storybook example data.">
+  <img
+    src="/images/guides/organization-teams.png"
+    alt="Organization Teams tab showing Customer operations, Finance, New Team, and archived teams"
+  />
+</Frame>
+
+1. Open **Teams** and select **New Team**.
+2. Give the team a clear name and purpose.
+3. Open its details to manage membership and applicable role assignments.
+4. Configure the resources that should be available to that team.
+
+Team membership and permission grants work together; creating a team alone does not grant every member access to every resource. Review dependencies before archiving a team, and check any access rules that refer to it.
+
+## Roles and resource access
+
+Use **Roles** to review the capabilities assigned to members or teams. Use each resource's access controls to decide who can use that particular worker, store, or other shared resource.
+
+See [Roles and permissions](/platform/roles-and-permissions) and [Worker governance](/workforce/governance) before broadening access.
+
+## Organization-wide settings
+
+- **Brand** manages generated brand guidelines and approved source materials. See [Brand guidelines](/platform/brand-guidelines).
+- **Settings** includes organization profile and available account-level privacy controls. Read the explanation next to each setting before enabling shared context or conversation access.
+- Model privacy settings govern available model choices separately from worker assignments. See [Models](/platform/models).
+
+## Admin read-only conversation access
+
+Under **Settings → Privacy & access**, **Allow admins to view member conversations** controls whether organization administrators can open members' chat history in read-only mode.
+
+This does not let an administrator send messages, retry turns, edit messages, approve actions, or act as the conversation owner. Viewed conversations display a read-only banner identifying the owner and viewer.
+
+This setting is different from a worker's **Share conversations across members** setting, which controls what context the worker can draw on while helping different people. Review both deliberately; neither should be treated as unrestricted impersonation or message access.
+
+## Remove or change a member
+
+Review the person's worker-management responsibilities, role assignments, and team memberships before removing access. Reassign accountable managers where required. Removing a member does not mean shared organization resources or records should be deleted.
+
+<Warning>
+  Organization deletion, member removal, personal account deletion, and worker
+  termination are different operations. Use the correct account and review the
+  confirmation before proceeding.
+</Warning>
+
+## Troubleshooting
+
+- **Tabs or controls are read-only:** Ask someone with the specific organization-management capability to make the change.
+- **Member cannot see a worker:** Check organization membership, team/role requirements, and the worker's governance settings.
+- **Unexpected account after switching:** Wait for account switching to finish and confirm the organization before editing.
+- **A departing member manages workers:** Assign a replacement manager and review automations and approvals before completing the handover.

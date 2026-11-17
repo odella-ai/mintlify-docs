@@ -7,13 +7,13 @@ description: "Choose language, image, and video models, reasoning effort, and in
 
 ## Field reference
 
-| Field                   | What it controls                                                                                                                 | Billing insight                                                                                  |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Field                   | What it controls                                                                                                                 | Billing insight                                                                                           |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | **LLM Model**           | The default language model used for conversations, analysis, planning, and tool-assisted work.                                   | Model choice contributes to the hourly quote. Additional usage charges may apply under the worker's plan. |
-| **Reasoning Effort**    | How much reasoning the selected model should apply before responding or acting.                                                  | Higher levels can increase token usage and processing time.                                      |
-| **Image Generation**    | The default model used when the worker creates images. A task may override it when needed.                                       | Image generation is usage-based and separate from the scheduled hourly rate.                     |
-| **Video Generation**    | The default model family used when the worker creates video. A task may select the compatible route for its duration and inputs. | Video generation is usage-based and separate from the scheduled hourly rate.                     |
-| **Infrastructure Size** | Processing capacity, queue capacity, and supported concurrent conversations.                                                     | Infrastructure size contributes to the hourly quote.                                             |
+| **Reasoning Effort**    | How much reasoning the selected model should apply before responding or acting.                                                  | Higher levels can increase token usage and processing time.                                               |
+| **Image Generation**    | The default model used when the worker creates images. A task may override it when needed.                                       | Image generation is usage-based and separate from the scheduled hourly rate.                              |
+| **Video Generation**    | The default model family used when the worker creates video. A task may select the compatible route for its duration and inputs. | Video generation is usage-based and separate from the scheduled hourly rate.                              |
+| **Infrastructure Size** | Processing capacity, queue capacity, and supported concurrent conversations.                                                     | Infrastructure size contributes to the hourly quote.                                                      |
 
 The `$` to `$$$$` badges compare relative model cost. They are guidance rather than a fixed per-request price.
 
@@ -45,6 +45,6 @@ A higher setting does not guarantee a better result. Start at **Medium**, then i
 
 ## Defaults and saved models
 
-New workers default to GPT-5.6 Terra, Medium reasoning, GPT Image 2, Seedance 2.0, and a Small Instance unless onboarding sets another configuration.
+New workers default to GPT-6.1 Sol, Medium reasoning, GPT Image 2, Wan 3.0, and a Small Instance unless onboarding sets another configuration. Available choices and defaults can change; check the saved configuration and quote in your account.
 
 If a previously selected language model is no longer offered, it remains visible as **Deprecated** so you can review the saved configuration and move to a supported model.

@@ -1,0 +1,44 @@
+---
+title: "Telegram and Discord"
+description: "Create provider bots for your AI Employees and test authorized messaging."
+---
+
+# Connect a messaging bot
+
+Telegram and Discord each require their own bot setup. You need permission to manage the worker's channel and the relevant provider application or server.
+
+<Warning>
+  Bot tokens are secrets. Enter them only in the channel's secret field, never
+  in a prompt, screenshot, or public repository. Rotate exposed tokens with the
+  provider and update Odella.
+</Warning>
+
+## Telegram
+
+1. In Telegram, open the official **@BotFather** and send `/newbot`.
+2. Provide a display name and an available bot username following BotFather's requirements.
+3. Copy the bot token into the Telegram channel editor in Odella, along with the requested bot details.
+4. Complete the create/activation flow and review Channel Access.
+5. Open the bot using its displayed username/link, start the conversation, and send a low-risk direct request.
+
+Use the bot username returned by Telegram, not an assumed username based on the worker's display name. If activation fails, verify the token and bot identity before creating another bot.
+
+## Discord
+
+1. Open the [Discord Developer Portal](https://discord.com/developers/applications) and create an application.
+2. Review the bot's name and profile. In the bot settings, obtain the bot token.
+3. Follow the Odella setup guide's gateway-intent checklist, including its Message Content, Server Members, and Presence settings. Review privileged-intent requirements with your Discord administrator.
+4. Paste the bot token into Odella and complete channel creation. The setup derives the application identity during activation; do not guess an Application ID.
+5. Use the generated installation link once available to add the bot to the intended server and approve the required permissions.
+6. Test a direct request or allowed message path, then confirm the response and Activity in Odella.
+
+Discord's server/channel permissions still apply. A bot installed on a server may not have permission to read or reply in every channel.
+
+## Troubleshooting
+
+- **Invalid token:** Verify it in the provider dashboard; if rotated, update the Odella secret too.
+- **Discord installation link unavailable:** Complete activation so the application identity can be resolved.
+- **Bot present but not responding:** Check provider intents/permissions, Odella publication, inbound policy, and worker availability.
+- **Message send needs approval:** Review the actual request through [Approvals](/workforce/approvals).
+
+For broader channel policy, see [Communication channels](/workforce/communication-channels).

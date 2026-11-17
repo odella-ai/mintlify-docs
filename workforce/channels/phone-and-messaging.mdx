@@ -1,0 +1,58 @@
+---
+title: "Phone, WhatsApp, and Signal"
+description: "Activate an assigned number for calls, SMS, WhatsApp, or Signal and troubleshoot registration."
+---
+
+# Use your worker's assigned number
+
+Before creating these channels, [reserve and assign an active phone number](/platform/phone-numbers) to the intended AI Employee. Provider registration, channel publication, and inbound access are separate checks.
+
+## Phone: SMS and voice
+
+1. Add **Phone** to the worker's channels.
+2. Select the number actively assigned to that worker.
+3. Enable **SMS**, **voice calls**, or both. At least one must be enabled, and the number must support the selected capabilities.
+4. Review **Channel Access**, voice settings, and any presented outbound-calling terms.
+5. Complete publication. The app verifies routing with the carrier; resolve reported verification errors before retrying.
+6. Test an inbound text or call from an allowed contact.
+
+Outbound calls and messages remain subject to the applicable policy and approval flow. Phone service is not the same as browser [Talk](/workforce/talk); also review account [funding and limits](/platform/billing-and-credits).
+
+## WhatsApp
+
+1. Add **WhatsApp** and select the worker's assigned number.
+2. Review the display name and submit the channel's registration flow.
+3. Check the registration status. Meta display-name approval may be required before messaging activates.
+4. If rejected, read the provider reason and correct the setup using the offered controls.
+5. After approval and activation, test a message from an allowed contact.
+
+A number active for SMS is not proof that WhatsApp registration is complete. Do not promise immediate activation while provider review is pending.
+
+## Signal
+
+1. Add **Signal** using the assigned active number.
+2. Start the registration flow in the setup guide.
+3. Follow the displayed SMS-verification state. If a CAPTCHA is requested, complete the provided challenge and retry through the guide.
+4. Refresh the registration status until active or until a specific error needs attention.
+5. Configure a username where offered, review the contact link, and complete publication when allowed.
+6. Test with an allowed contact using the current contact link or number.
+
+Signal registration can be **unregistered**, **pending verification**, **active**, or **rejected**. A verification request does not mean the channel is ready to use.
+
+## Troubleshooting
+
+| Problem                                  | Check                                                                                 |
+| ---------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Number missing or assigned elsewhere** | Assign an active number to this worker in Account → Phone numbers.                    |
+| **SMS or voice unsupported**             | Change the enabled options or select a suitable number.                               |
+| **Provider approval pending**            | Check registration status before resubmitting or creating another channel.            |
+| **Signal verification rejected**         | Read the reason, complete any CAPTCHA, and use the supported retry controls.          |
+| **Active channel does not respond**      | Check publication, inbound policy, worker state, account eligibility, and Activity.   |
+| **Outbound action is waiting**           | Resolve the current [approval](/workforce/approvals); do not create a duplicate send. |
+
+<Warning>
+  Review local calling, messaging, identity-verification, and consent
+  requirements before enabling a public number. Provider encryption does not
+  eliminate Odella's processing or your responsibility for information sent to
+  the worker.
+</Warning>
