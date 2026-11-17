@@ -79,12 +79,27 @@
             "group": "Capabilities",
             "pages": [
               "workforce/skill-tree",
-              "workforce/communication-channels",
               "workforce/workflows",
               "workforce/templates",
               "workforce/knowledge",
               "workforce/tools",
               "workforce/skills"
+            ]
+          },
+          {
+            "group": "Communication",
+            "pages": [
+              "workforce/communication-channels",
+              "workforce/channels/web-chat",
+              "workforce/channels/email",
+              "workforce/channels/slack",
+              "workforce/channels/teams",
+              "workforce/channels/phone",
+              "workforce/channels/whatsapp",
+              "workforce/channels/telegram",
+              "workforce/channels/discord",
+              "workforce/channels/signal",
+              "workforce/channels/google-meet"
             ]
           },
           {
