@@ -1,0 +1,44 @@
+---
+title: "Google Meet"
+description: "Understand available meeting defaults, OAuth readiness and the limits of dial-in participation."
+---
+
+<Warning>
+  Google Meet is not listed in the normal channel picker metadata in the audited
+  setup. A backend/channel editor existing does not mean self-service setup is
+  available for your account. If Meet is not offered, contact support before
+  relying on it; do not use guessed editor URLs.
+</Warning>
+
+Google Meet meeting access, saved defaults and live attendance are different capabilities. A calendar/Meet toolkit connection is not proof that the employee can join, record or transcribe a meeting.
+
+## Before you start
+
+For an account where Meet is offered, you need permission to manage the employee's channels, an authorized Google connection for the requested meeting operations, and the host's permission. A meeting link alone does not provide Google API authorization.
+
+Live participation is beta and dial-in based, not general browser/video attendance. It additionally needs a supported authenticated phone/voice path, dial-in details, any required PIN/DTMF support, and account entitlement. Ask support to confirm the supported path before depending on attendance.
+
+## Configure available defaults
+
+1. Open the employee's available Google Meet setup.
+2. Enter the **Default Meet URL** for the approved meeting, if needed.
+3. Add **Default Dial-in Number** and **Default Meeting PIN** where appropriate. Keep PINs in the intended setup field, not broadly shared notes.
+4. Save and complete any connection/publication step actually offered in your account.
+5. Ask support or use the available setup/preflight check to verify Google authorization and the chosen participation method. A published record or three filled fields is not sufficient readiness evidence.
+
+The current default-fields guide does not provide a complete Google authorization wizard. If authorization is unavailable, stop and resolve it rather than assuming the saved link grants access.
+
+## Test only in an approved meeting
+
+Confirm date, timezone, host, participants and whether dial-in is available. Ask for a short internal test with a human present. Have the employee disclose that it is an AI Employee, state whether it actually joined, and report any admission/connection failure.
+
+Get the required participant/host consent before recording, transcription or distributing notes. Host admission alone does not authorize those actions. Accessing meeting artifacts depends on Google permissions and on artifacts actually existing; setup cannot create a transcript for a meeting that was never transcribed.
+
+## Troubleshooting and fallback
+
+- **No Meet option:** account/product setup is not exposed; contact support.
+- **Authorization check fails:** complete the approved Google connection with sufficient permissions; do not paste raw Google tokens into chat.
+- **Link saved but join fails:** check live-join availability, authenticated phone transport, dial-in number/PIN, DTMF support and host admission.
+- **No recording/transcript:** verify provider permissions and whether the meeting actually produced that artifact.
+
+Use web chat for a direct conversation with the employee or [Phone](/workforce/channels/phone) for supported telephone calls. Neither automatically enables Google Meet. Live calls and external provider services may incur charges.

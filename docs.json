@@ -91,12 +91,16 @@
             "group": "Communication",
             "pages": [
               "workforce/communication-channels",
+              "workforce/channels/web-chat",
               "workforce/channels/email",
               "workforce/channels/slack",
               "workforce/channels/teams",
-              "workforce/channels/phone-and-messaging",
-              "workforce/channels/telegram-and-discord",
-              "workforce/channels/meetings",
+              "workforce/channels/phone",
+              "workforce/channels/whatsapp",
+              "workforce/channels/telegram",
+              "workforce/channels/discord",
+              "workforce/channels/signal",
+              "workforce/channels/google-meet",
               "workforce/talk"
             ]
           },
@@ -132,15 +136,23 @@
         "groups": [
           {
             "group": "Basics",
-            "pages": ["templates/01_overview"]
+            "pages": [
+              "templates/01_overview"
+            ]
           },
           {
             "group": "Template Types",
-            "pages": ["templates/02_pdf-template", "templates/03_docx-template"]
+            "pages": [
+              "templates/02_pdf-template",
+              "templates/03_docx-template"
+            ]
           },
           {
             "group": "Using Templates",
-            "pages": ["templates/04_using-templates", "templates/05_e-signing"]
+            "pages": [
+              "templates/04_using-templates",
+              "templates/05_e-signing"
+            ]
           }
         ]
       },
@@ -166,7 +178,9 @@
         "groups": [
           {
             "group": "Basics",
-            "pages": ["workflow/overview"]
+            "pages": [
+              "workflow/overview"
+            ]
           },
           {
             "group": "Core Concepts",
@@ -202,7 +216,10 @@
         "groups": [
           {
             "group": "Governance",
-            "pages": ["platform/security", "platform/models"]
+            "pages": [
+              "platform/security",
+              "platform/models"
+            ]
           },
           {
             "group": "Administration",
@@ -233,7 +250,9 @@
         "groups": [
           {
             "group": "Block Documentation",
-            "pages": ["block-reference/all-blocks"]
+            "pages": [
+              "block-reference/all-blocks"
+            ]
           },
           {
             "group": "AI Blocks",
@@ -361,7 +380,9 @@
           },
           {
             "group": "Trigger Blocks",
-            "pages": ["block-reference/triggers/trigger-schedule"]
+            "pages": [
+              "block-reference/triggers/trigger-schedule"
+            ]
           }
         ]
       }
@@ -375,7 +396,10 @@
     }
   },
   "contextual": {
-    "options": ["copy", "view"]
+    "options": [
+      "copy",
+      "view"
+    ]
   },
   "seo": {
     "indexing": "all"
