@@ -9,11 +9,19 @@ Custom integrations let an organization connect a remote **Model Context Protoco
   A custom MCP server is an external service selected by your organization. Only connect a server whose operator, security practices, data handling, and tools your organization has reviewed and approved.
 </Warning>
 
+<Frame caption="Custom integrations in the Integrations catalog. Synthetic Storybook example, not a customer account.">
+  <img src="/images/features/custom-list.png" alt="Integrations catalog with account-owned custom MCP integrations and connection states" />
+</Frame>
+
+<Note>
+  This connects a server **into Odella**, so your AI Employees can use its tools. To use Odella **from Claude, ChatGPT, or a coding assistant**, see the [Odella MCP server](/integrations/mcp-server).
+</Note>
+
 ## Requirements
 
 | Requirement | Details |
 | --- | --- |
-| **Administrator access** | Only account administrators can test, create, refresh, enable, disable, or delete custom integrations. |
+| **Management permission** | You need permission to manage custom MCP integrations to test, create, refresh, enable, disable, or delete them. Account/resource authorization still applies. |
 | **Transport** | The server must provide a streamable HTTP MCP endpoint. |
 | **URL** | Production endpoints must be publicly reachable and use HTTPS on the standard HTTPS port. The URL cannot contain embedded credentials, query parameters, or fragments. Private, local, and internal network destinations are not supported. |
 | **Tool catalog** | The server must return a valid MCP tool catalog within Odella's safety limits. |
@@ -31,7 +39,7 @@ Do not put an API key in the URL. Enter it in the authentication field instead.
 
 <Steps>
   <Step title="Open Integrations">
-    Go to **Integrations** and select **Custom Integration**. The button is available only to account administrators.
+    Go to **Integrations** and select **Custom Integration**. The button requires custom MCP management permission.
   </Step>
   <Step title="Name the integration">
     Enter a name that identifies the service and its purpose. This name appears when administrators and workers browse connected tools.
@@ -52,6 +60,10 @@ Do not put an API key in the URL. Enter it in the authentication field instead.
     Select **Create integration**. A validated test can be used for up to 10 minutes and only by the administrator and account that started it. If it expires or the configuration changes, test the server again.
   </Step>
 </Steps>
+
+<Frame caption="A tested MCP endpoint with discovered tools. Synthetic Storybook example; example.com is not a real connection.">
+  <img src="/images/features/custom-create.png" alt="Create integration dialog showing an MCP URL, authentication result, and discovered tool catalog" />
+</Frame>
 
 ## Authentication options
 
@@ -117,11 +129,11 @@ Catalogs, requests, and concurrent operations are also subject to platform safet
 
 ## Manage a custom integration
 
-Select the settings button beside a custom integration to open its management view.
+Select the settings button beside a custom integration to open its management view. Current settings label the list **Discovered tools**.
 
 | Action | What it does |
 | --- | --- |
-| **Inspect Tool catalog** | Shows the tools currently available in Odella, including their names and descriptions. |
+| **Inspect Discovered tools** | Shows the tools currently available in Odella, including their names and descriptions. |
 | **Refresh** | Retests the authenticated server and updates the catalog when tools have changed. |
 | **Authorize / Reconnect** | Completes OAuth authorization or reconnects an expired connection. |
 | **Disable** | Prevents use without deleting the integration configuration. |
@@ -130,11 +142,24 @@ Select the settings button beside a custom integration to open its management vi
 
 A failed catalog refresh does not replace the last successfully validated catalog. The integration may be marked unavailable or require reconnection until an administrator resolves the failure.
 
+<Frame caption="Reviewing an integration's connection and tool catalog. Synthetic Storybook example.">
+  <img src="/images/features/custom-settings.png" alt="Custom integration settings with connection management and the discovered tool catalog" />
+</Frame>
+
+## Worked example: a read-only knowledge tool
+
+1. Ask your service owner for the approved public HTTPS MCP endpoint and a credential limited to reading the required knowledge.
+2. Create **Company knowledge**, test the endpoint, and review every discovered tool. A name such as `search` alone does not prove the tool is read-only.
+3. Assign the integration only to your research employee under **Tools**. Keep approval requirements in place.
+4. Ask: “Use Company knowledge to find our published returns policy. Do not send customer details or modify records.”
+5. Review the proposed tool call and result. A successful setup test is not evidence that the worker has permission or that the answer is correct.
+6. If a tool is missing, refresh the catalog and check assignment. If access expires, reconnect in integration settings rather than pasting secrets into chat.
+
 ## Connection states
 
 | State | Meaning | Administrator action |
 | --- | --- | --- |
-| **Ready** | Connected and available for assignment and use. | No action required. |
+| **Connected / catalog ready** | Connected and available for assignment and use. | No action required. |
 | **Authorizing** | OAuth authorization has not been completed. | Select **Authorize**. |
 | **Reconnect required** | Authorization is missing, expired, or no longer valid. | Select **Reconnect** and complete consent. |
 | **Disabled** | An administrator has turned the integration off. | Enable it when approved for use. |

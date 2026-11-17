@@ -112,6 +112,7 @@
               "workforce/calendar",
               "workforce/actions",
               "workforce/workspace",
+              "workforce/computer",
               "workforce/activity"
             ]
           },
@@ -127,6 +128,16 @@
               "workforce/settings-billing",
               "workforce/settings-terminate"
             ]
+          }
+        ]
+      },
+      {
+        "tab": "Inbox",
+        "icon": "inbox",
+        "groups": [
+          {
+            "group": "Mail and priorities",
+            "pages": ["inbox/overview", "inbox/daily-brief", "inbox/insights"]
           }
         ]
       },
@@ -167,7 +178,8 @@
               "documents/create-and-configure",
               "documents/manage-documents",
               "documents/settings-and-integrations",
-              "documents/signing-records"
+              "documents/signing-records",
+              "documents/sign-a-document"
             ]
           }
         ]
@@ -218,6 +230,7 @@
             "group": "Governance",
             "pages": [
               "platform/security",
+              "platform/vault",
               "platform/models"
             ]
           },
@@ -232,16 +245,24 @@
               "platform/phone-numbers",
               "platform/profile-and-account"
             ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "icon": "plug",
+        "groups": [
+          {
+            "group": "Connect services to Odella",
+            "pages": ["integrations/overview", "integrations/custom-integrations"]
           },
           {
-            "group": "Extend Odella",
-            "pages": [
-              "integrations/overview",
-              "integrations/custom-integrations",
-              "integrations/mcp-server",
-              "integrations/mcp-recipes",
-              "marketplace/overview"
-            ]
+            "group": "Use Odella from AI clients",
+            "pages": ["integrations/mcp-server", "integrations/mcp-recipes"]
+          },
+          {
+            "group": "Discover",
+            "pages": ["marketplace/overview"]
           }
         ]
       },
