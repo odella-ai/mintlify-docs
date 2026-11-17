@@ -1,0 +1,78 @@
+---
+title: "Billing and credits"
+description: "Buy credits, manage payment methods, configure automatic top-up, and understand monthly spend controls."
+---
+
+# Fund and manage your account
+
+Open **Account → Billing** in the account you intend to fund. Billing access is permission-controlled. A worker's hourly quote is separate from the account's credit balance and payment settings.
+
+## Buy credits
+
+1. Confirm the active personal or organization account.
+2. Open **Billing** and choose the credit purchase action.
+3. Enter an amount within the displayed purchase limits.
+4. Add or select a payment method and complete any required billing details or payment verification.
+5. Wait for confirmation, then check the balance and billing history before retrying a purchase.
+
+If payment appears pending or requires action, complete that flow rather than assuming no payment occurred. Contact support if a charge and balance do not reconcile; do not share card details in a support message.
+
+## Payment methods and automatic top-up
+
+Under **Payment methods**, review cards on file and the default card used for purchases and automatic top-up.
+
+Use **Automatic top-up** to replenish credits when the balance falls below your chosen threshold. Review the threshold, purchase amount, and available controls before enabling it. Keep a valid payment method on file.
+
+A failed top-up can leave paid activity unavailable. Check payment verification, billing details, card status, and the failure message. Updating a card is not the same as confirming that a top-up succeeded.
+
+## Monthly spend limit
+
+A monthly spend limit manages usage spending; it is not the same as a credit-purchase amount or resource-capacity limit.
+
+| Mode           | Behavior                                                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Soft limit** | Warns about spend; spending can continue.                                                                                                        |
+| **Hard limit** | Pauses new paid activity when the limit is reached. Some operations check whether their projected charge would exceed the limit before starting. |
+
+The Billing page shows your current usage against the limit. Read the **Pause new paid activity** choice when configuring the limit. Review warnings and notifications rather than treating a soft limit as a spending cap.
+
+<Warning>
+  Automatic top-up adds funds; it does not remove a hard monthly spend limit. A
+  positive balance alone does not guarantee paid activity is eligible to run.
+</Warning>
+
+If a hard limit is reached, an authorized person can review and adjust or remove the limit as appropriate. Check the account's updated status before retrying work. Do not assume that increasing a limit automatically replays every previously blocked task.
+
+## Usage, invoices, and credit history
+
+- **Billing history** shows invoices and credit grants; use the available invoice controls to view or download records.
+- **Account → Usage** shows daily credit spend, categories, and ledger events.
+- **Account → Limits** shows your tier and resource capacity, not just available funds.
+
+See [Usage and limits](/platform/usage-and-limits) for troubleshooting paid activity and capacity restrictions.
+
+## What can incur charges
+
+Depending on the work and account terms, charges can include worker working time, model and media usage, document processing, voice, and signing sends. Review the current account pricing and displayed estimates; the worker's monthly scheduled-hours estimate is not an all-inclusive maximum bill.
+
+### E-signing
+
+A signing send requires active billing and sufficient funds after human approval and validation. The request is charged per envelope at send time, not once for each signer. Completion and archiving do not create another signing-send charge.
+
+If a send times out after payment, retry the **same request** after checking its status. Creating a new draft can create a separate billable request. Do not infer a refund or a failed payment from an ambiguous send result. See [E-signing](/templates/05_e-signing).
+
+### Voice
+
+Voice eligibility depends on your account tier, available funds, and applicable spend controls. Browser Talk, a reserved phone number, and connected phone-channel usage are different capabilities; verify the displayed account terms before enabling them.
+
+## Common blockers
+
+| Symptom                                     | Check                                                                          |
+| ------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Insufficient credits**                    | Balance, pending payments, and automatic top-up status.                        |
+| **Balance available but paid work paused**  | Hard spend limit, account state, and applicable eligibility message.           |
+| **Cannot create another worker or channel** | Account tier and resource limits.                                              |
+| **Cannot change billing**                   | Your billing-management permissions and active account.                        |
+| **Unexpected usage**                        | Usage categories and ledger events, then the relevant task or worker activity. |
+
+For worker-specific quote fields and after-hours terms, see [Worker billing](/workforce/settings-billing).

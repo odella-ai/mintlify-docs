@@ -12,28 +12,33 @@ description: Answers to common questions about Odella, AI Employees, workflows, 
     Odella is organized around the way teams work:
 
     - **Workforce**: create and manage AI Employees
+    - **Tasks**: assign work, follow progress, and review results
     - **Workflows**: define repeatable processes
     - **Templates**: generate consistent documents
     - **Documents**: store knowledge and reference material
     - **Integrations**: connect workplace tools
+
   </Accordion>
 
   <Accordion title="What is an AI Employee?">
     An AI Employee is a workplace-ready worker with a defined role, responsibilities, tools, knowledge, and work history. It can be assigned tasks, connected to workflows, and managed by your team.
 
     A good AI Employee is not a vague chatbot. It should have a clear job, clear boundaries, and a clear review process.
+
   </Accordion>
 
   <Accordion title="How should I choose my first use case?">
     Start with a task that is repeatable, easy to describe, and easy for a human to review.
 
     Strong first use cases include document intake, recurring reports, template drafting, file checks, research summaries, and administrative routing. Avoid starting with high-risk decisions or unclear processes.
+
   </Accordion>
 
   <Accordion title="Do I need coding experience?">
     No. Odella is built for teams that want to describe work in business terms. You can create workers, connect templates, upload documents, and build workflows visually.
 
     Technical teams can still use advanced workflow blocks and integrations where needed, but coding is not required for most operational use cases.
+
   </Accordion>
 
   <Accordion title="What are workflows used for?">
@@ -46,33 +51,71 @@ description: Answers to common questions about Odella, AI Employees, workflows, 
     - Preparing a report from multiple sources
     - Populating a template from structured data
     - Routing work to the right person or worker
+
   </Accordion>
 
-  <Accordion title="What are templates used for?">
-    Templates help teams produce consistent documents quickly. You can turn existing PDF or DOCX precedents into reusable templates, then populate them with information collected from workflows, documents, or user input.
-  </Accordion>
+<Accordion title="What are templates used for?">
+  Templates help teams produce consistent documents quickly. You can turn
+  existing PDF or DOCX precedents into reusable templates, then populate them
+  with information collected from workflows, documents, or user input.
+</Accordion>
 
-  <Accordion title="What are document stores?">
-    Document stores are places to keep files, research, policies, examples, and other reference material. Workers can use this knowledge when completing tasks, depending on the permissions and configuration you choose.
-  </Accordion>
+<Accordion title="What are document stores?">
+  Document stores are places to keep files, research, policies, examples, and
+  other reference material. Workers can use this knowledge when completing
+  tasks, depending on the permissions and configuration you choose.
+</Accordion>
 
   <Accordion title="What tools can Odella connect to?">
     Odella is designed to connect with the tools your team already uses, including document storage, communication tools, business systems, databases, and APIs.
 
     See [Integrations](/integrations/overview) for setup guidance.
+
   </Accordion>
 
   <Accordion title="Is my data secure?">
     Odella uses layered controls for identity, customer separation, worker execution, integrations, model access, credentials, monitoring, and human approval. Customers are responsible for configuring user access, worker capabilities, connected services, and review requirements appropriately.
 
     See [Security and data protection](/platform/security), the [Trust Center](https://www.odella.ai/legal/trust), [Data Processing Addendum](https://www.odella.ai/legal/dpa), and [Privacy Policy](https://www.odella.ai/legal/privacy).
+
   </Accordion>
 
   <Accordion title="Can humans review work before it is used?">
     Yes. Odella is designed for human-managed work. You can build review steps into workflows, inspect outputs, and improve worker instructions over time.
 
     For business-critical tasks, we recommend keeping a human review step in the workflow.
+
   </Accordion>
+
+<Accordion title="How do I know whether a task is finished?">
+  Open [Tasks](/workforce/tasks) and inspect its details. Queued, running,
+  waiting, and blocked work is not completed. A completed task still needs
+  review of its answer and returned files.
+</Accordion>
+
+<Accordion title="Can I connect Claude Code, Codex, or Cursor?">
+  Yes. Create a personal access token under **Account → Developer** and follow
+  the [MCP server guide](/integrations/mcp-server). Token scopes limit access
+  and cannot override your live Odella permissions.
+</Accordion>
+
+<Accordion title="Can workers send documents for signature?">
+  Workers can prepare signing requests from configured templates. You review the
+  request and approve sending; each invited person provides their own signature.
+  See [E-signing](/templates/05_e-signing).
+</Accordion>
+
+<Accordion title="Why is work blocked when I still have credits?">
+  Check [account limits](/platform/usage-and-limits), capability eligibility, a
+  hard monthly spend limit, worker availability, and permissions. Funding,
+  capacity, and authorization are separate controls.
+</Accordion>
+
+<Accordion title="Where do I manage teams and access?">
+  Use **Account → Organization** for members, teams, and roles. Use the worker's
+  [Governance](/workforce/governance) panel or a store's Access settings for
+  resource-specific sharing.
+</Accordion>
 
   <Accordion title="How do I get support?">
     Contact Odella at [support@odella.ai](mailto:support@odella.ai). You can also join the Odella community from the docs navigation.

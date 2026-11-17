@@ -9,6 +9,14 @@ Each Document Store opens to a document table. The table combines the original f
 
 This is where you upload new files, monitor processing, search across content, review extracted fields, preview documents, and export or download results.
 
+<Note>
+  These upload, search, reprocessing, and deletion instructions apply to
+  standard stores. [Signing-record
+  stores](/documents/settings-and-integrations#signing-record-stores) hold
+  protected signed copies and evidence, with no manual upload, sync, AI
+  indexing, or deletion.
+</Note>
+
 ## Adding Documents
 
 You can add documents in three ways:
@@ -21,11 +29,12 @@ You can add documents in three ways:
     Drop supported files directly into the document table.
   </Card>
   <Card title="Sync folders" icon="cloud-arrow-down">
-    Import documents automatically from connected Google Drive or OneDrive folders.
+    Import documents automatically from connected Google Drive or OneDrive
+    folders.
   </Card>
 </CardGroup>
 
-Supported upload types include common document, Office, spreadsheet, presentation, text, CSV, HTML, Markdown, RTF, and EPUB files. Manual uploads are limited to files up to **25MB**.
+Supported upload types include common document, Office, spreadsheet, presentation, text, CSV, HTML, Markdown, RTF, and EPUB files. The current manual uploader accepts supported files up to **50MB** each. Follow the limit displayed by your account if it differs.
 
 When files are uploaded, they are queued and processed. The table shows processing states while metadata extraction runs.
 
@@ -33,15 +42,15 @@ When files are uploaded, they are queued and processed. The table shows processi
 
 The document table is the main working surface for a store.
 
-| Feature | What it does |
-| --- | --- |
-| **AI-extracted columns** | Shows metadata fields defined by the store schema. |
-| **Search** | Uses hybrid search across metadata and document content. |
-| **Filter** | Filters rows by available columns. |
-| **Sort** | Sorts rows by selected columns. |
-| **Refresh** | Reloads the latest document state. |
-| **Pagination** | Displays documents in pages, with row counts in the footer. |
-| **Row selection** | Selects one or more documents for bulk actions. |
+| Feature                  | What it does                                                |
+| ------------------------ | ----------------------------------------------------------- |
+| **AI-extracted columns** | Shows metadata fields defined by the store schema.          |
+| **Search**               | Uses hybrid search across metadata and document content.    |
+| **Filter**               | Filters rows by available columns.                          |
+| **Sort**                 | Sorts rows by selected columns.                             |
+| **Refresh**              | Reloads the latest document state.                          |
+| **Pagination**           | Displays documents in pages, with row counts in the footer. |
+| **Row selection**        | Selects one or more documents for bulk actions.             |
 
 ## Search and Retrieval
 
@@ -61,11 +70,11 @@ If no results match, clear the search to return to the full table.
 
 Click a document to open it in a document preview. The table remains available, and open previews appear as closable tabs.
 
-| File type | Behaviour |
-| --- | --- |
-| **PDF** | Opens in the built-in PDF viewer with download and print controls. |
-| **DOCX** | Opens in the built-in document viewer. |
-| **Other supported files** | Shows a download prompt if browser preview is unavailable. |
+| File type                  | Behaviour                                                                          |
+| -------------------------- | ---------------------------------------------------------------------------------- |
+| **PDF**                    | Opens in the built-in PDF viewer with download and print controls.                 |
+| **DOCX**                   | Opens in the built-in document viewer.                                             |
+| **Other supported files**  | Shows a download prompt if browser preview is unavailable.                         |
 | **Text-only synced files** | Shows that the original file is not stored if the sync strategy did not retain it. |
 
 Preview tabs are useful when you need to check the source document while comparing extracted metadata in the table.
@@ -74,19 +83,20 @@ Preview tabs are useful when you need to check the source document while compari
 
 Select one or more rows to take action on documents.
 
-| Action | What it does |
-| --- | --- |
-| **Export** | Downloads selected metadata as a CSV. |
+| Action       | What it does                               |
+| ------------ | ------------------------------------------ |
+| **Export**   | Downloads selected metadata as a CSV.      |
 | **Download** | Downloads selected original files in bulk. |
-| **Delete** | Removes selected documents from the store. |
+| **Delete**   | Removes selected documents from the store. |
 
 <Warning>
-Deleting documents removes them from the store. Export metadata or download files before deleting anything you need to preserve.
+  Deleting documents removes them from the store. Export metadata or download
+  files before deleting anything you need to preserve.
 </Warning>
 
 ## Processing Status
 
-Uploaded and synced files are processed before their metadata is fully available. While processing, documents may show queued or in-progress states. Failed documents can be identified in the table and retried by re-uploading or re-syncing after resolving the source issue.
+Uploaded and synced files are processed before their metadata is fully available. While processing, documents may show queued or in-progress states. For a failed document, inspect the reported error and correct the source or provider connection. Use the available reprocessing action where permitted. Before re-uploading or re-syncing, check whether the original document is already present to avoid duplicate records.
 
 ## Best Practices
 

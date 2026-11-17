@@ -111,6 +111,9 @@ App creation alone is not workspace installation. A published channel still depe
 - **No inbound events:** compare generated event/actions/command URLs, signing-secret entry, installation and channel membership. A typo in the signing secret can prevent inbound verification even when app creation succeeded.
 - **Missing member:** check workspace/account identity matching and the employee's access settings in the UI.
 - **Credentials rotated:** update them through secret fields and complete any reconnection steps; retest inbound verification and outbound delivery rather than assuming a saved field proves recovery.
+- **External send asks for approval:** review the proposed action through [Approvals](/workforce/approvals), rather than weakening policy to make a test pass.
+
+For assigning Slack application actions separately from this communication channel, see [Tools](/workforce/tools).
 
 <Warning>
   Never put Client Secret, Signing Secret, bot tokens or app configuration

@@ -1,32 +1,42 @@
-# Mintlify Starter Kit
+# Odella documentation
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+Customer documentation built with Mintlify. Navigation and site settings live in `docs.json`; guides use MDX.
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+## Development
 
-### Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
-
-```
-npm i -g mintlify
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-Run the following command at the root of your documentation (where mint.json is)
+The local preview runs on port 3334. Run commands from this repository's root.
 
+## Validate changes
+
+```bash
+pnpm validate
+pnpm broken-links
+git diff --check
 ```
-mintlify dev
+
+Add new public guides to `docs.json`, use descriptive image alt text, and check internal links. Keep internal audit/release notes under `.agents/`, outside public navigation.
+
+## Product accuracy
+
+Verify instructions against current application routes, UI components, and domain behavior. A checked-in component or Storybook example is not proof that a feature is available in every account, region, or production deployment.
+
+For each feature guide, document prerequisites/permissions, setup, expected results, recovery, and relevant billing/security implications. Use the Odella terminology rules in `.agents/skills/odella-copywriting/SKILL.md`.
+
+## UI illustrations
+
+`images/guides/` contains synthetic Storybook captures. Their page captions identify them as examples, not customer data. Reproduce with an already-running local webapp Storybook and the webapp's Playwright installation:
+
+```bash
+node scripts/capture-guide-screenshots.mjs /absolute/path/to/webapp/apps/app http://127.0.0.1:6106
 ```
 
-### Publishing Changes
+Inspect captures before committing. Never capture actual tokens, credentials, identity-verification documents, or customer account data. Story IDs and release boundaries are recorded in `.agents/audits/coverage-refresh-notes.md`.
 
-Install our Github App to autopropagate changes from youre repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+## Publishing
 
-#### Troubleshooting
-
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `mint.json`
+Submit changes through a pull request to `main`; repository rules block direct pushes. Once approved and merged, the connected Mintlify deployment can publish from the default branch. Verify deployment status in Mintlify rather than assuming a Git push completed publication.
