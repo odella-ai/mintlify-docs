@@ -27,28 +27,34 @@ Start with an approved [PDF template](/templates/02_pdf-template) and open its e
     clear roles, such as Customer or Company representative. Every signing field
     must have a party before publishing.
   </Step>
-  <Step title="Choose where signed copies go">
-    In **E-signing**, select a signing store under **Where signed copies go**,
-    or select **Create a signing store** if you have permission. Review who can
-    access the store before publishing.
-  </Step>
-  <Step title="Select a signing policy">
-    Choose the available **Signing policy** appropriate for your process. Review
-    the displayed signature meaning and record class. A policy is required
-    before publishing.
+  <Step title="Choose whether to save an additional copy">
+    In **E-signing → Save a copy (optional)**, choose **Signing request only**
+    or an available Document Store. Review the store's access before selecting it;
+    store access and processing fees apply. The request remains the signing record
+    even when you do not choose an additional store copy.
   </Step>
   <Step title="Test and publish">
-    Check field placement, required answers, party assignments, the destination
-    store, and policy. You can save an incomplete draft, but resolve missing
-    settings before publishing.
+    Check field placement, required answers, party assignments, and the optional
+    copy destination where selected. You can save an incomplete draft, but resolve missing
+    settings before publishing. Review any signing policy and consent presented
+    for the actual request; the current template copy-settings dialog is not a
+    policy selector.
   </Step>
 </Steps>
 
 <Warning>
-  You cannot change the signing store after publishing. Signed copies and their
-  audit trails cannot be edited or deleted. Check the destination and its access
-  settings carefully.
+  Review the destination's access before saving an additional copy. A signing
+  request's evidence and an optional Document Store copy are different records;
+  do not assume an ordinary store copy has protected signing-store restrictions.
 </Warning>
+
+<Frame caption="Configuring a recipient-owned signature field. Synthetic Storybook example.">
+  <img src="/images/features/signing-fields.png" alt="PDF template signature field settings with the assigned signer and Required control" />
+</Frame>
+
+<Frame caption="Choosing an optional Document Store copy. Synthetic Storybook example.">
+  <img src="/images/features/signing-destination.png" alt="E-signing settings with Save a copy optional and a selected Document Store" />
+</Frame>
 
 ## Understand signing fields
 
@@ -109,13 +115,25 @@ Each recipient receives their own invitation link. They sign in before signing, 
 
 Treat invitation links as private. If a recipient cannot proceed, check that they are using the intended invitation and account rather than forwarding another person's link.
 
+<Frame caption="The recipient's review screen. Synthetic Storybook example, not a real invitation.">
+  <img src="/images/features/signing-recipient.png" alt="Signing recipient reviewing the document and consent before completing assigned fields" />
+</Frame>
+
+For a recipient-focused walkthrough, including recovery and final downloads, see [Sign a document](/documents/sign-a-document).
+
 ## Track requests and completed copies
 
-Open **Documents → Signing requests** to review prepared requests, outstanding signatures, and completed records. Request details show recipients and their progress, including whether they have opened, signed, or declined.
+Open **Documents → E-signing** (the signing requests list) to review prepared requests, outstanding signatures, and completed records. Request details show recipients and their progress, including whether they have opened, signed, or declined.
 
-Once everyone has signed, the signed copy and its audit trail are filed in the template's signing store. Access to those records follows the store's permissions.
+Once everyone has signed and final sealing finishes, check the completed request for its final copy and evidence. If an additional store copy was requested, inspect its reported copy status separately; store access follows that store's permissions. Do not assume an optional copy succeeded merely because signing completed.
 
-Changes to a template's signing policy do not change invitations already sent: those requests keep the policy they were sent with.
+Review the policy attached to the actual request. Later template changes do not rewrite the document, consent, or policy already bound to a sent invitation.
+
+<Frame caption="Tracking requests in Documents. Synthetic Storybook example.">
+  <img src="/images/features/signing-requests.png" alt="Signing requests list showing document titles, recipients, and request status" />
+</Frame>
+
+See [Signing requests and records](/documents/signing-records) for status and protected-record access.
 
 ## Saved signatures and recipient recovery
 
@@ -132,9 +150,9 @@ Recipients can manage their personal saved signature under [Account → Profile]
 
 ## Protected records and archiving
 
-Completed records belong in a dedicated signing store, not an ordinary editable knowledge store. They include the signed PDF, completion certificate, audit trail, and evidence.
+The signing request retains its final signed PDF and available completion evidence. An optional Document Store copy is separate. Existing protected signing-record stores have additional restrictions; do not apply those restrictions to every ordinary copy destination.
 
-Archiving the store stops new requests from using it but does not prevent already-sent requests from completing. Records remain available to authorized users. Restoring the store allows new requests again. Changing access affects past records too; archiving is not deletion or automatic disposal.
+For existing protected signing-record stores, archiving stops new requests from using the store but does not prevent already-sent requests from completing. Records remain available to authorized users. Restoring the store allows new requests again. Changing access affects past records too; archiving is not deletion or automatic disposal.
 
 See [Signing-record stores](/documents/settings-and-integrations#signing-record-stores) for restrictions and access guidance.
 
@@ -148,8 +166,8 @@ A timeout can occur after payment but before sending is confirmed. Check the cur
 
 - **No signing settings appear:** Add a signing field from **Variables**. A normal answer or blank signature widget alone does not configure e-signing.
 - **A signing field has no person assigned:** Select its signing party before publishing, then identify the actual recipient when preparing the request.
-- **No signing store is available:** Create one if permitted, or ask an administrator to share an appropriate signing store. You can still save the draft.
-- **The selected store is unavailable:** Choose an available destination before publishing. For an already published template, ask your administrator to review the destination's status and access.
+- **No copy store is available:** Choose **Signing request only**. An additional Document Store copy is optional.
+- **The selected store is unavailable:** Choose another available store or **Signing request only**. A store-load error does not require you to invent a destination.
 - **The request needs review again:** Reopen the current draft and check its latest document, recipients, and fields before approving.
 
 Apply your organization's legal, compliance, and recordkeeping requirements when choosing templates and signing policies. E-signing does not establish whether the document itself is appropriate for your transaction.
