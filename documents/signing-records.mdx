@@ -5,9 +5,15 @@ description: "Find signing requests, review completion states, and manage access
 
 # Follow documents through signing
 
-Use **Documents → Signing requests** to follow prepared signing requests, outstanding signatures, and completed records you are authorized to view.
+Use **Documents → E-signing** (the signing requests list) to follow prepared signing requests, outstanding signatures, and completed records you are authorized to view.
 
 To configure the source template and send a request, see [E-signing](/templates/05_e-signing). Generating or downloading a draft does not itself invite recipients.
+
+<Frame caption="Signing requests and status. Synthetic Storybook example, not live documents.">
+  <img src="/images/features/signing-requests.png" alt="Documents signing requests list with recipient and status information" />
+</Frame>
+
+Recipients can follow [Sign a document](/documents/sign-a-document) for their invitation and final-copy walkthrough.
 
 ## Review request status
 
@@ -22,13 +28,19 @@ A recipient finishing their part does not mean everyone has signed. Final sealin
 
 ## Find completed records
 
-Completed copies are filed in the signing store chosen by the published template. Open that store with the appropriate permissions to inspect available signed PDFs, completion certificates, audit trails, and evidence. Download the available completed copy when you need to retain or use it outside Odella.
+Open the completed signing request to inspect its available final signed PDF and completion evidence. Wait for final sealing before relying on a download.
+
+**E-signing → Save a copy (optional)** can also request an additional Document Store copy. **Signing request only** does not request that copy. Check the request's reported copy status separately, then open the selected store with appropriate permissions. A completed signature does not by itself prove the optional copy was saved.
+
+Download the available completed copy when you need to retain or use it outside Odella.
 
 Treat these records as sensitive: they can contain verified recipient email addresses, signatures, consent, and timestamps.
 
 ## Protected records are not knowledge-store uploads
 
-A signing-record store does not support normal file uploads, cloud-folder imports, AI indexing, metadata reprocessing, replacement, or deletion of protected records. Do not use ordinary knowledge-store bulk actions to manage signing evidence.
+An existing **protected signing-record store** does not support normal file uploads, cloud-folder imports, AI indexing, metadata reprocessing, replacement, or deletion of protected records. Do not use ordinary knowledge-store bulk actions to manage signing evidence.
+
+These restrictions do not automatically apply to an ordinary Document Store selected for an optional copy. Check the actual store kind before assuming records cannot be changed or deleted.
 
 Use **Settings → Storage** to review restrictions and **Settings → Access** in organization accounts to review the audience.
 
