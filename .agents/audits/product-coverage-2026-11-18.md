@@ -42,9 +42,11 @@ The original docs checkout has unrelated local edits; none were copied or overwr
 
 ## Screenshot policy
 
+**Visual QA follow-up:** Jordan correctly rejected the initial Computer image and blank integration-logo fixture. The first technical pass was not sufficient visual review. All 15 images were subsequently reviewed individually, with corrections and explicit fixture provenance recorded in `screenshot-visual-review-2026-11-18.md`. Use the current files, not screenshots from the original review ZIP.
+
 Use locally rendered synthetic Storybook fixtures of actual UI components. All new captions explicitly identify example data. Never attach to a customer browser, capture tokens/passwords, submit real approvals, send invitations, or connect a real provider for documentation. The capture script blocks external traffic; optional external image/font requests are aborted. Source stories and viewport are recorded in `images/features/provenance.json`.
 
-These are real UI renders with synthetic data—not drawn mockups, live customer evidence, or external-client screenshots. Third-party Claude/ChatGPT controls are described from the app's current connection instructions; their UI was not independently captured or certified.
+These are real Odella UI renders with synthetic data—not redrawn product mockups, live customer evidence, or external-client screenshots. The revised Computer frame contains a fictional external portal rendered from checked-in HTML; only that synthetic page image and documented test-data/routing mocks are substituted. Odella's Computer UI remains unchanged. Third-party Claude/ChatGPT controls are described from the app's current connection instructions; their UI was not independently captured or certified.
 
 ## Remaining work / deliberate limits
 
