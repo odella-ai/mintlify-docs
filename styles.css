@@ -419,3 +419,176 @@ a[href="https://app.odella.ai"]:active {
   outline: 2px solid var(--odella-text-primary);
   outline-offset: 4px;
 }
+
+/* Channel artwork uses actual, unmodified logo images—not icon-font substitutes.
+   White logo plates preserve brand colors/clear space in both color schemes. */
+#content .channel-hero {
+  --channel-accent: #72747b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 224px;
+  margin: 0 0 28px;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid var(--odella-border);
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at 80% 30%, color-mix(in srgb, var(--channel-accent) 10%, transparent), transparent 70%),
+    var(--odella-surface-secondary);
+}
+#content .channel-hero[data-channel="email"] { --channel-accent: #337bef; }
+#content .channel-hero[data-channel="web-chat"] { --channel-accent: #16a394; }
+#content .channel-hero[data-channel="phone"],
+#content .channel-hero[data-channel="phone-and-messaging"] { --channel-accent: #8860e0; }
+#content .channel-hero[data-channel="slack"] { --channel-accent: #36c5f0; }
+#content .channel-hero[data-channel="teams"] { --channel-accent: #7b83eb; }
+#content .channel-hero[data-channel="whatsapp"] { --channel-accent: #25d366; }
+#content .channel-hero[data-channel="signal"] { --channel-accent: #3a76f0; }
+#content .channel-hero[data-channel="telegram"] { --channel-accent: #2aabee; }
+#content .channel-hero[data-channel="discord"] { --channel-accent: #5865f2; }
+#content .channel-hero[data-channel="google-meet"] { --channel-accent: #34a853; }
+#content .channel-hero-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+}
+#content .channel-hero .channel-logo-plate {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 144px;
+  height: 144px;
+  border: 1px solid #e8e8e8;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 4%);
+}
+#content .channel-hero img {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0;
+  border-radius: 0;
+  object-fit: contain;
+  filter: none;
+}
+#content .channel-hero .channel-logo-plate-odella {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+}
+#content .channel-logo-plate-odella img {
+  width: 64px;
+  height: 64px;
+}
+#content .channel-hero-connector {
+  display: block;
+  flex: 0 1 104px;
+  min-width: 24px;
+  height: 1px;
+  background: repeating-linear-gradient(to right, var(--odella-text-tertiary) 0 3px, transparent 3px 9px);
+  opacity: 0.45;
+}
+#content .channel-hero-caption {
+  margin: 0;
+  color: var(--odella-text-tertiary);
+  font-size: 12px;
+  line-height: 1.6;
+  font-style: normal;
+}
+#content .channel-hero-caption > span { margin: 0 10px; }
+#content .channel-hero-vendors { display: flex; align-items: center; gap: 12px; }
+#content .channel-hero-multiple .channel-logo-plate { width: 104px; height: 104px; }
+#content .channel-hero-multiple img { width: 64px; height: 64px; }
+#content .channel-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+#content a.channel-logo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  min-height: 172px;
+  padding: 20px;
+  border: 1px solid var(--odella-border);
+  border-radius: 12px;
+  background: var(--odella-surface);
+  color: var(--odella-text-primary);
+  text-decoration: none;
+  box-shadow: none;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+#content a.channel-logo-card:hover {
+  border-color: var(--odella-text-tertiary);
+  background: var(--odella-surface-hover);
+}
+#content a.channel-logo-card:focus-visible {
+  outline: 2px solid var(--odella-text-primary);
+  outline-offset: 4px;
+}
+#content .channel-card-heading {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+#content .channel-card-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 10px;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  background: #fff;
+}
+#content .channel-card-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  object-fit: contain;
+  filter: none;
+}
+#content .channel-card-title { font-size: 17px; font-weight: 500; line-height: 1.4; letter-spacing: -0.025em; }
+#content .channel-card-arrow { color: var(--odella-text-tertiary); font-size: 18px; font-weight: 400; }
+#content .channel-card-description { color: var(--odella-text-tertiary); font-size: 13px; font-weight: 400; line-height: 1.7; }
+#content :is(.channel-hero, .channel-logo-card) [data-as="p"] { display: contents; }
+#content .channel-directory-compact .channel-logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+#content .channel-directory-compact .channel-logo-card { min-height: 72px; padding: 12px; }
+#content .channel-directory-compact .channel-card-heading { grid-template-columns: 32px minmax(0, 1fr); gap: 10px; }
+#content .channel-directory-compact .channel-card-logo { width: 32px; height: 32px; padding: 5px; border-radius: 7px; }
+#content .channel-directory-compact .channel-card-title { font-size: 13px; }
+#content .channel-directory-compact :is(.channel-card-description, .channel-card-arrow) { display: none; }
+@media (max-width: 640px) {
+  #content .channel-hero { min-height: 188px; padding: 20px 16px; }
+  #content .channel-hero-art { gap: 12px; }
+  #content .channel-hero .channel-logo-plate { width: 112px; height: 112px; border-radius: 20px; }
+  #content .channel-hero img { width: 72px; height: 72px; }
+  #content .channel-hero .channel-logo-plate-odella { width: 80px; height: 80px; border-radius: 16px; }
+  #content .channel-logo-plate-odella img { width: 52px; height: 52px; }
+  #content .channel-hero-connector { flex-basis: 48px; }
+  #content .channel-hero-multiple .channel-logo-plate { width: 72px; height: 72px; border-radius: 16px; }
+  #content .channel-hero-multiple img { width: 44px; height: 44px; }
+  #content .channel-hero-multiple .channel-hero-connector { flex-basis: 32px; }
+  #content .channel-hero-vendors { gap: 8px; }
+  #content .channel-logo-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  #content a.channel-logo-card { min-height: 0; padding: 18px; }
+  #content .channel-directory-compact .channel-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #content .channel-directory-compact .channel-logo-card { padding: 12px; min-height: 72px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #content a.channel-logo-card { transition: none; }
+}
