@@ -52,11 +52,13 @@
             "root": "guides/assign-and-review-work",
             "expanded": false,
             "pages": [
-              "workforce/tasks",
+              "workforce/chat",
+              "workforce/contact-an-employee",
               "workforce/talk",
               "workforce/approvals",
-              "workforce/workspace",
               "workforce/computer",
+              "workforce/tasks",
+              "workforce/workspace",
               "workforce/activity",
               {
                 "group": "Review inbox updates",

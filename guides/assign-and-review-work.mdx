@@ -1,13 +1,19 @@
 ---
 title: "Assign and review work"
-description: "Turn a clear request into a task, follow progress, and inspect the result before using it."
+description: "Start a conversation with an AI Employee, follow the work, and review actions and results."
 ---
 
 <div className="docs-guide-start">
-  <span className="docs-guide-label">From a request to a reviewed result</span>
-  <p>Have a worker ready? Give it a clear task, follow its progress, and check what it returns.</p>
-  <a className="docs-guide-action" href="/workforce/tasks">Create and track a task →</a>
+  <span className="docs-guide-label">From a conversation to a reviewed result</span>
+  <p>Have a worker ready? Start a chat, explain the outcome you need, and work through questions and results together. You do not need to begin with a task board.</p>
+  <a className="docs-guide-action" href="/workforce/chat">Start a conversation →</a>
 </div>
+
+## Start with a conversation
+
+Open **Workforce**, select your AI Employee, and choose **Chat** where available. Write your request, attach relevant sample material, and wait for uploads to finish before sending. [Chat with an AI Employee](/workforce/chat) covers the full flow.
+
+Prefer email or workplace messaging? Use the worker's published contact details. [Contact an employee through channels](/workforce/contact-an-employee) explains everyday use; the separate [setup directory](/workforce/communication-channels) is for connecting a channel. You can also use [Talk](/workforce/talk) for voice where available in browser chat.
 
 ## Make the request easy to check
 
@@ -17,27 +23,35 @@ Name the **outcome**, **source material**, **constraints**, and **review criteri
 
 Instructions guide behavior; configure the worker's actual [access and action policies](/guides/access-and-security) separately.
 
-## Follow the task through review
+## Work through questions and approvals
 
-1. Open **Tasks → New task**, choose the worker, and describe the outcome. [Create and track a task](/workforce/tasks).
-2. Follow progress. If the worker asks a question, respond with the missing information rather than starting duplicate work.
-3. Inspect any requested action before approving it. Confirm the application, recipients, files, and proposed changes. [Review approvals](/workforce/approvals).
-4. Open the returned answer and files. Check accuracy, missing information, and whether the deliverable meets your request.
-5. Give feedback and update durable instructions if the same issue is likely to recur.
+1. Follow the reply and any work updates. Answer clarification questions in the relevant conversation rather than starting duplicate work.
+2. When the worker requests approval, inspect the application, recipients, files, and proposed changes before deciding. Use the request's controls, not just a typed “yes.”
+3. On **Signal**, react to the **approval message** with **👍 to approve once** or **👎 to deny** when offered. Other channels use their own buttons or review links. [Review approvals](/workforce/approvals#approvals-in-each-channel) explains the differences and authorization requirements.
+4. If the worker needs a password, MFA, or a CAPTCHA, open its browser handoff and choose **Take over** where offered. Complete the necessary step yourself, then select **I'm done**. Do not put secrets in chat. [Computer and browser handoff](/workforce/computer) also explains saved logins and optional Vault saving.
 
-A completed status is not a substitute for checking the result. Approval of an action is also different from acceptance of the final deliverable.
+An approval permits the proposed action; it is not acceptance of the final deliverable. Completing a browser handoff is not blanket authorization for later actions.
+
+## Review the result
+
+Open the returned answer and files. Check accuracy, sources, missing information, and whether the deliverable meets your request. Give corrections in the conversation; update durable instructions if the same issue is likely to recur.
+
+Some requests lead to delegated tasks. Use [Tasks](/workforce/tasks) to inspect their status, blockers, and deliverables, or to create a separate tracked assignment when that suits the work. A completed status is not a substitute for checking the result.
 
 ## Choose how you want to work
 
-| I want to…                                           | Open                                                       |
-| ---------------------------------------------------- | ---------------------------------------------------------- |
-| Delegate a task and follow its status                | [Tasks](/workforce/tasks)                                  |
-| Talk through a request or review a returned document | [Talk and document review](/workforce/talk)                |
-| Send work through email or workplace messaging       | [Connect channels](/workforce/communication-channels)      |
-| Find drafts, uploads, or working files               | [Workspace](/workforce/workspace)                          |
-| Investigate recent work and service events           | [Activity Log](/workforce/activity)                        |
-| Have the same work happen again                      | [Automate recurring work](/guides/automate-recurring-work) |
+| I want to… | Open |
+| --- | --- |
+| Ask a question or delegate work in a conversation | [Chat with an AI Employee](/workforce/chat) |
+| Contact a worker through email, messaging, or phone | [Use communication channels](/workforce/contact-an-employee) |
+| Speak in browser chat or review a returned document | [Talk and document review](/workforce/talk) |
+| Review a proposed action | [Approvals](/workforce/approvals) |
+| Sign in, complete a CAPTCHA, or use a saved password | [Computer and browser handoff](/workforce/computer) |
+| Create a tracked assignment or inspect task status | [Tasks](/workforce/tasks) |
+| Find drafts, uploads, or working files | [Workspace](/workforce/workspace) |
+| Investigate recent work and service events | [Activity Log](/workforce/activity) |
+| Have the same work happen again | [Automate recurring work](/guides/automate-recurring-work) |
 
 ## When work is stuck
 
-Check the task's question or error first. Then check the worker's availability, required connection, access, approvals, and [account limits](/platform/usage-and-limits). Retrying blindly can duplicate work or external effects.
+Read the latest question, approval, handoff, or error first. Then check the worker's availability, required connection, access, and [account limits](/platform/usage-and-limits). Retrying blindly can duplicate work or external effects.

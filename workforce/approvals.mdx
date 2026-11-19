@@ -68,6 +68,41 @@ For a connected-tool action, inspect the target service and proposed change as w
   <img src="/images/features/setup/approval-tool.png" alt="Connected-tool approval displaying the proposed Notion operation and target details with the available decision controls" />
 </Frame>
 
+## Approvals in each channel
+
+The decision concerns the proposed action, not the whole conversation. Controls depend on the channel, request type, and decisions you are allowed to make.
+
+| Where the request arrives | How to respond |
+| --- | --- |
+| **Odella chat** | Open the approval card, inspect the proposal, and use its decision buttons. |
+| **Signal** | React to the approval message with **👍 to approve once** or **👎 to deny**, when offered. Use its signed-in review link for fuller details or future-permission changes. |
+| **Slack, Microsoft Teams, Telegram, Discord** | Use the approval card's buttons or its review link. Only the decisions offered for that request apply. |
+| **WhatsApp** | Use **Approve once** or **Deny** when interactive buttons are offered, or open the review link. Emoji reactions are not an approval control here. |
+| **Email** | Follow the request's decision or review links. Browser handoffs and Vault requests open signed-in Odella rather than being completed in an email reply. |
+| **SMS** | Open the review link and inspect the request on the review page. Do not approve by sending a text reply. |
+
+### Signal reactions
+
+1. Find the current **approval message**, not the original assignment or a normal progress update.
+2. Read the proposed action and open **Review (sign in)** if the message does not show enough detail.
+3. Add **👍** to that message to approve **once**, or **👎** to deny, only when the prompt offers that decision. Skin-tone variants are supported.
+4. Check the outcome and subsequent work. If it remains pending, use the signed-in review page rather than repeatedly reacting or creating duplicate work.
+
+Your Signal identity must be linked to an authorized Odella approver. Being in the group, knowing the worker's number, or being able to message it does not grant approval authority. Expired or resolved requests cannot be made current again by reacting.
+
+A thumbs-up sent as a new message is not the approval reaction. A worker's thumbs-up status reaction is not your approval either. Signal reactions never mean **Always allow**; review future permissions separately in signed-in Odella.
+
+<Warning>
+  Treat approval links as private. Some email, WhatsApp, and SMS links can allow
+  a one-time decision without signing in. Do not forward them or paste them
+  into shared conversations. Signing, browser handoffs, Vault requests, and
+  future-permission changes have additional signed-in review requirements.
+</Warning>
+
+### Requests that need you in Odella
+
+For a **browser handoff**, sign in, open the browser, complete the necessary step, then choose **I'm done** or **Skip**. For a **Vault request**, use **Save in Vault** or **I don't have it** where offered. A plain approval or a secret sent in chat is not a substitute for completing those steps. See [Computer and browser handoff](/workforce/computer) and [Vault](/platform/vault).
+
 ## Saved exceptions
 
 Saved recipient and tool rules appear in the worker's **Security & Privacy** settings. An authorized person can remove an exception to return future actions to the default policy. A saved rule is not a grant of access to an application or resource the worker cannot otherwise use.

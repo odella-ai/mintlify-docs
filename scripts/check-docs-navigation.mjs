@@ -101,6 +101,19 @@ for (const group of config.navigation.groups[1].pages) {
     `Guide should be collapsed until needed: ${group.group}`,
   );
 }
+const assignAndReview = config.navigation.groups[1].pages.find(
+  (group) => group.root === "guides/assign-and-review-work",
+);
+assert.deepEqual(
+  assignAndReview?.pages.slice(0, 2),
+  ["workforce/chat", "workforce/contact-an-employee"],
+  "Introduce conversations and everyday channel use before task tracking",
+);
+assert(
+  assignAndReview.pages.indexOf("workforce/tasks") >
+    assignAndReview.pages.indexOf("workforce/talk"),
+  "Voice conversations should precede the task board",
+);
 const retired = [
   "workflow-tutorial/01-simple-flow",
   "workflow-tutorial/02-dynamic-prompting",
