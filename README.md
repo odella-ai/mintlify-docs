@@ -98,6 +98,22 @@ The welcome page streams the landing page's actual narrated demo from `https://w
 
 `landing-demo.js` progressively adds the landing-style play overlay. It keeps `preload="none"`, does not autoplay or mute the narration, and enables native controls on play. Without JavaScript, native playback controls remain available. Keep the video and its poster together when updating the demo; never substitute a recording merely because it shows the same product.
 
+## Channel logos and illustrations
+
+Channel setup pages use real, self-hosted SVG vendor marks, not icon-font approximations or newly drawn logos. Slack, Teams, WhatsApp, Signal, Telegram, and Discord match the web app's assets byte-for-byte; Google Meet comes from Google's own static asset host. `images/channels/logos/provenance.json` records the exact sources and hashes. Keep original colors and proportions, with white clear-space plates in both themes; never invert or recolor the vendor marks.
+
+Web chat, employee email, and Phone/SMS each have a distinct original SVG channel mark: a teal browser/conversation, blue envelope, and violet handset/message. Reuse these images in both heroes and directory cards; do not substitute the same Odella favicon for all three. They identify Odella-native channels, not Gmail/Outlook or a particular telephony vendor. Logos identify setup guides, not availability, activation, or vendor endorsement. Keep account-availability warnings visible, especially for WhatsApp and Google Meet.
+
+Shared artwork sources live in `snippets/channel-heroes/`; the full and compact channel directories share `snippets/channel-setup-cards.mdx`. `scripts/sync-channel-branding.mjs` generates static inline markup on 15 pages, including the three hidden setup references. This preserves no-JavaScript navigation and avoids unsupported raw-figure rendering. The generated images use `noZoom` so clicking a logo card opens its guide, not an image lightbox. Edit the shared sources, not the generated blocks.
+
+```bash
+node scripts/sync-channel-branding.mjs --write
+node scripts/check-channel-branding.mjs ../webapp/apps/app
+DOCS_BROWSER_CHANNEL=chrome node scripts/check-channel-branding-layout.mjs ../webapp/apps/app
+```
+
+The browser check covers all 15 pages at desktop, tablet, and mobile widths in both themes, plus no-JavaScript rendering and logo-link/keyboard behavior. It saves desktop/mobile screenshots under `/tmp/odella-channel-branding`, outside the published repository. Existing provider setup screenshots remain in place.
+
 ## UI illustrations
 
 `images/guides/` contains synthetic Storybook captures and the explicitly labeled `image-block-example.svg` illustration. The latter replaces an old Rivet-branded example, not the actual block screenshots. Page captions identify examples rather than customer data or fabricated live UI. Reproduce with an already-running local webapp Storybook and the webapp's Playwright installation:

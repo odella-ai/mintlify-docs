@@ -1,0 +1,18 @@
+{
+  "usage": "Self-hosted vendor marks for channel illustrations and setup links. Preserve original colors and proportions; no filters or redraws. Vendor marks identify products, not availability or endorsement.",
+  "nativeChannels": "Original channel artwork: blue envelope for employee email, teal browser/conversation for web chat, violet handset/message for Phone/SMS. These are not vendor trademarks or Gmail/Outlook integrations.",
+  "channelMarks": [
+    { "name": "Employee email", "file": "email.svg", "source": "Original Odella documentation channel artwork", "sha256": "ff7b16aa3a02383630181f5ecf0458fa3ce06211040bd1ef76fe2d388171013b" },
+    { "name": "Web chat", "file": "web-chat.svg", "source": "Original Odella documentation channel artwork", "sha256": "388de1b731307612166768662c66b5ea5e56879f0652542fb5622a0eb89246e7" },
+    { "name": "Phone and SMS", "file": "phone.svg", "source": "Original Odella documentation channel artwork", "sha256": "f2e7058a5c73cbe927f04c5c708eff7650a1aa9259faae334c7ee3ba6db2794c" }
+  ],
+  "logos": [
+    { "name": "Slack", "file": "slack.svg", "appSource": "public/images/channel_logos/slack.svg", "sha256": "322a8feca7856681bd81e278a471ab1d1646a0286083012d94ca10509a3e3705" },
+    { "name": "Microsoft Teams", "file": "microsoft-teams.svg", "appSource": "public/images/channel_logos/microsoft-teams.svg", "sha256": "a55e2a50c985014e6724afe31ce11b810caaf63e097cbf072878ab9c64fb8302" },
+    { "name": "WhatsApp", "file": "whatsapp.svg", "appSource": "public/images/channel_logos/whatsapp.svg", "sha256": "3e197e0e1f3e679ee09823c75e1c7bad3a19da9bd1ba01df395268b9ae91816f" },
+    { "name": "Signal", "file": "signal.svg", "appSource": "public/images/channel_logos/signal.svg", "sha256": "930ee3ad4676c6bcbb9ddf69571a057fb57d9c0a8810272065d9086fcaf75983" },
+    { "name": "Telegram", "file": "telegram.svg", "appSource": "public/images/channel_logos/telegram.svg", "sha256": "a7af2f7f747ab2e562a7c4966a4e24064f273161a0c778bfa411dda6dd53946e" },
+    { "name": "Discord", "file": "discord.svg", "appSource": "public/images/vendor_logos/discord-mark-blue.svg", "sha256": "072dcd92e0f20798218375db4c0c76988471e2b0496ac5d5fa76d5fa56e46efe" },
+    { "name": "Google Meet", "file": "google-meet.svg", "sourceUrl": "https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/192px.svg", "sha256": "080d69615147659824bbb8be8b442cc0f81551a58115f06afdcfe830047cc2f7" }
+  ]
+}
