@@ -1,0 +1,75 @@
+---
+title: "How access control works"
+description: "Understand capabilities, team roles, resource access lists, and the difference between using an AI Employee and authorizing its work."
+---
+
+Odella separates **who may use an AI Employee**, **who may change its settings**, and **what the worker may do**. Configure all three; instructions such as “only help Finance” are not a substitute for access controls.
+
+## The access-control vocabulary
+
+| Term                  | Meaning                                                                       | Example                                                |
+| --------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------ |
+| **Capability**        | Permission to perform a particular operation.                                 | View employee, Chat with employee, or Request work.    |
+| **Role**              | A named set of capabilities assigned to people.                               | Support colleague.                                     |
+| **Organization role** | A role whose assignment applies across the organization rather than one team. | An organization administration responsibility.         |
+| **Team role**         | A role held by a person within a particular team.                             | Support colleague in Customer operations, not Finance. |
+| **Primary access**    | The resource's main audience, optionally requiring a qualifying role.         | Customer operations members with Support colleague.    |
+| **Additional access** | Explicit resource-level grants beyond the primary audience, where offered.    | A named reviewer who needs access to a Document Store. |
+| **Editing area**      | A category of worker settings that an authorized editor may change.           | Working instructions, but not Sending & approvals.     |
+
+A resource's audience and explicit grants form its **access control list (ACL)**. Roles describe permitted operations; resource rules determine where those permissions apply. Access is evaluated for the requested operation, not merely whether a button is visible.
+
+<Note>
+  An AI Employee's job title or responsibilities are not an organization
+  permission role. Assign permission roles to people, then select the
+  appropriate audience and role requirement on the worker.
+</Note>
+
+## Example: a team-limited worker
+
+Suppose the primary access rule is **Customer operations** with **Support colleague**:
+
+- A Customer operations member holding that role in that team can use the worker according to the role's capabilities.
+- A member of another team does not qualify merely because they hold a role with the same name.
+- Team membership alone does not satisfy a specific required-role rule.
+- Viewing, chatting, requesting work, and viewing activity are separate capabilities. Do not grant activity access simply because someone needs to chat.
+- The accountable manager and people with broad employee-administration access retain applicable access. A team restriction is not a way to exclude those administrators.
+
+Review other grants and higher-privilege roles before claiming that a worker is accessible “only” to a particular group.
+
+## Access does not imply editing
+
+In **Settings → Governance**, choose who may edit and which areas they may change. A colleague might be allowed to update **Working instructions** without being allowed to change **Sending & approvals** or **Who can contact the Employee**.
+
+Worker-specific configuration permissions are managed through Governance, not by adding those configuration capabilities to a general organization role. An editor must also have access to the worker; selecting someone as an editor does not itself add them to its audience.
+
+The manager relationship is separate again. Read [Manager responsibilities](/workforce/manager-responsibilities) before assigning or transferring it.
+
+## Permission to ask is not permission to act
+
+A person authorized to request work has not thereby authorized every external action needed to finish it.
+
+For example, a colleague can ask a worker to update a customer record, but the work still depends on:
+
+1. The worker having the necessary connected tool and resource assignments.
+2. The applicable user or account connection being available.
+3. The provider account having permission to update that record.
+4. The connected-tool policy allowing the operation or receiving the required approval.
+5. Any separate outbound-recipient policy and workflow review steps.
+
+An approval does not supply missing resource access or a missing provider connection. A connection does not override worker governance.
+
+See [Credentials and user scope](/platform/credentials-and-scope) and [Tool and browser boundaries](/platform/tool-and-browser-security).
+
+## Troubleshoot an unexpected result
+
+| Symptom                                       | Check                                                                                                |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| A colleague cannot find a worker              | Active organization, membership, primary team, required role, and View employee capability.          |
+| They can view but cannot chat or request work | Chat with employee and Request work capabilities in the applicable scope.                            |
+| An editor cannot change settings              | Worker access, selected editing policy, permitted areas, and any release-managed restrictions.       |
+| Someone outside the team still has access     | Manager assignment, broad administration capabilities, and explicit resource grants where available. |
+| A connected action fails                      | Worker tool assignment, connection owner, provider scopes, policy decision, and approval status.     |
+| A role is missing from the audience selector  | Role type must match the audience scope and include View employee.                                   |
+
+Test with ordinary members, not only administrators. For a complete setup and a positive/negative test matrix, follow [Create a team-restricted AI Employee](/platform/secure-employee-tutorial).

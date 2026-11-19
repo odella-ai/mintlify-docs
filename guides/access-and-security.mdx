@@ -1,0 +1,63 @@
+---
+title: "Set access and safeguards"
+description: "Decide who can use a worker, who can configure it, and which supported actions it may perform."
+---
+
+<div className="docs-guide-start">
+  <span className="docs-guide-label">Set boundaries before expanding responsibility</span>
+  <p>Start here before inviting colleagues, connecting real systems, or preparing a worker for production use.</p>
+  <a className="docs-guide-action" href="/platform/secure-employee-tutorial">Follow the team-access walkthrough →</a>
+</div>
+
+## Make three separate decisions
+
+1. **Who can use the worker?** Use teams, roles, and the worker's primary audience. [Access control](/platform/access-control).
+2. **Who can change its setup?** Assign a manager and selected editing areas in [Governance](/workforce/governance).
+3. **What may it do?** Assign only necessary resources and configure [tool, messaging, and approval policies](/workforce/settings-security-privacy).
+
+Instructions alone do not enforce these restrictions. An approval also does not supply a missing resource permission or provider connection.
+
+## Follow a worked example
+
+<CardGroup cols={2}>
+  <Card
+    title="Restrict a worker to a team"
+    href="/platform/secure-employee-tutorial"
+  >
+    Create a team and role, assign members, limit editors, and test allowed and
+    denied access.
+  </Card>
+  <Card
+    title="Set up a read-only Finance worker"
+    href="/platform/finance-read-only-tutorial"
+  >
+    Combine provider-side read access, blocked connected writes, and disabled
+    outbound messaging.
+  </Card>
+  <Card
+    title="Hand over a worker safely"
+    href="/platform/manager-handover-tutorial"
+  >
+    Transfer accountability, review unattended work, and remove obsolete access.
+  </Card>
+  <Card
+    title="Review readiness for production"
+    href="/platform/security-review"
+  >
+    Record your settings, acceptance tests, exceptions, and evidence still
+    needed.
+  </Card>
+</CardGroup>
+
+## Understand the boundaries before relying on them
+
+| Question                                                      | Read                                                                                                    |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| How is Odella secured, and what does my team manage?          | [Security and data protection](/platform/security)                                                      |
+| How do capabilities, roles, and resource access fit together? | [Access control](/platform/access-control) and [Roles and permissions](/platform/roles-and-permissions) |
+| What do deterministic policies and sandbox isolation cover?   | [Tool and browser boundaries](/platform/tool-and-browser-security)                                      |
+| Whose signed-in website session is used?                      | [Browser security](/platform/browser-security)                                                          |
+| Which user or account connection is selected?                 | [Credentials and user scope](/platform/credentials-and-scope)                                           |
+| Who is accountable for unattended work?                       | [Manager responsibilities](/workforce/manager-responsibilities)                                         |
+
+Connected-tool approvals are not a universal browser-action policy. Confirm deployment-specific guarantees through Odella's security review rather than assuming every execution path has the same controls.

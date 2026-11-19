@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340" role="img" aria-labelledby="title description">
+  <title id="title">Pass a selected image through an Image block</title>
+  <desc id="description">Select office.png in the block settings. The Image block returns the selected image through its image output. This is an illustration, not a screenshot.</desc>
+  <rect width="1000" height="340" rx="16" fill="#fbfbfb"/>
+  <g font-family="Inter,Arial,sans-serif" fill="#1d1d1d">
+    <text x="44" y="48" font-size="12" fill="#656565" letter-spacing="1.4">ILLUSTRATED EXAMPLE</text>
+    <rect x="44" y="92" width="240" height="162" rx="10" fill="white" stroke="#dddddd"/>
+    <text x="64" y="123" font-size="12" fill="#656565">SELECTED IN SETTINGS</text>
+    <path d="M66 148h21l11 11v35H66z M87 148v12h11" fill="none" stroke="#656565" stroke-width="1.5"/>
+    <text x="112" y="173" font-size="19">office.png</text>
+    <text x="64" y="229" font-size="13" fill="#656565">Choose an approved image file.</text>
+    <path d="M300 173h62m-8-6 8 6-8 6" fill="none" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <rect x="380" y="92" width="240" height="162" rx="10" fill="white" stroke="#dddddd"/>
+    <text x="400" y="130" font-size="20" font-weight="500">Image block</text>
+    <path d="M400 146h200" stroke="#e8e8e8"/>
+    <text x="400" y="180" font-size="14" fill="#656565">Use the selected image.</text>
+    <text x="555" y="229" font-size="12" fill="#656565">image</text>
+    <circle cx="620" cy="224" r="5" fill="white" stroke="#656565" stroke-width="1.5"/>
+    <path d="M627 224h72m-8-6 8 6-8 6" fill="none" stroke="#656565" stroke-width="1.5"/>
+    <rect x="716" y="92" width="240" height="162" rx="10" fill="white" stroke="#dddddd"/>
+    <text x="736" y="123" font-size="12" fill="#656565">IMAGE OUTPUT</text>
+    <rect x="736" y="143" width="200" height="69" rx="5" fill="#f2f2f2"/>
+    <path d="M767 197v-31h27v31m10 0v-42h34v42m10 0v-24h37v24" fill="#dddddd"/>
+    <text x="736" y="234" font-size="13" fill="#656565">Pass to a compatible block.</text>
+    <text x="44" y="302" font-size="13" fill="#656565">The dashed line represents a settings choice, not an input port.</text>
+  </g>
+</svg>

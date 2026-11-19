@@ -1,0 +1,87 @@
+---
+title: "Hand over an AI Employee"
+description: "Transfer accountability, review unattended work, reconnect user-scoped tools, and remove obsolete access safely."
+---
+
+Use this walkthrough when a worker's manager changes teams, changes responsibilities, or leaves the organization.
+
+**Example:** Jordan hands a Customer operations worker to Casey. Casey must become accountable for the worker without inheriting Jordan's personal Vault or assuming every scheduled action remains authorized.
+
+<Warning>
+  A manager change revokes affected automation grants. Treat the handover as a
+  review and reauthorization event, not a seamless transfer of the old manager's
+  permissions or credentials.
+</Warning>
+
+## Before you start
+
+Have a person with **manager-assignment permission** available. Confirm Casey is an active organization member and is authorized to manage the worker and the required resources. Record the worker's current manager, team, role requirement, editor assignments, and conversation-sharing choice.
+
+Do not remove the departing member first and hope the worker will find another connection. If reassignment is already required, resolve that state before relying on unattended work.
+
+<Steps>
+  <Step title="Inventory work and dependencies">
+    Review the worker's **Calendar**, **Actions**, **Tasks**, **Approvals**, connected tools, and available Activity. List:
+
+    - Schedules and event-based actions that must continue, pause, or end.
+    - User-scoped versus account-scoped integration connections.
+    - Vault API keys explicitly shared by the current manager.
+    - Channels, outbound recipients, and saved tool or recipient exceptions.
+    - Sensitive pending approvals and outputs that need a human review.
+
+    Pause scheduled or event-based work using the available controls while testing the handover. Check in-flight work separately; removing future authorization should not be treated as proof that an already-dispatched external operation was cancelled.
+
+  </Step>
+  <Step title="Prepare Casey's connections">
+    Casey connects the required user-scoped applications under their own identity with appropriate provider permissions. Account-scoped integrations continue to use their account connection; verify their ownership and scopes separately.
+
+    If work uses a Vault API key, Casey saves an approved key in their own Vault and explicitly shares the minimum access with this worker. Assigning Casey as manager will not automatically share all Casey's keys, and Casey cannot browse Jordan's Vault.
+
+    For browser work, review Casey's own saved website sessions and website permissions. Do not assume Jordan's sign-ins transfer to Casey or that assigning a manager establishes every background browser workflow's availability.
+
+  </Step>
+  <Step title="Save the new manager">
+    Open **AI Employee → Settings → Governance**, choose Casey as the accountable manager, and select **Save Changes**. Reload the panel and verify the assignment.
+
+    Review the primary team and required role, selected editors and their areas, and conversation-sharing choice. Changing the manager does not by itself remove Jordan's team, role, editor, or other independent access grants.
+
+    If configuration is release-managed or a control is read-only, use the supported reassignment path with an authorized administrator. Do not broaden organization permissions merely to bypass a locked control.
+
+  </Step>
+  <Step title="Review and reauthorize unattended work">
+    Review affected automations through their supported controls. Renew the required authorization before restoring schedules or event-based work; do not assume the old grant can be reused.
+
+    Test one low-risk scheduled or event-based task with non-sensitive records. Confirm the selected connection belongs to the expected user or account, the provider permissions are appropriate, and the worker still follows its configured approval and outbound policies.
+
+    Reopen pending approvals and check their current state and proposal. Do not assume an old link remains valid or that the manager change approves a pending action.
+
+  </Step>
+  <Step title="Remove obsolete access and secrets">
+    After testing, remove Jordan's unnecessary editor and team-role assignments and review any additional grants. If Jordan leaves the organization, complete membership removal through the normal administration controls.
+
+    Jordan or the appropriate credential owner removes obsolete personal Vault grants and connections. Provider administrators revoke or rotate provider credentials and website sessions when required. Do not try to access Jordan's Vault using Casey's manager status.
+
+    Sign out of old browser sessions through the owner's supported controls and use provider-side session revocation when needed. Odella's saved browser sign-ins, editable Vault login items, API keys, and OAuth integrations are separate objects; cleaning up one does not clean up all of them.
+
+  </Step>
+</Steps>
+
+## Verify the handover
+
+| Check                                                              | Expected result                                                                                                     |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Governance reloaded after save                                     | Casey is the accountable manager; audience and editor areas are as intended.                                        |
+| Casey performs a low-risk interactive task                         | Uses Casey's applicable user connection, not Jordan's personal connection.                                          |
+| Reauthorized unattended task runs against a test record            | Uses the intended manager or account credential scope and honors the configured policies.                           |
+| Casey has not explicitly shared a required Vault key               | The key is not available merely because Casey became manager.                                                       |
+| Jordan's independent access grants have been removed               | Jordan cannot qualify through those removed grants; inspect other roles or administrator access if access remains.  |
+| A task requires approval                                           | A permitted reviewer sees the current request; no action is treated as approved merely because the manager changed. |
+| Departing user's provider sessions/keys are revoked where required | Provider-side controls confirm revocation; deleting an Odella grant alone is not evidence of provider revocation.   |
+
+Do not report success solely because the worker answered a chat. The handover is complete only when the required unattended work, credential selection, access removals, and review paths have been checked.
+
+## Keep a handover record
+
+Record the worker, old and new manager, transfer date, work reviewed, connections and grants changed, tests performed, and unresolved exceptions. Keep secrets and approval links out of the record.
+
+For the reference model, read [Manager responsibilities](/workforce/manager-responsibilities), [Credentials and user scope](/platform/credentials-and-scope), and [Signed-in browser security](/platform/browser-security).

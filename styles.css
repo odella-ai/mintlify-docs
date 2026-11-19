@@ -1,7 +1,9 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
-  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   /* Odella neutral scale, matched to /Programs/landing/src/styles/globals.css */
   --color-neutral-50: oklch(0.988 0 0); /* #fbfbfb */
@@ -42,6 +44,156 @@
   --odella-button-hover: #1d1d1d;
 }
 
+/* Shared article system, reviewed against every published route at 1440/390px.
+   Grok Bot inspiration: editorial titles, quiet rules, clear next actions.
+   Keep Odella's Inter type, neutral palette, Luma navigation and existing media. */
+#header {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--odella-border);
+}
+#header #page-title {
+  color: var(--odella-text-primary);
+  font-size: clamp(32px, 3vw, 42px);
+  line-height: 1.16;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+#header .leading-relaxed {
+  color: var(--odella-text-tertiary);
+  font-size: 17px;
+  line-height: 1.7;
+}
+/* Move Copy page off the title's reading line. Native mobile controls remain. */
+@container page-header (min-width: 520px) {
+  #header nav[aria-label="Breadcrumb"] {
+    min-height: 30px;
+    padding-right: 176px;
+  }
+  #header div:has(> #page-title) {
+    display: block;
+  }
+  #header #page-context-menu {
+    position: absolute;
+    top: -40px;
+    right: 0;
+  }
+}
+#content {
+  color: var(--odella-text-secondary);
+  line-height: 1.75;
+}
+#content :is(h2, h3, h4) {
+  color: var(--odella-text-primary);
+  letter-spacing: -0.025em;
+  text-wrap: pretty;
+}
+#content h2 {
+  font-size: 25px;
+  line-height: 1.35;
+}
+#content .card {
+  border-color: var(--odella-border);
+  border-radius: 10px;
+  box-shadow: none;
+}
+#content a.card:hover {
+  background: var(--odella-surface-hover);
+  border-color: var(--odella-text-tertiary);
+}
+.docs-guide-start {
+  margin: 0 0 32px;
+  padding: 22px 24px;
+  border: 1px solid var(--odella-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--odella-surface-secondary) 45%, var(--odella-surface));
+}
+#content .docs-guide-label {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--odella-text-tertiary);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+#content .docs-guide-start :is(p, [data-as="p"]) {
+  display: block;
+  margin: 0 0 14px;
+}
+#content a.docs-guide-action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--odella-border);
+  border-radius: 7px;
+  background: var(--odella-surface);
+  color: var(--odella-text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  box-shadow: none;
+}
+#content a.docs-guide-action:hover {
+  background: var(--odella-surface-secondary);
+}
+#content #block-metadata + div {
+  width: 100%;
+  margin: 16px 0 28px;
+  padding: 8px 0;
+  border: 1px solid var(--odella-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--odella-surface-secondary) 35%, var(--odella-surface));
+}
+#content #block-metadata {
+  margin: 0 0 12px;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+#content #block-metadata + div table {
+  font-size: 13px;
+}
+#content #block-metadata + div td {
+  min-width: 0;
+}
+#content #block-metadata + div code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+#content .docs-table-hint {
+  margin: 14px 0 -6px;
+  color: var(--odella-text-tertiary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+#content [data-docs-table-scroll]:focus-visible,
+#content a.docs-guide-action:focus-visible {
+  outline: 2px solid var(--odella-text-primary);
+  outline-offset: 4px;
+}
+@media (max-width: 640px) {
+  #header {
+    padding-bottom: 22px;
+  }
+  /* Three-column comparisons must remain readable, not become word towers. */
+  #content table:has(thead th:nth-child(3)) {
+    min-width: 560px;
+  }
+  .docs-guide-start {
+    padding: 18px 20px;
+  }
+  #content h2 {
+    font-size: 23px;
+  }
+}
+
 /* Landing-compatible Mintlify chrome overrides. */
 :is(nav, aside) a {
   border-radius: var(--odella-radius) !important;
@@ -53,8 +205,15 @@
 }
 
 /* Sidebar/nav inactive items: landing ghost button baseline. Exclude the primary CTA. */
-:is(nav, aside) a:not([href='https://app.odella.ai']):not([aria-current='page']):not([data-active='true']):not(.active),
-:is(nav, aside) a:not([href='https://app.odella.ai']):not([aria-current='page']):not([data-active='true']):not(.active) * {
+:is(nav, aside)
+  a:not([href="https://app.odella.ai"]):not([aria-current="page"]):not(
+    [data-active="true"]
+  ):not(.active),
+:is(nav, aside)
+  a:not([href="https://app.odella.ai"]):not([aria-current="page"]):not(
+    [data-active="true"]
+  ):not(.active)
+  * {
   color: var(--odella-text-tertiary) !important;
 }
 
@@ -70,26 +229,26 @@
 }
 
 /* Active sidebar/nav item: neutral surface only, no brand/purple accent. */
-:is(nav, aside) a[aria-current='page'],
-:is(nav, aside) a[data-active='true'],
+:is(nav, aside) a[aria-current="page"],
+:is(nav, aside) a[data-active="true"],
 :is(nav, aside) a.active {
   background-color: var(--odella-surface-secondary) !important;
   box-shadow: none !important;
 }
 
-:is(nav, aside) a[aria-current='page'],
-:is(nav, aside) a[aria-current='page'] *,
-:is(nav, aside) a[data-active='true'],
-:is(nav, aside) a[data-active='true'] *,
+:is(nav, aside) a[aria-current="page"],
+:is(nav, aside) a[aria-current="page"] *,
+:is(nav, aside) a[data-active="true"],
+:is(nav, aside) a[data-active="true"] *,
 :is(nav, aside) a.active,
 :is(nav, aside) a.active * {
   color: var(--odella-text-primary) !important;
 }
 
 /* Navbar CTA: mirror landing shadcn Button primary. */
-a[href='https://app.odella.ai'],
-nav a[href='https://app.odella.ai'],
-#topbar-cta-button > a[href='https://app.odella.ai'] {
+a[href="https://app.odella.ai"],
+nav a[href="https://app.odella.ai"],
+#topbar-cta-button > a[href="https://app.odella.ai"] {
   border: 0.5px solid rgb(0 0 0 / 6%) !important;
   border-radius: var(--odella-radius) !important;
   background-color: var(--odella-button-bg) !important;
@@ -104,24 +263,24 @@ nav a[href='https://app.odella.ai'],
     transform 150ms ease !important;
 }
 
-a[href='https://app.odella.ai'],
-a[href='https://app.odella.ai'] *,
-nav a[href='https://app.odella.ai'],
-nav a[href='https://app.odella.ai'] *,
-#topbar-cta-button > a[href='https://app.odella.ai'],
-#topbar-cta-button > a[href='https://app.odella.ai'] * {
+a[href="https://app.odella.ai"],
+a[href="https://app.odella.ai"] *,
+nav a[href="https://app.odella.ai"],
+nav a[href="https://app.odella.ai"] *,
+#topbar-cta-button > a[href="https://app.odella.ai"],
+#topbar-cta-button > a[href="https://app.odella.ai"] * {
   color: #ffffff !important;
 }
 
-a[href='https://app.odella.ai']:hover,
-nav a[href='https://app.odella.ai']:hover,
-#topbar-cta-button > a[href='https://app.odella.ai']:hover {
+a[href="https://app.odella.ai"]:hover,
+nav a[href="https://app.odella.ai"]:hover,
+#topbar-cta-button > a[href="https://app.odella.ai"]:hover {
   background-color: var(--odella-button-hover) !important;
   color: #ffffff !important;
   opacity: 1 !important;
 }
 
-a[href='https://app.odella.ai']:active {
+a[href="https://app.odella.ai"]:active {
   transform: translateY(1px);
 }
 
@@ -147,12 +306,116 @@ a[href='https://app.odella.ai']:active {
   border-left-color: rgb(250 250 250 / 24%) !important;
 }
 
-#table-of-contents a[aria-current='true'],
-#table-of-contents a[aria-current='page'],
-#table-of-contents a[data-active='true'],
+#table-of-contents a[aria-current="true"],
+#table-of-contents a[aria-current="page"],
+#table-of-contents a[data-active="true"],
 #table-of-contents a.active {
   background-color: transparent !important;
   color: var(--odella-text-primary) !important;
   border-left-color: var(--odella-text-primary) !important;
   font-weight: 500 !important;
+}
+
+/* Give task labels enough room without changing Luma's responsive navigation. */
+@media (min-width: 1024px) {
+  :root {
+    --sidebar-width: 17.5rem;
+  }
+}
+
+/* Quiet sidebar surface; every page uses the normal docs reading layout. */
+#sidebar-content {
+  border-right: 0.5px solid var(--odella-border);
+  background: #fbfbfb;
+}
+.dark #sidebar-content {
+  background: #101011;
+}
+/* The docs welcome page shares the article layout; only its player is custom. */
+#content .docs-welcome > h2:first-child {
+  margin-top: 0;
+}
+.docs-welcome .docs-walkthrough-section {
+  scroll-margin-top: 88px;
+}
+.docs-welcome .docs-product-preview {
+  margin: 16px 0 0;
+}
+.docs-welcome .docs-demo-player {
+  position: relative;
+}
+.docs-welcome .docs-demo-start {
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+.docs-welcome .docs-demo-start:not([hidden]) {
+  display: flex;
+}
+.docs-welcome .docs-demo-start[hidden] {
+  display: none;
+}
+.docs-welcome .docs-demo-start::before {
+  content: "";
+  width: 56px;
+  height: 56px;
+  border: 0.5px solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+}
+.docs-welcome .docs-demo-start::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid #1d1d1d;
+  transform: translate(-50%, -50%);
+}
+.docs-welcome .docs-demo-duration {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: rgb(255 255 255 / 92%);
+  color: #3d3d3f;
+  font-size: 11px;
+  font-weight: 500;
+}
+.docs-welcome .docs-demo-status {
+  color: var(--odella-text-tertiary);
+  font-size: 12px;
+}
+.docs-welcome .docs-demo-status:empty {
+  display: none;
+}
+.docs-welcome .docs-product-preview video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  border: 1px solid var(--odella-border);
+  border-radius: 10px;
+  background: #1d1d1d;
+}
+#content .docs-welcome .docs-media-caption {
+  margin: 10px 0 0;
+  color: var(--odella-text-tertiary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.docs-welcome button:focus-visible {
+  outline: 2px solid var(--odella-text-primary);
+  outline-offset: 4px;
 }

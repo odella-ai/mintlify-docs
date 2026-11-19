@@ -7,6 +7,14 @@ description: "Control inbound access, outbound recipients, and connected-tool ap
 
 For the actual review-and-resolve process, see [Approvals](/workforce/approvals). To control who can use or edit the worker inside your organization, see [Governance](/workforce/governance). Those settings are separate from channel and tool policies.
 
+<Note>
+  These connected-tool and messaging controls are not a universal browser-action
+  or network-egress policy. Read [Tool and browser
+  boundaries](/platform/tool-and-browser-security), then follow the [secure
+  setup tutorial](/platform/secure-employee-tutorial) to verify your
+  configuration.
+</Note>
+
 ## Inbound Access Policy
 
 | Policy              | What it does                                                                                                                            |
@@ -40,14 +48,21 @@ Saved recipient rules work with the selected outbound policy; they do not change
 
 ## Tool approval policy
 
-| Policy             | Read actions | Write actions | External sends | Destructive actions | Credential actions |
-| ------------------ | ------------ | ------------- | -------------- | ------------------- | ------------------ |
-| **Recommended**    | Allow        | Ask           | Ask            | Ask                 | Block              |
-| **Approval-first** | Ask          | Ask           | Ask            | Ask                 | Block              |
-| **Restricted**     | Allow        | Block         | Block          | Block               | Block              |
-| **Unrestricted**   | Allow        | Allow         | Ask            | Ask                 | Block              |
+| Policy             | Read actions                       | Write actions                      | External sends        | Destructive actions   | Credential actions |
+| ------------------ | ---------------------------------- | ---------------------------------- | --------------------- | --------------------- | ------------------ |
+| **Recommended**    | Allow                              | Ask                                | Ask                   | Ask                   | Block              |
+| **Approval-first** | Ask                                | Ask                                | Ask                   | Ask                   | Block              |
+| **Restricted**     | Allow                              | Block                              | Block                 | Block                 | Block              |
+| **Unrestricted**   | Do not use as an approval boundary | Do not use as an approval boundary | Verify exact behavior | Verify exact behavior | Block              |
 
-**Recommended** is the default. “Unrestricted” applies to ordinary reads and writes; sends and destructive actions still require approval, and credential actions remain blocked.
+**Recommended** is the default. The table summarizes ordinary action categories; saved exceptions and separate classifications for drafts and low-risk actions can change the result.
+
+<Warning>
+  Do not use **Unrestricted** when approval for sends or destructive actions is
+  a security requirement. Verify the exact operation before production use.
+  Prefer **Approval-first** for review-led pilots or **Restricted** to block
+  ordinary writes, and review saved allow exceptions under either policy.
+</Warning>
 
 ## Saved tool rules
 

@@ -1,11 +1,12 @@
 ---
-title: "Use templates"
-description: "Assign published templates to AI Employees or workflows, delegate document work, and review generated output."
+title: "Assign and use document templates"
+sidebarTitle: "Assign and use templates"
+description: "Give an AI Employee an approved document format, delegate a draft, and review the generated file."
 ---
 
-# Use published templates
+<span id="use-published-templates"></span>
 
-Published templates can be assigned to AI Employees or selected directly in workflows. The worker uses the template's description and instructions to determine whether it fits the task and how source information should be mapped.
+Assign a published template to an AI Employee so it can produce a consistent report, letter, contract, or form. The worker uses the template's description and instructions to determine when it fits and how to map the source information.
 
 ## Before you delegate work
 
@@ -24,13 +25,16 @@ Confirm that:
     From Workforce, select the worker that will use the template.
   </Step>
   <Step title="Open Templates in the skill tree">
-    Review available and already assigned templates.
+    Review available and already assigned templates. Connected templates appear
+    as resources in this view; selecting one opens its editor.
   </Step>
   <Step title="Assign the template">
-    Add only templates relevant to the worker's role. Too many similar choices can make selection less reliable.
+    Add only templates relevant to the worker's role. Too many similar choices
+    can make selection less reliable.
   </Step>
   <Step title="Test a representative request">
-    Provide realistic source material and confirm that the worker chooses and populates the intended template.
+    Provide realistic source material and confirm that the worker chooses and
+    populates the intended template.
   </Step>
 </Steps>
 
@@ -38,46 +42,25 @@ Confirm that:
 
 A useful delegation includes four parts:
 
-| Include | Example |
-| --- | --- |
-| **Requested document** | “Prepare the client intake form.” |
-| **Source material** | “Use the attached questionnaire and identification file.” |
-| **Special instructions** | “Leave the approval field blank and use DD/MM/YYYY dates.” |
+| Include                            | Example                                                                           |
+| ---------------------------------- | --------------------------------------------------------------------------------- |
+| **Requested document**             | “Prepare the client intake form.”                                                 |
+| **Source material**                | “Use the attached questionnaire and identification file.”                         |
+| **Special instructions**           | “Leave the approval field blank and use DD/MM/YYYY dates.”                        |
 | **Review or delivery requirement** | “Return a draft to the operations manager for review; do not send it externally.” |
 
 The worker can then gather permitted source information, select an assigned template, populate the document, and return the result.
 
 <Warning>
-  Do not assume missing information. Require the worker to ask a question, apply an approved default, or mark the field for review.
+  Do not assume missing information. Require the worker to ask a question, apply
+  an approved default, or mark the field for review.
 </Warning>
-
-## Use a template in a workflow
-
-Use the [Populate Template block](/block-reference/draft/populate-template) when the template is part of a repeatable process.
-
-<Steps>
-  <Step title="Add the block">
-    Add **Populate Template** at the point where the document should be created.
-  </Step>
-  <Step title="Select a published template">
-    Choose the exact template instead of relying on dynamic selection.
-  </Step>
-  <Step title="Connect source values">
-    Map validated data from earlier steps, uploaded files, or approved connected applications.
-  </Step>
-  <Step title="Handle the output">
-    Send the generated file to a review step, save it to an approved location, or pass it to the next workflow block.
-  </Step>
-  <Step title="Test failure paths">
-    Verify behavior when a required value is missing, a file cannot be read, or generation fails.
-  </Step>
-</Steps>
 
 ## Request signatures
 
 For a published signing template, give the worker each recipient's name, email, and signing-party role along with the business information. Review the prepared document and recipients, then approve the one-time send request. Each person receives their own invitation and completes their assigned fields.
 
-Generating a document with **Populate Template** does not by itself send invitations. See [E-signing](/templates/05_e-signing) for setup, approvals, and tracking completed copies.
+Generating a draft does not by itself send signing invitations. See [E-signing](/templates/05_e-signing) for setup, approvals, and tracking completed copies.
 
 ## Supported source material
 
@@ -87,7 +70,6 @@ Depending on the worker's assigned capabilities and permissions, source informat
 - Forms, spreadsheets, and CSV files
 - Connected inboxes and message threads
 - Document Stores
-- Earlier workflow steps
 - Approved connected business applications
 
 Access remains controlled by the worker's assignments and security policies.
@@ -119,7 +101,11 @@ If results are inconsistent:
   <Card title="PDF templates" icon="file-pdf" href="/templates/02_pdf-template">
     Configure fixed-layout forms and field instructions.
   </Card>
-  <Card title="DOCX templates" icon="file-word" href="/templates/03_docx-template">
+  <Card
+    title="DOCX templates"
+    icon="file-word"
+    href="/templates/03_docx-template"
+  >
     Configure variables, conditions, loops, and equations in Word documents.
   </Card>
 </CardGroup>

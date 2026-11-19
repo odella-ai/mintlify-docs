@@ -1,408 +1,360 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Odella Docs",
-  "description": "Learn how to onboard AI Employees, connect workplace tools, build workflows, manage knowledge, and govern work in Odella.",
-  "theme": "almond",
+  "description": "Hire AI Employees, assign useful work, connect your tools, and keep your team in control.",
+  "theme": "luma",
   "logo": {
     "href": "https://www.odella.ai",
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png"
   },
-  "favicon": "/favicon.png",
-  "thumbnails": {
-    "appearance": "light"
-  },
-  "colors": {
-    "primary": "#3D3D3F",
-    "light": "#FFFFFF",
-    "dark": "#3D3D3F"
-  },
-  "appearance": {
-    "default": "light"
-  },
+  "favicon": "/favicon.svg",
+  "thumbnails": { "appearance": "light" },
+  "colors": { "primary": "#3D3D3F", "light": "#FFFFFF", "dark": "#3D3D3F" },
+  "appearance": { "default": "light" },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@odella.ai"
-      }
-    ],
+    "links": [{ "label": "Support", "href": "mailto:support@odella.ai" }],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
+      "label": "Open Odella",
       "href": "https://app.odella.ai"
     }
   },
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Community",
-          "icon": "discord",
-          "href": "https://discord.gg/qZVnmjCfdY"
-        },
-        {
-          "anchor": "Blog",
-          "icon": "newspaper",
-          "href": "https://www.odella.ai/blog"
-        }
-      ]
-    },
-    "tabs": [
+    "groups": [
       {
-        "tab": "Get Started",
-        "icon": "/icons/nav/documentation.svg",
-        "groups": [
-          {
-            "group": "Start here",
-            "pages": [
-              "introduction",
-              "get-started/quickstart",
-              "get-started/faq"
-            ]
-          }
+        "group": "Start here",
+        "pages": [
+          "introduction",
+          "get-started/how-odella-works",
+          "get-started/quickstart",
+          "get-started/faq"
         ]
       },
       {
-        "tab": "Workforce",
-        "icon": "/icons/nav/workforce.svg",
-        "groups": [
+        "group": "Guides",
+        "pages": [
           {
-            "group": "Basics",
+            "group": "Onboard an AI Employee",
+            "root": "guides/onboard-an-employee",
+            "expanded": false,
             "pages": [
               "workforce/overview",
-              "workforce/employee-page",
-              "workforce/identity"
-            ]
-          },
-          {
-            "group": "Capabilities",
-            "pages": [
-              "workforce/skill-tree",
-              "workforce/workflows",
-              "workforce/templates",
+              "marketplace/overview",
+              "workforce/identity",
               "workforce/knowledge",
-              "workforce/tools",
               "workforce/skills",
               "workforce/create-a-skill"
             ]
           },
           {
-            "group": "Communication",
-            "pages": [
-              "workforce/communication-channels",
-              "workforce/channels/web-chat",
-              "workforce/channels/email",
-              "workforce/channels/slack",
-              "workforce/channels/teams",
-              "workforce/channels/phone",
-              "workforce/channels/whatsapp",
-              "workforce/channels/telegram",
-              "workforce/channels/discord",
-              "workforce/channels/signal",
-              "workforce/channels/google-meet",
-              "workforce/talk"
-            ]
-          },
-          {
-            "group": "Work management",
+            "group": "Assign and review work",
+            "root": "guides/assign-and-review-work",
+            "expanded": false,
             "pages": [
               "workforce/tasks",
+              "workforce/talk",
               "workforce/approvals",
-              "workforce/calendar",
-              "workforce/actions",
               "workforce/workspace",
               "workforce/computer",
-              "workforce/activity"
+              "workforce/activity",
+              {
+                "group": "Review inbox updates",
+                "expanded": false,
+                "pages": ["inbox/overview", "inbox/daily-brief", "inbox/insights"]
+              }
             ]
           },
           {
-            "group": "Settings",
+            "group": "Connect tools and channels",
+            "root": "guides/connect-tools-and-channels",
+            "expanded": false,
             "pages": [
-              "workforce/settings-overview",
-              "workforce/settings-model-intelligence",
-              "workforce/settings-memory-reminders",
-              "workforce/settings-operations-logistics",
-              "workforce/settings-security-privacy",
-              "workforce/governance",
-              "workforce/settings-billing",
-              "workforce/settings-terminate"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Inbox",
-        "icon": "inbox",
-        "groups": [
-          {
-            "group": "Mail and priorities",
-            "pages": ["inbox/overview", "inbox/daily-brief", "inbox/insights"]
-          }
-        ]
-      },
-      {
-        "tab": "Templates",
-        "icon": "/icons/nav/templates.svg",
-        "groups": [
-          {
-            "group": "Basics",
-            "pages": [
-              "templates/01_overview"
-            ]
-          },
-          {
-            "group": "Template Types",
-            "pages": [
-              "templates/02_pdf-template",
-              "templates/03_docx-template"
-            ]
-          },
-          {
-            "group": "Using Templates",
-            "pages": [
-              "templates/04_using-templates",
-              "templates/05_e-signing"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Documents",
-        "icon": "/icons/nav/documents.svg",
-        "groups": [
-          {
-            "group": "Basics",
-            "pages": [
-              "documents/overview",
-              "documents/create-and-configure",
-              "documents/manage-documents",
-              "documents/settings-and-integrations",
-              "documents/signing-records",
-              "documents/sign-a-document"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Workflows",
-        "icon": "/icons/nav/workflows.svg",
-        "groups": [
-          {
-            "group": "Basics",
-            "pages": [
-              "workflow/overview"
-            ]
-          },
-          {
-            "group": "Core Concepts",
-            "pages": [
-              "workflow/working-with-flows",
-              "workflow/interface",
-              "workflow/blocks",
-              "workflow/data-types",
-              "workflow/subflows",
-              "workflow/live-debugging",
-              "workflow/plugins",
-              "workflow/control-flow",
-              "workflow/batching",
-              "workflow/loops"
-            ]
-          },
-          {
-            "group": "Tutorial",
-            "pages": [
-              "workflow-tutorial/01-simple-flow",
-              "workflow-tutorial/02-dynamic-prompting",
-              "workflow-tutorial/03-matching-conditionals",
-              "workflow-tutorial/04-subflows",
-              "workflow-tutorial/05-batching",
-              "workflow-tutorial/06-loops"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Platform",
-        "icon": "building",
-        "groups": [
-          {
-            "group": "Governance",
-            "pages": [
-              "platform/security",
+              "integrations/overview",
+              "workforce/tools",
+              "workforce/communication-channels",
+              {
+                "group": "Channel setup",
+                "expanded": false,
+                "pages": [
+                  "workforce/channels/email",
+                  "workforce/channels/slack",
+                  "workforce/channels/teams",
+                  "workforce/channels/web-chat",
+                  "workforce/channels/phone",
+                  "workforce/channels/whatsapp",
+                  "workforce/channels/signal",
+                  "workforce/channels/telegram",
+                  "workforce/channels/discord",
+                  "workforce/channels/google-meet"
+                ]
+              },
+              "platform/credentials-and-scope",
               "platform/vault",
-              "platform/models"
+              "platform/phone-numbers"
             ]
           },
           {
-            "group": "Administration",
+            "group": "Schedule recurring work",
+            "root": "guides/automate-recurring-work",
+            "expanded": false,
+            "pages": ["workforce/calendar", "workforce/actions"]
+          },
+          {
+            "group": "Work with documents",
+            "root": "guides/documents-and-knowledge",
+            "expanded": false,
+            "pages": [
+              {
+                "group": "Organize company knowledge",
+                "expanded": false,
+                "pages": [
+                  "documents/overview",
+                  "documents/create-and-configure",
+                  "documents/manage-documents",
+                  "documents/settings-and-integrations"
+                ]
+              },
+              {
+                "group": "Draft from templates",
+                "expanded": false,
+                "pages": [
+                  "templates/01_overview",
+                  "templates/02_pdf-template",
+                  "templates/03_docx-template",
+                  "templates/04_using-templates"
+                ]
+              },
+              "templates/05_e-signing",
+              "documents/sign-a-document",
+              "documents/signing-records"
+            ]
+          },
+          {
+            "group": "Set access and safeguards",
+            "root": "guides/access-and-security",
+            "expanded": false,
+            "pages": [
+              "platform/secure-employee-tutorial",
+              "workforce/governance",
+              "platform/access-control",
+              "platform/roles-and-permissions",
+              "workforce/settings-security-privacy",
+              "platform/security",
+              "platform/tool-and-browser-security",
+              "platform/browser-security",
+              "workforce/manager-responsibilities",
+              "platform/manager-handover-tutorial",
+              "platform/finance-read-only-tutorial",
+              "platform/security-review"
+            ]
+          },
+          {
+            "group": "Manage your account",
+            "root": "guides/manage-your-account",
+            "expanded": false,
             "pages": [
               "platform/organization",
-              "platform/roles-and-permissions",
-              "platform/brand-guidelines",
               "platform/billing-and-credits",
               "platform/usage-and-limits",
-              "platform/phone-numbers",
+              "platform/brand-guidelines",
+              "platform/models",
               "platform/profile-and-account"
             ]
           }
         ]
       },
       {
-        "tab": "Integrations",
-        "icon": "plug",
-        "groups": [
+        "group": "Reference",
+        "pages": [
           {
-            "group": "Connect services to Odella",
-            "pages": ["integrations/overview", "integrations/custom-integrations"]
-          },
-          {
-            "group": "Use Odella from AI clients",
-            "pages": ["integrations/mcp-server", "integrations/mcp-recipes"]
-          },
-          {
-            "group": "Discover",
-            "pages": ["marketplace/overview"]
-          }
-        ]
-      },
-      {
-        "tab": "Block Reference",
-        "groups": [
-          {
-            "group": "Block Documentation",
+            "group": "Employee reference",
+            "expanded": false,
             "pages": [
-              "block-reference/all-blocks"
+              "workforce/employee-page",
+              "workforce/settings-overview",
+              "workforce/settings-model-intelligence",
+              "workforce/settings-memory-reminders",
+              "workforce/settings-operations-logistics",
+              "workforce/settings-billing",
+              "workforce/settings-terminate"
             ]
           },
           {
-            "group": "AI Blocks",
+            "group": "Channel setup references",
+            "hidden": true,
+            "searchable": true,
+            "expanded": false,
             "pages": [
-              "block-reference/ai/ai",
-              "block-reference/ai/ai-filter",
-              "block-reference/ai/ai-scorer",
-              "block-reference/ai/analyze-image",
-              "block-reference/ai/analyze-table",
-              "block-reference/ai/assemble-message",
-              "block-reference/ai/categorizer",
-              "block-reference/ai/create-chart",
-              "block-reference/ai/extract-data",
-              "block-reference/ai/generate-questions",
-              "block-reference/ai/research"
+              "workforce/channels/phone-and-messaging",
+              "workforce/channels/telegram-and-discord",
+              "workforce/channels/meetings"
             ]
           },
           {
-            "group": "Input/Output Blocks",
+            "group": "Workflow builder reference",
+            "hidden": true,
+            "searchable": true,
+            "expanded": false,
             "pages": [
-              "block-reference/io/graph-input",
-              "block-reference/io/graph-output",
-              "block-reference/io/user-input",
-              "block-reference/io/upload-file",
-              "block-reference/io/confirm"
+              "workflow/overview",
+              "workforce/workflows",
+              "workflow/working-with-flows",
+              "workflow/interface",
+              "workflow/blocks",
+              "workflow/data-types",
+              "workflow/plugins",
+              "workflow/control-flow",
+              "workflow/live-debugging",
+              "workflow/subflows",
+              "workflow/batching",
+              "workflow/loops"
             ]
           },
           {
-            "group": "Data Blocks",
+            "group": "Workflow block reference",
+            "hidden": true,
+            "searchable": true,
+            "expanded": false,
             "pages": [
-              "block-reference/data/array",
-              "block-reference/data/boolean",
-              "block-reference/data/date",
-              "block-reference/data/file",
-              "block-reference/data/image",
-              "block-reference/data/number",
-              "block-reference/data/object",
-              "block-reference/data/random-number",
-              "block-reference/data/text"
+              "block-reference/all-blocks",
+              {
+                "group": "AI",
+                "pages": [
+                  "block-reference/ai/ai",
+                  "block-reference/ai/ai-filter",
+                  "block-reference/ai/ai-scorer",
+                  "block-reference/ai/analyze-image",
+                  "block-reference/ai/analyze-table",
+                  "block-reference/ai/assemble-message",
+                  "block-reference/ai/categorizer",
+                  "block-reference/ai/create-chart",
+                  "block-reference/ai/extract-data",
+                  "block-reference/ai/generate-questions",
+                  "block-reference/ai/research"
+                ]
+              },
+              {
+                "group": "Input and output",
+                "pages": [
+                  "block-reference/io/graph-input",
+                  "block-reference/io/graph-output",
+                  "block-reference/io/user-input",
+                  "block-reference/io/upload-file",
+                  "block-reference/io/confirm"
+                ]
+              },
+              {
+                "group": "Data",
+                "pages": [
+                  "block-reference/data/array",
+                  "block-reference/data/boolean",
+                  "block-reference/data/date",
+                  "block-reference/data/file",
+                  "block-reference/data/image",
+                  "block-reference/data/number",
+                  "block-reference/data/object",
+                  "block-reference/data/random-number",
+                  "block-reference/data/text"
+                ]
+              },
+              {
+                "group": "Read files",
+                "pages": [
+                  "block-reference/loaders/read-binary",
+                  "block-reference/loaders/read-images",
+                  "block-reference/loaders/read-table",
+                  "block-reference/loaders/read-text",
+                  "block-reference/loaders/transcribe-audio"
+                ]
+              },
+              {
+                "group": "Logic",
+                "pages": [
+                  "block-reference/logic/abort",
+                  "block-reference/logic/checklist",
+                  "block-reference/logic/coalesce",
+                  "block-reference/logic/compare",
+                  "block-reference/logic/delay",
+                  "block-reference/logic/if-else",
+                  "block-reference/logic/match",
+                  "block-reference/logic/passthrough",
+                  "block-reference/logic/race-inputs",
+                  "block-reference/logic/route",
+                  "block-reference/logic/switch"
+                ]
+              },
+              {
+                "group": "Transform data",
+                "pages": [
+                  "block-reference/modifiers/chunk",
+                  "block-reference/modifiers/convert-file",
+                  "block-reference/modifiers/convert-format",
+                  "block-reference/modifiers/destructure",
+                  "block-reference/modifiers/extract-from-text",
+                  "block-reference/modifiers/filter",
+                  "block-reference/modifiers/flatten",
+                  "block-reference/modifiers/get-value",
+                  "block-reference/modifiers/hash",
+                  "block-reference/modifiers/index",
+                  "block-reference/modifiers/join",
+                  "block-reference/modifiers/merge-pdf",
+                  "block-reference/modifiers/pop",
+                  "block-reference/modifiers/shuffle",
+                  "block-reference/modifiers/slice"
+                ]
+              },
+              {
+                "group": "Create files",
+                "pages": [
+                  "block-reference/draft/ai-fill-pdf",
+                  "block-reference/draft/draft",
+                  "block-reference/draft/populate-template",
+                  "block-reference/draft/table-to-file",
+                  "block-reference/draft/text-to-file"
+                ]
+              },
+              {
+                "group": "Code and events",
+                "pages": [
+                  "block-reference/advanced/code",
+                  "block-reference/advanced/comment",
+                  "block-reference/advanced/http-call",
+                  "block-reference/advanced/raise-event",
+                  "block-reference/advanced/sub-graph",
+                  "block-reference/advanced/wait-for-event"
+                ]
+              },
+              {
+                "group": "Agent blocks",
+                "pages": [
+                  "block-reference/agents/agent",
+                  "block-reference/agents/template-agent"
+                ]
+              },
+              {
+                "group": "Document stores",
+                "pages": [
+                  "block-reference/documents/add-file-to-document-store",
+                  "block-reference/documents/analyze-documents",
+                  "block-reference/documents/find-document",
+                  "block-reference/documents/search-documents",
+                  "block-reference/documents/trigger-document-store-new-record"
+                ]
+              },
+              {
+                "group": "Triggers",
+                "pages": ["block-reference/triggers/trigger-schedule"]
+              }
             ]
           },
           {
-            "group": "Loader Blocks",
+            "group": "Developer connections",
+            "expanded": false,
             "pages": [
-              "block-reference/loaders/read-binary",
-              "block-reference/loaders/read-images",
-              "block-reference/loaders/read-table",
-              "block-reference/loaders/read-text",
-              "block-reference/loaders/transcribe-audio"
-            ]
-          },
-          {
-            "group": "Logic Blocks",
-            "pages": [
-              "block-reference/logic/abort",
-              "block-reference/logic/checklist",
-              "block-reference/logic/coalesce",
-              "block-reference/logic/compare",
-              "block-reference/logic/delay",
-              "block-reference/logic/if-else",
-              "block-reference/logic/match",
-              "block-reference/logic/passthrough",
-              "block-reference/logic/race-inputs",
-              "block-reference/logic/route",
-              "block-reference/logic/switch"
-            ]
-          },
-          {
-            "group": "Modifier Blocks",
-            "pages": [
-              "block-reference/modifiers/chunk",
-              "block-reference/modifiers/convert-file",
-              "block-reference/modifiers/convert-format",
-              "block-reference/modifiers/destructure",
-              "block-reference/modifiers/extract-from-text",
-              "block-reference/modifiers/filter",
-              "block-reference/modifiers/flatten",
-              "block-reference/modifiers/get-value",
-              "block-reference/modifiers/hash",
-              "block-reference/modifiers/index",
-              "block-reference/modifiers/join",
-              "block-reference/modifiers/merge-pdf",
-              "block-reference/modifiers/pop",
-              "block-reference/modifiers/shuffle",
-              "block-reference/modifiers/slice"
-            ]
-          },
-          {
-            "group": "Draft Blocks",
-            "pages": [
-              "block-reference/draft/ai-fill-pdf",
-              "block-reference/draft/draft",
-              "block-reference/draft/populate-template",
-              "block-reference/draft/table-to-file",
-              "block-reference/draft/text-to-file"
-            ]
-          },
-          {
-            "group": "Advanced Blocks",
-            "pages": [
-              "block-reference/advanced/code",
-              "block-reference/advanced/comment",
-              "block-reference/advanced/http-call",
-              "block-reference/advanced/raise-event",
-              "block-reference/advanced/sub-graph",
-              "block-reference/advanced/wait-for-event"
-            ]
-          },
-          {
-            "group": "Agent Blocks",
-            "pages": [
-              "block-reference/agents/agent",
-              "block-reference/agents/template-agent"
-            ]
-          },
-          {
-            "group": "Document Blocks",
-            "pages": [
-              "block-reference/documents/add-file-to-document-store",
-              "block-reference/documents/analyze-documents",
-              "block-reference/documents/find-document",
-              "block-reference/documents/search-documents",
-              "block-reference/documents/trigger-document-store-new-record"
-            ]
-          },
-          {
-            "group": "Trigger Blocks",
-            "pages": [
-              "block-reference/triggers/trigger-schedule"
+              "integrations/mcp-server",
+              "integrations/mcp-recipes",
+              "integrations/custom-integrations"
             ]
           }
         ]
@@ -410,38 +362,69 @@
     ]
   },
   "footer": {
+    "links": [
+      {
+        "items": [
+          { "label": "Community", "href": "https://discord.gg/qZVnmjCfdY" },
+          { "label": "Blog", "href": "https://www.odella.ai/blog" },
+          { "label": "Support", "href": "mailto:support@odella.ai" }
+        ]
+      }
+    ],
     "socials": {
       "x": "https://x.com/odellaai",
       "linkedin": "https://www.linkedin.com/company/odella-ai",
       "instagram": "https://www.instagram.com/odella.ai/"
     }
   },
-  "contextual": {
-    "options": [
-      "copy",
-      "view"
-    ]
-  },
-  "seo": {
-    "indexing": "all"
-  },
-  "errors": {
-    "404": {
-      "redirect": false
-    }
-  },
+  "contextual": { "options": ["copy", "view"] },
+  "seo": { "indexing": "all" },
+  "errors": { "404": { "redirect": false } },
   "integrations": {},
-  "fonts": {
-    "family": "Inter"
-  },
-  "icons": {
-    "library": "fontawesome"
-  },
-  "styling": {
-    "eyebrows": "breadcrumbs",
-    "codeblocks": "system"
-  },
+  "fonts": { "family": "Inter" },
+  "icons": { "library": "fontawesome" },
+  "styling": { "eyebrows": "breadcrumbs", "codeblocks": "system" },
   "redirects": [
+    {
+      "source": "/workforce/skill-tree",
+      "destination": "/workforce/employee-page#assigned-resources",
+      "permanent": true
+    },
+    {
+      "source": "/workforce/templates",
+      "destination": "/templates/04_using-templates",
+      "permanent": true
+    },
+    {
+      "source": "/workflow-tutorial/01-simple-flow",
+      "destination": "/guides/automate-recurring-work",
+      "permanent": true
+    },
+    {
+      "source": "/workflow-tutorial/02-dynamic-prompting",
+      "destination": "/guides/automate-recurring-work",
+      "permanent": true
+    },
+    {
+      "source": "/workflow-tutorial/03-matching-conditionals",
+      "destination": "/guides/automate-recurring-work",
+      "permanent": true
+    },
+    {
+      "source": "/workflow-tutorial/04-subflows",
+      "destination": "/guides/automate-recurring-work",
+      "permanent": true
+    },
+    {
+      "source": "/workflow-tutorial/05-batching",
+      "destination": "/guides/automate-recurring-work",
+      "permanent": true
+    },
+    {
+      "source": "/workflow-tutorial/06-loops",
+      "destination": "/guides/automate-recurring-work",
+      "permanent": true
+    },
     {
       "source": "/product/security",
       "destination": "/platform/security",

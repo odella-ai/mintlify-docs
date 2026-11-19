@@ -1,56 +1,124 @@
 ---
-title: "Personal Vault"
-description: "Save logins and API keys, control employee use, and clear saved browser sign-ins."
+title: "Vault and protected credentials"
+description: "Store personal logins and API keys, share limited API access with AI Employees, and understand how Odella protects credential values."
 ---
 
-Open **Account → Vault** when available for your account. Vault stores credentials; it is not a [Document Store](/documents/overview), an integration catalog, or a place to upload signing records.
+Open **Account → Vault** to manage your saved logins and API keys. Your Vault belongs to you within the current Odella account. It is not a shared password list for everyone in the organization.
+
+## What the Vault protects
+
+Vault stores credential values using server-managed AES-256-GCM authenticated encryption. Integration connections use the same credential-encryption service.
+
+- Item lists show information such as names, websites, and update dates without reading or decrypting secret values.
+- Item details can show a username or the names of secret fields, but do not return saved passwords or API-key values.
+- Authorized platform services decrypt credential material when needed to carry out supported uses on your behalf.
+- Personal Vault management requires the authenticated owner and the appropriate Vault permissions. Being an organization administrator or an employee's manager is not a way to browse another person's Vault.
 
 <Note>
-  Availability and permission to view/manage Vault are checked separately. If Vault is missing or unavailable, ask your administrator or support. Do not put credentials into a chat as a workaround.
+  Vault is not a zero-knowledge or user-held-key password manager. Odella
+  manages the encryption and can decrypt credentials for authorized uses.
+  Encryption protects stored material; ownership checks and scoped access
+  determine who may use it.
 </Note>
 
-<Frame caption="Vault with example items and browser sign-ins. Synthetic Storybook example; no real credential is displayed.">
-  <img src="/images/features/vault.png" alt="Personal Vault with saved login and API-key metadata and management controls" />
-</Frame>
+Do not paste secrets into chat, worker instructions, skills, workflow text, or uploaded knowledge. Save them through the appropriate Vault or integration connection flow instead.
 
-## Save a login or key
+## Save or update an item
+
+Vault availability and view/manage permissions are separate checks. If it is unavailable, ask your administrator or support; do not paste credentials into chat as a workaround.
 
 1. Select **New item → Login** or **API key**.
-2. Enter a recognizable name. For a login, enter the username and password and the exact HTTPS website. Website entries use origins, without paths or query parameters.
-3. For an API key, enter the key or named secret fields supported by the form. Add the intended service website when needed.
-4. Add a usage hint if useful, without duplicating the secret in the name, website, or hint.
-5. Save and confirm that the item appears. Use search or **Logins / API keys** to find it later.
+2. Enter a recognizable name and the secret fields supported by the form. Website entries use HTTPS origins, without paths or query parameters.
+3. Add a usage hint if useful, without duplicating the secret in metadata.
+4. Save and confirm the item appears. Use search or **Logins / API keys** to find it later.
+5. To rotate a saved secret, select **Edit**, enter a replacement, and save. Stored values are not returned for display or copying; omitting a replacement preserves the existing value.
 
-Saved passwords and API-key values are not returned for display or copying. Visibility controls show newly entered values, not stored secrets. To rotate one, select **Edit**, enter a replacement, and save. Leaving a replacement omitted preserves the existing value; do not enter an empty value to clear it.
+<Frame caption="Vault with example items and browser sign-ins. Synthetic Storybook example; no real credential is displayed.">
+  <img src="/images/features/vault.png" alt="Personal Vault showing saved login and API-key metadata and management controls" />
+</Frame>
 
-## Decide what employees may use
+## Saved logins
 
-Saving an item does not share it automatically.
+Save a username and password with the exact HTTPS website where you use them. During a browser handoff, you can select a saved login for the matching site; the platform fills it into your browser without returning the values in the Vault response.
 
-- **Login requests:** When an employee requests a browser login, review the destination and choose the appropriate login through the credential request UI. Do not send its password in the conversation. Complete interactive sign-in yourself when required; see [Computer and browser handoff](/workforce/computer).
-- **API keys:** Where the **Employees** control is offered, open it on the key. Set exactly one service website before sharing. Choose how the service expects the key—Bearer, a named header, or a named query parameter—and explicitly grant only the intended employees the offered access level.
-- Employee code calls the service through Odella, which adds the key; the key itself does not reach the employee. In chat it uses the asking person's key; background work uses its manager's. Check that the correct owner has configured access.
+For interactive sign-in and credential requests, see [Computer and browser handoff](/workforce/computer).
 
-Review grants after employee or manager changes. Sharing a key does not override the provider's permissions or authorize arbitrary business operations. Use a provider-issued key with the narrowest access possible.
+Saved logins are not API-key grants. The API-sharing feature described below applies only to API keys.
+
+## Share an API key with an AI Employee
+
+Sharing gives a selected worker permission to use a key through Odella's protected connection. It does not give the worker a copy of the key.
+
+<Steps>
+  <Step title="Save the key">
+    Add an API key in Vault. For employee sharing, the item must contain a
+    single key value and exactly one HTTPS website, such as
+    `https://api.example.com`. Use the service's API address, not its marketing
+    website.
+  </Step>
+  <Step title="Choose employee access">
+    Open the key's employee-access control. Select only the AI Employees that
+    need it. You must be allowed to chat with an employee to grant or increase
+    its access; removing a grant does not require that employee access.
+  </Step>
+  <Step title="Set how authentication is sent">
+    Choose **Authorization: Bearer**, **A named header**, or **A query
+    parameter**, according to the provider's requirements. For a named header or
+    query parameter, provide its name.
+  </Step>
+  <Step title="Choose the minimum access">
+    Select **Read only** for lookups or **Read and change** when writes are
+    necessary. Save, then test with a low-risk request.
+  </Step>
+</Steps>
+
+| Access              | What the protected connection permits                                       |
+| ------------------- | --------------------------------------------------------------------------- |
+| **No access**       | The employee cannot use this item through Vault.                            |
+| **Read only**       | `GET` and `HEAD` requests.                                                  |
+| **Read and change** | Also permits supported write methods: `POST`, `PUT`, `PATCH`, and `DELETE`. |
+
+<Warning>
+  Read-only access is an HTTP-method restriction, not a guarantee about a
+  third-party API's behavior. Choose a provider-side read-only key where
+  available. Read and change can permit destructive operations; use narrowly
+  scoped provider credentials and review sensitive work.
+</Warning>
+
+## Whose key is used?
+
+- **A member's interactive conversation:** That person's keys explicitly shared with the employee.
+- **Background work:** The assigned manager's keys explicitly shared with the employee.
+- **Admitted external work without a member identity:** The manager's explicitly shared keys, subject to the work's authorization.
+- **No valid requester or manager:** No Vault-key access.
+
+Sharing a key with a worker does not make it available under every colleague's identity. If Alex shares a key, another member's chat does not automatically use Alex's key. Likewise, a scheduled task does not use Alex's key unless Alex is the manager whose Vault is selected for that work.
+
+See [Credentials and user scope](/platform/credentials-and-scope) for how connection ownership differs from permission to act.
+
+## How protected API access works
+
+When a worker's code uses a shared key, it calls a protected Odella address rather than receiving the reusable secret. Odella validates the active work, selects the owner's explicitly granted item, checks the request method, and adds authentication before sending the request to the saved website.
+
+The destination comes from the Vault item—not an arbitrary host supplied by the worker. Redirects to another website are refused. The protected connection also removes credential-like request headers and replaces recognized echoes of the key in responses with a placeholder. Request logs record operational details such as item, method, host, status, and size rather than request or response bodies or authentication headers.
+
+These controls reduce credential exposure. They do not make a third-party service trustworthy or prevent it from returning sensitive business data. Review the provider, the key's permissions, and the work you authorize.
 
 ## Browser sign-ins
 
-When **Browser sign-ins** is shown, it describes sites retained for your employees' browser between restarts. Select **Sign out of all sites** and confirm to clear those saved sign-ins. You will need to sign in again when an employee asks.
+Vault also protects system-managed browser sign-in state so your browser can resume signed in after a restart. This state is separate from your editable login and API-key items and is not offered as a credential item to employees or tools.
 
-Clearing browser sign-ins is separate from deleting a Vault item or revoking a provider credential. Do not assume one performs the others.
+The browser sign-in control shows whether sign-ins are saved. **Sign out of all sites** closes your active browser context and deletes the saved state. Saved state expires after 30 days without use; individual providers may expire their sessions sooner.
 
-## Delete or revoke
+For website-account permissions, user-scoped session sharing, downloads, and a safe sign-out test, see [Signed-in browser security](/platform/browser-security).
 
-Use the item's delete control and confirm to remove it from Vault. This does **not** revoke the password or key at its provider. If a credential was exposed, revoke or rotate it at the provider too, replace any dependent connection, and review employee grants.
+## Revoke or rotate access
 
-Vault is private to your user within the current account and region. Switching accounts does not move entries. Metadata such as names and website origins is not a suitable place for secrets. Storage encryption is server-managed, not a promise of zero-knowledge storage.
+- Set an employee's key access to **No access** to remove its Vault grant.
+- Update or delete your saved item when it is no longer needed.
+- Revoke or rotate the actual key with its provider if it may have been exposed.
+- Review scheduled work and manager-owned keys when responsibilities change.
 
-## Troubleshooting
+Removing a Vault grant does not undo completed actions or revoke the key at the provider. Disconnecting an integration is also separate from deleting a personal Vault item.
 
-- **No management controls:** You may have view access without manage access.
-- **No matching items:** Clear search and category filters and confirm the current account.
-- **Cannot share a key:** Set exactly one HTTPS service website and check the supported authentication format.
-- **An edit conflicts:** Reload the current item and reapply the intended change; do not overwrite newer settings blindly.
-- **Provider rejects the credential:** Check expiry, provider permissions, destination, and authentication format. Saving an item does not test it against the service.
-
-Use [custom integration authentication](/integrations/custom-integrations#authentication-options) for an MCP integration's own credentials. A Vault item does not automatically create or reconnect an integration.
+For the wider security model, see [Security and data protection](/platform/security).

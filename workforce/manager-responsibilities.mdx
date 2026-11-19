@@ -1,0 +1,96 @@
+---
+title: "Manager responsibilities"
+description: "Understand an AI Employee manager's authority, credential responsibilities, limits, and handover requirements."
+---
+
+An AI Employee's manager is the person accountable for how that worker is configured and used. In an organization account, assign the manager in **Settings → Governance**.
+
+This is a permission-bearing relationship, not just a name on the worker's profile. Choose an active account member who can oversee the worker's responsibilities and the connections needed for unattended work.
+
+## What the manager can do
+
+The manager receives employee-level administration for that worker, including access outside its ordinary team or role audience. This authority covers the following areas, subject to applicable product restrictions such as release-managed configuration.
+
+| Responsibility                   | Manager controls                                                                                                |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Use and supervise the worker** | Chat, request work, give feedback, and review available activity.                                               |
+| **Identity and instructions**    | Manage the worker's profile, role, and durable working guidance.                                                |
+| **Capabilities**                 | Configure skills, tools, models, memory, and supporting resources, subject to those resources' own permissions. |
+| **Availability**                 | Manage working hours and related work settings.                                                                 |
+| **Communication and safety**     | Configure channels, inbound access, outbound policy, and approval rules.                                        |
+| **Recurring work**               | Create, update, and remove scheduled or event-based work.                                                       |
+| **Governance**                   | Manage the worker's audience, editing assignments, conversation-sharing setting, and manager assignment.        |
+| **Lifecycle**                    | Terminate the worker through the supported controls.                                                            |
+
+Selected editors can receive permission to change particular settings areas. They do not become the accountable manager, and an editor assignment does not by itself grant access to the worker.
+
+See [Governance](/workforce/governance) for the access and editing controls, and [Approvals](/workforce/approvals) for reviewing proposed actions. Manager status does not mean every action automatically pauses for approval: configure the policy deliberately.
+
+## Why the manager matters for credentials
+
+When a verified member asks for work interactively, that member supplies the user scope. The manager does not replace that identity merely because the member lacks a connection.
+
+For governed background work, the manager supplies the user scope when automation is authorized. Admitted external contacts without a member identity can also use the manager as the accountable credential subject.
+
+This has two practical consequences:
+
+1. **User-scoped integrations:** The manager needs the appropriate connection and provider permissions for unattended work that uses it.
+2. **Vault API keys:** The manager must explicitly share the required keys with the worker. Assigning a manager does not automatically share their Vault.
+
+Account-scoped integrations use the account connection instead. The integration's defined scope determines the connection lookup; the worker cannot change it by asking to act as someone else.
+
+<Note>
+  Selecting the manager's credential scope is not the same as lending the
+  manager's full permissions. Background work needs its own active
+  authorization, and external work remains limited by its channel admission.
+  Credentials alone do not authorize unrelated actions.
+</Note>
+
+See [Credentials and user scope](/platform/credentials-and-scope) and [Vault and protected credentials](/platform/vault).
+
+## What manager status does not grant
+
+Managing one AI Employee does not automatically grant:
+
+- Organization-wide administration, billing management, or authority over other workers.
+- Access to every workflow, document, knowledge source, or connected application.
+- The ability to inspect another person's Vault or retrieve reusable secret values through the protected Vault interface.
+- Broader provider permissions than those granted to the connected identity or key.
+- Permission to bypass tool restrictions, outbound-recipient rules, or required approvals.
+- Unrestricted access to other members' conversations. Conversation use and visibility follow their own policies.
+
+Configure conversation sharing separately, and do not use it as a substitute for a privacy or access review.
+
+## Change managers safely
+
+Follow [Hand over an AI Employee](/platform/manager-handover-tutorial) for a worked transfer, connection preparation, access-removal checks, and a handover acceptance checklist.
+
+A manager change is a security handover, not just an organizational update. Changing the manager revokes affected employee automation grants; do not assume existing unattended work will continue without review and renewed authorization.
+
+<Steps>
+  <Step title="Review the worker's responsibilities">
+    Inventory scheduled actions, event-based work, connected channels, sensitive
+    tools, and pending approvals.
+  </Step>
+  <Step title="Prepare the replacement">
+    Confirm the new manager is an active account member. Connect the user-scoped
+    applications they need and explicitly share any required Vault keys with the
+    worker.
+  </Step>
+  <Step title="Transfer the assignment">
+    Save the new manager in Governance. Review the worker's audience, selected
+    editors, and conversation-sharing choice as part of the handover.
+  </Step>
+  <Step title="Review and reauthorize unattended work">
+    Review affected automations, restore authorization through the supported
+    controls, and test representative work before relying on it.
+  </Step>
+  <Step title="Remove obsolete access">
+    Remove old Vault grants and unnecessary connections as appropriate. Revoke
+    provider credentials separately when required by your offboarding process.
+  </Step>
+</Steps>
+
+If the manager leaves or the worker shows that reassignment is required, ask a person with manager-assignment permission to resolve it. Departure handling revokes affected automation authority; a missing manager should not be treated as permission to use another member's credentials.
+
+Continue with [Organization administration](/platform/organization) and [Roles and permissions](/platform/roles-and-permissions).

@@ -1,0 +1,93 @@
+---
+title: "Signed-in browser security"
+description: "Understand user-scoped website sessions, saved sign-ins, downloads, and the limits of connected-tool approvals during browser work."
+---
+
+Signed-in browsing lets an AI Employee work with websites under the applicable user's identity. Review that website identity as carefully as a connected integration: it may have permission to read confidential information or change business records.
+
+<Warning>
+  A website click is not automatically governed by the connected-tool approval
+  matrix. Do not assume a setting such as Approval-first or Restricted
+  guarantees review or blocking of every browser mutation.
+</Warning>
+
+## Whose website session is used?
+
+The remote browser is associated with an **account and authenticated user**. That user's AI Employees can share the browser context. It is not a separate set of website logins for every worker.
+
+- Another member does not receive your browser merely because they can use the same worker.
+- A run without the required account and user identity does not receive your private browser through the remote browser command boundary.
+- A worker's manager assignment is not a transfer of another person's website sessions.
+- Conversation sharing and browser-session ownership are separate controls.
+
+For unattended work, verify the actual supported identity and connection path before depending on a signed-in website. A schedule's existence is not evidence that a particular private browser session is available to it.
+
+## Choose a restricted website identity
+
+Before signing in:
+
+1. Check the active Odella account and signed-in member.
+2. Use a website account approved for the task, with only the provider-side permissions it needs.
+3. Avoid signing a broad administrator account into the worker's browser for a narrow lookup task.
+4. Review which of your workers you will ask to browse. A shared user context does not establish per-worker website isolation.
+5. Use an authorized connected API with explicit action controls instead when the task requires a boundary that browser work does not provide.
+
+Instructions such as “never submit a payment” are useful work guidance, but not proof of an enforced payment prohibition. Enforce that restriction at the website account or choose a different supported work path.
+
+## Saved logins and saved sign-ins are different
+
+| Item                       | Purpose                                                                         | Removal does not imply                                                                  |
+| -------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Vault login**            | An editable username/password item for a matching website.                      | The website session is signed out or the provider password is changed.                  |
+| **Browser sign-ins**       | System-managed encrypted state used to resume your browser signed in.           | The provider account is disabled or every provider-issued session elsewhere is revoked. |
+| **Vault API key grant**    | Explicit permission for a worker to use a key through the protected connection. | Browser access is removed or the provider key itself is revoked.                        |
+| **Integration connection** | A supported application connection with its own user/account scope.             | A separately signed-in browser is signed out.                                           |
+
+Browser sign-in state is protected through Vault but is not listed as an editable login or key, nor offered as a credential item to workers. Authorized browser services restore it for supported use; this is not a zero-knowledge password manager.
+
+Saved browser state expires after **30 days without use**. Providers can expire their own sessions sooner. Do not rely on inactivity expiry as an immediate revocation procedure.
+
+## Sign out and revoke deliberately
+
+Open **Account → Vault**, find **Browser sign-ins**, and select **Sign out of all sites**. Review the confirmation. This closes your active browser context and deletes the saved sign-in state for the current account and user.
+
+After signing out:
+
+- Return to Vault and confirm sign-ins are no longer shown as saved.
+- Open a safe test website through supported browser work and confirm it no longer resumes the old authenticated session.
+- If the provider may still have active sessions or credentials, revoke them using the provider's administration controls.
+- Separately remove obsolete login items, API-key grants, and integration connections as required.
+
+<Note>
+  Signing out does not undo website changes, delete files already downloaded, or
+  recall information already returned to a conversation. For a suspected
+  exposure, stop the affected work and follow your organization's incident
+  process; contact Odella at [support@odella.ai](mailto:support@odella.ai).
+</Note>
+
+## Downloads and browser outputs
+
+A private browser session does not make every result private forever. A downloaded file handed to a worker, an extracted page summary, or information placed in a conversation becomes an output that needs its own audience and retention review.
+
+- Use non-sensitive sample downloads during onboarding.
+- Review the destination workspace, conversation, document store, or workflow that receives the output.
+- Check access to that destination separately from website-login ownership.
+- Do not assume signing out deletes earlier outputs or blocks their later use.
+- Do not put cookies, session data, passwords, or authentication headers into chat, instructions, skills, or shared files.
+
+For customer-visible work history, see [Activity Log](/workforce/activity). It is not a complete browser-security audit trail or a guarantee that every page action and data transfer is exported.
+
+## Test a signed-in workflow safely
+
+| Test                                         | What to verify                                                                                                                 |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Same member, another AI Employee             | Treat website sign-ins as potentially shared under that member; do not assume a new worker starts with a new website identity. |
+| Different member, same worker                | Verify their browser does not resume your test website session. Use ordinary member sessions, not impersonation.               |
+| Provider-side read-only identity             | Inspect provider permissions and test only safe records; do not attempt a real destructive operation to prove a restriction.   |
+| Website change under a connected-tool preset | Record actual browser behavior separately. Do not infer a per-click approval guarantee from the preset.                        |
+| Non-sensitive file download                  | Check where it is handed to the worker and who can access the resulting output.                                                |
+| Sign out of all sites                        | Confirm no saved state is shown and a fresh browser visit requires the expected sign-in.                                       |
+
+If a test reveals unexpected access, stop the workflow and review user identity, website permissions, saved sign-ins, output audiences, and the control boundary used. Do not simply broaden permissions to make the test pass.
+
+Read [Tool and browser boundaries](/platform/tool-and-browser-security) for execution safeguards, [Vault](/platform/vault) for credential controls, and [Security review checklist](/platform/security-review) for evidence to collect before production use.

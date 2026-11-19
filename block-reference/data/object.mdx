@@ -28,7 +28,7 @@ The Object Block creates an object from input values and a JSON template. It aut
 
 ## Editor Settings
 
-<ParamField path="jsonTemplate" type="code" language="json" default='{ "key": "{{input}}" }'>
+<ParamField path="jsonTemplate" type="code" language="json" default={'{ "key": "\u007b\u007binput\u007d\u007d" }'}>
   The JSON template for creating the object. Input values are inserted into this template using double curly brace syntax (e.g. `{{input}}`). The template must be valid JSON.
 
   Values wrapped in quotes (e.g. `"{{input}}"`) will be treated as strings and escaped appropriately. Values without quotes will be inserted directly as JSON values.
