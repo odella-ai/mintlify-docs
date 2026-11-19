@@ -16,6 +16,7 @@ The local preview runs on port 3334. Run commands from this repository's root.
 ```bash
 pnpm validate
 pnpm broken-links
+pnpm test:security
 git diff --check
 ```
 
@@ -44,7 +45,7 @@ The layout check needs the preview running on port 3334 and uses the supplied ap
 
 ## Exhaustive visual review
 
-The authored page-by-page design register is `.agents/reviews/visual-page-review.md`; its observations live in `visual-page-notes.json` alongside it. It covers all 162 published pages, including the hidden app-linked references, not just the representative layout smoke test.
+The authored page-by-page design register is `.agents/reviews/visual-page-review.md`; its observations live in `visual-page-notes.json` alongside it. It covers all 174 published pages (83 visible, 88 protected app-linked references, and three additional hidden channel references), not just the representative layout smoke test.
 
 ```bash
 DOCS_BROWSER_CHANNEL=chrome node scripts/capture-docs-audit.mjs ../webapp/apps/app http://localhost:3334 /tmp/odella-docs-visual-audit before
@@ -57,7 +58,9 @@ DOCS_BROWSER_CHANNEL=chrome node scripts/check-docs-article-design.mjs ../webapp
 node scripts/report-docs-visual-audit.mjs /tmp/odella-docs-visual-audit > .agents/reviews/visual-page-review.md
 ```
 
-Each capture phase saves 324 full-page desktop/mobile PNGs, a manifest, and a local gallery. Contact sheets show page tops, middles, silhouettes, and endings; open full PNGs to inspect issues at native resolution. The sheet builder requires Python Pillow and macOS Arial. Keep generated images outside the published repository. The report checks complete before/after coverage, HTTP status, one visible H1, broken images, document overflow, and client errors; it does **not** substitute for visual inspection. The supplementary design check covers representative dark/light articles, Copy page positioning, and keyboard/no-JavaScript table scrolling.
+Each complete capture phase for the current inventory saves 348 full-page desktop/mobile PNGs, a manifest, and a local gallery. Contact sheets show page tops, middles, silhouettes, and endings; open full PNGs to inspect issues at native resolution. The sheet builder requires Python Pillow and macOS Arial. Keep generated images outside the published repository. The report checks complete before/after coverage, HTTP status, one visible H1, broken images, document overflow, and client errors; it does **not** substitute for visual inspection. The supplementary design check covers representative dark/light articles, Copy page positioning, and keyboard/no-JavaScript table scrolling.
+
+The preserved audit dataset's original baseline has 162 pages. Its `reconciled` phase includes the 12 pages brought forward from newer `main`; generate that register with `node scripts/report-docs-visual-audit.mjs /tmp/odella-docs-visual-audit reconciled`. Those added pages have final screenshots, not invented baseline screenshots.
 
 If Chrome reports a transient full-page raster error under concurrent capture, rerun the same command with `--retry-failures` for serial recovery. Use `--routes=path/to/page,another/page` to refresh changed pages without overwriting the other evidence. Do not overwrite a historical baseline after making design changes.
 

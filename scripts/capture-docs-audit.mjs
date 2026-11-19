@@ -59,6 +59,7 @@ try {
             const response = await page.goto(new URL("/" + item.route, base).href, { waitUntil: "domcontentloaded", timeout: 45000 });
             result.httpStatus = response?.status();
             await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 15000 });
+            await page.locator('#content').waitFor({ timeout: 15000 });
             await page.evaluate(() => document.fonts.ready);
             await page.evaluate(async () => {
               document.querySelectorAll("video").forEach((video) => { video.pause(); video.autoplay = false; });

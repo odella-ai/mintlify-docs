@@ -35,11 +35,19 @@ Available applications vary by workspace and can include:
   </Card>
 </CardGroup>
 
-Only account administrators can create or manage custom integrations. See [Custom integrations](/integrations/custom-integrations) for the complete setup and security guide.
+Creating or managing custom integrations requires custom MCP management permission. See [Custom integrations](/integrations/custom-integrations) for the complete setup and security guide.
 
 ## Connect external tools to Odella
 
-To use Odella from Claude Code, Codex, Cursor, or OpenCode, connect to the [Odella MCP server](/integrations/mcp-server). Create a personal access token under **Account → Developer** and choose the access your client needs. This is separate from connecting a custom MCP server for your AI Employees to use.
+To use Odella from **Claude, ChatGPT, Claude Code, Codex, Cursor, or OpenCode**, connect to the [Odella MCP server](/integrations/mcp-server). Open **Account → Developer**, choose your client, and use the displayed OAuth or personal-access-token setup. Hosted Claude and ChatGPT use OAuth where configured; they do not use a pasted PAT header.
+
+| Your goal | Connection direction | Start here |
+| --- | --- | --- |
+| Give an employee tools from another service | External server → Odella | [Custom integrations](/integrations/custom-integrations) |
+| Use Odella from an AI app or coding client | AI client → Odella MCP server | [Odella MCP setup](/integrations/mcp-server) |
+| Connect Gmail, Xero, or another catalog app | Provider → Odella integration | Catalog connection below |
+
+Connecting a server and connecting a client are separate operations with separate credentials and permissions.
 
 ## Connect a catalog application
 

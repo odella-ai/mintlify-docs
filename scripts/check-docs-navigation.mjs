@@ -122,5 +122,5 @@ for (const path of retired) {
   );
 }
 console.log(
-  `Navigation passed: ${visible.length} active pages, ${entries.length - visible.length} app-linked references, ${retired.length} retired routes; no missing or duplicate pages.`,
+  `Navigation passed: ${visible.length} active pages, ${appReferenceRoutes.length} protected app-linked references, ${entries.length - visible.length - appReferenceRoutes.length} additional hidden references, ${retired.length} retired routes; no missing or duplicate pages.`,
 );

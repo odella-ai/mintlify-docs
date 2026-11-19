@@ -56,7 +56,13 @@
               "workforce/talk",
               "workforce/approvals",
               "workforce/workspace",
-              "workforce/activity"
+              "workforce/computer",
+              "workforce/activity",
+              {
+                "group": "Review inbox updates",
+                "expanded": false,
+                "pages": ["inbox/overview", "inbox/daily-brief", "inbox/insights"]
+              }
             ]
           },
           {
@@ -74,9 +80,13 @@
                   "workforce/channels/email",
                   "workforce/channels/slack",
                   "workforce/channels/teams",
-                  "workforce/channels/phone-and-messaging",
-                  "workforce/channels/telegram-and-discord",
-                  "workforce/channels/meetings"
+                  "workforce/channels/web-chat",
+                  "workforce/channels/phone",
+                  "workforce/channels/whatsapp",
+                  "workforce/channels/signal",
+                  "workforce/channels/telegram",
+                  "workforce/channels/discord",
+                  "workforce/channels/google-meet"
                 ]
               },
               "platform/credentials-and-scope",
@@ -116,6 +126,7 @@
                 ]
               },
               "templates/05_e-signing",
+              "documents/sign-a-document",
               "documents/signing-records"
             ]
           },
@@ -167,6 +178,17 @@
               "workforce/settings-operations-logistics",
               "workforce/settings-billing",
               "workforce/settings-terminate"
+            ]
+          },
+          {
+            "group": "Channel setup references",
+            "hidden": true,
+            "searchable": true,
+            "expanded": false,
+            "pages": [
+              "workforce/channels/phone-and-messaging",
+              "workforce/channels/telegram-and-discord",
+              "workforce/channels/meetings"
             ]
           },
           {

@@ -59,6 +59,7 @@ try {
             `${route} overflows at ${width}px`,
           );
           if (route === "/introduction") {
+            await page.locator(".docs-welcome").waitFor();
             assert(await page.locator("#header").isVisible(), "Welcome uses the normal docs header");
             assert.equal(await page.locator("#page-title").innerText(), "Welcome to Odella");
             assert.equal(await page.locator('.docs-welcome a[href="/get-started/quickstart"], .docs-welcome a[href="/get-started/how-odella-works"]').count(), 2);

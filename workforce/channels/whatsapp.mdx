@@ -1,0 +1,52 @@
+---
+title: "WhatsApp"
+description: "Understand organization eligibility, assigned numbers, manual registration and Meta review."
+---
+
+<Warning>
+  WhatsApp setup is not fully self-service. It requires an organization account
+  and paid-channel eligibility. Availability differs between channel entry
+  points: the add-capability panel includes an organization-only WhatsApp
+  option, while the employee skill graph filters WhatsApp out. If it is absent,
+  contact support; do not use a guessed URL to bypass eligibility.
+</Warning>
+
+An active SMS number, a saved channel and Meta approval are three different things. Do not assume any one proves that WhatsApp messaging is ready.
+
+## Before you start
+
+- Permission to manage the employee's channels and account phone resources where needed.
+- The intended organization selected in Odella, with its company details correct.
+- An active number assigned to that employee; see [Phone setup](/workforce/channels/phone).
+- Account eligibility for paid channels, required provider/business verification, and approval for charges.
+
+## Request setup
+
+1. Where offered, open the employee's **Channels → WhatsApp**.
+2. Select the employee's assigned active number and complete the displayed create/registration steps.
+3. Review the requested display name. The current organization flow derives it from the employee and company; a saved name is not Meta approval.
+4. Read the registration status and any rejection reason. The current flow can enter a **manual submission queue** requiring the Odella team to finish provider onboarding.
+5. Wait for the number to become **Active** before testing messaging. Ask support about a stalled manual submission rather than creating duplicate registrations.
+
+## Understand the status
+
+| Status                                        | What it means                                                                                    |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Unregistered                                  | Registration has not been completed.                                                             |
+| Waiting to be submitted / `pending_manual`    | Provider onboarding needs an Odella/support step; this is not merely waiting for Meta to review. |
+| Pending verification / `pending_otp`          | Provider verification remains outstanding.                                                       |
+| Pending Meta approval / `pending_name_review` | Display-name review remains outstanding.                                                         |
+| Active                                        | Registration reports active; verify the channel and a real authorized message path too.          |
+| Rejected                                      | Read the provider reason and work with support on a supported retry.                             |
+
+An Odella channel can be published while registration/review is still pending. No fixed activation time is guaranteed.
+
+## Test safely
+
+After registration is active, confirm the channel belongs to the correct employee/number. With the contact's permission, send a low-risk direct message from an allowed contact and verify both the reply and Activity. Review required approvals before asking for outbound contact.
+
+## Recover or disconnect
+
+Check organization context, account eligibility, number assignment and registration reason first. Provider display-name rejection, a manual queue, and a disabled employee need different remedies. Updating a number must preserve its assignment and provider state; coordinate with support if re-registration is required.
+
+Do not assume removing a WhatsApp channel deletes a provider business account or releases the number used by Phone/Signal. Keep security-policy changes in the employee UI. Follow provider messaging, consent and business requirements; do not rely on blanket encryption claims to infer that information is never processed by Odella or its service providers.

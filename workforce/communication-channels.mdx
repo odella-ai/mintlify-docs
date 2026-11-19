@@ -1,91 +1,70 @@
 ---
 title: "Choose a contact channel"
 sidebarTitle: "Channels overview"
-description: "Choose, configure, publish, and test the ways people can contact an AI Employee."
+description: "Choose a channel, follow its setup guide, and check what must be verified before people can reach an AI Employee."
 ---
 
 <span id="give-people-a-way-to-reach-your-worker"></span>
 
-A communication channel gives an AI Employee a contact point, such as an email address, workplace chat app, or phone number. A connected toolkit instead lets the worker perform actions in another application. The two can require different setup and permissions.
+A communication channel gives an AI Employee a contact point. A toolkit lets the employee act in another application. Connecting one does not automatically configure the other.
 
-## Choose a channel
+## Choose the right setup guide
 
-| Channel                | Setup and purpose                                                                           |
-| ---------------------- | ------------------------------------------------------------------------------------------- |
-| **Web chat**           | Talk to the worker in Odella. Browser voice, where available, uses [Talk](/workforce/talk). |
-| **Email**              | Give the worker a dedicated address for incoming messages and replies.                      |
-| **Slack**              | Configure a Slack app and approve it in the intended workspace.                             |
-| **Microsoft Teams**    | Register a Microsoft app, configure an Azure Bot, and install the Teams package.            |
-| **Phone**              | Use an assigned active number for SMS, voice, or both.                                      |
-| **WhatsApp / Signal**  | Use the assigned number and complete each provider's registration.                          |
-| **Telegram / Discord** | Configure and activate a provider bot.                                                      |
-| **Google Meet**        | Configure meeting defaults where offered; this is separate from chat and phone setup.       |
+| Channel         | What you need                                                                                         | Guide                                          |
+| --------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Web chat        | Existing employee and permitted access; optional presentation/speech settings                         | [Web chat](/workforce/channels/web-chat)       |
+| Employee email  | Generated address; authorized member sender                                                           | [Email](/workforce/channels/email)             |
+| Slack           | Workspace app permissions, generated manifest or assisted flow, credentials and installation approval | [Slack](/workforce/channels/slack)             |
+| Microsoft Teams | Entra/Azure/Teams administrator help, bot configuration, secret and package installation              | [Teams](/workforce/channels/teams)             |
+| Phone/SMS       | Assigned active capable number, eligibility, compliance and calling terms                             | [Phone](/workforce/channels/phone)             |
+| WhatsApp        | Organization account, eligible number and manual/provider onboarding; not fully self-service          | [WhatsApp](/workforce/channels/whatsapp)       |
+| Telegram        | Official BotFather bot and securely entered token                                                     | [Telegram](/workforce/channels/telegram)       |
+| Discord         | Developer application, bot token/intents and server installation                                      | [Discord](/workforce/channels/discord)         |
+| Signal          | Supported assigned number, SMS verification and sometimes a human CAPTCHA                             | [Signal](/workforce/channels/signal)           |
+| Google Meet     | Availability confirmed with support, authorized Google access and supported meeting/voice path        | [Google Meet](/workforce/channels/google-meet) |
 
-Use the channel types available in your account. A provider integration in the catalog is not proof that a communication channel of the same name is active.
+<Note>
+  Channel availability depends on your account, permissions, current plan and
+  deployed product. WhatsApp entry points differ: the add-capability panel
+  includes an organization-only option while the employee skill graph hides it.
+  Meet is not listed in normal picker metadata. An integration or backend
+  feature with the same name does not prove that channel setup is available.
+</Note>
 
-## Create and publish
+For a direct browser voice conversation where available, see [Talk](/workforce/talk). Browser Talk is separate from channel text-to-speech, telephone calls and meeting participation.
 
-<Steps>
-  <Step title="Open the worker's channels">
-    Open the AI Employee and its communication-channel capability. Add the
-    channel type your team needs. You must have permission to manage the
-    worker's channels.
-  </Step>
-  <Step title="Follow the provider-specific setup">
-    Complete the configuration and setup guide in the editor. Use its generated
-    manifest, endpoint, package, or assigned number; do not copy another
-    worker's configuration.
-  </Step>
-  <Step title="Review access and outbound policy">
-    Choose who may contact the worker and how outbound actions should be
-    handled. Creating a channel does not remove approval requirements.
-  </Step>
-  <Step title="Activate and test">
-    Complete authorization or publication as required. Send a low-risk direct
-    message from an allowed account and confirm the reply reaches the correct
-    conversation.
-  </Step>
-</Steps>
+## Common setup path
 
-## Setup guides
+1. Open **Workforce**, select the intended employee and open its **Channels** capability.
+2. Choose the supported channel or edit the employee's existing channel. Default web/email channels should not be duplicated.
+3. Follow the channel guide, using the manifest, endpoint, package or number generated for this employee and environment.
+4. Complete any external administrator approval, secure credential entry, provider verification or number-compliance check. A draft or submitted request is not a working connection.
+5. Review security and **Channel Access** in the employee UI. Publication does not override sender restrictions, approvals or working hours.
+6. Complete the offered **Create**, authorization or publication flow. Confirm the actual provider/registration result, not just a saved form.
+7. With the participant's permission, test a low-risk message/call and check the reply and employee Activity before wider use.
 
-<CardGroup cols={2}>
-  <Card title="Email" icon="envelope" href="/workforce/channels/email">
-    Dedicated addresses, replies, attachments, and access checks.
-  </Card>
-  <Card title="Slack" icon="comments" href="/workforce/channels/slack">
-    App manifest, credentials, workspace approval, and testing.
-  </Card>
-  <Card title="Microsoft Teams" icon="users" href="/workforce/channels/teams">
-    Microsoft registration, bot endpoint, package, and member matching.
-  </Card>
-  <Card
-    title="Phone, WhatsApp, and Signal"
-    icon="phone"
-    href="/workforce/channels/phone-and-messaging"
-  >
-    Assigned numbers, provider registration, and publishing.
-  </Card>
-  <Card
-    title="Telegram and Discord"
-    icon="comment"
-    href="/workforce/channels/telegram-and-discord"
-  >
-    Bot setup and safe credential handling.
-  </Card>
-  <Card title="Meetings" icon="video" href="/workforce/channels/meetings">
-    Meeting defaults, prerequisites, and limitations.
-  </Card>
-</CardGroup>
+## What “ready” means
+
+Check these separately: configuration saved, required provider consent/verification complete, published in Odella, correct provider installation/routing, allowed sender, employee available, and end-to-end delivery verified.
+
+WhatsApp may be published while provider registration is pending. Teams may be published before its package is installed. A Signal verification request is not an active registration. A saved Meet link is not Google authorization or proof of live attendance.
+
+## Credentials and protected settings
+
+Never paste bot tokens, signing/client secrets, verification codes or configuration tokens into ordinary conversations. Use the dedicated secure fields/consent steps. Setup illustrations may be historical; redacted values are not examples to copy.
+
+Memory settings, dreaming and security policies must be changed by opening the employee UI, not through a conversation. Read [Security & Privacy](/workforce/settings-security-privacy). Approving one message or enabling a non-security presentation option is not permission to weaken a saved policy.
 
 ## Access is separate from publication
 
-The worker's [Security & Privacy](/workforce/settings-security-privacy) settings control inbound access, outbound messaging, and tool approvals. [Governance](/workforce/governance) controls who can use or edit the worker inside your organization.
+[Governance](/workforce/governance) determines who can use or edit the employee in your organization. [Security & Privacy](/workforce/settings-security-privacy) controls inbound access, outbound messaging and tool approvals.
 
-A published channel can still refuse a sender under its access policy. A worker that can receive a message may still need approval before contacting someone else.
+A published channel can still refuse a sender under its access policy. Being allowed to contact the employee does not grant unrestricted permission for it to contact someone else.
 
-## Change or disconnect a channel
+## Billing, changes and removal
 
-Review scheduled work, Actions, and expected inbound messages before changing credentials or removing a channel. Test the updated path after reconnecting. Pausing the worker or deleting a channel does not undo messages already sent.
+Phone numbers, calls, work, provider subscriptions and paid channels can have separate eligibility and charges. Check **Account → Limits** and the current costs before approval; do not infer that saving configuration starts a free service.
 
-If no reply arrives, check publication/registration, the intended provider workspace or number, worker availability, inbound policy, billing eligibility, and related [Activity](/workforce/activity).
+Before changing credentials or removing a channel, review Actions, expected incoming messages and other channels sharing a number. The existing editor may offer **Delete** for optional channels; it is not a guarantee of a pause/unpublish lifecycle or provider uninstall. Default web/email channels are protected. Removal does not undo sent messages, delete provider bots or necessarily release a billed number.
+
+If a test fails, check account/employee selection, provider setup, registration/publication, routing/install permissions, allowed sender, employee availability, pending approvals and Activity. Escalate with a redacted error and the setup stage, never the credential value.

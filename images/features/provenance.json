@@ -1,0 +1,271 @@
+[
+  {
+    "file": "custom-list.png",
+    "story": "integrations-custom-plugins--custom-integrations-list",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 60,
+      "y": 60,
+      "width": 925,
+      "height": 346
+    },
+    "fixtureOverrides": [
+      {
+        "kind": "synthetic-integration-logo",
+        "asset": "fixtures/integration-logo.png",
+        "sha256": "cde1139c22a1118428dfcdb1362e5046d159d49c64a74285a4e24c4f12dce6fc"
+      }
+    ],
+    "sha256": "82d7a6ce7925dec5d14d5bbf3eaf2d5d99d451d554b59739698cdfe555a6ea77",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "custom-create.png",
+    "story": "integrations-custom-plugins--no-authentication-required",
+    "viewport": {
+      "width": 1280,
+      "height": 1100
+    },
+    "clip": {
+      "x": 352,
+      "y": 137,
+      "width": 576,
+      "height": 826
+    },
+    "fixtureOverrides": [
+      {
+        "kind": "synthetic-integration-logo",
+        "asset": "fixtures/integration-logo.png",
+        "sha256": "cde1139c22a1118428dfcdb1362e5046d159d49c64a74285a4e24c4f12dce6fc"
+      }
+    ],
+    "sha256": "17c4dc8b81ee3a595e81e6259e4e659b38a6f5cbf6ace54916e8fdc4ba05eb76",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "custom-settings.png",
+    "story": "integrations-custom-plugins--custom-integrations-list",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 352,
+      "y": 129,
+      "width": 576,
+      "height": 641
+    },
+    "interaction": "Open Manage Acme Knowledge",
+    "fixtureOverrides": [
+      {
+        "kind": "synthetic-integration-logo",
+        "asset": "fixtures/integration-logo.png",
+        "sha256": "cde1139c22a1118428dfcdb1362e5046d159d49c64a74285a4e24c4f12dce6fc"
+      }
+    ],
+    "sha256": "4ebb5a58c5484e38478052e15d5b52148e38a5e5d55e56d709226c28d7781184",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "mcp-oauth-setup.png",
+    "story": "account-developer--claude-code-o-auth",
+    "viewport": {
+      "width": 1280,
+      "height": 1100
+    },
+    "clip": {
+      "x": 196,
+      "y": 393,
+      "width": 784,
+      "height": 557
+    },
+    "sha256": "35d22e150f289faa78558ab75e53e14a6e2b87550e0c45a5e86965ea9d657cd3",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "signing-fields.png",
+    "story": "template-builder-redesign-e-signing--recipient-field",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 290,
+      "y": 25,
+      "width": 340,
+      "height": 550
+    },
+    "sha256": "a0eedbef42fb6e615559f52726a866c4a2b27d28b74371fbd9a16095884472a0",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "signing-destination.png",
+    "story": "template-builder-redesign-signing-settings--selected-copy",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 392,
+      "y": 363,
+      "width": 496,
+      "height": 174
+    },
+    "sha256": "438b6d17510c139b64d0a1bba1acbc52bb578b551dda93fd11bba82fed35c74c",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "signing-requests.png",
+    "story": "documents-e-signing--all-requests",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "sha256": "0042574c81fa44b2a636a4052d87651759325af69b0189552f98d7e1027929f0",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "signing-recipient.png",
+    "story": "signing-recipient--review-and-consent",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "sha256": "90c4b3f4505a74fbd0c8f11304d052d7d966c2fad22e9acb0778b4b65939546b",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "signing-completed.png",
+    "story": "signing-recipient--final-copy",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 380,
+      "y": 100,
+      "width": 520,
+      "height": 425
+    },
+    "sha256": "aabe3dbdaca1b7364da287461ff6371a1b8e1f800243312d0f717f8880566e4f",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "inbox-reader.png",
+    "story": "inbox-live-reader-mock-backend--reading-email",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "sha256": "325abb90c1669d6c1d768db92e712b965699bb5da1abf446efac77d9ddcd4742",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "inbox-setup.png",
+    "story": "inbox-live-reader-mock-backend--configuration",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 255,
+      "y": 80,
+      "width": 770,
+      "height": 450
+    },
+    "sha256": "a3d5a4cf6259794bb4d028ea9c5677b3a5972fd1395e9e3779d7da5d489889fe",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "daily-brief.png",
+    "story": "inbox-daily-brief--live-today",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 290,
+      "y": 25,
+      "width": 700,
+      "height": 440
+    },
+    "sha256": "6438a5b3ff42d99d495c197be89b11b9ece227572beda2f2a11ade116733c5c0",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "insights.png",
+    "story": "inbox-live-insights--activation",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 165,
+      "y": 65,
+      "width": 950,
+      "height": 305
+    },
+    "sha256": "744ace640ff4d087e0f74fe40c0c0ad6231285c87d770deeb97f2f8cf388bcbe",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "vault.png",
+    "story": "account-vault--populated",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "clip": {
+      "x": 190,
+      "y": 0,
+      "width": 900,
+      "height": 390
+    },
+    "sha256": "479648b52acc83df25cbec5b2bd97079081f85fd820277c4073aca353257e84b",
+    "source": "Synthetic Storybook UI; not a live account"
+  },
+  {
+    "file": "computer.png",
+    "story": "browser-review-browser-and-terminal-workspace--request-inside-computer",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "clip": {
+      "x": 0,
+      "y": 45,
+      "width": 1440,
+      "height": 855
+    },
+    "fixtureOverrides": [
+      {
+        "kind": "synthetic-external-website-frame",
+        "source": "fixtures/client-portal.html",
+        "sourceSha256": "e5c73b0161f5ce505841f870d4a1acf324936ba4609bad135d41a41cca04678b",
+        "asset": "fixtures/client-portal.jpg",
+        "sha256": "aa73278729ce1d97d49142b0191159a15c41dbb169852efe375eda67f96bf156"
+      },
+      {
+        "kind": "missing-storybook-routing-mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing-storybook-routing-mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing-storybook-routing-mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing-storybook-routing-mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "sha256": "af115b61ad29fd27850edbcf324af3a9936181806248fd7fbc587da9eb530203",
+    "source": "Synthetic Storybook UI; not a live account"
+  }
+]

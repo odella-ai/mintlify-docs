@@ -1,0 +1,47 @@
+---
+title: "Phone and SMS"
+description: "Assign an eligible number, choose calls/texts, accept required terms and verify carrier routing."
+---
+
+A Phone channel lets allowed contacts reach an AI Employee by SMS, voice call, or both. It is separate from browser voice and from Signal or WhatsApp registration on the same number.
+
+## Before you start
+
+You need permission to manage the employee's channels. The channel's number selector can assign an available active number to that employee; purchasing numbers and managing the account-wide inventory require the corresponding account permissions. Phone is a paid channel: review **Account → Limits** and current number/usage charges. Do not purchase a number or enable paid work without the required approval.
+
+## 1. Obtain and assign the number
+
+1. In the channel's number selector, choose an eligible available number. To purchase or manage account inventory, use **Account Settings → Phone Numbers** with the required account permissions.
+2. Choose an eligible number or follow the offered search/purchase flow. Check country, SMS/voice capabilities and costs.
+3. Complete any country/provider compliance steps requested, such as business details, documents or a hosted identity check. A submitted order is not an active number.
+4. Wait until the number is **active**, then assign it to the intended AI Employee.
+
+Compliance, availability and review times vary by country/provider. Do not upload identity documents to a normal chat or use a different customer's compliance identity to speed up activation. If no eligible number is available, ask support before retrying a purchase.
+
+## 2. Configure Phone
+
+1. Open the employee's **Channels**, add **Phone**, and select the number actively assigned to that employee.
+2. Turn **SMS text messages** and **voice calls** on separately. At least one must be enabled; the number must support each selected capability.
+3. If voice is enabled, choose whether to **Allow outgoing calls**.
+4. Review the calling terms presented by the editor. Sales/marketing calls are not supported; do not enable that option to bypass the restriction.
+5. Review **Channel Access** in the employee UI and optional **Voice & Speech** settings.
+6. Complete **Create**. Publication verifies the requested routing with the carrier; resolve any error before retrying.
+
+## 3. Verify the result
+
+With the participant's permission, send a low-risk inbound SMS and/or make a short test call from an allowed contact. Verify the correct employee answers and the work appears in Activity. Test each enabled mode separately: one working path does not prove the other is routed correctly.
+
+Outbound calls remain subject to approval, recipient policy and calling entitlement. A number appearing in the editor is not proof that the channel is published or outbound calling is permitted.
+
+## Troubleshooting and changes
+
+| Problem                          | Recovery                                                                                     |
+| -------------------------------- | -------------------------------------------------------------------------------------------- |
+| Number not in the selector       | Check account, assignment, active status and permission to view employee numbers.            |
+| Number assigned elsewhere        | Choose/assign the correct number rather than overriding the employee field.                  |
+| Both modes disabled              | Enable at least one supported capability.                                                    |
+| Publication/routing error        | Read the carrier verification error; do not mark the channel ready manually.                 |
+| Sales-call block                 | Turn the unsupported sales/marketing option off and review the terms; do not bypass it.      |
+| Incoming call/text gets no reply | Check publication, mode, carrier routing, access policy, employee availability and Activity. |
+
+Changing a live number or enabling voice can trigger routing checks again. Review other channels sharing the number before reassignment/removal. Removing a channel is not the same as releasing the billed phone number. Use account phone-number controls and verify the resulting billing/status separately.

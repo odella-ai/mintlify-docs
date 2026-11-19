@@ -1,0 +1,138 @@
+[
+  {
+    "source": "apps/app/src/assets/images/slack/copy-manifest.png",
+    "destination": "images/channels/slack/copy-manifest.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "163de60439ec184a7cc1880ce7048dc3099118b24c0b6cf4262eabb4422b78bd"
+  },
+  {
+    "source": "apps/app/src/assets/images/slack/slack-app-credentials.webp",
+    "destination": "images/channels/slack/slack-app-credentials.png",
+    "transformations": [
+      "Opaque redaction of identifiers and credential values; deprecated verification-token section cropped out completely."
+    ],
+    "sha256": "64bfa16110413b65d84b30c0d2b24346c80351515424be7a5ead10a0fede3933"
+  },
+  {
+    "source": "apps/app/src/assets/images/slack/slack-create-app.png",
+    "destination": "images/channels/slack/slack-create-app.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "1e1a3f9ef7b7c624bcc921352870920abec265e95ad1183327fc470d4b842c38"
+  },
+  {
+    "source": "apps/app/src/assets/images/slack/slack-manifest-app.png",
+    "destination": "images/channels/slack/slack-manifest-app.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "8fb34e49b6b8a56150e9817f9d7d50f8842fcf0145750d333346c40d031d42de"
+  },
+  {
+    "source": "apps/app/src/assets/images/slack/slack-review-app.png",
+    "destination": "images/channels/slack/slack-review-app.png",
+    "transformations": [
+      "App identity, historical scope list and obsolete third-party redirect redacted; use actual generated manifest."
+    ],
+    "sha256": "06a4642fe6316051bc8de7d0b2d15d61a2cf156d378a538b91751afbd7a5f819"
+  },
+  {
+    "source": "apps/app/src/assets/images/slack/slack-workspace-config.png",
+    "destination": "images/channels/slack/slack-workspace-config.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "e96eeb808e4aceb8ea463d84717b7b87bb6cfa3c9ba805671b96797dfc1e30f5"
+  },
+  {
+    "source": "apps/app/src/assets/images/teams/setup/azure-bot-app-registration.png",
+    "destination": "images/channels/teams/azure-bot-app-registration.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "3eca00aeaa0a79e0c55e0529119045f78fa268a4b4083a2a60a626a2e8f09c1c"
+  },
+  {
+    "source": "apps/app/src/assets/images/teams/setup/register-application.png",
+    "destination": "images/channels/teams/register-application.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "a44321e4e12048601df943573f793b50e0096f13c6e6948160db21cff29da5d1"
+  },
+  {
+    "source": "apps/app/src/assets/images/teams/setup/user-read-all-permission.png",
+    "destination": "images/channels/teams/user-read-all-permission.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "7f7c0c5a86212c6c9a18b76725c79d6c885905bd22ef35e96118ea546e36a770"
+  },
+  {
+    "source": "apps/app/src/assets/images/telegram/telegram-bot-father.png",
+    "destination": "images/channels/telegram/telegram-bot-father.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "9698efe332fee3f9727e57ff3fce08c82babb5a6abdeffd9c0f83d694bff49b4"
+  },
+  {
+    "source": "apps/app/src/assets/images/telegram/telegram-new-bot-success.png",
+    "destination": "images/channels/telegram/telegram-new-bot-success.png",
+    "transformations": [
+      "Opaque redaction of bot link and complete token line; no original credential pixels retained in those rectangles."
+    ],
+    "sha256": "4b540a7aa6499f2dae37ae8289eaa73628349a1ac4174d4dca1bb2850ea7adc0"
+  },
+  {
+    "source": "apps/app/src/assets/images/telegram/telegram-new-bot.png",
+    "destination": "images/channels/telegram/telegram-new-bot.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "a17e7ac2db712fe87ac84c449b8c6570a03e83fc4e4c7cbc3ecc59ed6c1cd087"
+  },
+  {
+    "source": "apps/app/src/assets/images/discord/discord-create-app.png",
+    "destination": "images/channels/discord/discord-create-app.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "c5c661279b9a0d93afb891392800640d3e32aef478c9ca29aa6d961dcec6103d"
+  },
+  {
+    "source": "apps/app/src/assets/images/discord/discord-bot-page.png",
+    "destination": "images/channels/discord/discord-bot-page.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "cc08deb3e8b86fe8193f09bd2832113b4d0aafb0a7c48dc8b5007808cc489101"
+  },
+  {
+    "source": "apps/app/src/assets/images/discord/discord-reset-token.png",
+    "destination": "images/channels/discord/discord-reset-token.png",
+    "transformations": [
+      "Cropped to Token / Reset Token instructions; profile identity omitted."
+    ],
+    "sha256": "0b6e5a29f57fb5bd65c73a26729118c64e345640d246e3697ca9d24d4f7204fe"
+  },
+  {
+    "source": "apps/app/src/assets/images/discord/discord-gateway-intents.png",
+    "destination": "images/channels/discord/discord-gateway-intents.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "e8e36964087271ced92aa48a1428cd6519a411659602f347739442af9dd89dc2"
+  },
+  {
+    "source": "apps/app/src/assets/images/signal/signal-captcha-open-link.png",
+    "destination": "images/channels/signal/signal-captcha-open-link.png",
+    "transformations": [
+      "Copied pixels; re-encoded as RGB PNG without source metadata."
+    ],
+    "sha256": "9da791a2d5313a0effd45616036a546596338f0b75f884f1a9e28fe59f8924c2"
+  }
+]

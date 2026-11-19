@@ -86,10 +86,24 @@ description: Answers to common questions about Odella, AI Employees, workflows, 
   review of its answer and returned files.
 </Accordion>
 
-<Accordion title="Can I connect Claude Code, Codex, or Cursor?">
-  Yes. Create a personal access token under **Account → Developer** and follow
-  the [MCP server guide](/integrations/mcp-server). Token scopes limit access
-  and cannot override your live Odella permissions.
+<Accordion title="Can I connect Claude, ChatGPT, Claude Code, Codex, or Cursor?">
+  Yes. Open **Account → Developer** and follow the [MCP server guide](/integrations/mcp-server).
+  Claude and ChatGPT use OAuth where configured; supported CLI and IDE clients
+  can use OAuth or personal access tokens. Granted scopes cannot override your
+  live Odella permissions.
+</Accordion>
+
+<Accordion title="How do I connect my own MCP server?">
+  Use [Custom integrations](/integrations/custom-integrations) to connect an approved
+  remote server, test authentication, review its tools, and assign it to specific
+  employees. This is the opposite direction from connecting another client to Odella.
+</Accordion>
+
+<Accordion title="Where are Inbox, Brief, and Insights?">
+  Start with [Inbox](/inbox/overview) when enabled for your account.
+  [Brief](/inbox/daily-brief) helps with personal actions and reminders;
+  [Insights](/inbox/insights) requires an eligible organization account and
+  separate activation and permissions.
 </Accordion>
 
 <Accordion title="Can workers send documents for signature?">

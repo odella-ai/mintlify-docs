@@ -23,9 +23,25 @@ Vault stores credential values using server-managed AES-256-GCM authenticated en
 
 Do not paste secrets into chat, worker instructions, skills, workflow text, or uploaded knowledge. Save them through the appropriate Vault or integration connection flow instead.
 
+## Save or update an item
+
+Vault availability and view/manage permissions are separate checks. If it is unavailable, ask your administrator or support; do not paste credentials into chat as a workaround.
+
+1. Select **New item → Login** or **API key**.
+2. Enter a recognizable name and the secret fields supported by the form. Website entries use HTTPS origins, without paths or query parameters.
+3. Add a usage hint if useful, without duplicating the secret in metadata.
+4. Save and confirm the item appears. Use search or **Logins / API keys** to find it later.
+5. To rotate a saved secret, select **Edit**, enter a replacement, and save. Stored values are not returned for display or copying; omitting a replacement preserves the existing value.
+
+<Frame caption="Vault with example items and browser sign-ins. Synthetic Storybook example; no real credential is displayed.">
+  <img src="/images/features/vault.png" alt="Personal Vault showing saved login and API-key metadata and management controls" />
+</Frame>
+
 ## Saved logins
 
 Save a username and password with the exact HTTPS website where you use them. During a browser handoff, you can select a saved login for the matching site; the platform fills it into your browser without returning the values in the Vault response.
+
+For interactive sign-in and credential requests, see [Computer and browser handoff](/workforce/computer).
 
 Saved logins are not API-key grants. The API-sharing feature described below applies only to API keys.
 
