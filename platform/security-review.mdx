@@ -1,0 +1,65 @@
+---
+title: "Security review checklist"
+description: "Collect evidence for worker access, approvals, credentials, browser use, and offboarding before production use."
+---
+
+Use this checklist with your security owner and the accountable manager of each production AI Employee. A configured control is not the same as a tested control: record what you inspected, the identity used, the expected result, and what happened.
+
+## Review the security boundaries
+
+| Review area              | Customer checks                                                                                            | Evidence to keep                                                                               |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| **People and roles**     | Active organization, ordinary member roles, team scope, broad administrator access.                        | Role capability selections and dated membership review.                                        |
+| **Worker audience**      | Primary team, required role, manager exceptions, and any other applicable grants.                          | Saved Governance configuration plus allowed/denied member tests, including a direct-link test. |
+| **Editing**              | Only the necessary people can change instructions, tools, channels, approvals, and recurring work.         | Editor-area review and denied-edit tests.                                                      |
+| **Connected actions**    | Exact operations, policy preset, saved allows/blocks, and approval outcomes.                               | Test records, operation names, and current requests/results—not only a broad preset label.     |
+| **Outbound messaging**   | Current policy, saved recipient rules, expected channels, and attachments.                                 | Safe send/block tests and reviewed exceptions.                                                 |
+| **Credentials**          | User versus account connection ownership, explicit Vault grants, and provider-side permissions.            | Connection inventory and scope review; never the secret values.                                |
+| **Unattended work**      | Accountable manager, current authorization, schedules, event actions, and escalation paths.                | Low-risk task test and manager-handover review.                                                |
+| **Signed-in browsing**   | User-scoped website sessions, provider permissions, output destinations, and sign-out behavior.            | Separate browser tests; connected-tool results do not prove browser restrictions.              |
+| **Conversation privacy** | Worker conversation sharing and organization administrator read-only viewing policy.                       | Deliberate choices, privacy review, and representative tests.                                  |
+| **Offboarding**          | Independent grants, manager reassignment, Vault grants, integrations, and provider session/key revocation. | Removal checklist and retests after access changes.                                            |
+
+Use [Create a team-restricted AI Employee](/platform/secure-employee-tutorial), [Read-only Finance worker](/platform/finance-read-only-tutorial), and [Manager handover](/platform/manager-handover-tutorial) as worked examples.
+
+## Know what Activity can establish
+
+The [Activity Log](/workforce/activity) helps authorized users review worker conversations, tasks, workflows, and service events. Use it alongside task details, approval requests, and your provider's own records to investigate what happened.
+
+Do not treat the worker Activity Log as proof that:
+
+- Every denied access attempt, browser action, or network request is recorded there.
+- All records have a particular retention period, immutable storage, or a security-export format.
+- A missing activity item means an external action could not have occurred.
+- A completed task alone proves that every provider-side change succeeded exactly once.
+
+Activity access and export are separate capabilities. Grant them only where needed, and confirm available export controls and record coverage before including an export in an audit process.
+
+## Request deployment-specific evidence
+
+For controls your team cannot verify from the product UI, coordinate a review through the [Trust Center](https://www.odella.ai/legal/trust) or [support@odella.ai](mailto:support@odella.ai).
+
+Ask for the applicable, current evidence for:
+
+- Worker and browser isolation, network access, and any private-connectivity requirements.
+- Data residency, international processing, and customer-selected providers.
+- Platform security logging, available customer audit evidence, retention, and incident support.
+- Backup, recovery, deletion, and assurance commitments that apply to your agreement.
+- The exact supported scope of approval and revocation controls for your use case.
+
+Product source, screenshots, and architectural descriptions explain design; they do not replace deployed verification or contractual commitments. Do not infer universal zero-egress execution, comprehensive data-loss prevention, or per-click browser approval from a general security description.
+
+## Maintain a review record
+
+For each important control, record:
+
+1. **Claim:** What restriction or behavior your organization needs.
+2. **Scope:** Worker, team, connection, provider identity, and operation covered.
+3. **Owner:** Who maintains the configuration and approves changes.
+4. **Evidence:** Configuration reviewed, test performed, result, and date.
+5. **Exception:** Any unresolved limitation and the decision to avoid, mitigate, or accept it.
+6. **Recheck trigger:** Role changes, new tools, provider-scope changes, manager transfers, and product changes.
+
+Keep secrets, private approval links, and unnecessary customer data out of this record. Review it on your organization's schedule and after consequential changes.
+
+For legal and assurance resources, see [Security and data protection](/platform/security).

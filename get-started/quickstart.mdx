@@ -1,67 +1,28 @@
 ---
-title: Quickstart Guide
-description: Set up Odella, understand the workspace, and create your first useful AI Employee.
+title: "Complete your first task"
+sidebarTitle: "Your first task"
+description: "Hire one AI Employee, give it a low-risk request, and review its first useful result."
 ---
 
-# Quickstart
+**What you’ll do:** create a worker to review a supplier proposal, give it sample material, and check its answer. No custom integration or visual workflow is needed for this first exercise.
 
-This guide takes you from a new account to your first practical Odella setup. The goal is not to automate everything at once. Start with one worker, one responsibility, and one repeatable task your team already understands.
+**Before you start:** sign in to [Odella](https://app.odella.ai), confirm the intended account, and have a non-sensitive sample proposal ready. You need permission to create and use a worker; account funding, limits, and availability may also affect whether work can start.
 
-## 1. Create your account
+## Watch the workspace tour
 
-<Frame>
+See where to find your AI Employees and the main areas of the workspace, then follow the first-task exercise below.
+
+<Frame caption="A screen recording of the Odella workspace.">
   <video
     autoPlay
     muted
     loop
     playsInline
-    preload="auto"
-    controls
-    width="100%"
-    src="../assets/videos/getstarted.mp4"
-  ></video>
-</Frame>
-
-<Steps>
-  <Step title="Sign in with your work account">
-    Use Google, Microsoft, or email to create your Odella account.
-  </Step>
-  <Step title="Verify your email">
-    Confirm your email address so your workspace can be created securely.
-  </Step>
-  <Step title="Complete your workspace details">
-    Add basic information about your organization so Odella can tailor the
-    workspace to your team.
-  </Step>
-</Steps>
-
-<Frame>
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="auto"
-    controls
-    width="100%"
-    src="../assets/videos/signin.mp4"
-  ></video>
-</Frame>
-
-## 2. Understand the workspace
-
-After signing in, open **Workforce** to create and manage the workers that make up your AI workforce. Confirm the active personal or organization account before configuring shared resources.
-
-<Frame>
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="auto"
+    preload="metadata"
     controls
     width="100%"
     className="dark:hidden"
+    aria-label="Odella workspace tour"
     src="../assets/videos/overviewmp4.mp4"
   ></video>
   <video
@@ -69,128 +30,117 @@ After signing in, open **Workforce** to create and manage the workers that make 
     muted
     loop
     playsInline
-    preload="auto"
+    preload="metadata"
     controls
     width="100%"
     className="hidden dark:block"
+    aria-label="Odella workspace tour in dark mode"
     src="../assets/videos/overviewmp4-dark.mp4"
   ></video>
 </Frame>
 
-<CardGroup cols={2}>
-  <Card title="Workforce" icon="users" href="/workforce/overview">
-    Create, hire, and manage AI Employees with clear roles, responsibilities,
-    tools, and work history.
-  </Card>
-  <Card title="Workflows" icon="diagram-project" href="/workflow/overview">
-    Build reusable processes that workers can run when completing assigned
-    tasks.
-  </Card>
-  <Card title="Templates" icon="file-lines" href="/templates/01_overview">
-    Turn recurring documents into reusable PDF or DOCX templates.
-  </Card>
-  <Card title="Documents" icon="database" href="/documents/overview">
-    Store files, research, and private knowledge that workers can reference.
-  </Card>
-</CardGroup>
+### Need help getting into your account?
 
-Before inviting colleagues or enabling paid work, review [Organization and teams](/platform/organization), [Roles and permissions](/platform/roles-and-permissions), and [Billing and credits](/platform/billing-and-credits).
-
-## 3. Choose your first use case
-
-Pick a process that is clear, repeatable, and easy to review. Good first use cases usually have a known input, a known output, and a person who can check the result.
+These recordings walk through account creation and sign-in. If you are already signed in, continue to the exercise.
 
 <AccordionGroup>
-  <Accordion title="Good first use cases">
-    - Preparing a recurring report from source documents - Summarising intake
-    information into a structured format - Drafting a document from an approved
-    template - Checking a file for missing information - Routing a request to
-    the correct person or workflow
+  <Accordion title="Watch: create your account">
+    <Frame caption="Account creation walkthrough.">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        controls
+        width="100%"
+        aria-label="Create an Odella account"
+        src="../assets/videos/getstarted.mp4"
+      ></video>
+    </Frame>
   </Accordion>
-  <Accordion title="Use cases to save for later">
-    - Processes with unclear ownership - Work with no review criteria -
-    High-risk decisions without human approval - One-off tasks that do not
-    repeat often
+  <Accordion title="Watch: sign in">
+    <Frame caption="Sign-in walkthrough.">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        controls
+        width="100%"
+        aria-label="Sign in to Odella"
+        src="../assets/videos/signin.mp4"
+      ></video>
+    </Frame>
   </Accordion>
 </AccordionGroup>
 
-## 4. Create or hire a worker
-
-In Odella, workers are most useful when they have a narrow role and clear responsibilities.
+## Try your first task
 
 <Steps>
-  <Step title="Open Workforce">
-    Go to **Workforce** and choose **Add Worker**.
+  <Step title="Hire a worker for one job">
+    Open **Workforce → Add Worker**. Create a worker with a role such as **Supplier proposal reviewer**.
+
+    Describe the job: “Review supplier proposals, summarize commercial terms, and flag missing information for a human reviewer.” Keep the responsibility narrow. For detailed creation options, see [Hire an AI Employee](/workforce/overview).
+
   </Step>
-  <Step title="Define the role">
-    Give the worker a plain-language role such as “Intake Assistant”, “Report
-    Reviewer”, or “Finance Admin Worker”.
+  <Step title="Give it clear instructions and boundaries">
+    Review the worker's role and instructions. Tell it what a useful result looks like, when to ask questions, and which uncertainties to flag.
+
+    In an organization account, assign an accountable manager and review who can use and edit the worker under **Settings → Governance**. Do not connect production tools or confidential knowledge just to complete this exercise.
+
   </Step>
-  <Step title="Add responsibilities">
-    Describe what the worker should do, what it should avoid, and when a human
-    should review the output.
+  <Step title="Create a task with sample material">
+    Open **Tasks → New task**, choose your worker, and attach the sample proposal where offered. Wait for the upload to finish.
+
+    Use this request:
+
+    > Review the attached supplier proposal. Return a short summary and a table covering price, delivery dates, renewal terms, and missing information. Cite the source for each finding. Flag anything uncertain. Do not contact the supplier or change external records.
+
+    Instructions guide the work; [access and action policies](/guides/access-and-security) enforce supported restrictions. Submit the task and open its details.
+
   </Step>
-  <Step title="Connect capabilities">
-    Attach the workflows, templates, documents, and tools the worker needs to
-    complete the task.
+  <Step title="Follow progress and answer questions">
+    If the task needs clarification, supply the missing information through the displayed controls. Review any approval request before deciding; do not treat a chat message as a substitute for the approval action.
+
+    If work does not start, check the stated blocker, worker availability, permissions, and [account limits](/platform/usage-and-limits). [Tasks](/workforce/tasks) explains the status lanes and recovery controls.
+
+  </Step>
+  <Step title="Review the result before expanding the job">
+    Open the returned answer and any files. Check that the summary matches the proposal, source references are useful, and missing details are clearly separated from facts.
+
+    Correct unclear instructions and try another representative sample. A completed status is not a substitute for checking the actual result.
+
   </Step>
 </Steps>
 
-<Tip>
-  A strong first worker has one job. You can always expand its responsibilities
-  after your team trusts the workflow.
-</Tip>
+## You are ready for the next step when…
 
-## 5. Connect the work system
+- The worker's job and manager are clear.
+- You can create a task, respond to questions, and find the result.
+- The answer meets your review criteria on representative sample material.
+- You understand what access you granted—and what you did not grant.
 
-A useful worker usually needs three things:
-
-<CardGroup cols={3}>
-  <Card title="Knowledge" icon="book-open">
-    The policies, files, examples, and business context it should use.
-  </Card>
-  <Card title="Workflow" icon="route">
-    The repeatable process it should follow from input to output.
-  </Card>
-  <Card title="Review" icon="clipboard-check">
-    The human checkpoint that confirms the work is correct before it matters.
-  </Card>
-</CardGroup>
-
-## 6. Run, review, and improve
-
-Once the worker is configured, open [Tasks](/workforce/tasks), select **New task**, choose the worker, and describe a low-risk outcome with clear source material. Follow its progress, answer questions, and resolve [Approvals](/workforce/approvals) through the displayed controls.
-
-Inspect the actual answer and files before using them. Update the worker's instructions and improve the process until the output is consistent. To delegate through email or workplace messaging, follow the [channel setup guides](/workforce/communication-channels).
-
-<Note>
-  Odella works best when treated like onboarding a new teammate: start with
-  context, assign a narrow responsibility, review early work, then increase
-  trust over time.
-</Note>
-
-## Next steps
+## Make it useful for your team
 
 <CardGroup cols={2}>
-  <Card title="Workforce overview" icon="users" href="/workforce/overview">
-    Learn how workers are managed across roles, capabilities, working hours, and
-    work history.
+  <Card title="Add company knowledge" href="/guides/onboard-an-employee">
+    Teach the worker your procedures and provide approved source material.
   </Card>
   <Card
-    title="Workflow overview"
-    icon="diagram-project"
-    href="/workflow/overview"
+    title="Connect a workplace app"
+    href="/guides/connect-tools-and-channels"
   >
-    Learn how to build and maintain the workflows your workers use.
+    Add a necessary connection with narrow permissions and a safe first test.
+  </Card>
+  <Card title="Repeat the work" href="/guides/automate-recurring-work">
+    Choose a schedule, event, or reusable workflow once the manual task works.
   </Card>
   <Card
-    title="Template overview"
-    icon="file-lines"
-    href="/templates/01_overview"
+    title="Restrict access to a team"
+    href="/platform/secure-employee-tutorial"
   >
-    Learn how templates help your team create consistent documents quickly.
-  </Card>
-  <Card title="Security" icon="shield-halved" href="/platform/security">
-    Review the controls that help keep your workspace governed and secure.
+    Follow the screenshot-led team, role, and governance walkthrough.
   </Card>
 </CardGroup>

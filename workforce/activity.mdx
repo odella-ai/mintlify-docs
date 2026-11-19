@@ -1,5 +1,5 @@
 ---
-title: "Activity Log"
+title: "Review work history"
 description: "Review recent worker activity, task runs, workflows, conversations, and system events."
 ---
 
@@ -7,14 +7,14 @@ description: "Review recent worker activity, task runs, workflows, conversations
 
 ## Activity filters
 
-| Filter | Shows |
-| --- | --- |
-| **All** | Every recorded activity type. |
-| **Threads** | Conversations and message threads. |
-| **Workflows** | Workflow runs. |
-| **Heartbeats** | Service-status checks recorded by the platform. |
-| **Tasks** | Scheduled tasks and event-triggered tasks. |
-| **Subagents** | Work delegated to supporting workers during a task. |
+| Filter         | Shows                                               |
+| -------------- | --------------------------------------------------- |
+| **All**        | Every recorded activity type.                       |
+| **Threads**    | Conversations and message threads.                  |
+| **Workflows**  | Workflow runs.                                      |
+| **Heartbeats** | Service-status checks recorded by the platform.     |
+| **Tasks**      | Scheduled tasks and event-triggered tasks.          |
+| **Subagents**  | Work delegated to supporting workers during a task. |
 
 ## What to look for
 
@@ -27,6 +27,14 @@ Use Activity to answer questions like:
 - Is the worker running normally?
 - Did the worker delegate work to a subagent?
 
+## Security reviews and record coverage
+
+Activity is a worker-level work history, not a complete security audit export. Do not assume every denied access attempt, browser action, or network request appears here, or that a missing item proves an external action never happened.
+
+Viewing activity across members and exporting activity are separate permissions. Confirm the records and export controls available to your account before using them as audit evidence. For retention, platform security logs, or assurance evidence beyond this view, coordinate a security review with Odella rather than assuming the Activity Log covers those requirements.
+
+Use the [Security review checklist](/platform/security-review) to combine configuration reviews, ordinary-member access tests, approvals, and provider records.
+
 ## Troubleshooting with Activity
 
 If a worker did not behave as expected:
@@ -38,5 +46,7 @@ If a worker did not behave as expected:
 5. Check Calendar or Actions if the work should have started automatically.
 
 <Tip>
-Activity is especially useful after changing schedules, actions, inboxes, or security settings. It gives you a quick way to confirm the worker is operating as intended.
+  Activity is especially useful after changing schedules, actions, inboxes, or
+  security settings. It gives you a quick way to confirm the worker is operating
+  as intended.
 </Tip>

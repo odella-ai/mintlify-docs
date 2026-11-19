@@ -1,0 +1,107 @@
+---
+title: "Tool and browser boundaries"
+description: "Understand enforced tool policies, isolated workspaces, browser limits, and where approvals do—and do not—apply."
+---
+
+A worker's instructions describe how it should work. **Access rules and action policies determine what it is allowed to do.** Use both, but do not treat a written instruction as an enforced security boundary.
+
+## What deterministic governance means
+
+For supported connected tools, Odella uses explicit policy evaluation to allow an action, block it, or require approval. The worker cannot grant itself permission by saying an action is safe.
+
+The decision uses the resolved tool, its classification, configured policy, and saved exceptions. Unknown connected-tool actions ordinarily require approval under the recommended policy. Explicit blocks take priority over allow exceptions; credential and administration actions classified as credential operations are blocked by this policy.
+
+**Deterministic does not mean infallible.** Tool classification is not proof of what a third-party service actually does. Review the exact tool and provider permissions, especially for [custom integrations](/integrations/custom-integrations).
+
+## Separate the control layers
+
+| Control                                       | What it limits                                                                                | What it does not replace                                                        |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Organization capabilities and resource access | Who can use a worker or perform an operation on a resource.                                   | Provider-side permissions or action review.                                     |
+| Worker Governance                             | Manager, primary audience, permitted editors, and conversation sharing.                       | Inbound-channel rules or connected-tool policy.                                 |
+| Worker resource assignments                   | Which knowledge, workflows, skills, and tools are available for its responsibilities.         | Permission to perform every action exposed by a connected service.              |
+| Connected-tool policy                         | Whether supported connected-tool operations proceed, are blocked, or need review.             | A universal policy for every browser click or shell command.                    |
+| Outbound messaging policy                     | Whether supported outbound messages to a recipient proceed, are blocked, or need review.      | All possible data transfers through every website or integration.               |
+| Provider permissions                          | Which records and operations the connected account can access at the provider.                | Odella's worker and resource access rules.                                      |
+| Execution isolation                           | Separation of the worker's work environment from the application and other work environments. | Protection against every permitted use of data already available to the worker. |
+
+## Isolated execution and zero-trust principles
+
+Treat the worker's execution environment as a limited participant, not as a trusted administrator. A running AI Employee does not inherit unrestricted access to the organization. Platform requests carry identity and account context, and connected applications and model access use controlled service boundaries.
+
+Odella separates worker execution from the public application. The Kubernetes worker configuration includes non-root execution, a read-only system filesystem, disabled privilege escalation, dropped Linux privileges, and resource limits. Writable workspace and temporary areas remain available for legitimate work.
+
+These are complementary boundaries: a workspace is not the authorization authority, and a worker's request is not itself permission to access a platform resource. Model-provider credentials are handled at a controlled service boundary rather than provisioned as direct provider keys in the worker's workspace.
+
+<Warning>
+  “Isolated” does not mean “no network access,” and “zero trust” does not mean
+  that every environment has identical network controls. Do not assume universal
+  zero-egress execution, a configurable website allowlist, or complete data-loss
+  prevention. Contact Odella to verify deployment-specific requirements during a
+  security review.
+</Warning>
+
+## Connected-tool approvals
+
+Open **AI Employee → Settings → Security & Privacy** to choose a tool policy and review saved rules.
+
+- Use **Approval-first** during a sensitive pilot so ordinary connected reads and writes require review.
+- Use **Restricted** when ordinary connected writes should be blocked rather than offered for routine approval.
+- Review saved **Always allow** exceptions; they can change the behavior you expect from the default policy.
+- Use explicit **Always block** rules for tools the worker must not use.
+- Prefer provider accounts with narrow permissions. An approved tool can still have broad access at the provider.
+
+Draft creation and some low-risk organization actions are classified separately from ordinary writes under the recommended policy. Do not infer the approval outcome only from a tool's display name or a broad “read/write” summary. Test the exact operation with non-sensitive data.
+
+See [Security & Privacy](/workforce/settings-security-privacy) for the settings reference and [Approvals](/workforce/approvals) for resolving requests.
+
+## Browser work is a different boundary
+
+Browser access and connected-tool access are not interchangeable. A website button is not automatically subject to the connected-tool approval matrix.
+
+### Public-page and workspace browsing
+
+The workspace browser supports public-page work and local rendering. Its enforced checks include command validation, separation of workspace browser targets, restrictions on unsupported navigation schemes, and checks against direct navigation to common local, private-network, and cloud-metadata addresses.
+
+For local files, browser navigation is restricted to supported file types inside the worker's workspace, with checks against sensitive locations and paths that resolve outside it.
+
+Public-site browsing also has bounded tab, navigation, and action budgets. It stops for detected visible password or one-time-code fields and supported challenge pages. A top-level access denial or rate-limit response restricts further browsing of that origin.
+
+These are safeguards, **not a complete network filter or credential-leak prevention system**. They do not justify promising that every redirect, page subresource, site action, or possible data transfer is blocked.
+
+### Signed-in browser work
+
+Signed-in browsing uses a separate browser environment associated with the authenticated user's account and identity. That user's AI Employees can share that browser context. A run without the required user identity does not receive that user's private browser through the remote browser command boundary.
+
+This distinction matters: a private browser is **user-scoped**, not a separate login vault for every worker. Grant access to sensitive sites deliberately, use restricted website accounts, and review saved sign-ins in [Vault](/platform/vault).
+
+<Warning>
+  Do not assume that every signed-in website action requires an Odella approval,
+  or that every worker has an independent browser login. Browser availability
+  does not establish a per-site, per-action approval guarantee.
+</Warning>
+
+For website identity selection, saved-session removal, downloads, and safe tests, see [Signed-in browser security](/platform/browser-security).
+
+## Example: draft customer replies without broad access
+
+1. Limit the worker's internal audience to a customer-service team and qualifying role.
+2. Give only the manager or designated editors permission to change tools and approvals.
+3. Connect a test support account with the minimum provider permissions.
+4. Start with **Approval-first**, review saved exceptions, and use **Ask every time** for supported outbound messaging.
+5. Ask the worker to read a test record, draft a reply, and attempt a record update. Verify the actual review behavior for each operation.
+6. If the work requires a signed-in website, review that website account separately. Do not rely on connected-tool approvals to gate website mutations.
+
+Follow [Create a team-restricted AI Employee](/platform/secure-employee-tutorial) for the full team, role, and access-validation walkthrough.
+
+## Questions for a security review
+
+Ask Odella to confirm requirements that are specific to your deployment or agreement:
+
+- Network destinations and any private-network connectivity requirements.
+- Isolation, regional processing, and third-party browser or model dependencies.
+- Which exact tool and browser operations require human review.
+- Credential scope, saved website sessions, retention, and revocation behavior.
+- Available security evidence and audit records beyond the worker Activity Log.
+
+For contractual security measures and assurance resources, see [Security and data protection](/platform/security).

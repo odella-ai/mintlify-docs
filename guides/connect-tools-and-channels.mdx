@@ -1,0 +1,52 @@
+---
+title: "Connect tools and channels"
+description: "Connect the apps a worker uses and the places people can send it work."
+---
+
+<div className="docs-guide-start">
+  <span className="docs-guide-label">Work in your tools. Stay in touch.</span>
+  <p>Start here when your worker needs information from another system or should be reachable outside Odella.</p>
+  <a className="docs-guide-action" href="/integrations/overview">Connect your first application →</a>
+</div>
+
+## Two different kinds of connection
+
+<CardGroup cols={2}>
+  <Card title="Connect a workplace tool" href="/integrations/overview">
+    Let the worker read or act in an application. Connect the application,
+    then assign only the tools the worker needs.
+  </Card>
+  <Card title="Open a contact channel" href="/workforce/communication-channels">
+    Give people a way to contact the worker by email, workplace messaging,
+    or another supported channel.
+  </Card>
+</CardGroup>
+
+Connecting an application does not give every worker access. Publishing a channel does not authorize every sender or external action.
+
+## Connect one application safely
+
+1. Choose the application in **Integrations** and complete its supported sign-in flow.
+2. Check the selected provider account and requested permissions.
+3. [Assign its tools](/workforce/tools) only to the worker that needs them.
+4. Review tool and outbound policies, then try a low-risk read with test data.
+
+For personal connections, confirm [whose credentials are used](/platform/credentials-and-scope). Store supported logins and API keys through [Vault](/platform/vault), not in chat or instructions.
+
+## Choose where people will contact the worker
+
+- [Email](/workforce/channels/email)
+- [Slack](/workforce/channels/slack)
+- [Microsoft Teams](/workforce/channels/teams)
+- [Phone, WhatsApp, and Signal](/workforce/channels/phone-and-messaging)
+- [Telegram and Discord](/workforce/channels/telegram-and-discord)
+- [Meeting setup](/workforce/channels/meetings)
+
+Set [inbound access, outbound recipients, and approvals](/workforce/settings-security-privacy) before testing external communication. Phone-based channels may also need an [assigned number](/platform/phone-numbers).
+
+## Need a custom or developer connection?
+
+- [Custom integrations](/integrations/custom-integrations): connect a remote MCP server for workers to use.
+- [Odella MCP server](/integrations/mcp-server): use Odella from an external client such as Claude Code, Codex, or Cursor.
+
+These are different directions of access. Review the endpoint, authentication, permissions, and data handling before connecting either.

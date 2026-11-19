@@ -3,9 +3,16 @@ title: "Roles and permissions"
 description: "Understand organization capabilities, team roles, resource access, and worker editing permissions."
 ---
 
-# Give people the access their work requires
+<span id="give-people-the-access-their-work-requires"></span>
 
 Odella separates account-level capabilities from access to individual resources. Being able to view a worker does not necessarily mean you can change their instructions, manage billing, or inspect another person's conversation.
+
+<Tip>
+  For a worked example with screenshots, follow [Create a team-restricted AI
+  Employee](/platform/secure-employee-tutorial). For definitions of capabilities
+  and access control lists (ACLs), read [How access control
+  works](/platform/access-control).
+</Tip>
 
 ## The access layers
 
@@ -23,10 +30,11 @@ A role, team, or saved approval rule is not a shortcut around the other applicab
 ## Review or create a role
 
 1. Open **Account → Organization → Roles**.
-2. Review the role's scope and capabilities. Organization and team roles serve different audiences.
-3. If permitted, create or edit a role with only the capabilities required for the job.
-4. Assign it through the appropriate member or team controls.
-5. Check the intended resource with a representative member's access before relying on the setup.
+2. Select **New role**, then choose **Organization role** for organization-wide responsibilities or **Team role** for a person's responsibilities inside one team.
+3. Continue to enter a name and description, then choose capabilities by category. For example, a colleague who needs to work with an AI Employee may need **View employee**, **Chat with employee**, and **Request work**, without activity-export or access-management permissions.
+4. Select **Create role**. For a team role, open **Teams → your team → Manage** in the members section, add the person, and choose the role they hold in that team. Save the membership changes.
+5. Configure the worker's primary audience and required role in **Settings → Governance**. Creating or assigning a role does not automatically place a worker in a team.
+6. Test the intended resource as an ordinary member and as someone who should be denied. Do not verify a restricted audience only with an administrator's session.
 
 Use recognizable business names and a description of the role's responsibility. Review the impact on current assignments before changing or deleting an existing role.
 

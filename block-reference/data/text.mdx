@@ -28,7 +28,7 @@ The Text Block outputs a string of text and can interpolate values using `{{tags
 
 ## Editor Settings
 
-<ParamField path="text" type="code" language="prompt-interpolation-markdown" default="{{input}}">
+<ParamField path="text" type="code" language="prompt-interpolation-markdown" default={'\u007b\u007binput\u007d\u007d'}>
   The text to output. You can use interpolation tags in the format `{{tag}}` to insert input values. The text supports markdown formatting and will be displayed with syntax highlighting in the editor.
 </ParamField>
 
