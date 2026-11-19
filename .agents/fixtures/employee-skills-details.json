@@ -1,0 +1,10 @@
+{
+  "assignments": {"workflows": [], "templates": ["template_story_docx"], "knowledge": ["kb-operations"], "toolkits": ["slack"], "agentSkills": ["docs-review-skill"]},
+  "employee": {"username": "alex-morgan", "name": "Alex Morgan", "imageUrl": "", "color": "#7c5ce7"},
+  "workflows": [],
+  "templates": [{"id": "template_story_docx", "name": "DOCX Services Agreement", "description": "Fictional services agreement used for documentation examples.", "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "published": true, "owner": "acc_storybook", "versionId": "docs-template-v1"}],
+  "knowledge": [{"id": "kb-operations", "kind": "standard", "name": "Operations knowledge base", "subtitle": "SOPs and escalation paths", "description": "Fictional operating procedures for the documentation example."}],
+  "toolkits": [{"id": "slack", "name": "Slack", "description": "Review approved support-channel messages.", "tools": ["slack.messages"], "plugins": [{"id": "composio:slack", "name": "Slack", "logo": "/images/channel_logos/slack.svg", "status": "connected"}], "connected": true}],
+  "agentSkills": [{"id": "docs-review-skill", "skillId": "sk_invoice_review", "slug": "invoice-review", "name": "Invoice Review", "description": "Review totals and cite supporting records.", "visibility": "private", "versionId": "docs-skill-v1", "assignedVersion": 1, "latestVersionId": "docs-skill-v1", "latestVersion": 1, "updateAvailable": false}],
+  "channels": []
+}

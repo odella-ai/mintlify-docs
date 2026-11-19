@@ -1,0 +1,1241 @@
+[
+  {
+    "name": "identity",
+    "file": "identity.png",
+    "story": "workforce-settings-identity--identity",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/settings/identity-settings.stories.tsx",
+    "fixtureSha256": "9a303680cfac304d1dd8f7355e3906acbcd245a379c04ed66c8041760467be3e",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "09063ee7669f47b808179fe552ecc686a5e9792184ab2e7930136e21c0fd015d"
+  },
+  {
+    "name": "instructions",
+    "file": "instructions.png",
+    "story": "workforce-settings-identity--general-instructions",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/settings/identity-settings.stories.tsx",
+    "fixtureSha256": "9a303680cfac304d1dd8f7355e3906acbcd245a379c04ed66c8041760467be3e",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "2e4d6326e0814f36f206db3ad4227ec4037492b276c1b50793a99c702d85a659"
+  },
+  {
+    "name": "employee-resources",
+    "file": "employee-resources.png",
+    "story": "workforce-employee-page--skills",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce.stories.tsx",
+    "fixtureSha256": "f8dab8013932abf5d63ac86782ef98583a490d457ddcf3a55c62e4c89d6c36a5",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "2833d075eaee3240f2354fb6d93ec42365bdf74af85017d601ff15125c0ad3b6"
+  },
+  {
+    "name": "workspace",
+    "file": "workspace.png",
+    "story": "workforce-employee-page--skills",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce.stories.tsx",
+    "fixtureSha256": "f8dab8013932abf5d63ac86782ef98583a490d457ddcf3a55c62e4c89d6c36a5",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": "tab:workspace",
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "56b06621997db4992e990d9492ad64ed102e823cda8e5ed67423246f5687459a"
+  },
+  {
+    "name": "skills-catalog",
+    "file": "skills-catalog.png",
+    "story": "workforce-skill-workshop--skills-catalog",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/skill-workshop.stories.tsx",
+    "fixtureSha256": "0b2da32c21a6b6969613f7518466ecdd64f3c770a2458efbb1b1d0d7123edd56",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "80f010ae7c45c006cbcb9f52e5f56bce032997cbcd1d7883d2bbed8eb5e53b10"
+  },
+  {
+    "name": "task-create",
+    "file": "task-create.png",
+    "story": "workforce-tasks-create-task--with-attachments",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/tasks/create-task.stories.tsx",
+    "fixtureSha256": "319bbf1848052eba8e3cd2cd0f05dfe4696f44366629c1a48c5f446e8184d83b",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "5db85d571df646671423bede9a462f76006b6d55d3db2e7c4824068aef99fa38"
+  },
+  {
+    "name": "approval",
+    "file": "approval.png",
+    "story": "approvals-task-panel--email-send",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/packages/approvals/approval-panel.stories.tsx",
+    "fixtureSha256": "192b1d31d8318255cffface36b1ab331a43f2de71ee85ac01b4d4e40f0779182",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "3e6a64c744e9e4ff9738497da61b2659a22b94605a7c9ecb48abc874205f4389"
+  },
+  {
+    "name": "activity",
+    "file": "activity.png",
+    "story": "workforce-activity-trace-panel-prototype--mixed-activity",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/activity/activity-trace-panel.stories.tsx",
+    "fixtureSha256": "02f79b7beef24d944b0c5f1c556a84fe9908b7ccdd4af25c7955b07e0bf0082e",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "a08e3556cc8e9c4b556f637dbe62c8eb933a99392f8708ea1e061ce2a66877a4"
+  },
+  {
+    "name": "store-setup",
+    "file": "store-setup.png",
+    "story": "document-store-creation--step-1-setup",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/document-store/creation.stories.tsx",
+    "fixtureSha256": "2c6632d899341c3144ca90b656b31e20200e4d99553221be6a50d8400940ae5b",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "d59e82ab7f865b8b49b006fc87f20ed8d3ad43df393cc51fc9453ef7b14d5a92"
+  },
+  {
+    "name": "store-sync",
+    "file": "store-sync.png",
+    "story": "document-store-creation--step-2-sync",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/document-store/creation.stories.tsx",
+    "fixtureSha256": "2c6632d899341c3144ca90b656b31e20200e4d99553221be6a50d8400940ae5b",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "39dd19bc57167fba127a28fe9ef7b77583ae22d35e1ed6e5441d1117cc76af90"
+  },
+  {
+    "name": "store-columns",
+    "file": "store-columns.png",
+    "story": "document-store-creation--step-3-columns",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/document-store/creation.stories.tsx",
+    "fixtureSha256": "2c6632d899341c3144ca90b656b31e20200e4d99553221be6a50d8400940ae5b",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "bfc48b1ae990b5dfe6a9ab5d3fb65f3a513bf36ea205355ff07065fd082329d1"
+  },
+  {
+    "name": "store-records",
+    "file": "store-records.png",
+    "story": "document-store-status-badges--mixed-default",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/document-store/status-badges.stories.tsx",
+    "fixtureSha256": "46ff605e8b0d810d7a214ad0ddcc19e4f09642a50252166849603bb07ed09e4d",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "54159cc03096ff1a0117f197334a0d406e0dd80363c5cdbd54d2f088707c4bae"
+  },
+  {
+    "name": "store-ready",
+    "file": "store-ready.png",
+    "story": "document-store-status-badges--quick-filter-ready",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/document-store/status-badges.stories.tsx",
+    "fixtureSha256": "46ff605e8b0d810d7a214ad0ddcc19e4f09642a50252166849603bb07ed09e4d",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "45de1fcb58541b5f9d25962a178c8614a038aa731fc774a7ef2403186f730dd2"
+  },
+  {
+    "name": "pdf-editor",
+    "file": "pdf-editor.png",
+    "story": "template-builder-redesign-editor--pdf-document-editor",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/template-builder-redesign/editor.stories.tsx",
+    "fixtureSha256": "270cf95581547a4a9e0b638e8d917ab9bfc82bc912eef4e17ca1ebb57c15fe12",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "8426af36e8ea64334cd40edc07c21f2d62782be0c5c0806fb6f1582762d6979b"
+  },
+  {
+    "name": "docx-editor",
+    "file": "docx-editor.png",
+    "story": "template-builder-redesign-editor--docx-document-editor",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/template-builder-redesign/editor.stories.tsx",
+    "fixtureSha256": "270cf95581547a4a9e0b638e8d917ab9bfc82bc912eef4e17ca1ebb57c15fe12",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "8f93abc1e286fac14c2b5a0aa56a2097ae8efa96e027f348a9516bda48dc8e7e"
+  },
+  {
+    "name": "template-upload",
+    "file": "template-upload.png",
+    "story": "template-builder-redesign-modals--new-template-review",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/template-builder-redesign/modals.stories.tsx",
+    "fixtureSha256": "8a6ca695586525a5f918ffbbc4f71b67da1f8e2e16960191ee8f06992cbedc69",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "1267abdec0fd9c667ca473abb46a821c349b594f59eb5d9fab80c523f677b9aa"
+  },
+  {
+    "name": "phone-reserve",
+    "file": "phone-reserve.png",
+    "story": "account-phone-numbers--purchase-dialog-default",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/account-phone-numbers.stories.tsx",
+    "fixtureSha256": "421e335f7704aad4cbe4cda440fa560b94e6aa4075e83a7825aca9394bb26ad3",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "bd48673e66a5c95fdfb40cf73fcbfc010339af81b4a951b99a8cadfb26ee8402"
+  },
+  {
+    "name": "models",
+    "file": "models.png",
+    "story": "account-models-page--models",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/account-models.stories.tsx",
+    "fixtureSha256": "c39292f10123173ee3e2702b59d738038f9daac1d72d682392475c49c329f305",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "4779b28307e292af310dfca0208eafa161db50c2cd3d2fcbbedf8bdb42a20fcd"
+  },
+  {
+    "name": "billing",
+    "file": "billing.png",
+    "story": "account-billing-page--healthy",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/account-billing.stories.tsx",
+    "fixtureSha256": "ec60fd4ec66c6ed43fe5d121bd696ce782e5655d22f6cca74d1f6ddd4e11a9ce",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "ac191319eaf245e34351509ab023eb06c732f6157584555b0291a8555f5b8d0b"
+  },
+  {
+    "name": "skill-review",
+    "file": "skill-review.png",
+    "story": "workforce-skill-workshop--pending-review",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/skill-workshop.stories.tsx",
+    "fixtureSha256": "0b2da32c21a6b6969613f7518466ecdd64f3c770a2458efbb1b1d0d7123edd56",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Open review decisions; no approval or merge submitted"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "1588d1843a7658b26481b24a081fb98ce787ecbee887c31af2449d12ae132e70"
+  },
+  {
+    "name": "skill-approved",
+    "file": "skill-approved.png",
+    "story": "workforce-skill-workshop--approved-for-application",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/skill-workshop.stories.tsx",
+    "fixtureSha256": "0b2da32c21a6b6969613f7518466ecdd64f3c770a2458efbb1b1d0d7123edd56",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Open review decisions; no approval or merge submitted"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "01c5c53965bb0dde6915af54b6721a805b1791d5fbb09200021af88de4be77cf"
+  },
+  {
+    "name": "vault-grants",
+    "file": "vault-grants.png",
+    "story": "docs-key-areas--vault-employee-access",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".agents/fixtures/key-area-ui.stories.tsx",
+    "fixtureSha256": "a0f61e6bbe6c0ef0a471776bd9e2fb8d307dc8df113ceaaa8f40cd972044f935",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "2258aabffdd8d6ab45640eca51d04c0f6c455913a11e6326cb6c39aa3b66374f"
+  },
+  {
+    "name": "approval-tool",
+    "file": "approval-tool.png",
+    "story": "approvals-task-panel--notion-write",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/packages/approvals/approval-panel.stories.tsx",
+    "fixtureSha256": "192b1d31d8318255cffface36b1ab331a43f2de71ee85ac01b4d4e40f0779182",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "47f282c5992e4a12819543e5369a69f89957eea7b6c423a6a6f3082d9ddb886c"
+  },
+  {
+    "name": "template-field",
+    "file": "template-field.png",
+    "story": "template-builder-redesign-sidebars--docx-selected-field-settings",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/template-builder-redesign/sidebar.stories.tsx",
+    "fixtureSha256": "cce8a0fb98d48848bb10275a98e7f205f1f78de19361a3648e3b1a609fdde575",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      },
+      {
+        "kind": "Unmodified UI crop",
+        "clip": {
+          "x": 1121,
+          "y": 48,
+          "width": 319,
+          "height": 353.390625
+        }
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "34d5e3138f55276268333c2afe2a16ffca45b14ab29360fc1319ef3c9c01c708"
+  },
+  {
+    "name": "templates-picker",
+    "file": "templates-picker.png",
+    "story": "workforce-employee-page--skills",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce.stories.tsx",
+    "fixtureSha256": "f8dab8013932abf5d63ac86782ef98583a490d457ddcf3a55c62e4c89d6c36a5",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Open Templates capability picker; no assignment saved"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "a24b177a487859b9ea204c753e5436604ad0a27318a9ffa64ab8bb1bf450530c"
+  },
+  {
+    "name": "skill-create",
+    "file": "skill-create.png",
+    "story": "workforce-skill-workshop--skills-catalog",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/skill-workshop.stories.tsx",
+    "fixtureSha256": "0b2da32c21a6b6969613f7518466ecdd64f3c770a2458efbb1b1d0d7123edd56",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Open Create skill; no proposal submitted"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "92fff0a414185cacea7d802d5b6f02751127f01b41229c8ebf4a3daead1000f6"
+  },
+  {
+    "name": "skill-diff",
+    "file": "skill-diff.png",
+    "story": "workforce-skill-workshop--pending-review",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce/skill-workshop.stories.tsx",
+    "fixtureSha256": "0b2da32c21a6b6969613f7518466ecdd64f3c770a2458efbb1b1d0d7123edd56",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "5462793728d98ae75ea3466d01db34569c2ae7f2215a40a8a29928ea7ef025f6"
+  },
+  {
+    "name": "knowledge-picker",
+    "file": "knowledge-picker.png",
+    "story": "workforce-employee-page--skills",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce.stories.tsx",
+    "fixtureSha256": "f8dab8013932abf5d63ac86782ef98583a490d457ddcf3a55c62e4c89d6c36a5",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "Synthetic catalog metadata completion",
+        "source": "Actual app Slack SVG; no product UI modified"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Show existing synthetic assignment on Added tab"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Open Knowledge capability picker; no assignment saved"
+      },
+      {
+        "kind": "Unmodified UI crop",
+        "clip": {
+          "x": 1020,
+          "y": 97,
+          "width": 420,
+          "height": 430
+        }
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "0a63da84b5b7b4e2f0b42c29096636f924a7984d4355d778fe1c33ed3c5c6c1e"
+  },
+  {
+    "name": "skills-picker",
+    "file": "skills-picker.png",
+    "story": "workforce-employee-page--skills",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce.stories.tsx",
+    "fixtureSha256": "f8dab8013932abf5d63ac86782ef98583a490d457ddcf3a55c62e4c89d6c36a5",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "Synthetic catalog metadata completion",
+        "source": "Actual app Slack SVG; no product UI modified"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Open Skills capability picker; no assignment saved"
+      },
+      {
+        "kind": "Unmodified UI crop",
+        "clip": {
+          "x": 265.8227844238281,
+          "y": 104.12919616699219,
+          "width": 908.3544616699219,
+          "height": 350
+        }
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "62e9ebcc6c436103e2f7ceff9603a78df915d1d6784d1a08d6d8b657da768a5d"
+  },
+  {
+    "name": "tools-picker",
+    "file": "tools-picker.png",
+    "story": "workforce-employee-page--skills",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/workforce.stories.tsx",
+    "fixtureSha256": "f8dab8013932abf5d63ac86782ef98583a490d457ddcf3a55c62e4c89d6c36a5",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "Synthetic catalog metadata completion",
+        "source": "Actual app Slack SVG; no product UI modified"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      },
+      {
+        "kind": "Official vendor artwork for missing synthetic catalog asset",
+        "url": "https://static.figma.com/app/icon/1/favicon.svg",
+        "sha256": "d1d4fc27b66a1b86b28b0d3be9bcb051f055da4a914e24c59f63aa9ee4cf303f"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Show existing synthetic assignment on Added tab"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Open Tools capability picker; no assignment saved"
+      },
+      {
+        "kind": "Unmodified UI crop",
+        "clip": {
+          "x": 1020,
+          "y": 97,
+          "width": 420,
+          "height": 430
+        }
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "bd9f5b8e0ffeaf22e64ad31412a57e50e690dd84ce4d33615260419d23dd9c64"
+  },
+  {
+    "name": "security-policies",
+    "file": "security-policies.png",
+    "story": "workforce-settings-security-privacy--saved-recipients",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/packages/workforce/components/settings/tabs/SecurityPrivacyTab.stories.tsx",
+    "fixtureSha256": "79373d3f2215b49883f4a829483a19e67af723da482a6656a13d7975dd4e4cc5",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "Synthetic catalog metadata completion",
+        "source": "Actual app Slack SVG; no product UI modified"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      },
+      {
+        "kind": "Unmodified UI crop",
+        "clip": {
+          "x": 345,
+          "y": 24,
+          "width": 750,
+          "height": 1227
+        }
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "f9315278527dae806e8494e32fafb4a70de1f1d807bc2551d372210fc91e97f2"
+  },
+  {
+    "name": "finance-policies",
+    "file": "finance-policies.png",
+    "story": "workforce-settings-security-privacy--empty-tool-rules",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/packages/workforce/components/settings/tabs/SecurityPrivacyTab.stories.tsx",
+    "fixtureSha256": "79373d3f2215b49883f4a829483a19e67af723da482a6656a13d7975dd4e4cc5",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "Synthetic catalog metadata completion",
+        "source": "Actual app Slack SVG; no product UI modified"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getBackendUrlForAccount"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getClaimsFromToken"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "getServerBackendAudience"
+      },
+      {
+        "kind": "missing routing-only Storybook mock",
+        "export": "SERVER_REGIONS"
+      },
+      {
+        "kind": "UI interaction",
+        "action": "Select Disabled outbound and Restricted tools in the local form; not saved"
+      },
+      {
+        "kind": "Unmodified UI crop",
+        "clip": {
+          "x": 345,
+          "y": 24,
+          "width": 750,
+          "height": 1183
+        }
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "e3866606fbf6f2204a3aeba3359de52f74df2425baf1b25ad50bd9ce7067055f"
+  },
+  {
+    "name": "phone-numbers",
+    "file": "phone-numbers.png",
+    "story": "account-phone-numbers--list-with-numbers",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "fixturePath": ".storybook/stories/account-phone-numbers.stories.tsx",
+    "fixtureSha256": "421e335f7704aad4cbe4cda440fa560b94e6aa4075e83a7825aca9394bb26ad3",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "deviceScaleFactor": 2,
+    "timezone": "Europe/London",
+    "args": null,
+    "fixtureAssets": [
+      {
+        "kind": "Synthetic employee resource projection, replacing outdated Storybook ID-only payload",
+        "file": ".agents/fixtures/employee-skills-details.json",
+        "sha256": "a1fd6810a38d64a5bd30c81cd76154c01a53d4685801974593c639400d7a0394"
+      },
+      {
+        "kind": "Synthetic catalog metadata completion",
+        "source": "Actual app Slack SVG; no product UI modified"
+      },
+      {
+        "kind": "Synthetic phone data safety",
+        "replacement": "Ofcom-reserved UK drama number +44 20 7946 0123; no live number used"
+      }
+    ],
+    "source": "Actual product components; synthetic records only; external network blocked; no live action submitted.",
+    "sha256": "dee1809bbbc35040304c1ddec1dbd4a84ecec18387a7af2716916619126ce403"
+  }
+]

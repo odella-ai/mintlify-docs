@@ -114,6 +114,33 @@ DOCS_BROWSER_CHANNEL=chrome node scripts/check-channel-branding-layout.mjs ../we
 
 The browser check covers all 15 pages at desktop, tablet, and mobile widths in both themes, plus no-JavaScript rendering and logo-link/keyboard behavior. It saves desktop/mobile screenshots under `/tmp/odella-channel-branding`, outside the published repository. Existing provider setup screenshots remain in place.
 
+## Key-area visual coverage
+
+`.agents/reviews/key-area-visual-audit.md` audits all 83 visible pages; the editable priorities are in `key-area-visual-plan.json`, with a machine-readable media inventory in `key-area-visual-coverage.json`. Logos and concept illustrations are counted separately from UI screenshots. Add screenshots where users need to locate controls or configure work; use diagrams for relationships and scope. Do not put decorative heroes on every reference page or redesign Welcome as a landing page.
+
+Vault's original SVG in `images/illustrations/vault.svg` is labeled as a concept, not a product screen. Keep concept artwork minimal and architectural: translucent glass, graphite, fine edges, and restrained cool highlights—not cartoon safes, mascots, floating feature cards, or embedded marketing labels. The five PNGs under `images/features/automation/` render the real Calendar, scheduling editor, event composer, and Vault login form with synthetic records. Their provenance records source-component hashes, fixed time/timezone, local vendor-logo substitution, and capture interactions. No product markup or labels are redrawn. Screenshots are not evidence of a live connection, enabled automation, completed task, or production security acceptance.
+
+```bash
+node scripts/start-key-area-ui-preview.mjs ../webapp/apps/app 6119
+# In another terminal, while the isolated Storybook preview is running:
+node scripts/capture-key-area-ui.mjs ../webapp/apps/app http://127.0.0.1:6119
+node scripts/check-key-area-visuals.mjs ../webapp/apps/app http://localhost:3334
+node scripts/audit-docs-visual-coverage.mjs /tmp/odella-key-area-audit/before/manifest.json
+```
+
+The setup continuation adds 33 real-component captures in `images/features/setup/` and two minimal relationship diagrams. All 15 original priority pages now have UI coverage; `.agents/reviews/key-area-visual-plan.json` explicitly retains five provider/channel-specific fixture deferrals and the provider-side read-only acceptance follow-up. The current Skills category opens **Skills Catalog**, not the legacy Add Skills panel. Knowledge, tools, and template pickers remain separate.
+
+```bash
+# With the same isolated UI preview running:
+node scripts/capture-setup-ui.mjs ../webapp/apps/app http://127.0.0.1:6119
+# Optional last argument: comma-separated shot names for targeted refresh.
+node scripts/check-setup-visuals.mjs ../webapp/apps/app http://localhost:3334
+```
+
+The continuation's resource projection is explicit synthetic fixture data in `.agents/fixtures/employee-skills-details.json`, replacing an outdated ID-only Storybook response. Vendor artwork is supplied locally where the synthetic catalog omits it; no product controls, labels, or rendered UI are redrawn. Captures use only synthetic story variants, never the real/dev/prod account-data variants in the source story catalog. Crops and local-only form interactions are recorded in the provenance manifest. No assignments, approvals, payments, or provider connections are submitted.
+
+The UI preview generates a temporary configuration without modifying the app checkout. It reuses the app's theme and hooks, while resolving core/tool metadata from matching source entry points rather than stale workspace builds. Remote requests are blocked during capture; the fictional Slack fixture's logo URL is fulfilled from the app's actual Slack SVG. Keep the product UI distinct from explanatory artwork, and retain readable alt text and synthetic-example captions. Stop the temporary UI preview after recapturing.
+
 ## UI illustrations
 
 `images/guides/` contains synthetic Storybook captures and the explicitly labeled `image-block-example.svg` illustration. The latter replaces an old Rivet-branded example, not the actual block screenshots. Page captions identify examples rather than customer data or fabricated live UI. Reproduce with an already-running local webapp Storybook and the webapp's Playwright installation:

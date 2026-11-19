@@ -41,7 +41,7 @@ Choose an accountable Finance manager and a provider account or API key that the
   <Step title="Block ordinary connected writes">
     In **Security & Privacy**, choose:
 
-    - **Inbound Access Policy → Account Members** for the pilot.
+    - **Inbound Access Policy → Organization members** for the pilot.
     - **Tool approval policy → Restricted**.
     - **Outbound Messaging Policy → Disabled**.
 
@@ -57,6 +57,12 @@ Choose an accountable Finance manager and a provider account or API key that the
 
   </Step>
 </Steps>
+
+<Frame caption="Cropped actual Odella policy controls set to Disabled outbound messaging and Restricted tools in a synthetic local form. No settings are saved, and this does not demonstrate provider-side read-only enforcement.">
+  <img src="/images/features/setup/finance-policies.png" alt="Security and Privacy controls showing Organization members inbound access, disabled outbound messaging, and restricted connected-tool access" />
+</Frame>
+
+A screenshot of these controls is not an acceptance test. Independently confirm the provider account or API key is read-only, then perform the allowed and denied operations in the checklist below.
 
 ## Acceptance checklist
 

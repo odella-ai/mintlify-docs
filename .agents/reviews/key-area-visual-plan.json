@@ -1,0 +1,51 @@
+{
+  "implemented": {
+    "platform/vault": "Minimal glass/graphite concept, actual login form, existing list, and actual API-key employee-access dialog. Sharing fixture contains no secret and cannot save.",
+    "workforce/calendar": "Actual calendar, new-task dialog, filled recurring editor, and numbered setup walkthrough.",
+    "workforce/actions": "Actual event composer with provider, trigger, conditions, instructions, and a matching support-message example.",
+    "guides/automate-recurring-work": "Reuses the recurring settings image and links to the detailed setup walkthrough.",
+    "workforce/identity": "Actual Identity profile and separate General Instructions editors with synthetic working guidance.",
+    "workforce/knowledge": "Actual Add Knowledge picker and a four-step assignment/source-check walkthrough.",
+    "workforce/skills": "Actual Skills Catalog modal, with search, categories, assigned checks, and pending-selection guidance. Uses the current Apply skills flow, not the obsolete Add Skills panel.",
+    "workforce/create-a-skill": "Actual Create skill dialog, proposed-file diff, and review decisions. Saving, approving, and merging remain separate.",
+    "workforce/tools": "Actual Add Tools picker and Security & Privacy controls; connection and assignment remain separate from permission to act.",
+    "workforce/tasks": "Actual New task form with one ready and one uploading attachment; existing waiting-task details retained.",
+    "workforce/approvals": "Existing email approval retained; actual connected-tool Notion approval added. No universal browser-approval claim.",
+    "workforce/workspace": "Actual employee Workspace with fictional files/folders and a one-file setup/check walkthrough.",
+    "workforce/activity": "Actual feed with synthetic status/error/source context and investigation steps. No real/dev/prod account fixture story captured.",
+    "documents/create-and-configure": "Actual Setup, optional Sync, and Columns wizard screens. Standard stores remain separate from signing-record stores.",
+    "documents/manage-documents": "Actual mixed-status table and Ready-filter example; processing success is distinct from upload acceptance.",
+    "templates/02_pdf-template": "Actual PDF editor, pages, detected fields and variables using the app's watermarked sample, not a customer contract.",
+    "templates/03_docx-template": "Actual DOCX editor and cropped selected-field settings. The template preview is explicitly not a completed customer draft.",
+    "templates/04_using-templates": "Actual Add Templates picker and explicit pending-selection confirmation; signing remains a separate process.",
+    "workforce/settings-security-privacy": "Actual inbound/outbound/tool policy controls and synthetic saved-recipient rules, with browser-policy limits retained.",
+    "get-started/how-odella-works": "Minimal graphite/glass relationship diagram: AI Employee → task → human review, with inputs/resources named.",
+    "platform/credentials-and-scope": "Two-lane Vault scope diagram: requester's explicit grants versus manager's explicit grants, with applicability limits.",
+    "platform/access-control": "Reuses real synthetic team-membership UI from the existing worked tutorial instead of introducing generic security art.",
+    "platform/roles-and-permissions": "Reuses the actual capability editor with scope qualifications.",
+    "platform/manager-handover-tutorial": "Actual manager selector before handover and a link to the credential-scope diagram; no automatic reauthorization implied.",
+    "platform/finance-read-only-tutorial": "Actual Odella controls locally selected to Disabled outbound and Restricted tools. Provider-side acceptance is explicitly not demonstrated.",
+    "platform/phone-numbers": "Actual number list and reservation dialog with reserved US/UK example numbers; illustrative prices and eligibility caveats.",
+    "platform/models": "Actual model catalog with synthetic entries and explicit current-availability/pricing caveats.",
+    "platform/billing-and-credits": "Actual billing controls with synthetic figures, not live charges or current price quotes.",
+    "workforce/employee-page": "Actual employee orientation screenshot with linked explanations for resources and workspace tabs. No UI labels or controls redrawn."
+  },
+  "next": {},
+  "later": {
+    "platform/finance-read-only-tutorial": "Provider-admin read-only setup screenshots depend on the chosen approved service; the Odella policy screenshot is not a substitute. Perform the allow/deny acceptance checks separately."
+  },
+  "deferred": {
+    "workforce/channels/email": "A dedicated employee-email settings fixture with authorized-sender controls is still needed. Do not invent a mailbox/sender UI from a generic email-provider screenshot.",
+    "workforce/channels/web-chat": "A dedicated current web-chat/speech settings fixture is still needed. Keep the approved channel artwork and existing steps meanwhile.",
+    "workforce/channels/phone": "Channel-specific routing/toggle fixtures are still needed; actual number reservation/assignment UI is now covered in Phone numbers.",
+    "workforce/channels/whatsapp": "Capture the account-supported eligibility/onboarding path only with a faithful provider-specific fixture. Do not imply universal self-service activation.",
+    "workforce/channels/google-meet": "Availability/authorization needs confirmation in the target account or a faithful supported fixture before illustrating an active meeting setup."
+  },
+  "keepText": [
+    "get-started/faq", "workforce/manager-responsibilities", "platform/security-review",
+    "platform/usage-and-limits", "platform/brand-guidelines", "workforce/settings-terminate",
+    "workforce/settings-billing", "workforce/settings-model-intelligence",
+    "workforce/settings-memory-reminders", "workforce/settings-operations-logistics",
+    "workforce/settings-overview", "platform/profile-and-account", "integrations/mcp-recipes"
+  ]
+}

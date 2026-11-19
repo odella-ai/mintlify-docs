@@ -1,0 +1,1854 @@
+[
+  {
+    "route": "introduction",
+    "title": "Welcome to Odella",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 1,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "100-introduction-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "100-introduction-390.png"
+      }
+    ]
+  },
+  {
+    "route": "get-started/how-odella-works",
+    "title": "How Odella works",
+    "status": "Implemented",
+    "note": "Minimal graphite/glass relationship diagram: AI Employee → task → human review, with inputs/resources named.",
+    "screenshots": [],
+    "concepts": [
+      "/images/illustrations/employee-task-review.svg"
+    ],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "084-get-started--how-odella-works-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "084-get-started--how-odella-works-390.png"
+      }
+    ]
+  },
+  {
+    "route": "get-started/quickstart",
+    "title": "Complete your first task",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 4,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "085-get-started--quickstart-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "085-get-started--quickstart-390.png"
+      }
+    ]
+  },
+  {
+    "route": "get-started/faq",
+    "title": "get-started/faq",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "083-get-started--faq-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "083-get-started--faq-390.png"
+      }
+    ]
+  },
+  {
+    "route": "guides/onboard-an-employee",
+    "title": "Onboard an AI Employee",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 2,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "092-guides--onboard-an-employee-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "092-guides--onboard-an-employee-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/overview",
+    "title": "Hire an AI Employee",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 4,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "161-workforce--overview-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "161-workforce--overview-390.png"
+      }
+    ]
+  },
+  {
+    "route": "marketplace/overview",
+    "title": "Hire from the Marketplace",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 4,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "101-marketplace--overview-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "101-marketplace--overview-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/identity",
+    "title": "Set role and instructions",
+    "status": "Implemented",
+    "note": "Actual Identity profile and separate General Instructions editors with synthetic working guidance.",
+    "screenshots": [
+      "/images/features/setup/identity.png",
+      "/images/features/setup/instructions.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "158-workforce--identity-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "158-workforce--identity-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/knowledge",
+    "title": "Add company knowledge",
+    "status": "Implemented",
+    "note": "Actual Add Knowledge picker and a four-step assignment/source-check walkthrough.",
+    "screenshots": [
+      "/images/features/setup/knowledge-picker.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "159-workforce--knowledge-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "159-workforce--knowledge-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/skills",
+    "title": "Assign skills",
+    "status": "Implemented",
+    "note": "Actual Skills Catalog modal, with search, categories, assigned checks, and pending-selection guidance. Uses the current Apply skills flow, not the obsolete Add Skills panel.",
+    "screenshots": [
+      "/images/features/setup/skills-picker.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "169-workforce--skills-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "169-workforce--skills-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/create-a-skill",
+    "title": "Create a private skill",
+    "status": "Implemented",
+    "note": "Actual Create skill dialog, proposed-file diff, and review decisions. Saving, approving, and merging remain separate.",
+    "screenshots": [
+      "/images/features/setup/skill-create.png",
+      "/images/features/setup/skill-diff.png",
+      "/images/features/setup/skill-review.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "155-workforce--create-a-skill-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "155-workforce--create-a-skill-390.png"
+      }
+    ]
+  },
+  {
+    "route": "guides/assign-and-review-work",
+    "title": "Assign and review work",
+    "status": "Keep guide/reference concise",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "087-guides--assign-and-review-work-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "087-guides--assign-and-review-work-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/tasks",
+    "title": "Assign and track tasks",
+    "status": "Implemented",
+    "note": "Actual New task form with one ready and one uploading attachment; existing waiting-task details retained.",
+    "screenshots": [
+      "/images/features/setup/task-create.png",
+      "/images/guides/task-details.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "171-workforce--tasks-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "171-workforce--tasks-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/talk",
+    "title": "Talk and document review",
+    "status": "Keep guide/reference concise",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "170-workforce--talk-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "170-workforce--talk-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/approvals",
+    "title": "Review approvals",
+    "status": "Implemented",
+    "note": "Existing email approval retained; actual connected-tool Notion approval added. No universal browser-approval claim.",
+    "screenshots": [
+      "/images/guides/approval-review.png",
+      "/images/features/setup/approval-tool.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "138-workforce--approvals-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "138-workforce--approvals-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/workspace",
+    "title": "Manage working files",
+    "status": "Implemented",
+    "note": "Actual employee Workspace with fictional files/folders and a one-file setup/check walkthrough.",
+    "screenshots": [
+      "/images/features/setup/workspace.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "174-workforce--workspace-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "174-workforce--workspace-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/computer",
+    "title": "Computer and browser handoff",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/computer.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "154-workforce--computer-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "154-workforce--computer-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/activity",
+    "title": "Review work history",
+    "status": "Implemented",
+    "note": "Actual feed with synthetic status/error/source context and investigation steps. No real/dev/prod account fixture story captured.",
+    "screenshots": [
+      "/images/features/setup/activity.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "137-workforce--activity-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "137-workforce--activity-390.png"
+      }
+    ]
+  },
+  {
+    "route": "inbox/overview",
+    "title": "Inbox",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/inbox-setup.png",
+      "/images/features/inbox-reader.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "095-inbox--overview-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "095-inbox--overview-390.png"
+      }
+    ]
+  },
+  {
+    "route": "inbox/daily-brief",
+    "title": "Daily Brief",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/daily-brief.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "093-inbox--daily-brief-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "093-inbox--daily-brief-390.png"
+      }
+    ]
+  },
+  {
+    "route": "inbox/insights",
+    "title": "Insights",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/insights.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "094-inbox--insights-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "094-inbox--insights-390.png"
+      }
+    ]
+  },
+  {
+    "route": "guides/connect-tools-and-channels",
+    "title": "Connect tools and channels",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [
+      "/images/channels/logos/slack.svg",
+      "/images/channels/logos/microsoft-teams.svg",
+      "/images/channels/logos/email.svg",
+      "/images/channels/logos/web-chat.svg",
+      "/images/channels/logos/whatsapp.svg",
+      "/images/channels/logos/phone.svg",
+      "/images/channels/logos/telegram.svg",
+      "/images/channels/logos/discord.svg",
+      "/images/channels/logos/signal.svg",
+      "/images/channels/logos/google-meet.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "089-guides--connect-tools-and-channels-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "089-guides--connect-tools-and-channels-390.png"
+      }
+    ]
+  },
+  {
+    "route": "integrations/overview",
+    "title": "Connect an application",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 1,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "099-integrations--overview-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "099-integrations--overview-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/tools",
+    "title": "Choose connected tools",
+    "status": "Implemented",
+    "note": "Actual Add Tools picker and Security & Privacy controls; connection and assignment remain separate from permission to act.",
+    "screenshots": [
+      "/images/features/setup/tools-picker.png",
+      "/images/features/setup/security-policies.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "172-workforce--tools-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "172-workforce--tools-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/communication-channels",
+    "title": "Choose a contact channel",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [
+      "/images/channels/logos/slack.svg",
+      "/images/channels/logos/microsoft-teams.svg",
+      "/images/channels/logos/email.svg",
+      "/images/channels/logos/web-chat.svg",
+      "/images/channels/logos/whatsapp.svg",
+      "/images/channels/logos/phone.svg",
+      "/images/channels/logos/telegram.svg",
+      "/images/channels/logos/discord.svg",
+      "/images/channels/logos/signal.svg",
+      "/images/channels/logos/google-meet.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "153-workforce--communication-channels-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "153-workforce--communication-channels-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/email",
+    "title": "Employee email",
+    "status": "Deferred: setup fixture",
+    "note": "A dedicated employee-email settings fixture with authorized-sender controls is still needed. Do not invent a mailbox/sender UI from a generic email-provider screenshot.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/email.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "141-workforce--channels--email-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "141-workforce--channels--email-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/slack",
+    "title": "Slack",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/channels/slack/slack-create-app.png",
+      "/images/channels/slack/slack-manifest-app.png",
+      "/images/channels/slack/slack-workspace-config.png",
+      "/images/channels/slack/copy-manifest.png",
+      "/images/channels/slack/slack-review-app.png",
+      "/images/channels/slack/slack-app-credentials.png"
+    ],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/slack.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "147-workforce--channels--slack-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "147-workforce--channels--slack-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/teams",
+    "title": "Microsoft Teams",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/channels/teams/register-application.png",
+      "/images/channels/teams/azure-bot-app-registration.png",
+      "/images/channels/teams/user-read-all-permission.png"
+    ],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/microsoft-teams.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "148-workforce--channels--teams-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "148-workforce--channels--teams-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/web-chat",
+    "title": "Web chat",
+    "status": "Deferred: setup fixture",
+    "note": "A dedicated current web-chat/speech settings fixture is still needed. Keep the approved channel artwork and existing steps meanwhile.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/web-chat.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "151-workforce--channels--web-chat-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "151-workforce--channels--web-chat-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/phone",
+    "title": "Phone and SMS",
+    "status": "Deferred: setup fixture",
+    "note": "Channel-specific routing/toggle fixtures are still needed; actual number reservation/assignment UI is now covered in Phone numbers.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/phone.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "144-workforce--channels--phone-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "144-workforce--channels--phone-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/whatsapp",
+    "title": "WhatsApp",
+    "status": "Deferred: setup fixture",
+    "note": "Capture the account-supported eligibility/onboarding path only with a faithful provider-specific fixture. Do not imply universal self-service activation.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/whatsapp.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "152-workforce--channels--whatsapp-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "152-workforce--channels--whatsapp-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/signal",
+    "title": "Signal",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/channels/signal/signal-captcha-open-link.png"
+    ],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/signal.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "146-workforce--channels--signal-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "146-workforce--channels--signal-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/telegram",
+    "title": "Telegram",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/channels/telegram/telegram-bot-father.png",
+      "/images/channels/telegram/telegram-new-bot.png",
+      "/images/channels/telegram/telegram-new-bot-success.png"
+    ],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/telegram.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "149-workforce--channels--telegram-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "149-workforce--channels--telegram-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/discord",
+    "title": "Discord",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/channels/discord/discord-create-app.png",
+      "/images/channels/discord/discord-bot-page.png",
+      "/images/channels/discord/discord-reset-token.png",
+      "/images/channels/discord/discord-gateway-intents.png"
+    ],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/discord.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "140-workforce--channels--discord-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "140-workforce--channels--discord-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/channels/google-meet",
+    "title": "Google Meet",
+    "status": "Deferred: setup fixture",
+    "note": "Availability/authorization needs confirmation in the target account or a faithful supported fixture before illustrating an active meeting setup.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [
+      "/favicon.svg",
+      "/images/channels/logos/google-meet.svg"
+    ],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "142-workforce--channels--google-meet-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "142-workforce--channels--google-meet-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/credentials-and-scope",
+    "title": "Credentials and user scope",
+    "status": "Implemented",
+    "note": "Two-lane Vault scope diagram: requester's explicit grants versus manager's explicit grants, with applicability limits.",
+    "screenshots": [],
+    "concepts": [
+      "/images/illustrations/credential-scope.svg"
+    ],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "106-platform--credentials-and-scope-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "106-platform--credentials-and-scope-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/vault",
+    "title": "Vault and protected credentials",
+    "status": "Implemented",
+    "note": "Minimal glass/graphite concept, actual login form, existing list, and actual API-key employee-access dialog. Sharing fixture contains no secret and cannot save.",
+    "screenshots": [
+      "/images/features/automation/vault-new-login.png",
+      "/images/features/vault.png",
+      "/images/features/setup/vault-grants.png"
+    ],
+    "concepts": [
+      "/images/illustrations/vault.svg"
+    ],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "119-platform--vault-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "119-platform--vault-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/phone-numbers",
+    "title": "Phone numbers",
+    "status": "Implemented",
+    "note": "Actual number list and reservation dialog with reserved US/UK example numbers; illustrative prices and eligibility caveats.",
+    "screenshots": [
+      "/images/features/setup/phone-numbers.png",
+      "/images/features/setup/phone-reserve.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "111-platform--phone-numbers-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "111-platform--phone-numbers-390.png"
+      }
+    ]
+  },
+  {
+    "route": "guides/automate-recurring-work",
+    "title": "Schedule recurring work",
+    "status": "Implemented",
+    "note": "Reuses the recurring settings image and links to the detailed setup walkthrough.",
+    "screenshots": [
+      "/images/features/automation/schedule-recurring.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "088-guides--automate-recurring-work-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "088-guides--automate-recurring-work-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/calendar",
+    "title": "Schedule work",
+    "status": "Implemented",
+    "note": "Actual calendar, new-task dialog, filled recurring editor, and numbered setup walkthrough.",
+    "screenshots": [
+      "/images/features/automation/calendar-overview.png",
+      "/images/features/automation/schedule-create.png",
+      "/images/features/automation/schedule-recurring.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "139-workforce--calendar-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "139-workforce--calendar-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/actions",
+    "title": "Start work from events",
+    "status": "Implemented",
+    "note": "Actual event composer with provider, trigger, conditions, instructions, and a matching support-message example.",
+    "screenshots": [
+      "/images/features/automation/event-action.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "136-workforce--actions-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "136-workforce--actions-390.png"
+      }
+    ]
+  },
+  {
+    "route": "guides/documents-and-knowledge",
+    "title": "Work with documents and knowledge",
+    "status": "Keep guide/reference concise",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "090-guides--documents-and-knowledge-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "090-guides--documents-and-knowledge-390.png"
+      }
+    ]
+  },
+  {
+    "route": "documents/overview",
+    "title": "Organize knowledge in Document Stores",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 2,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "079-documents--overview-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "079-documents--overview-390.png"
+      }
+    ]
+  },
+  {
+    "route": "documents/create-and-configure",
+    "title": "Create and configure stores",
+    "status": "Implemented",
+    "note": "Actual Setup, optional Sync, and Columns wizard screens. Standard stores remain separate from signing-record stores.",
+    "screenshots": [
+      "/images/features/setup/store-setup.png",
+      "/images/features/setup/store-sync.png",
+      "/images/features/setup/store-columns.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "077-documents--create-and-configure-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "077-documents--create-and-configure-390.png"
+      }
+    ]
+  },
+  {
+    "route": "documents/manage-documents",
+    "title": "Upload and find documents",
+    "status": "Implemented",
+    "note": "Actual mixed-status table and Ready-filter example; processing success is distinct from upload acceptance.",
+    "screenshots": [
+      "/images/features/setup/store-records.png",
+      "/images/features/setup/store-ready.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "078-documents--manage-documents-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "078-documents--manage-documents-390.png"
+      }
+    ]
+  },
+  {
+    "route": "documents/settings-and-integrations",
+    "title": "Settings and integrations",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/guides/signing-store.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "080-documents--settings-and-integrations-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "080-documents--settings-and-integrations-390.png"
+      }
+    ]
+  },
+  {
+    "route": "templates/01_overview",
+    "title": "Create document templates",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 2,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "120-templates--01_overview-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "120-templates--01_overview-390.png"
+      }
+    ]
+  },
+  {
+    "route": "templates/02_pdf-template",
+    "title": "PDF templates",
+    "status": "Implemented",
+    "note": "Actual PDF editor, pages, detected fields and variables using the app's watermarked sample, not a customer contract.",
+    "screenshots": [
+      "/images/features/setup/pdf-editor.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "121-templates--02_pdf-template-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "121-templates--02_pdf-template-390.png"
+      }
+    ]
+  },
+  {
+    "route": "templates/03_docx-template",
+    "title": "DOCX templates",
+    "status": "Implemented",
+    "note": "Actual DOCX editor and cropped selected-field settings. The template preview is explicitly not a completed customer draft.",
+    "screenshots": [
+      "/images/features/setup/docx-editor.png",
+      "/images/features/setup/template-field.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "122-templates--03_docx-template-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "122-templates--03_docx-template-390.png"
+      }
+    ]
+  },
+  {
+    "route": "templates/04_using-templates",
+    "title": "Assign and use document templates",
+    "status": "Implemented",
+    "note": "Actual Add Templates picker and explicit pending-selection confirmation; signing remains a separate process.",
+    "screenshots": [
+      "/images/features/setup/templates-picker.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "123-templates--04_using-templates-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "123-templates--04_using-templates-390.png"
+      }
+    ]
+  },
+  {
+    "route": "templates/05_e-signing",
+    "title": "E-signing",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/signing-fields.png",
+      "/images/features/signing-destination.png",
+      "/images/features/signing-recipient.png",
+      "/images/features/signing-requests.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "124-templates--05_e-signing-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "124-templates--05_e-signing-390.png"
+      }
+    ]
+  },
+  {
+    "route": "documents/sign-a-document",
+    "title": "Sign a document",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/signing-recipient.png",
+      "/images/features/signing-completed.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "081-documents--sign-a-document-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "081-documents--sign-a-document-390.png"
+      }
+    ]
+  },
+  {
+    "route": "documents/signing-records",
+    "title": "Signing requests and records",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/signing-requests.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "082-documents--signing-records-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "082-documents--signing-records-390.png"
+      }
+    ]
+  },
+  {
+    "route": "guides/access-and-security",
+    "title": "Set access and safeguards",
+    "status": "Keep guide/reference concise",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "086-guides--access-and-security-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "086-guides--access-and-security-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/secure-employee-tutorial",
+    "title": "Create a team-restricted AI Employee",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/guides/organization-team-create.png",
+      "/images/guides/organization-role-create.png",
+      "/images/guides/organization-role-capabilities.png",
+      "/images/guides/organization-team-details.png",
+      "/images/guides/organization-team-member-roles.png",
+      "/images/guides/secure-worker-governance.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "114-platform--secure-employee-tutorial-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "114-platform--secure-employee-tutorial-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/governance",
+    "title": "Set worker access and editors",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/guides/employee-governance.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "157-workforce--governance-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "157-workforce--governance-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/access-control",
+    "title": "How access control works",
+    "status": "Implemented",
+    "note": "Reuses real synthetic team-membership UI from the existing worked tutorial instead of introducing generic security art.",
+    "screenshots": [
+      "/images/guides/organization-team-details.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "102-platform--access-control-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "102-platform--access-control-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/roles-and-permissions",
+    "title": "Roles and permissions",
+    "status": "Implemented",
+    "note": "Reuses the actual capability editor with scope qualifications.",
+    "screenshots": [
+      "/images/guides/organization-role-capabilities.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "113-platform--roles-and-permissions-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "113-platform--roles-and-permissions-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/settings-security-privacy",
+    "title": "Security & Privacy",
+    "status": "Implemented",
+    "note": "Actual inbound/outbound/tool policy controls and synthetic saved-recipient rules, with browser-policy limits retained.",
+    "screenshots": [
+      "/images/features/setup/security-policies.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "167-workforce--settings-security-privacy-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "167-workforce--settings-security-privacy-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/security",
+    "title": "Security and data protection",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/assets/security_overview_light.gif",
+      "/assets/security_overview_dark.gif"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "115-platform--security-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "115-platform--security-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/tool-and-browser-security",
+    "title": "Tool and browser boundaries",
+    "status": "Keep guide/reference concise",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "117-platform--tool-and-browser-security-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "117-platform--tool-and-browser-security-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/browser-security",
+    "title": "Signed-in browser security",
+    "status": "Keep guide/reference concise",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "105-platform--browser-security-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "105-platform--browser-security-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/manager-responsibilities",
+    "title": "Manager responsibilities",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "160-workforce--manager-responsibilities-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "160-workforce--manager-responsibilities-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/manager-handover-tutorial",
+    "title": "Hand over an AI Employee",
+    "status": "Implemented",
+    "note": "Actual manager selector before handover and a link to the credential-scope diagram; no automatic reauthorization implied.",
+    "screenshots": [
+      "/images/guides/employee-governance.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "108-platform--manager-handover-tutorial-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "108-platform--manager-handover-tutorial-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/finance-read-only-tutorial",
+    "title": "Build a read-only Finance worker",
+    "status": "Implemented",
+    "note": "Actual Odella controls locally selected to Disabled outbound and Restricted tools. Provider-side acceptance is explicitly not demonstrated.",
+    "screenshots": [
+      "/images/features/setup/finance-policies.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "followUp": "Provider-admin read-only setup screenshots depend on the chosen approved service; the Odella policy screenshot is not a substitute. Perform the allow/deny acceptance checks separately.",
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "107-platform--finance-read-only-tutorial-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "107-platform--finance-read-only-tutorial-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/security-review",
+    "title": "Security review checklist",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "116-platform--security-review-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "116-platform--security-review-390.png"
+      }
+    ]
+  },
+  {
+    "route": "guides/manage-your-account",
+    "title": "Manage your account",
+    "status": "Keep guide/reference concise",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "091-guides--manage-your-account-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "091-guides--manage-your-account-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/organization",
+    "title": "Organization and teams",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/guides/organization-teams.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "110-platform--organization-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "110-platform--organization-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/billing-and-credits",
+    "title": "Billing and credits",
+    "status": "Implemented",
+    "note": "Actual billing controls with synthetic figures, not live charges or current price quotes.",
+    "screenshots": [
+      "/images/features/setup/billing.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "103-platform--billing-and-credits-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "103-platform--billing-and-credits-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/usage-and-limits",
+    "title": "Usage and limits",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "118-platform--usage-and-limits-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "118-platform--usage-and-limits-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/brand-guidelines",
+    "title": "Brand guidelines",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "104-platform--brand-guidelines-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "104-platform--brand-guidelines-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/models",
+    "title": "Models and privacy",
+    "status": "Implemented",
+    "note": "Actual model catalog with synthetic entries and explicit current-availability/pricing caveats.",
+    "screenshots": [
+      "/images/features/setup/models.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "109-platform--models-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "109-platform--models-390.png"
+      }
+    ]
+  },
+  {
+    "route": "platform/profile-and-account",
+    "title": "Profile and account",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "112-platform--profile-and-account-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "112-platform--profile-and-account-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/employee-page",
+    "title": "Employee profile",
+    "status": "Implemented",
+    "note": "Actual employee orientation screenshot with linked explanations for resources and workspace tabs. No UI labels or controls redrawn.",
+    "screenshots": [
+      "/images/features/setup/employee-resources.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "156-workforce--employee-page-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "156-workforce--employee-page-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/settings-overview",
+    "title": "AI Employee settings",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "166-workforce--settings-overview-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "166-workforce--settings-overview-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/settings-model-intelligence",
+    "title": "Model & Intelligence",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "164-workforce--settings-model-intelligence-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "164-workforce--settings-model-intelligence-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/settings-memory-reminders",
+    "title": "Memory & Reminders",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "163-workforce--settings-memory-reminders-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "163-workforce--settings-memory-reminders-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/settings-operations-logistics",
+    "title": "Operations & Logistics",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "165-workforce--settings-operations-logistics-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "165-workforce--settings-operations-logistics-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/settings-billing",
+    "title": "Billing",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "162-workforce--settings-billing-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "162-workforce--settings-billing-390.png"
+      }
+    ]
+  },
+  {
+    "route": "workforce/settings-terminate",
+    "title": "Terminate",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "168-workforce--settings-terminate-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "168-workforce--settings-terminate-390.png"
+      }
+    ]
+  },
+  {
+    "route": "integrations/mcp-server",
+    "title": "Odella MCP server",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/mcp-oauth-setup.png",
+      "/images/guides/developer-token.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "098-integrations--mcp-server-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "098-integrations--mcp-server-390.png"
+      }
+    ]
+  },
+  {
+    "route": "integrations/mcp-recipes",
+    "title": "MCP work recipes",
+    "status": "Keep text-first",
+    "note": "A screenshot or decorative hero is not required for this reference. Add one only for a concrete setup gap.",
+    "screenshots": [],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "097-integrations--mcp-recipes-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "097-integrations--mcp-recipes-390.png"
+      }
+    ]
+  },
+  {
+    "route": "integrations/custom-integrations",
+    "title": "Custom integrations",
+    "status": "Keep existing visuals",
+    "note": "Preserve useful existing media. Guide hubs should route to the detailed walkthrough instead of repeating galleries.",
+    "screenshots": [
+      "/images/features/custom-list.png",
+      "/images/features/custom-create.png",
+      "/images/features/custom-settings.png"
+    ],
+    "concepts": [],
+    "marks": [],
+    "videos": 0,
+    "baseline": [
+      {
+        "width": 1440,
+        "file": "096-integrations--custom-integrations-1440.png"
+      },
+      {
+        "width": 390,
+        "file": "096-integrations--custom-integrations-390.png"
+      }
+    ]
+  }
+]
