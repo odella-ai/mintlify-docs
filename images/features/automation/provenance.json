@@ -1,0 +1,122 @@
+[
+  {
+    "file": "calendar-overview.png",
+    "story": "docs-key-areas--calendar",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "componentHashes": {
+      "packages/workforce/components/actions/time/time-action-calendar.tsx": "cfb1a776e7f651409b28dc7f892ada162ebf1a68436f2d56c9e5d68e239b765d",
+      "packages/workforce/components/actions/time/time-action-dialog.tsx": "9dee8331ca9804db445cd5a2b58145dbdd1998fdc23eb774524a097bd1f8e56b",
+      "packages/workforce/components/actions/editor/create-action-modal.tsx": "3e52bab4162650a20df6807dfc1954f380f122b2e5c0664631eb814f0dee8f39",
+      "packages/account/components/vault/VaultItemDialog.tsx": "a0401c78eff11d6e165416b48a042ee2391d0e7391789a4d50a2fd1927fb3976"
+    },
+    "fixture": "Synthetic records; real app components. No customer session, live connection, or real secret.",
+    "fixedTime": "2027-02-08T12:00:00Z",
+    "timezone": "Europe/London",
+    "viewport": {
+      "width": 1280,
+      "height": 760
+    },
+    "deviceScaleFactor": 2,
+    "interactions": [],
+    "blockedExternalOrigins": [],
+    "sha256": "e5076a2588e1edefc3f673c69845d271c7207d5519fd14637114bd85a1efc807"
+  },
+  {
+    "file": "schedule-create.png",
+    "story": "docs-key-areas--new-schedule",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "componentHashes": {
+      "packages/workforce/components/actions/time/time-action-calendar.tsx": "cfb1a776e7f651409b28dc7f892ada162ebf1a68436f2d56c9e5d68e239b765d",
+      "packages/workforce/components/actions/time/time-action-dialog.tsx": "9dee8331ca9804db445cd5a2b58145dbdd1998fdc23eb774524a097bd1f8e56b",
+      "packages/workforce/components/actions/editor/create-action-modal.tsx": "3e52bab4162650a20df6807dfc1954f380f122b2e5c0664631eb814f0dee8f39",
+      "packages/account/components/vault/VaultItemDialog.tsx": "a0401c78eff11d6e165416b48a042ee2391d0e7391789a4d50a2fd1927fb3976"
+    },
+    "fixture": "Synthetic records; real app components. No customer session, live connection, or real secret.",
+    "fixedTime": "2027-02-08T12:00:00Z",
+    "timezone": "Europe/London",
+    "viewport": {
+      "width": 1280,
+      "height": 760
+    },
+    "deviceScaleFactor": 2,
+    "interactions": [],
+    "blockedExternalOrigins": [],
+    "sha256": "753e7cd339e1956de45a032d1cfae4cf483e1a9fd4ccb88a5fae6ac55ea1ca4d"
+  },
+  {
+    "file": "schedule-recurring.png",
+    "story": "docs-key-areas--recurring-schedule",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "componentHashes": {
+      "packages/workforce/components/actions/time/time-action-calendar.tsx": "cfb1a776e7f651409b28dc7f892ada162ebf1a68436f2d56c9e5d68e239b765d",
+      "packages/workforce/components/actions/time/time-action-dialog.tsx": "9dee8331ca9804db445cd5a2b58145dbdd1998fdc23eb774524a097bd1f8e56b",
+      "packages/workforce/components/actions/editor/create-action-modal.tsx": "3e52bab4162650a20df6807dfc1954f380f122b2e5c0664631eb814f0dee8f39",
+      "packages/account/components/vault/VaultItemDialog.tsx": "a0401c78eff11d6e165416b48a042ee2391d0e7391789a4d50a2fd1927fb3976"
+    },
+    "fixture": "Synthetic records; real app components. No customer session, live connection, or real secret.",
+    "fixedTime": "2027-02-08T12:00:00Z",
+    "timezone": "Europe/London",
+    "viewport": {
+      "width": 1280,
+      "height": 760
+    },
+    "deviceScaleFactor": 2,
+    "interactions": [
+      "Opened and closed select menus without changing values; scrolled settings to show cadence, weekday, and timezone."
+    ],
+    "blockedExternalOrigins": [],
+    "sha256": "967e8b09d951906557b489642d36dd707915692b526d737f3f48045b281b683b"
+  },
+  {
+    "file": "event-action.png",
+    "story": "workforce-actions-create-action-modal--slack-channel-message-pattern",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "componentHashes": {
+      "packages/workforce/components/actions/time/time-action-calendar.tsx": "cfb1a776e7f651409b28dc7f892ada162ebf1a68436f2d56c9e5d68e239b765d",
+      "packages/workforce/components/actions/time/time-action-dialog.tsx": "9dee8331ca9804db445cd5a2b58145dbdd1998fdc23eb774524a097bd1f8e56b",
+      "packages/workforce/components/actions/editor/create-action-modal.tsx": "3e52bab4162650a20df6807dfc1954f380f122b2e5c0664631eb814f0dee8f39",
+      "packages/account/components/vault/VaultItemDialog.tsx": "a0401c78eff11d6e165416b48a042ee2391d0e7391789a4d50a2fd1927fb3976"
+    },
+    "fixture": "Synthetic records; real app components. No customer session, live connection, or real secret.",
+    "fixedTime": "2027-02-08T12:00:00Z",
+    "timezone": "Europe/London",
+    "viewport": {
+      "width": 1280,
+      "height": 760
+    },
+    "deviceScaleFactor": 2,
+    "interactions": [
+      "Named the Action and narrowed its existing message pattern to refund using the real form."
+    ],
+    "fixtureAsset": {
+      "url": "https://logos.composio.dev/api/slack",
+      "source": "public/images/channel_logos/slack.svg",
+      "sha256": "322a8feca7856681bd81e278a471ab1d1646a0286083012d94ca10509a3e3705",
+      "delivery": "Fulfilled locally; no remote logo request sent"
+    },
+    "blockedExternalOrigins": [],
+    "sha256": "550f0323bb5b87ba767d8065c8d1c039bd749bf6e9b54c6f6565c470a9401e4a"
+  },
+  {
+    "file": "vault-new-login.png",
+    "story": "account-vault--new-login",
+    "sourceHead": "c2d3d3ccd1c4ba58eeb0a6f2f31eec4f29205e90",
+    "componentHashes": {
+      "packages/workforce/components/actions/time/time-action-calendar.tsx": "cfb1a776e7f651409b28dc7f892ada162ebf1a68436f2d56c9e5d68e239b765d",
+      "packages/workforce/components/actions/time/time-action-dialog.tsx": "9dee8331ca9804db445cd5a2b58145dbdd1998fdc23eb774524a097bd1f8e56b",
+      "packages/workforce/components/actions/editor/create-action-modal.tsx": "3e52bab4162650a20df6807dfc1954f380f122b2e5c0664631eb814f0dee8f39",
+      "packages/account/components/vault/VaultItemDialog.tsx": "a0401c78eff11d6e165416b48a042ee2391d0e7391789a4d50a2fd1927fb3976"
+    },
+    "fixture": "Synthetic records; real app components. No customer session, live connection, or real secret.",
+    "fixedTime": "2027-02-08T12:00:00Z",
+    "timezone": "Europe/London",
+    "viewport": {
+      "width": 1280,
+      "height": 760
+    },
+    "deviceScaleFactor": 2,
+    "interactions": [],
+    "blockedExternalOrigins": [],
+    "sha256": "9b28a7ccc0ddb781ab157cb028e0b3ce1efabf2adfa9c4a3e4215711a9e53817"
+  }
+]

@@ -5,6 +5,12 @@ description: "Store personal logins and API keys, share limited API access with 
 
 Open **Account → Vault** to manage your saved logins and API keys. Your Vault belongs to you within the current Odella account. It is not a shared password list for everyone in the organization.
 
+<div className="docs-feature-illustration">
+  <img noZoom src="/images/illustrations/vault.svg" width="840" height="320" alt="Abstract Vault illustration: layered translucent glass panels and a minimal silver keyhole on a graphite background." />
+</div>
+
+<span className="docs-illustration-caption">Concept illustration—not a product screen.</span>
+
 ## What the Vault protects
 
 Vault stores credential values using server-managed AES-256-GCM authenticated encryption. Integration connections use the same credential-encryption service.
@@ -32,6 +38,10 @@ Vault availability and view/manage permissions are separate checks. If it is una
 3. Add a usage hint if useful, without duplicating the secret in metadata.
 4. Save and confirm the item appears. Use search or **Logins / API keys** to find it later.
 5. To rotate a saved secret, select **Edit**, enter a replacement, and save. Stored values are not returned for display or copying; omitting a replacement preserves the existing value.
+
+<Frame caption="The real New login form with empty secret fields. Synthetic Storybook example; no password is entered, saved, or displayed.">
+  <img src="/images/features/automation/vault-new-login.png" alt="New login form showing the exact HTTPS website, name, optional username, password field, usage hint, and Save login control" />
+</Frame>
 
 <Frame caption="Vault with example items and browser sign-ins. Synthetic Storybook example; no real credential is displayed.">
   <img src="/images/features/vault.png" alt="Personal Vault showing saved login and API-key metadata and management controls" />
@@ -71,6 +81,10 @@ Sharing gives a selected worker permission to use a key through Odella's protect
     necessary. Save, then test with a low-risk request.
   </Step>
 </Steps>
+
+<Frame caption="The actual API-key employee-access dialog with synthetic metadata. One worker has Read only and another has No access. No key value is supplied and no grant is saved.">
+  <img src="/images/features/setup/vault-grants.png" alt="Vault API-sharing dialog showing the saved API site, authentication style, and separate Read only or No access choices for two fictional workers" />
+</Frame>
 
 | Access              | What the protected connection permits                                       |
 | ------------------- | --------------------------------------------------------------------------- |

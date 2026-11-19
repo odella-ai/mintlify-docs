@@ -420,6 +420,29 @@ a[href="https://app.odella.ai"]:active {
   outline-offset: 4px;
 }
 
+/* Concept artwork is separate from genuine product UI screenshots. */
+#content .docs-feature-illustration {
+  margin: 24px 0 12px;
+  overflow: hidden;
+  border: 1px solid var(--odella-border);
+  border-radius: 14px;
+  background: #090b10;
+}
+#content .docs-feature-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+}
+#content .docs-illustration-caption {
+  display: block;
+  margin: 0 0 28px;
+  color: var(--odella-text-tertiary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
 /* Channel artwork uses actual, unmodified logo images—not icon-font substitutes.
    White logo plates preserve brand colors/clear space in both color schemes. */
 #content .channel-hero {

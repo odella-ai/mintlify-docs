@@ -5,9 +5,37 @@ description: "Schedule one-off or recurring work for an AI Employee."
 
 Use **Calendar** to schedule work for a worker. Calendar manages time-based [Actions](/workforce/actions); each execution can create work tracked in [Tasks](/workforce/tasks). Use it for recurring reports, daily checks, weekly summaries, and reminders.
 
+<Frame caption="Calendar with fictional queue reviews and a weekly support summary. Actual product components with synthetic records, not a live employee's schedule.">
+  <img src="/images/features/automation/calendar-overview.png" alt="Calendar month view with Upcoming Tasks, recurring entries, Week and Month controls, and the New Task button" />
+</Frame>
+
 ## Creating a scheduled task
 
-You can create a task from a future calendar slot or with the create task action.
+<Steps>
+  <Step title="Open the employee's Calendar">
+    Open the AI Employee and select **Calendar**. Select **New Task**, or choose a future calendar slot.
+  </Step>
+  <Step title="Name the work and describe the result">
+    Use a clear name such as **Weekly support summary**. In the instructions, specify the inputs, expected output, where the draft should go, and what the worker must not do.
+  </Step>
+  <Step title="Choose when it runs">
+    Select **One time** for a single date, or **Recurring** for a repeating schedule. For the weekly example, choose a weekly frequency, **Friday**, and **4:00 PM**. Read the schedule summary beneath the controls to confirm the day and time, then check the timezone explicitly; the example uses **London**.
+  </Step>
+  <Step title="Review and create">
+    Check the instructions, cadence, time, and timezone, then select **Create Task**. When editing an existing schedule, use **Save Changes** instead. Confirm the saved entry appears in Calendar.
+  </Step>
+  <Step title="Check the first result">
+    Inspect the resulting task and Activity after a controlled run. A visible calendar entry confirms configuration, not that the work has completed successfully.
+  </Step>
+</Steps>
+
+<Frame caption="The new-task dialog: name, instructions, One time or Recurring, and timezone. Synthetic Storybook example; no task is submitted.">
+  <img src="/images/features/automation/schedule-create.png" alt="New task form showing name and instructions, One time and Recurring choices, date, time, timezone, and Create Task" />
+</Frame>
+
+<Frame caption="A filled recurring editor for Weekly support summary, set to Friday at 4 PM in London. Synthetic example; screenshot shows editing, not a successfully executed task.">
+  <img src="/images/features/automation/schedule-recurring.png" alt="Recurring schedule editor with a weekly Friday cadence, 4 PM time, London timezone, draft-only instructions, and Save Changes" />
+</Frame>
 
 A scheduled task includes:
 
@@ -19,7 +47,7 @@ A scheduled task includes:
 | **Date and time**      | When a one-time task should run. Past dates cannot be scheduled.                   |
 | **Recurring schedule** | A repeating cadence for recurring work.                                            |
 | **Timezone**           | The timezone used to interpret the scheduled time.                                 |
-| **Enabled**            | Keeps the task active. Disabled tasks are saved but do not run.                    |
+| **Active state**       | Check the schedule's Action controls. Disabled definitions are saved but do not start new work; this is not a checkbox in the new-task form above. |
 
 ## Managing scheduled work
 
@@ -28,7 +56,7 @@ You can:
 - Edit an existing task.
 - Drag a task to reschedule it.
 - Delete a task.
-- Disable a task without deleting it.
+- Use the schedule's [Action controls](/workforce/actions) to disable future automatic starts without deleting the definition.
 - For recurring tasks, choose whether changes apply to the whole series or only one occurrence.
 
 <Tip>

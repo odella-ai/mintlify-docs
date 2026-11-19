@@ -50,6 +50,19 @@ Use the controls available in your account. If an Action or provider option is u
   </Step>
 </Steps>
 
+<Frame caption="Actual Action composer with synthetic Slack setup: a support-channel message, a refund pattern, and draft-response instructions. This is not a live Slack connection or an enabled Action.">
+  <img src="/images/features/automation/event-action.png" alt="New action form showing Slack, Channel Message Received, the support channel, Only run if conditions, work instructions, and Create action" />
+</Frame>
+
+## Example shown: triage a support message
+
+1. Select **Slack** and **Channel Message Received** in **Run when**, using your approved connected workspace.
+2. Select the intended support channel, not every channel in the workspace.
+3. Under **Only run if**, narrow the message text. The illustration uses the pattern `refund`; choose a condition your team can explain and test.
+4. Name the Action **Review support requests**. Ask the worker to review the request and return a draft response, with the relevant escalation rules. Instructions are not a substitute for the worker's tool and outbound policies.
+5. Review the saved Action's **Active** state where offered. The creation form above does not demonstrate successful activation or event delivery.
+6. Post one harmless matching test message with the channel participants' permission. Check the resulting task and draft before relying on automatic work. Confirm a non-matching message does not start the same work.
+
 ## Example: review a new supplier file
 
 1. Connect the approved storage provider and select the supplier-upload folder.
