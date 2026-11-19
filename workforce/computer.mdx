@@ -1,6 +1,6 @@
 ---
 title: "Computer and browser handoff"
-description: "Inspect browser work, take control for sign-in, and hand the session back safely."
+description: "Take over for passwords, MFA, or CAPTCHAs, use or save a Vault login, and hand the browser back safely."
 ---
 
 When an AI Employee uses a remote browser, the conversation can show that work in the **Computer** canvas. This is the employee's browser session—not a view of your own computer's desktop. Browser, terminal, file and document panels are distinct parts of the workspace.
@@ -15,20 +15,38 @@ When an AI Employee uses a remote browser, the conversation can show that work i
 
 ## Respond to a browser handoff
 
-An employee may ask you to handle a login, verification, or other step it cannot complete autonomously.
+An AI Employee may ask you to handle a password, multifactor authentication (MFA), a CAPTCHA, or another step that needs you. Use the handoff in the conversation rather than sending credentials in a message. If the request arrives through email or messaging, follow its review link into signed-in Odella.
 
 1. Read the request and confirm which employee, destination and task it concerns.
 2. Select **Open browser** in the conversation's handoff card. Standalone approval views may show an in-place preview instead.
-3. Review the actual page and destination. Use the browser's control toggle to interact when offered.
-4. Complete only the necessary step yourself—for example, provider sign-in, multifactor authentication, or consent. Do not put passwords, recovery codes or one-time codes in chat.
+3. Review the actual page and destination. Select **Take over** when offered to interact with the live page.
+4. Complete only the necessary step yourself—for example, enter your password on the verified provider's page, answer MFA, complete a CAPTCHA, or review consent. Do not put passwords, recovery codes or one-time codes in chat. Complete verification normally; do not bypass the provider's checks.
 5. Select **I'm done** to hand the reviewed session back. The handoff should then report **Done · handed back**. This resolves the handoff, not the whole task.
 6. Choose **Skip** if you cannot or should not complete it. Tell the employee what is blocked without sharing secrets.
 
+**Hand back**, where shown outside an active request, releases your browser control. For a waiting handoff, use **I'm done** to tell the worker you have finished, or **Skip** if you cannot complete it. Releasing control alone is not evidence that sign-in succeeded.
+
 A handoff does not authorize every subsequent send, purchase, signing invitation or destructive action. Review separate [approval requests](/workforce/approvals) as they arise. An employee can prepare a signing request but cannot sign as you.
 
-## Credentials and saved sign-ins
+## Use a saved password
 
-Where the credential request UI is available, choose a saved login from your [personal Vault](/platform/vault) rather than exposing it in text. Saving a credential does not automatically grant employee use.
+During a sign-in handoff, **Use a saved login** appears when your personal Vault has a matching login for the current HTTPS site and the feature is available.
+
+1. Check the destination and open **Use a saved login**.
+2. Select the intended login by title. The saved values are filled into the matching browser page, not sent as a chat message.
+3. Inspect the page, finish any MFA or CAPTCHA yourself, and select **I'm done** when the required step is complete.
+
+If the site changes or no suitable sign-in form is found, filling may fail. Open the correct sign-in page or complete the step yourself. Selecting a saved login is not proof that the provider accepted it.
+
+## Save a password to Vault
+
+When a supported handoff captures a login, an optional **Save login for [site]?** prompt can appear after you hand the browser back. Check the site and username, then choose **Save**, **Update** for an existing login, or **Not now**. Wait for **Saved to your Vault** before assuming the password was stored. The worker can continue while this optional prompt is waiting; not every sign-in offers it.
+
+You can also add a login yourself under **Account → Vault → New item → Login**, using the exact HTTPS website, username, and password. If the worker presents a separate credential request, choose **Save in Vault** and complete the protected form, or **I don't have it** if you cannot provide it. Do not paste the password into the conversation.
+
+Saved passwords belong to your [personal Vault](/platform/vault#saved-logins). They are not API-key grants to a worker. Saving a password does not itself sign in, authorize future external actions, or share your Vault with the whole team. After you hand back, the worker can read and use the resulting signed-in page within the browser's access boundaries.
+
+## Saved website sessions are separate
 
 Browser sign-ins may persist for later work. Review **Account → Vault → Browser sign-ins** and use **Sign out of all sites** if you want the saved session state cleared. This is separate from deleting a saved password, revoking an API key at its provider, or disconnecting a catalog integration.
 
